@@ -4,5 +4,11 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "extends": "airbnb"
+  "extends": "airbnb",
+
+  // overwriting airbnb rules
+  "rules": {
+    // for @App (etc), new app() should still warn that it wants a cap
+  	"new-cap": [2, {"capIsNew": false}]
+  }
 }
