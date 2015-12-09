@@ -1,0 +1,74 @@
+{
+  /*
+   * ENVIRONMENTS
+   * =================
+   */
+
+  // Define globals exposed by modern browsers, jQuery & Node.js.
+  "browser": true,
+  "jquery": true,
+  "node": true,
+
+  // Define globals
+  "predef": [
+    "$",
+    "_"
+  ],
+
+  /*
+   * ENFORCING OPTIONS
+   * =================
+   */
+
+  // Force all variable names to use either camelCase style or UPPER_CASE
+  // with underscores.
+  "camelcase": false,
+
+  // Prohibit use of == and != in favor of === and !==.
+  "eqeqeq": true,
+
+  // Suppress warnings about == null comparisons.
+  "eqnull": false,
+
+  // This option suppresses warnings about the use of expressions where normally you would expect to see assignments or function calls.
+  // Most of the time, such code is a typo. However, it is not forbidden by the spec and that's why this warning is optional.
+  "expr": true,
+
+  // Prohibit overwriting prototypes of native objects such as Array, Date and so on.
+  "freeze": true,
+
+  // This option enables warnings about the use of identifiers which are defined in future versions of JavaScript. Although overwriting them has no
+  // effect in contexts where they are not implemented, this practice can cause issues when migrating codebases to newer versions of the language.
+  "futurehostile": true,
+
+  // Enforce tab width of 4 spaces.
+  "indent": 2,
+
+  // Prohibit use of a variable before it is defined.
+  "latedef": true,
+
+  // Enforce line length to 80 characters
+  //"maxlen": 150,
+
+  // Require capitalized names for constructor functions.
+  "newcap": true,
+
+  // This option warns about "non-breaking whitespace" characters. These characters can be entered with option-space on Mac computers and have a
+  // potential of breaking non-UTF8 web pages.
+  "nonbsp": true,
+
+  // Enforce use of single quotation marks for strings.
+  "quotmark": "single",
+
+  // Enforce placing 'use strict' at the top function scope
+  "strict": true,
+
+  // Prohibit trailing whitespace.
+  "trailing": true,
+
+  // Prohibit use of explicitly undeclared variables.
+  "undef": true,
+
+  // Warn when variables are defined but never used.
+  "unused": true
+}
