@@ -1,7 +1,6 @@
-import { App, Platform } from 'ionic/ionic';
+import { App, IonicApp, Platform } from 'ionic/ionic';
 import { Page1 } from './page1/page1';
 import { Page2 } from './page2/page2';
-import { Page3 } from './page3/page3';
 import './app.scss';
 
 
@@ -9,15 +8,24 @@ import './app.scss';
   templateUrl: 'app/app.html',
 })
 export class MyApp {
-  constructor(platform: Platform) {
-    // this tells the tabs component which Pages
-    // should be each tab's root Page
-    this.tab1Root = Page1;
-    this.tab2Root = Page2;
-    this.tab3Root = Page3;
+  constructor(app: IonicApp, platform: Platform) {
+    this.pages = [
+      { title: 'Hello Ionic', component: Page1 },
+      { title: 'Goodbye Ionic', component: Page2 },
+    ];
 
+    this.rootPage = Page1;
+    this.app = app;
     platform.ready().then(() => {
       // Do any necessary cordova or native calls here now that the platform is ready
     });
+  }
+
+  openPage(page) {
+    // close the menu when clicking a link from the menu
+    this.app.getComponent('menu').close();
+    // navigate to the new page if it is not the current page
+    const nav = this.app.getComponent('nav');
+    nav.setRoot(page.component);
   }
 }

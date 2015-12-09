@@ -1,8 +1,15 @@
+<ion-menu [content]="content">
 
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tab-title="Tab 1" tab-icon="pulse"></ion-tab>
-  <ion-tab [root]="tab2Root" tab-title="Tab 2" tab-icon="chatbubbles"></ion-tab>
-  <ion-tab [root]="tab3Root" tab-title="Tab 3" tab-icon="cog"></ion-tab>
-</ion-tabs>
+  <ion-toolbar>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
 
-<ion-overlay></ion-overlay>
+  <ion-content>
+    <ion-list>
+      <button ion-item *ng-for="#p of pages" (click)="openPage(p)">{{p.title}}</button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
