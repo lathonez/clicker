@@ -1,8 +1,10 @@
 import { Component, View } from 'angular2/angular2';
+import { Clickers } from '../../services/clickers';
+import { Clicker } from '../../models/clicker';
 
 @Component({
   selector: 'clicker-button',
-  inputs: ['id: id'],
+  inputs: ['clicker: clicker'],
 })
 
 @View({
@@ -10,5 +12,11 @@ import { Component, View } from 'angular2/angular2';
 })
 
 export class ClickerButton {
-  id: 'id'
+
+  clicker: Clicker;
+  clickerService: Clickers;
+
+  constructor(clickers: Clickers) {
+    this.clickerService = clickers;
+  }
 }

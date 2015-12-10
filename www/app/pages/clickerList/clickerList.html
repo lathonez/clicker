@@ -16,6 +16,6 @@
     </ion-column>
   </ion-row>
   <ion-list no-lines>
-    <ion-item *ng-for="#clicker of clickers"><clicker-button [id]="clicker.id"></clicker-button></ion-item>
+    <ion-item *ng-for="#clicker of clickers"><clicker-button [clicker]="clicker"></clicker-button></ion-item>
   </ion-list>
 </ion-content>

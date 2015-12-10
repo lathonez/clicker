@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "ionic-framework": "~2.0.0-alpha.37",
-    "ionic-native": "~1.0.8"
+    "ionic-native": "~1.0.8",
+    "underscore": "^1.8.3"
   },
   "name": "clicker",
   "description": "clicker: An Ionic project",

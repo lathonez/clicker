@@ -3,6 +3,7 @@
     "node": true,
     "es6": true
   },
+
   "parser": "babel-eslint",
   "extends": "airbnb",
 
@@ -10,6 +11,7 @@
   "rules": {
     // for @App (etc), new app() should still warn that it wants a cap
   	"new-cap": [2, {"capIsNew": false}],
-    "no-console": 0
+    "no-console": 0,
+    "func-names": 0
   }
 }
