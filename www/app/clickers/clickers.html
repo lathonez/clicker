@@ -1,0 +1,21 @@
+<ion-navbar *navbar>
+  <a menu-toggle>
+    <icon menu></icon>
+  </a>
+  <ion-title>{{title}}</ion-title>
+</ion-navbar>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-column>
+      <ion-input><input #newclicker type="text" placeholder="New Clicker"></ion-input>
+    </ion-column>
+    <ion-column>
+      <button secondary outline (click)="newClicker(newclicker.value)"><icon add-circle></icon></button>
+    </ion-column>
+  </ion-row>
+  <ion-list no-lines>
+    <ion-item *ng-for="#c of clickers"><button outline (click)="doClicker(c)">{{c.title}}</button></ion-item>
+  </ion-list>
+</ion-content>

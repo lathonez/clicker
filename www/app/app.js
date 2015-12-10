@@ -1,8 +1,7 @@
 import { App, IonicApp, Platform } from 'ionic/ionic';
-import { Page1 } from './page1/page1';
+import { Clickers } from './clickers/clickers';
 import { Page2 } from './page2/page2';
 import './app.scss';
-
 
 @App({
   templateUrl: 'app/app.html',
@@ -10,11 +9,11 @@ import './app.scss';
 export class MyApp {
   constructor(app: IonicApp, platform: Platform) {
     this.pages = [
-      { title: 'Hello Ionic', component: Page1 },
+      { title: 'Clickers', component: Clickers },
       { title: 'Goodbye Ionic', component: Page2 },
     ];
 
-    this.rootPage = Page1;
+    this.rootPage = Clickers;
     this.app = app;
     platform.ready().then(() => {
       // Do any necessary cordova or native calls here now that the platform is ready

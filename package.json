@@ -17,5 +17,16 @@
     "ionic-native": "~1.0.8"
   },
   "name": "clicker",
-  "description": "clicker: An Ionic project"
+  "description": "clicker: An Ionic project",
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [
+    "android"
+  ]
 }
