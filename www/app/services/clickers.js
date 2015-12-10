@@ -15,4 +15,12 @@ export class Clickers {
   getClickers() {
     return this.clickers;
   }
+
+  newClicker(clickerId) {
+    this.clickers.push({ title: clickerId });
+  }
+
+  doClick(clickerId) {
+    console.log('clicking -- ' + clickerId);
+  }
 }

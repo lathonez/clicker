@@ -2,7 +2,7 @@ import { Page, NavController } from 'ionic/ionic';
 import { Clickers } from '../../services/clickers';
 
 @Page({
-  templateUrl: 'app/components/clickerList/clickerList.html',
+  templateUrl: 'app/pages/clickerList/clickerList.html',
   providers: [Clickers],
 })
 
@@ -17,18 +17,16 @@ export class ClickerList {
     this.clickers = this.clickerService.getClickers();
   }
 
-  doClicker(clicker) {
-    console.log(clicker);
+  doClick(clickerId) {
+    this.clickerService.doClick(clickerId);
   }
 
-  newClicker(clicker) {
-    if (!clicker) {
+  newClicker(clickerId) {
+    if (!clickerId) {
       // TODO - validate
       return false;
     }
 
-    this.clickers.push({
-      title: clicker,
-    });
+    this.clickerService.newClicker(clickerId);
   }
 }

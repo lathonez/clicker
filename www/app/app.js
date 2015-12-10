@@ -1,6 +1,6 @@
 import { App, IonicApp, Platform } from 'ionic/ionic';
-import { ClickerList } from './components/clickerList/clickerList';
-import { Page2 } from './components/page2/page2';
+import { ClickerList } from './pages/clickerList/clickerList';
+import { Page2 } from './pages/page2/page2';
 import './app.scss';
 
 @App({
