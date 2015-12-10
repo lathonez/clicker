@@ -25,6 +25,7 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
+    "cordova-sqlite-storage",
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [

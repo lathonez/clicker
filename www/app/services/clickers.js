@@ -23,10 +23,15 @@ export class Clickers {
     // get all existing ids
     this.storage.get('ids')
       .then((ids) => {
-        _.each(JSON.parse(ids), function (id) {
-          console.log(id);
+        this.ids = JSON.parse(ids);
+        _.each(this.ids, function (id) {
+          // get all existing clickers by id
           this.storage.get(id)
-            .then((clicker) => { this.clickers.push(JSON.parse(clicker)); });
+            .then((clicker) => {
+              const parsedClicker = JSON.parse(clicker);
+              // instantiate a new instance of clicker (parsing it from JSON just gives us Object)
+              this.clickers.push(new Clicker(parsedClicker.id, parsedClicker.name, parsedClicker.count));
+            });
         }, this);
       });
   }
@@ -45,14 +50,21 @@ export class Clickers {
     const id = this.uid();
     const clicker = new Clicker(id, name);
 
+    // add the clicker to the service
     this.clickers.push(clicker);
+    // add the id to the service (need to keep a separate reference of IDs so we can cold load clickers)
     this.ids.push(id);
+    // save the clicker by id
     this.storage.set(id, JSON.stringify(clicker));
+    // save the service's ids arrays
     this.storage.set('ids', JSON.stringify(this.ids));
   }
 
   doClick(id) {
-    this.getClicker(id).doClick();
+    const clicker = this.getClicker(id);
+    clicker.doClick();
+    // save the clicker with updated click in storage
+    this.storage.set(clicker.id, JSON.stringify(clicker));
   }
 
   uid() {
