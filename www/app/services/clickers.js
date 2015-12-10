@@ -7,8 +7,8 @@ export class Clickers {
   url: string;
   constructor() {
     this.clickers = [
-      { title: 'Orla Weather Moans' },
-      { title: 'Wulf Being a fagat' },
+      { id: 'Orla Weather Moans' },
+      { id: 'Wulf Being a fagat' },
     ];
   }
 
@@ -16,11 +16,13 @@ export class Clickers {
     return this.clickers;
   }
 
-  newClicker(clickerId) {
-    this.clickers.push({ title: clickerId });
+  newClicker(id) {
+    // TODO - for now we're just using name as id
+    this.clickers.push({ id: id });
   }
 
-  doClick(clickerId) {
-    console.log('clicking -- ' + clickerId);
+  doClick(id) {
+    console.log('clicking -- ' + id);
+  }
   }
 }
