@@ -5,7 +5,7 @@ import { Injectable } from 'angular2/angular2';
 @Injectable()
 export class Clicker {
 
-  id: number;
+  id: string;
   name: string;
   count: 0;
 
