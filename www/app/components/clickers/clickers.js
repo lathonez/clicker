@@ -1,7 +1,7 @@
 import { Page, NavController } from 'ionic/ionic';
 
 @Page({
-  templateUrl: 'app/clickers/clickers.html',
+  templateUrl: 'app/components/clickers/clickers.html',
 })
 export class Clickers {
   constructor(nav: NavController) {
