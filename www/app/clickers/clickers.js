@@ -9,8 +9,8 @@ export class Clickers {
     this.title = 'Clickers';
 
     this.clickers = [
-      { title: 'Orla Weather Moans', component: 'button' },
-      { title: 'Wulf Being a fagat', component: 'button' },
+      { title: 'Orla Weather Moans' },
+      { title: 'Wulf Being a fagat' },
     ];
   }
 
@@ -26,7 +26,6 @@ export class Clickers {
 
     this.clickers.push({
       title: clicker,
-      component: 'button',
     });
   }
 }
