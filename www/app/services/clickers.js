@@ -36,7 +36,7 @@ export class Clickers {
       });
   }
 
-  // initialise a clicker from the DB
+  // initialise a clicker from a raw JSON string out of the DB
   initClicker(clicker) {
     const parsedClicker = JSON.parse(clicker);
     const newClicker = new Clicker(parsedClicker.id, parsedClicker.name);
@@ -58,10 +58,6 @@ export class Clickers {
     });
   }
 
-  getClickers() {
-    return this.clickers;
-  }
-
   newClicker(name) {
     const id = this.uid();
     const clicker = new Clicker(id, name);
@@ -72,7 +68,20 @@ export class Clickers {
     this.ids.push(id);
     // save the clicker by id
     this.storage.set(id, JSON.stringify(clicker));
-    // save the service's ids arrays
+    // save the service's ids array
+    this.storage.set('ids', JSON.stringify(this.ids));
+  }
+
+  removeClicker(id) {
+    // remove clicker from the service
+    this.clickers = _.reject(this.clickers, (clicker) => {
+      return clicker.id === id;
+    });
+    // remove from ids array
+    this.ids = _.without(this.ids, id);
+    // null id in db
+    this.storage.set(id, null);
+    // update service's ids array
     this.storage.set('ids', JSON.stringify(this.ids));
   }
 
