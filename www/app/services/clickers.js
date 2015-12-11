@@ -1,4 +1,5 @@
 import { Clicker } from '../models/clicker';
+import { Click } from '../models/click';
 import { Injectable } from 'angular2/angular2';
 import { Storage, SqlStorage } from 'ionic/ionic';
 import { _ } from 'underscore/underscore';
@@ -23,21 +24,36 @@ export class Clickers {
     // get all existing ids
     this.storage.get('ids')
       .then((ids) => {
-        this.ids = JSON.parse(ids);
-        _.each(this.ids, function (id) {
+        // ids are stored as stringified JSON array
+        this.ids = JSON.parse(ids) || [];
+        _.each(this.ids, (id) => {
           // get all existing clickers by id
           this.storage.get(id)
             .then((clicker) => {
-              const parsedClicker = JSON.parse(clicker);
-              // instantiate a new instance of clicker (parsing it from JSON just gives us Object)
-              this.clickers.push(new Clicker(parsedClicker.id, parsedClicker.name, parsedClicker.count));
+              this.clickers.push(this.initClicker(clicker));
             });
         }, this);
       });
   }
 
+  // initialise a clicker from the DB
+  initClicker(clicker) {
+    const parsedClicker = JSON.parse(clicker);
+    const newClicker = new Clicker(parsedClicker.id, parsedClicker.name);
+
+    // add the clicks - need to re-instantiate object
+    _.each(parsedClicker.clicks, (click) => {
+      const newClick = new Click();
+      newClick.time = click.time;
+      newClick.location = click.location;
+      newClicker.clicks.push(click);
+    });
+
+    return newClicker;
+  }
+
   getClicker(id) {
-    return _.find(this.clickers, function (clicker) {
+    return _.find(this.clickers, (clicker) => {
       return clicker.id === id;
     });
   }

@@ -1,21 +1,19 @@
-import { Injectable } from 'angular2/angular2';
+import { Click } from './click';
 
-// Represents a single Clicker in the Clicker class
-
-@Injectable()
+// Represents a single Clicker
 export class Clicker {
 
-  id: string;
-  name: string;
-  count: 0;
-
-  constructor(id, name, count) {
+  constructor(id, name) {
     this.id = id;
     this.name = name;
-    this.count = count || 0;
+    this.clicks = [];
   }
 
   doClick() {
-    this.count++;
+    this.clicks.push(new Click());
+  }
+
+  getCount() {
+    return this.clicks.length;
   }
 }
