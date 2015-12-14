@@ -16,6 +16,7 @@ log.txt
 coverage/
 dist/
 node_modules/
+src/*.js*
 tmp/
 temp/
 www/build/
