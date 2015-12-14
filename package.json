@@ -30,5 +30,8 @@
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "scripts": {
+    "tsc": "tsc -p tests -w"
+  }
 }
