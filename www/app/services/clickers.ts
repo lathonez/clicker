@@ -2,7 +2,7 @@ import { Clicker } from '../models/clicker';
 import { Click } from '../models/click';
 import { Injectable } from 'angular2/angular2';
 import { Storage, SqlStorage } from 'ionic/ionic';
-import { _ } from 'underscore/underscore';
+// import { _ } from 'underscore/underscore';
 
 @Injectable()
 export class Clickers {
