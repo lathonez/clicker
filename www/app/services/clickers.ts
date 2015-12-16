@@ -1,8 +1,9 @@
+'use strict';
+
 import { Clicker } from '../models/clicker';
 import { Click } from '../models/click';
 import { Injectable } from 'angular2/angular2';
 import { Storage, SqlStorage } from 'ionic/ionic';
-import { _ } from 'underscore/underscore';
 
 @Injectable()
 export class Clickers {
@@ -24,13 +25,13 @@ export class Clickers {
       .then((ids) => {
         // ids are stored as stringified JSON array
         this.ids = JSON.parse(ids) || [];
-        _.each(this.ids, (id) => {
-          // get all existing clickers by id
+
+        for (let id of this.ids) {
           this.storage.get(id)
             .then((clicker) => {
               this.clickers.push(this.initClicker(clicker));
             });
-        }, this);
+        }
       });
   }
 
@@ -40,20 +41,18 @@ export class Clickers {
     const newClicker = new Clicker(parsedClicker.id, parsedClicker.name);
 
     // add the clicks - need to re-instantiate object
-    _.each(parsedClicker.clicks, (click) => {
+    for (let click of parsedClicker.clicks) {
       const newClick = new Click();
       newClick.time = click.time;
       newClick.location = click.location;
       newClicker.clicks.push(click);
-    });
+    };
 
     return newClicker;
   }
 
   getClicker(id) {
-    return _.find(this.clickers, (clicker) => {
-      return clicker.id === id;
-    });
+    return this.clickers.find(clicker => { return clicker.id === id });
   }
 
   newClicker(name) {
@@ -72,11 +71,9 @@ export class Clickers {
 
   removeClicker(id) {
     // remove clicker from the service
-    this.clickers = _.reject(this.clickers, (clicker) => {
-      return clicker.id === id;
-    });
+    this.clickers = this.clickers.filter(clicker => { return clicker.id !== id });
     // remove from ids array
-    this.ids = _.without(this.ids, id);
+    this.ids = this.ids.filter(id => { return id != id });
     // null id in db
     this.storage.set(id, null);
     // update service's ids array

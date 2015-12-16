@@ -1,3 +1,5 @@
+'use strict';
+
 import { Clickers } from '../../services/clickers';
 
 describe('Clickers', () => {

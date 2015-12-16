@@ -6,11 +6,10 @@
   <script src="../node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
   <script src="../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
   <script src="../node_modules/systemjs/dist/system.src.js"></script>
-  <script src="../node_modules/angular2/bundles/router.dev.js"></script>
-  <script src="../node_modules/angular2/bundles/http.dev.js"></script>
-  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="../node_modules/ionic-framework/node_modules/angular2/bundles/router.dev.js"></script>
+  <script src="../node_modules/ionic-framework/node_modules/angular2/bundles/http.dev.js"></script>
+  <script src="../node_modules/ionic-framework/node_modules/angular2/bundles/angular2.dev.js"></script>
   <script src="../node_modules/ionic-framework/dist/js/ionic.js"></script>
-  <script src="../node_modules/underscore/underscore-min.js"></script>
 </head>
 <body>
   <!-- #1. add the system.js library -->
@@ -19,14 +18,14 @@
     //     for imports from the app folder
     System.config({
       packages: {
-        'app': {defaultExtension: 'js'}
-      }
+        'app': { defaultExtension: 'js' },
+      },
     });
 
     // #3. Import the spec files explicitly
     Promise.all([
       System.import('app/test/services/clickers.spec'),
-      System.import('app/test/models/clicker.spec')
+      System.import('app/test/models/clicker.spec'),
     ])
 
       // #4. wait for all imports to load ...

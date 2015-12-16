@@ -1,3 +1,5 @@
+'use strict';
+
 import { Click } from './click';
 
 // Represents a single Clicker
