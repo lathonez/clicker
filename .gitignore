@@ -16,6 +16,8 @@ log.txt
 .versions/
 coverage/
 dist/
+hooks/
+resources/
 node_modules/
 tmp/
 temp/
