@@ -5,13 +5,13 @@ import { ClickerList } from './pages/clickerList/clickerList';
 import { Page2 } from './pages/page2/page2';
 
 @App({
-  templateUrl: 'app/app.html',
+  templateUrl: 'app/app.html'
 })
 export class MyApp {
 
-  app: App;
-  pages: Array<Object>;
-  rootPage: Page;
+  private app: App;
+  private pages: Array<Object>;
+  private rootPage: Page;
 
   constructor(app: IonicApp, platform: Platform) {
     this.pages = [
@@ -26,7 +26,7 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
+  private openPage(page) {
     // close the menu when clicking a link from the menu
     this.app.getComponent('menu').close();
     // navigate to the new page if it is not the current page

@@ -5,3 +5,5 @@
 * travis
 * convert clickers to use map?
 * full test coverage
+* finish README (better description, install from scratch)
+* licence

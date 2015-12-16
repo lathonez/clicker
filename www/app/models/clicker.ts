@@ -5,9 +5,9 @@ import { Click } from './click';
 // Represents a single Clicker
 export class Clicker {
 
-  id: string;
-  name: string;
-  clicks: Array<Click>;
+  private id: string;
+  private name: string;
+  private clicks: Array<Click>;
 
   constructor(id, name) {
     this.id = id;
@@ -15,11 +15,11 @@ export class Clicker {
     this.clicks = [];
   }
 
-  doClick() {
+  public doClick() {
     this.clicks.push(new Click());
   }
 
-  getCount() {
+  public getCount() {
     return this.clicks.length;
   }
 }

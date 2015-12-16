@@ -2,8 +2,8 @@
 
 export class Click {
 
-  time: number;
-  location: string;
+  private time: number;
+  private location: string;
 
   constructor() {
     this.time = new Date().getTime();

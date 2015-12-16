@@ -2,7 +2,6 @@
 
 import { Component, View } from 'angular2/angular2';
 import { Clickers } from '../../services/clickers';
-import { Clicker } from '../../models/clicker';
 import { Button } from 'ionic-framework/ionic';
 
 @Component({
@@ -17,8 +16,7 @@ import { Button } from 'ionic-framework/ionic';
 
 export class ClickerButton {
 
-  clicker: Clicker;
-  clickerService: Clickers;
+  private clickerService: Clickers;
 
   constructor(clickers: Clickers) {
     this.clickerService = clickers;

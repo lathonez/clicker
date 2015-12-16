@@ -12,9 +12,9 @@ import { ClickerButton } from '../../components/clickerButton/clickerButton';
 
 export class ClickerList {
 
-  clickerService: Clickers;
-  nav: NavController;
-  title: string;
+  private clickerService: Clickers;
+  private nav: NavController;
+  private title: string;
 
   constructor(nav: NavController, clickerService: Clickers) {
     this.nav = nav;
@@ -22,7 +22,7 @@ export class ClickerList {
     this.title = 'Clickers';
   }
 
-  newClicker(id) {
+  public newClicker(id) {
     if (!id) {
       // TODO - validate
       return false;
