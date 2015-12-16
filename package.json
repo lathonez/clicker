@@ -1,48 +1,23 @@
 {
-  "devDependencies": {
-    "autoprefixer-loader": "^3.1.0",
-    "awesome-typescript-loader": "0.12.0-rc.2",
-    "css-loader": "^0.22.0",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.13",
-    "file-loader": "^0.8.4",
-    "jasmine-core": "2.4.1",
-    "live-server": "^0.9.0",
-    "node-sass": "^3.4.2",
-    "reflect-metadata": "^0.1.2",
-    "resolve-url-loader": "^1.4.2",
-    "rxjs": "^5.0.0-alpha.14",
-    "sass-loader": "^3.1.1",
-    "style-loader": "^0.13.0",
-    "systemjs": "^0.19.6",
-    "typescript": "^1.7.5",
-    "url-loader": "^0.5.6",
-    "webpack": "^1.12.4",
-    "zone.js": "^0.5.8"
-  },
   "dependencies": {
-    "angular2": "2.0.0-alpha.44",
-    "ionic-framework": "~2.0.0-alpha.37",
-    "ionic-native": "~1.0.8",
-    "systemjs": "0.19.2",
-    "underscore": "^1.8.3"
+    "angular2": "2.0.0-alpha.52",
+    "es6-promise": "3.0.2",
+    "es6-shim": "0.33.13",
+    "ionic-framework": "2.0.0-alpha.42",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-alpha.14",
+    "zone.js": "0.5.8"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^0.15.9",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-watch": "^4.3.5",
+    "strip-sourcemap-loader": "0.0.1",
+    "typescript": "^1.7.3"
   },
   "name": "clicker",
-  "description": "clicker: An Ionic project",
-  "cordovaPlugins": [
-    "cordova-plugin-device",
-    "cordova-plugin-console",
-    "cordova-plugin-whitelist",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-statusbar",
-    "cordova-sqlite-storage",
-    "ionic-plugin-keyboard"
-  ],
-  "cordovaPlatforms": [
-    "android"
-  ],
-  "scripts": {
-    "tsc": "tsc -w",
-    "start": "live-server --open=www"
-  }
+  "description": "clicker: An Ionic project"
 }
