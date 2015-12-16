@@ -16,6 +16,7 @@
     "gulp-sass": "^2.1.0",
     "gulp-watch": "^4.3.5",
     "strip-sourcemap-loader": "0.0.1",
+    "tslint-eslint-rules": "^1.0.1",
     "typescript": "^1.7.3"
   },
   "name": "clicker",

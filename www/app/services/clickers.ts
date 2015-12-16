@@ -8,9 +8,9 @@ import { Storage, SqlStorage } from 'ionic-framework/ionic';
 @Injectable()
 export class Clickers {
 
-  clickers: Array<Clicker>;
-  ids: Array<String>; // we need to keep a separate reference to ids so we can lookup when the app loads from scratch
-  storage: Storage;
+  private clickers: Array<Clicker>;
+  private ids: Array<String>; // we need to keep a separate reference to ids so we can lookup when the app loads from scratch
+  private storage: Storage;
 
   constructor() {
     this.storage = new Storage(SqlStorage);
@@ -19,7 +19,7 @@ export class Clickers {
     this.initClickers();
   }
 
-  initClickers() {
+  private initClickers() {
     // get all existing ids
     this.storage.get('ids')
       .then((ids) => {
@@ -36,7 +36,7 @@ export class Clickers {
   }
 
   // initialise a clicker from a raw JSON string out of the DB
-  initClicker(clicker) {
+  private initClicker(clicker) {
     const parsedClicker = JSON.parse(clicker);
     const newClicker = new Clicker(parsedClicker.id, parsedClicker.name);
 
@@ -46,16 +46,16 @@ export class Clickers {
       newClick.time = click.time;
       newClick.location = click.location;
       newClicker.clicks.push(click);
-    };
+    }
 
     return newClicker;
   }
 
-  getClicker(id) {
-    return this.clickers.find(clicker => { return clicker.id === id });
+  public getClicker(id) {
+    return this.clickers.find(clicker => { return clicker.id === id; });
   }
 
-  newClicker(name) {
+  public newClicker(name) {
     const id = this.uid();
     const clicker = new Clicker(id, name);
 
@@ -69,25 +69,29 @@ export class Clickers {
     this.storage.set('ids', JSON.stringify(this.ids));
   }
 
-  removeClicker(id) {
+  public removeClicker(id) {
+
     // remove clicker from the service
-    this.clickers = this.clickers.filter(clicker => { return clicker.id !== id });
+    this.clickers = this.clickers.filter(clicker => { return clicker.id !== id; });
+
     // remove from ids array
-    this.ids = this.ids.filter(id => { return id != id });
+    this.ids = this.ids.filter(filterId => { return filterId !== id; });
+
     // null id in db
     this.storage.set(id, null);
+
     // update service's ids array
     this.storage.set('ids', JSON.stringify(this.ids));
   }
 
-  doClick(id) {
+  public doClick(id) {
     const clicker = this.getClicker(id);
     clicker.doClick();
     // save the clicker with updated click in storage
     this.storage.set(clicker.id, JSON.stringify(clicker));
   }
 
-  uid() {
+  private uid() {
     return Math.random().toString(35).substr(2, 10);
   }
 }
