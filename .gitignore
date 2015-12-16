@@ -19,6 +19,7 @@ dist/
 node_modules/
 tmp/
 temp/
+typings/
 www/build/
 $RECYCLE.BIN/
 
