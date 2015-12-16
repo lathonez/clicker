@@ -6,7 +6,6 @@
 *.log
 *.tmp
 *.tmp.*
-*.js
 *.map
 log.txt
 *.sublime-project
@@ -15,6 +14,7 @@ log.txt
 .sass-cache/
 .versions/
 coverage/
+bower_components/
 dist/
 hooks/
 resources/
