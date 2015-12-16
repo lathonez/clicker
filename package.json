@@ -42,7 +42,7 @@
     "android"
   ],
   "scripts": {
-    "tsc": "tsc -p www/app -w",
+    "tsc": "tsc -w",
     "start": "live-server --open=www"
   }
 }

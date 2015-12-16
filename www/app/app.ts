@@ -1,4 +1,6 @@
-import { App, IonicApp, Platform } from 'ionic/ionic';
+'use strict';
+
+import { App, IonicApp, Page, Platform } from 'ionic/ionic';
 import { ClickerList } from './pages/clickerList/clickerList';
 import { Page2 } from './pages/page2/page2';
 import './app.scss';
@@ -7,6 +9,11 @@ import './app.scss';
   templateUrl: 'app/app.html',
 })
 export class MyApp {
+
+  app: App;
+  pages: Array<Object>;
+  rootPage: Page;
+
   constructor(app: IonicApp, platform: Platform) {
     this.pages = [
       { title: 'Clickers', component: ClickerList },

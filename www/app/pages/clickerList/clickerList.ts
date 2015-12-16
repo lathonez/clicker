@@ -1,3 +1,5 @@
+'use strict';
+
 import { Page, NavController } from 'ionic/ionic';
 import { Clickers } from '../../services/clickers';
 import { ClickerButton } from '../../components/clickerButton/clickerButton';
@@ -12,6 +14,7 @@ export class ClickerList {
 
   clickerService: Clickers;
   nav: NavController;
+  title: string;
 
   constructor(nav: NavController, clickerService: Clickers) {
     this.nav = nav;
