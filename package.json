@@ -24,7 +24,9 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.19",
+    "requirejs": "^2.1.22",
     "strip-sourcemap-loader": "0.0.1",
+    "systemjs": "^0.19.8",
     "tslint-eslint-rules": "^1.0.1",
     "typescript": "^1.7.3"
   },

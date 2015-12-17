@@ -8,6 +8,7 @@ var concat = require ('gulp-concat');
 var path = require('path');
 var config = require('./ionic.config');
 var ts = require('gulp-typescript');
+var Server = require('karma').Server;
 
 /******************************************************************************
  * gulp watch
@@ -26,42 +27,38 @@ gulp.task('watch', ['sass', 'fonts'], function(done) {
  * Typescript: ts lint and compile
  */
 gulp.task('build:typescript', function () {
-    // tsconfig options basically copy pasta from tsconfig.json
-     var tsResult = gulp.src('www/**/*.ts')
-      .pipe(ts({
-        "target": "ES5",
-        "module": "commonjs",
-        "noEmitOnError": false,
-        "rootDir": ".",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "sourceMap": false,
-        "inlineSourceMap": false,
-        "inlineSources": false
-      }));
+  // tsconfig options basically copy pasta from tsconfig.json
+  return gulp.src('www/**/*.ts')
+    .pipe(ts({
+      "target": "es5",
+      "module": "commonjs",
+      "noEmitOnError": false,
+      "rootDir": ".",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": false,
+      "inlineSourceMap": false,
+      "inlineSources": false
+    }))
+    .pipe(gulp.dest(
+      path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
+    ));
 
-      return tsResult
-        .pipe(concat('build.js'))
-        .pipe(gulp.dest(
-          path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
-        ));
+    /*return tsResult
+      .pipe(concat('build.js'))
+      .pipe(gulp.dest(
+        path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
+      ));*/
 });
 
 
 /**
  * This task runs the test cases using karma.
  */
-gulp.task('app:test',['tests:build'], function(done) {
-    // Be sure to return the stream
-    return gulp.src('./idontexist')
-        .pipe(karma({
-            configFile: 'test/test-unit.conf.js',
-            action: 'run'
-        }))
-        .on('error', function(err) {
-            // Make sure failed tests cause gulp to exit non-zero
-            throw err;
-        });
+gulp.task('test', ['build:typescript'], function (done) {
+  new Server({
+    configFile: __dirname + '/www/test/karma.config.js',
+  }, done).start();
 });
 
 
