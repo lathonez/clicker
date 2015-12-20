@@ -14,7 +14,6 @@
     "es6-module-loader": "^0.17.9",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "^2.6.0",
     "gulp-karma": "0.0.5",
     "gulp-sass": "^2.1.0",
     "gulp-typescript": "^2.10.0",

@@ -4,7 +4,7 @@
  * available from the command line. All tasks are run using `gulp taskName`.
  ******************************************************************************/
 var gulp = require('gulp');
-var concat = require ('gulp-concat');
+var del = require('del');
 var path = require('path');
 var config = require('./ionic.config');
 var ts = require('gulp-typescript');
@@ -22,11 +22,15 @@ gulp.task('watch', ['sass', 'fonts'], function(done) {
   });
 });
 
+gulp.task('test.clean', function() {
+  // You can use multiple globbing patterns as you would with `gulp.src`
+  return del(['www/build/test']);
+});
 
 /**
  * Typescript: ts lint and compile
  */
-gulp.task('build:typescript', function () {
+gulp.task('test.compile', ['test.clean'], function () {
   // tsconfig options basically copy pasta from tsconfig.json
   return gulp.src('www/**/*.ts')
     .pipe(ts({
@@ -43,19 +47,13 @@ gulp.task('build:typescript', function () {
     .pipe(gulp.dest(
       path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
     ));
-
-    /*return tsResult
-      .pipe(concat('build.js'))
-      .pipe(gulp.dest(
-        path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
-      ));*/
 });
 
 
 /**
  * This task runs the test cases using karma.
  */
-gulp.task('test', ['build:typescript'], function(done) {
+gulp.task('test', ['test.compile'], function(done) {
   new Server({
     configFile: __dirname + '/karma.config.js',
     singleRun: true
