@@ -6,10 +6,16 @@
   <script src="../node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
   <script src="../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
   <script src="../node_modules/systemjs/dist/system.src.js"></script>
-  <script src="../node_modules/ionic-framework/node_modules/angular2/bundles/router.dev.js"></script>
-  <script src="../node_modules/ionic-framework/node_modules/angular2/bundles/http.dev.js"></script>
-  <script src="../node_modules/ionic-framework/node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="../node_modules/ionic-framework/dist/js/ionic.js"></script>
+  <script src="build/js/app.bundle.js"></script>
+
+<!--
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+
+  <script src="../node_modules/requirejs/require.js"></script>
+  <script src="../node_modules/angular2/bundles/router.dev.js"></script>
+  <script src="../node_modules/angular2/bundles/http.dev.js"></script> -->
+  <!--<script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-mocks/angular-mocks.js"></script> -->
 </head>
 <body>
   <!-- #1. add the system.js library -->
@@ -24,8 +30,10 @@
 
     // #3. Import the spec files explicitly
     Promise.all([
-      System.import('app/test/services/clickers.spec'),
-      System.import('app/test/models/clicker.spec'),
+      //System.import('angular2/angular2'),
+      //System.import('ionic-framework/ionic')
+      System.import('test/services/clickers.spec'),
+      //System.import('test/models/clicker.spec'),
     ])
 
       // #4. wait for all imports to load ...

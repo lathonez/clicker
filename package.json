@@ -4,6 +4,8 @@
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.13",
     "ionic-framework": "2.0.0-alpha.42",
+    "karma-es5-shim": "0.0.4",
+    "karma-requirejs": "^0.2.2",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-alpha.14",
     "zone.js": "0.5.8"
@@ -11,6 +13,7 @@
   "devDependencies": {
     "awesome-typescript-loader": "^0.15.9",
     "del": "^2.2.0",
+    "es6-module-loader": "^0.17.9",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
@@ -23,13 +26,19 @@
     "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
+    "karma-systemjs": "^0.10.0",
     "phantomjs": "^1.9.19",
+    "phantomjs-polyfill": "0.0.1",
     "requirejs": "^2.1.22",
     "strip-sourcemap-loader": "0.0.1",
     "systemjs": "^0.19.8",
+    "traceur": "0.0.93",
     "tslint-eslint-rules": "^1.0.1",
     "typescript": "^1.7.3"
   },
   "name": "clicker",
-  "description": "clicker: An Ionic project"
+  "description": "clicker: An Ionic project",
+  "scripts": {
+    "test": "gulp test"
+  }
 }

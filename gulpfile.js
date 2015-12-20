@@ -55,9 +55,10 @@ gulp.task('build:typescript', function () {
 /**
  * This task runs the test cases using karma.
  */
-gulp.task('test', ['build:typescript'], function (done) {
+gulp.task('test', ['build:typescript'], function(done) {
   new Server({
-    configFile: __dirname + '/www/test/karma.config.js',
+    configFile: __dirname + '/karma.config.js',
+    singleRun: true
   }, done).start();
 });
 
