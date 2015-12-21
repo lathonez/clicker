@@ -30,4 +30,8 @@ export class Clicker {
   public getId() {
     return this.id;
   }
+
+  public getName() {
+    return this.name;
+  }
 }

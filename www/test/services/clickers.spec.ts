@@ -7,7 +7,7 @@ export function main() {
   describe('Clickers', () => {
     it('initialises with empty clickers', () => {
       let clickers = new Clickers();
-      expect(clickers.clickers).toEqual([]);
+      expect(clickers.getClickers()).toEqual([]);
     });
 
     it('returns undefined for a bad id', () => {

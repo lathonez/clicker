@@ -91,7 +91,9 @@ gulp.task('clean', function(done) {
 // typescript files are compiled individually and saved to www/build/test/ - delete them here
 gulp.task('test.clean', function() {
   // You can use multiple globbing patterns as you would with `gulp.src`
-  return del(['www/build/test']);
+  return del([
+    'www/build/test'
+  ]);
 });
 
 // run tslint against all typescript
@@ -104,21 +106,29 @@ gulp.task('test.lint', function () {
 // compile typescript into indivudal files, project directoy structure is replicated under www/build/test
 gulp.task('test.compile', ['test.clean'], function () {
   // tsconfig options basically copy pasta from tsconfig.json
-  return gulp.src('www/**/*.ts')
-    .pipe(ts({
-      "target": "es5",
-      "module": "commonjs",
-      "noEmitOnError": false,
-      "rootDir": ".",
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "sourceMap": false,
-      "inlineSourceMap": false,
-      "inlineSources": false
-    }))
+  var tsOptions = {
+    "target": "es5",
+    "module": "commonjs",
+    // "noEmitOnError": true,
+    "noEmitOnError": false, // need to wait for animation.d.ts to get fixed by ionic
+    "rootDir": ".",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "inlineSourceMap": false,
+    "inlineSources": false
+  };
+
+  var tsResult = gulp.src([
+    'www/**/*.ts'
+  ])
+    .pipe(ts(tsOptions))
     .pipe(gulp.dest(
       path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
-    ));
+    )
+  );
+
+  return tsResult;
 });
 
 // run jasmine unit tests using karma - lint and compile are run in parallel

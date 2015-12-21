@@ -55,6 +55,10 @@ export class Clickers {
     return this.clickers.find(clicker => { return clicker.getId() === id; });
   }
 
+  public getClickers() {
+    return this.clickers;
+  }
+
   public newClicker(name) {
     const id = this.uid();
     const clicker = new Clicker(id, name);

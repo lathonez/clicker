@@ -15,7 +15,7 @@
       <button block secondary outline (click)="newClicker(newclicker.value)"><icon add-circle></icon></button>
     </ion-col>
   </ion-row>
-  <ion-row *ngFor="#clicker of clickerService.clickers">
+  <ion-row *ngFor="#clicker of clickerService.getClickers()">
     <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>
     <ion-col>
       <button block danger outline (click)="clickerService.removeClicker(clicker.id)"><icon trash></icon></button>
