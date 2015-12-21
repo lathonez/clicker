@@ -8,7 +8,9 @@ var del = require('del');
 var path = require('path');
 var config = require('./ionic.config');
 var ts = require('gulp-typescript');
+var tslint = require('gulp-tslint');
 var Server = require('karma').Server;
+
 
 /******************************************************************************
  * gulp watch
@@ -20,44 +22,6 @@ gulp.task('watch', ['sass', 'fonts'], function(done) {
   watch(sassFiles, function(){
     gulp.start('sass');
   });
-});
-
-gulp.task('test.clean', function() {
-  // You can use multiple globbing patterns as you would with `gulp.src`
-  return del(['www/build/test']);
-});
-
-/**
- * Typescript: ts lint and compile
- */
-gulp.task('test.compile', ['test.clean'], function () {
-  // tsconfig options basically copy pasta from tsconfig.json
-  return gulp.src('www/**/*.ts')
-    .pipe(ts({
-      "target": "es5",
-      "module": "commonjs",
-      "noEmitOnError": false,
-      "rootDir": ".",
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "sourceMap": false,
-      "inlineSourceMap": false,
-      "inlineSources": false
-    }))
-    .pipe(gulp.dest(
-      path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
-    ));
-});
-
-
-/**
- * This task runs the test cases using karma.
- */
-gulp.task('test', ['test.compile'], function(done) {
-  new Server({
-    configFile: __dirname + '/karma.config.js',
-    singleRun: true
-  }, done).start();
 });
 
 
@@ -114,4 +78,53 @@ gulp.task('fonts', function() {
 gulp.task('clean', function(done) {
   var del = require('del');
   del([config.paths.buildDir], done);
+});
+
+
+/******************************************************************************
+ * Code above is directly from `ionic start --v2` webpack config
+ * Code below is for testing and is separate from the ionic workflow (at the moment)
+ * All testing tasks are prefixed with "test"
+ ******************************************************************************/
+
+
+// typescript files are compiled individually and saved to www/build/test/ - delete them here
+gulp.task('test.clean', function() {
+  // You can use multiple globbing patterns as you would with `gulp.src`
+  return del(['www/build/test']);
+});
+
+// run tslint against all typescript
+gulp.task('test.lint', function () {
+  gulp.src('www/**/*.ts')
+    .pipe(tslint())
+    .pipe(tslint.report('verbose'))
+});
+
+// compile typescript into indivudal files, project directoy structure is replicated under www/build/test
+gulp.task('test.compile', ['test.clean'], function () {
+  // tsconfig options basically copy pasta from tsconfig.json
+  return gulp.src('www/**/*.ts')
+    .pipe(ts({
+      "target": "es5",
+      "module": "commonjs",
+      "noEmitOnError": false,
+      "rootDir": ".",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": false,
+      "inlineSourceMap": false,
+      "inlineSources": false
+    }))
+    .pipe(gulp.dest(
+      path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
+    ));
+});
+
+// run jasmine unit tests using karma - lint and compile are run in parallel
+gulp.task('test', ['test.lint', 'test.compile'], function(done) {
+  new Server({
+    configFile: __dirname + '/karma.config.js',
+    singleRun: true
+  }, done).start();
 });

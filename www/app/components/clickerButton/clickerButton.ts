@@ -6,12 +6,12 @@ import { Button } from 'ionic-framework/ionic';
 
 @Component({
   selector: 'clicker-button',
-  inputs: ['clicker: clicker']
+  inputs: ['clicker: clicker'],
 })
 
 @View({
   templateUrl: 'app/components/clickerButton/clickerButton.html',
-  directives: [Button]
+  directives: [Button],
 })
 
 export class ClickerButton {

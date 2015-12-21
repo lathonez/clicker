@@ -3,6 +3,7 @@
 import { Clickers } from '../../app/services/clickers';
 
 export function main() {
+
   describe('Clickers', () => {
     it('initialises with empty clickers', () => {
       let clickers = new Clickers();

@@ -16,6 +16,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-karma": "0.0.5",
     "gulp-sass": "^2.1.0",
+    "gulp-tslint": "^4.2.1",
     "gulp-typescript": "^2.10.0",
     "gulp-watch": "^4.3.5",
     "jasmine-core": "^2.4.1",
@@ -28,6 +29,7 @@
     "strip-sourcemap-loader": "0.0.1",
     "systemjs": "^0.19.8",
     "traceur": "0.0.93",
+    "tslint": "^3.2.1",
     "tslint-eslint-rules": "^1.0.1",
     "typescript": "^1.7.3"
   },
