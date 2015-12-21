@@ -1,5 +1,5 @@
 ## Custom counter Ionic 2 + Angular 2 + Typescript learning project
-![BuildStatus](https://travis-ci.org/lathonez/clicker.svg?branch=master)
+[![Build Status](https://travis-ci.org/lathonez/clicker.svg?branch=master)](https://travis-ci.org/lathonez/clicker)
 
 # How to start
 
