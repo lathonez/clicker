@@ -7,7 +7,7 @@
 
 ```bash
 git clone https://github.com/lathonez/clicker.git
-cd angular2-seed
+cd clicker
 npm install       # or `npm run reinstall` if you get an error
 npm test          # run unit tests
 npm start         # start the application
