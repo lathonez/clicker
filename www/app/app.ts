@@ -1,6 +1,6 @@
 'use strict';
 
-import { App, IonicApp, Page, Platform } from 'ionic-framework/ionic';
+import { App, IonicApp, Platform } from 'ionic-framework/ionic';
 import { ClickerList } from './pages/clickerList/clickerList';
 import { Page2 } from './pages/page2/page2';
 
@@ -9,9 +9,9 @@ import { Page2 } from './pages/page2/page2';
 })
 export class MyApp {
 
-  private app: App;
+  private app: IonicApp;
   private pages: Array<Object>;
-  private rootPage: Page;
+  private rootPage; // Ionic page definition takes any class type
 
   constructor(app: IonicApp, platform: Platform) {
     this.pages = [

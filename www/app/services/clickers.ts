@@ -3,17 +3,17 @@
 import { Clicker } from '../models/clicker';
 import { Click } from '../models/click';
 import { Injectable } from 'angular2/angular2';
-import { Storage, SqlStorage } from 'ionic-framework/ionic';
+import { SqlStorage } from 'ionic-framework/ionic';
 
 @Injectable()
 export class Clickers {
 
   private clickers: Array<Clicker>;
   private ids: Array<String>; // we need to keep a separate reference to ids so we can lookup when the app loads from scratch
-  private storage: Storage;
+  private storage: SqlStorage;
 
   constructor() {
-    this.storage = new Storage(SqlStorage);
+    this.storage = new SqlStorage(); // typeof SqlStorage is not assignable to type StorageEngine seems to be an ionic issue
     this.clickers = [];
     this.ids = [];
     this.initClickers();
@@ -24,7 +24,7 @@ export class Clickers {
     this.storage.get('ids')
       .then((ids) => {
         // ids are stored as stringified JSON array
-        this.ids = JSON.parse(ids) || [];
+        this.ids = JSON.parse(String(ids)) || [];
 
         for (let id of this.ids) {
           this.storage.get(id)
@@ -43,16 +43,16 @@ export class Clickers {
     // add the clicks - need to re-instantiate object
     for (let click of parsedClicker.clicks) {
       const newClick = new Click();
-      newClick.time = click.time;
-      newClick.location = click.location;
-      newClicker.clicks.push(click);
+      newClick.setTime(click.time);
+      newClick.setTime(click.location);
+      newClicker.addClick(click);
     }
 
     return newClicker;
   }
 
   public getClicker(id) {
-    return this.clickers.find(clicker => { return clicker.id === id; });
+    return this.clickers.find(clicker => { return clicker.getId() === id; });
   }
 
   public newClicker(name) {
@@ -72,13 +72,13 @@ export class Clickers {
   public removeClicker(id) {
 
     // remove clicker from the service
-    this.clickers = this.clickers.filter(clicker => { return clicker.id !== id; });
+    this.clickers = this.clickers.filter(clicker => { return clicker.getId() !== id; });
 
     // remove from ids array
     this.ids = this.ids.filter(filterId => { return filterId !== id; });
 
     // null id in db
-    this.storage.set(id, null);
+    this.storage.remove(id);
 
     // update service's ids array
     this.storage.set('ids', JSON.stringify(this.ids));
@@ -88,7 +88,7 @@ export class Clickers {
     const clicker = this.getClicker(id);
     clicker.doClick();
     // save the clicker with updated click in storage
-    this.storage.set(clicker.id, JSON.stringify(clicker));
+    this.storage.set(clicker.getId(), JSON.stringify(clicker));
   }
 
   private uid() {

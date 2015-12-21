@@ -9,4 +9,12 @@ export class Click {
     this.time = new Date().getTime();
     this.location = 'TODO';
   }
+
+  public setTime(time: number) {
+    this.time = time;
+  }
+
+  public setLocation(location: string) {
+    this.location = location;
+  }
 }
