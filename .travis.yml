@@ -1,8 +1,9 @@
 language: node_js
 node_js:
-- '4.0'
-- '4.1'
-- '5.1'
+# - uncomment these to allow concurrent builds on the different node envs
+# - '4.0'
+# - '4.1'
+  - '4.2'
 sudo: false
 services:
 before_install:
