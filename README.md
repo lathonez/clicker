@@ -1,3 +1,4 @@
+https://travis-ci.org/lathonez/clicker.svg?branch=master
 # Custom counter Ionic 2 + Angular 2 + Typescript learning project
 
 # How to start
