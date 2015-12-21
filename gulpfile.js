@@ -110,7 +110,7 @@ gulp.task('test.compile', ['test.clean'], function () {
     "target": "es5",
     "module": "commonjs",
     // "noEmitOnError": true,
-    "noEmitOnError": false, // need to wait for animation.d.ts to get fixed by ionic
+    "noEmitOnError": false, // need to wait for animation.d.ts to get fixed by ionic #783
     "rootDir": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
