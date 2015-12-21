@@ -24,6 +24,7 @@ temp/
 typings/
 www/build/
 $RECYCLE.BIN/
+ionic.project
 
 .DS_Store
 Thumbs.db
