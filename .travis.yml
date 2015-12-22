@@ -4,6 +4,14 @@ node_js:
 # - '4.0'
 # - '4.1'
   - '4.2'
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 sudo: false
 services:
 before_install:
@@ -23,6 +31,4 @@ after_success:
   - npm install -g cordova ionic
   - ionic platform add android
   - ionic build android
-  - echo "{\"app_id\":\"$IONIC_APP_ID\",\"api_key\":\"$IONIC_API_KEY\"}" > .io-config.json
-  - cat .io-config.json
   - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
