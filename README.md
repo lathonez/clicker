@@ -3,7 +3,7 @@
 
 # How to start
 
-**Note** that this seed project requires node v4.x.x or higher and npm 2.14.7.
+**Note** that this project requires node v4.x.x or higher and npm 2.14.7.
 
 ```bash
 git clone https://github.com/lathonez/clicker.git
