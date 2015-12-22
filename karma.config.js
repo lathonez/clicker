@@ -43,16 +43,24 @@ module.exports = function(config) {
     ],
 
 
+    // options on how to report coverage:
+    coverageReporter: {
+      type: 'text',
+      includeAllSources: true
+    },
+
+
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'www/build/test/app/**/*.js': 'coverage'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha'],
+    reporters: ['mocha','coverage'],
 
 
     // web server port
