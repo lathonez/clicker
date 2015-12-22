@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^0.15.9",
+    "coveralls": "^2.11.6",
     "del": "^2.2.0",
     "es6-module-loader": "^0.17.9",
     "gulp": "^3.9.0",
