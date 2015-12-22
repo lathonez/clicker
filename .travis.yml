@@ -24,4 +24,5 @@ after_success:
   - ionic platform add android
   - ionic build android
   - echo "{\"app_id\":\"$IONIC_APP_ID\",\"api_key\":\"$IONIC_API_KEY\"}" > .io-config.json
+  - cat .io-config.json
   - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
