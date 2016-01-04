@@ -19,7 +19,6 @@ before_install:
 - export CHROME_BIN=chromium-browser
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-- pip install codecov
 before_script:
 # seems to be necessary (for coveralls push in after success) due to the way travis clones the repo:
 # git clone --depth=50 --branch=master https://github.com/lathonez/clicker.git lathonez/clicker
