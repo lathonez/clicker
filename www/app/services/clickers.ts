@@ -90,6 +90,8 @@ export class Clickers {
     return id;
   }
 
+  // testing
+
   public removeClicker(id) {
 
     // remove clicker from the service
