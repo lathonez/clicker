@@ -85,9 +85,6 @@ var Clickers = (function () {
         this.storage.set('ids', JSON.stringify(this.ids));
         return id;
     };
-    //
-    // testing 1 23 5
-    //
     Clickers.prototype.removeClicker = function (id) {
         // remove clicker from the service
         this.clickers = this.clickers.filter(function (clicker) { return clicker.getId() !== id; });
