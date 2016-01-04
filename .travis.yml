@@ -33,6 +33,8 @@ after_success:
 - ssh-add .travis/travis_rsa.pem
 - rm .gitignore
 - git add www/build/test/app
+- git remote rm origin
+- git remote add origin git@github.com:lathonez/clicker.git
 - git -c user.name='travis' -c user.email='travis@travis-ci.org' commit -m "updating compiled tests [ci skip]"
 - git push origin master
 - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js && rm -rf coverage
