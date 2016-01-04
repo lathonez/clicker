@@ -25,4 +25,3 @@ var Clicker = (function () {
     return Clicker;
 })();
 exports.Clicker = Clicker;
-
