@@ -90,6 +90,8 @@ export function main() {
       expect(clickedClicker.getCount()).toEqual(1);
     });
 
+    // testing
+
     it('loads IDs from storage', (done) => {
       spyOn(clickers.storage, 'get').and.callFake(storageGetStub);
 
