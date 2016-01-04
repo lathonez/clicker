@@ -1,28 +1,27 @@
 language: node_js
 node_js:
-# - uncomment these to allow concurrent builds on the different node envs
-# - '4.0'
-# - '4.1'
-  - '4.2'
+- '4.2'
 env:
-  - CXX=g++-4.8
+- CXX=g++-4.8
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
 sudo: false
-services:
+services: 
 before_install:
+- openssl aes-256-cbc -K $encrypted_a2f47a5da016_key -iv $encrypted_a2f47a5da016_iv
+  -in travis_rsa.pem.enc -out .travis/travis_rsa.pem -d
 - npm update -g npm
 - npm --version
 - export CHROME_BIN=chromium-browser
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-before_script:
+before_script: 
 after_script:
- - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js && rm -rf coverage
+- cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js && rm -rf coverage
 notifications:
   email: true
 after_failure: cat /home/travis/build/lathonez/clicker/npm-debug.log
@@ -30,7 +29,15 @@ branches:
   only:
   - master
 after_success:
-  - npm install -g cordova ionic
-  - ionic platform add android
-  - ionic build android
-  - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
+- eval "$(ssh-agent -s)"
+- chmod 600 .travis/deploy_key.pem
+- ssh-add .travis/deploy_key.pem
+- rm .gitignore
+- git add www/build/test/app
+- git commit -m "updating compiled tests [ci skip]"
+- git remote add test git@github.com:lathonez/clicker.git
+- git push test
+- npm install -g cordova ionic
+- ionic platform add android
+- ionic build android
+- ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
