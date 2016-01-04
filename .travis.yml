@@ -21,7 +21,6 @@ before_install:
 - sh -e /etc/init.d/xvfb start
 before_script:
 after_script:
-- cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js && rm -rf coverage
 notifications:
   email: true
 after_failure: cat /home/travis/build/lathonez/clicker/npm-debug.log
@@ -33,12 +32,13 @@ after_success:
 - chmod 600 .travis/travis_rsa.pem
 - ssh-add .travis/travis_rsa.pem
 - rm .gitignore
-- git add www/build/test/app
 - git config --global user.email "travis@travis-ci.org"
 - git config --global user.name "travis"
+- git add www/build/test/app
 - git commit -m "updating compiled tests [ci skip]"
 - git remote add test git@github.com:lathonez/clicker.git
 - git push test master
+- cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js && rm -rf coverage
 - npm install -g cordova ionic
 - ionic platform add android
 - ionic build android
