@@ -43,8 +43,9 @@ after_success:
 - git -c user.name='travis' -c user.email='travis@travis-ci.org' commit -m "updating compiled tests [ci skip]" # dont want this triggering another build
 - git push origin master
 # dont send to coveralls until _after_ we've pushed the compiled test code
-- cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js && rm -rf coverage
-- codecov
+- cat coverage/lcov.info | node_modules/.bin/coveralls
+- cat coverage/lcov.info | ./node_modules/.bin/codecov
+- rm -rf coverage
 # push to ionic (should be deploy really)
 - npm install -g cordova ionic
 - ionic platform add android
