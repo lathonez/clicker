@@ -91,7 +91,7 @@ export class Clickers {
   }
 
   //
-  // testing
+  // testing 1 23 
   //
 
   public removeClicker(id) {
