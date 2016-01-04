@@ -14,25 +14,40 @@ export class Clickers {
 
   constructor() {
     this.storage = new SqlStorage(); // typeof SqlStorage is not assignable to type StorageEngine seems to be an ionic issue
-    this.clickers = [];
     this.ids = [];
-    this.initClickers();
+    this.clickers = [];
+    this.initIds()
+      .then((ids: Array<String>) => { this.ids = ids; })
+      .then(() => this.initClickers(this.ids))
+      .then((clickers: Array<Clicker>) => this.clickers = clickers);
   }
 
-  private initClickers() {
-    // get all existing ids
-    this.storage.get('ids')
-      .then((ids) => {
-        // ids are stored as stringified JSON array
-        this.ids = JSON.parse(String(ids)) || [];
+  // initialise Ids from SQL storage
+  private initIds() {
+    return new Promise((resolve) => {
+      let ids = [];
+      this.storage.get('ids') // return the promise so we can chain initClickers
+        .then((rawIds) => {
+          // ids are stored as stringified JSON array
+          ids = JSON.parse(String(rawIds)) || [];
+        })
+        .then(() => resolve(ids));
+    });
+  }
 
-        for (let id of this.ids) {
-          this.storage.get(id)
-            .then((clicker) => {
-              this.clickers.push(this.initClicker(clicker));
-            });
-        }
-      });
+  // initialise Clickers from SQL storage given an array of ids
+  private initClickers(ids) {
+    // get all existing ids
+    return new Promise((resolve) => {
+      let clickers = [];
+      for (let id of ids) {
+        this.storage.get(id)
+          .then((clicker) => {
+            clickers.push(this.initClicker(clicker));
+          });
+      }
+      resolve(clickers);
+    });
   }
 
   // initialise a clicker from a raw JSON string out of the DB
@@ -71,6 +86,8 @@ export class Clickers {
     this.storage.set(id, JSON.stringify(clicker));
     // save the service's ids array
     this.storage.set('ids', JSON.stringify(this.ids));
+
+    return id;
   }
 
   public removeClicker(id) {
