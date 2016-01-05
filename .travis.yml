@@ -67,3 +67,4 @@ before_deploy:
 deploy:
   provider: script
   script: .travis/deploy.sh
+  skip_cleanup: true
