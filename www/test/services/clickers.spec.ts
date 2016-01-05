@@ -42,6 +42,7 @@ export function main() {
     });
 
     it('has empty ids with no storage', (done) => {
+      spyOn(clickers.storage, 'get').and.callFake(storageGetStub);
       (<any>clickers).initIds()
         .then(() => {
           expect(clickers.getClickers()).toEqual([]);

@@ -26,12 +26,11 @@ module.exports = function(config) {
       'node_modules/reflect-metadata/Reflect.js',
 
       { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/ionic-framework/*.js', included: false, watched: false },
       { pattern: 'node_modules/ionic-framework/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
-    //  { pattern: 'www/app/app.html', included: false, served: true },
+      { pattern: 'www/app/app.html', included: false, served: true },
 
       'test-main.js'
     ],
@@ -88,7 +87,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'Chrome',
+      'PhantomJS2',
     ],
 
 
@@ -102,7 +101,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
   });
 
   if (process.env.APPVEYOR) {
