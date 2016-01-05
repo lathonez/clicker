@@ -44,5 +44,5 @@
   "cordovaPlugins": [
     "cordova-sqlite-storage"
   ],
-  "cordovaPlatforms": ['android']
+  "cordovaPlatforms": ["android"]
 }
