@@ -62,6 +62,7 @@ before_deploy:
   # build for android
   - sudo npm install -g cordova ionic@beta
   - ionic state restore # install cordova stuff from package.json
+  - gulp build          # otherwise we don't get css, probably a bug in ionic build
   - ionic build android
 
 deploy:
