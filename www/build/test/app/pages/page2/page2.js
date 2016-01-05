@@ -15,7 +15,7 @@ var Page2 = (function () {
     }
     Page2 = __decorate([
         ionic_1.Page({
-            templateUrl: 'app/components/page2/page2.html'
+            templateUrl: 'app/pages/page2/page2.html'
         }), 
         __metadata('design:paramtypes', [])
     ], Page2);

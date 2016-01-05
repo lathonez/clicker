@@ -25,7 +25,7 @@ var ClickerApp = (function () {
     }
     ClickerApp.prototype.openPage = function (page) {
         // close the menu when clicking a link from the menu
-        this.app.getComponent('menu').close();
+        this.app.getComponent('leftMenu').close();
         // navigate to the new page if it is not the current page
         this.app.getComponent('nav').setRoot(page.component);
     };
