@@ -57,14 +57,14 @@ after_success:
   # Send coverage info off to cloud ppl
   - cat coverage/lcov.info | node_modules/.bin/coveralls
   - cat coverage/lcov.info | ./node_modules/.bin/codecov
+
+before_deploy:
   # build for android
-  - sudo npm install -g cordova ionic
+  - sudo npm install -g cordova ionic@beta
   - ionic --version
   - ionic platform add android
   - ionic build android
 
 deploy:
-  # now deploying to davonez as ionic view is a pile of wank
-  # - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
-  - ssh-keyscan 176.58.107.25  >> ~/.ssh/known_hosts
-  - scp -i .travis/travis_rsa.pem platforms/android/build/outputs/apk/android-debug.apk shazleto@176.58.107.25:~/clicker
+  provider: script
+  script: .travis/deploy.sh
