@@ -135,6 +135,5 @@ gulp.task('test.compile', ['test.clean'], function () {
 gulp.task('test', ['test.lint', 'test.compile'], function(done) {
   new Server({
     configFile: __dirname + '/karma.config.js',
-    singleRun: true
   }, done).start();
 });

@@ -56,9 +56,6 @@ module.exports = function(config) {
       ]
     },
 
-
-
-
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -72,6 +69,11 @@ module.exports = function(config) {
     // enable / disable colors in the output (reporters and logs)
     colors: true,
 
+    // GOTCHA -- Karma proxies _everything_ through base first..
+    //           Also any files you want to serve need to be in the files array above with serverd: true
+    // proxies: {
+    //   '/app/': '/base/www/app/'
+    // },
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
@@ -85,7 +87,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'PhantomJS2'
+      'PhantomJS2',
     ],
 
 
@@ -99,7 +101,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 
   if (process.env.APPVEYOR) {
