@@ -40,5 +40,9 @@
   "scripts": {
     "start": "ionic serve",
     "test": "gulp test"
-  }
+  },
+  "cordovaPlugins": [
+    "cordova-sqlite-storage"
+  ],
+  "cordovaPlatforms": ['android']
 }
