@@ -10,7 +10,7 @@ eval "$(ssh-agent -s)"
 chmod 600 .travis/travis_rsa.pem
 ssh-add .travis/travis_rsa.pem
 # using -f as www/build is in .gitignore for dev purposes
-git -f add www/build/test/app
+git add -f www/build/test/app
 git remote rm origin                                       # originally cloned by travis on https
 git remote add origin git@github.com:lathonez/clicker.git  # ditto
 # careful not to trigger another build
