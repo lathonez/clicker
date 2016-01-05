@@ -29,8 +29,8 @@ module.exports = function(config) {
       { pattern: 'node_modules/ionic-framework/*.js', included: false, watched: false },
       { pattern: 'node_modules/ionic-framework/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
-      { pattern: 'www/build/test/**/*.js', included: false, watched: true },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
+      { pattern: 'www/build/test/**/*.js', included: false, watched: true },
 
       'test-main.js'
     ],
@@ -42,21 +42,21 @@ module.exports = function(config) {
       'node_modules/ionic-framework/**/*spec*'
     ],
 
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      'www/build/test/app/**/*.js': 'coverage',
+    },
 
     // options on how to report coverage:
     coverageReporter: {
       reporters: [
-        {type: 'text', includeAllSources: true},
-        {type: 'lcov', includeAllSources: true, dir: 'coverage', subdir: '.'}
+        {type: 'text'},
+        {type: 'lcov', dir: 'coverage', subdir: '.'}
       ]
     },
 
 
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      'www/build/test/app/**/*.js': 'coverage'
-    },
 
 
     // test results reporter to use
