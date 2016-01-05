@@ -23,6 +23,7 @@ var ClickerApp = (function () {
             // Do any necessary cordova or native calls here now that the platform is ready
         });
     }
+    // testing build
     ClickerApp.prototype.openPage = function (page) {
         // close the menu when clicking a link from the menu
         this.app.getComponent('leftMenu').close();
