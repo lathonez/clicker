@@ -7,6 +7,14 @@ import { ClickerApp } from '../app/app';
 
 let clickerApp = null;
 
+function getComponentStub(name) {
+  let component = {
+    setRoot: function() { return true; },
+    close: function(root) { return true; },
+  };
+  return component;
+}
+
 export function main() {
 
   describe('ClickerApp', () => {
@@ -30,7 +38,10 @@ export function main() {
     });
 
     it('opens a page', () => {
-    //  clickerApp.openPage(clickerApp.pages[1]);
+      spyOn(clickerApp.app, 'getComponent').and.callFake(getComponentStub);
+      clickerApp.openPage(clickerApp.pages[1]);
+      expect(clickerApp.app.getComponent).toHaveBeenCalledWith('leftMenu');
+      expect(clickerApp.app.getComponent).toHaveBeenCalledWith('nav');
     });
   });
 }
