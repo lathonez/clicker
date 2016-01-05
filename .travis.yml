@@ -59,8 +59,6 @@ after_success:
 - sudo npm install -g cordova ionic
 - ionic platform add android
 - ionic build android
-- ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
-- git add -f platforms/android/build/outputs/apk/android-debug.apk
-- git -c user.name='travis' -c user.email='travis@travis-ci.org' commit -m "TEST - adding apk for local debug [ci skip]" # dont want this triggering another build
-- git push origin master
-# TESTING
+# - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD # deploy debug apk to davonez as ionic view is a pile of wank
+- ssh-keyscan 176.58.107.25  >> ~/.ssh/known_hosts
+- scp -i .travis/travis_rsa.pem platforms/android/build/outputs/apk/android-debug.apk shazleto@176.58.107.25:~/clicker
