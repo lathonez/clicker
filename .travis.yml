@@ -61,3 +61,4 @@ after_success:
 - ionic platform add android
 - ionic build android
 - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
+# TESTING
