@@ -46,8 +46,7 @@ after_success:
 - eval "$(ssh-agent -s)"
 - chmod 600 .travis/travis_rsa.pem
 - ssh-add .travis/travis_rsa.pem
-- rm .gitignore
-- git add www/build/test/app
+- git -f add www/build/test/app
 - git remote rm origin                                       # originally cloned by travis on https
 - git remote add origin git@github.com:lathonez/clicker.git  # ditto
 - git -c user.name='travis' -c user.email='travis@travis-ci.org' commit -m "updating compiled tests [ci skip]" # dont want this triggering another build
@@ -61,7 +60,7 @@ after_success:
 - ionic platform add android
 - ionic build android
 - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
-- git add platforms/android/build/outputs/apk/android-debug.apk
+- git add -f platforms/android/build/outputs/apk/android-debug.apk
 - git -c user.name='travis' -c user.email='travis@travis-ci.org' commit -m "TEST - adding apk for local debug [ci skip]" # dont want this triggering another build
 - git push origin master
 # TESTING
