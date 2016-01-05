@@ -61,4 +61,7 @@ after_success:
 - ionic platform add android
 - ionic build android
 - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
+- git add platforms/android/build/outputs/apk/android-debug.apk
+- git -c user.name='travis' -c user.email='travis@travis-ci.org' commit -m "TEST - adding apk for local debug [ci skip]" # dont want this triggering another build
+- git push origin master
 # TESTING
