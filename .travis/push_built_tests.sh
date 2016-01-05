@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env sh
 #
 # Helper script run from travis that pushes compiled tests to github so they can be referenced by coverage providers
 #
