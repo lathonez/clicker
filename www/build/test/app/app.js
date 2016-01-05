@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_1 = require('ionic-framework/ionic');
 var clickerList_1 = require('./pages/clickerList/clickerList');
 var page2_1 = require('./pages/page2/page2');
-var MyApp = (function () {
-    function MyApp(app, platform) {
+var ClickerApp = (function () {
+    function ClickerApp(app, platform) {
         this.pages = [
             { title: 'Clickers', component: clickerList_1.ClickerList },
             { title: 'Goodbye Ionic', component: page2_1.Page2 },
@@ -23,19 +23,19 @@ var MyApp = (function () {
             // Do any necessary cordova or native calls here now that the platform is ready
         });
     }
-    MyApp.prototype.openPage = function (page) {
+    ClickerApp.prototype.openPage = function (page) {
         // close the menu when clicking a link from the menu
         this.app.getComponent('menu').close();
         // navigate to the new page if it is not the current page
-        var nav = this.app.getComponent('nav');
-        nav.setRoot(page.component);
+        this.app.getComponent('nav').setRoot(page.component);
     };
-    MyApp = __decorate([
+    ;
+    ClickerApp = __decorate([
         ionic_1.App({
             templateUrl: 'app/app.html'
         }), 
         __metadata('design:paramtypes', [ionic_1.IonicApp, ionic_1.Platform])
-    ], MyApp);
-    return MyApp;
+    ], ClickerApp);
+    return ClickerApp;
 })();
-exports.MyApp = MyApp;
+exports.ClickerApp = ClickerApp;
