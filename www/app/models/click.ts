@@ -5,16 +5,16 @@ export class Click {
   private time: number;
   private location: string;
 
-  constructor() {
-    this.time = new Date().getTime();
-    this.location = 'TODO';
+  constructor(time?: number, location?: string) {
+    this.time = time || new Date().getTime();
+    this.location = location || 'TODO';
   }
 
-  public setTime(time: number) {
-    this.time = time;
+  public getTime() {
+    return this.time;
   }
 
-  public setLocation(location: string) {
-    this.location = location;
+  public getLocation() {
+    return this.location;
   }
 }

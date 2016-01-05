@@ -59,10 +59,7 @@ var Clickers = (function () {
         // add the clicks - need to re-instantiate object
         for (var _i = 0, _a = parsedClicker.clicks; _i < _a.length; _i++) {
             var click = _a[_i];
-            var newClick = new click_1.Click();
-            newClick.setTime(click.time);
-            newClick.setTime(click.location);
-            newClicker.addClick(click);
+            newClicker.addClick(new click_1.Click(click.time, click.location));
         }
         return newClicker;
     };

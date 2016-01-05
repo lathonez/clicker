@@ -1,14 +1,14 @@
 'use strict';
 var Click = (function () {
-    function Click() {
-        this.time = new Date().getTime();
-        this.location = 'TODO';
+    function Click(time, location) {
+        this.time = time || new Date().getTime();
+        this.location = location || 'TODO';
     }
-    Click.prototype.setTime = function (time) {
-        this.time = time;
+    Click.prototype.getTime = function () {
+        return this.time;
     };
-    Click.prototype.setLocation = function (location) {
-        this.location = location;
+    Click.prototype.getLocation = function () {
+        return this.location;
     };
     return Click;
 })();

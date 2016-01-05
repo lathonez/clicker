@@ -57,10 +57,7 @@ export class Clickers {
 
     // add the clicks - need to re-instantiate object
     for (let click of parsedClicker.clicks) {
-      const newClick = new Click();
-      newClick.setTime(click.time);
-      newClick.setTime(click.location);
-      newClicker.addClick(click);
+      newClicker.addClick(new Click(click.time, click.location));
     }
 
     return newClicker;
