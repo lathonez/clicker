@@ -34,10 +34,10 @@ branches:
 #
 
 before_install:
-  - rm -rf /home/travis/.nvm
-  - curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-  - sudo apt-get install -y nodejs
-  - sudo npm update -g npm
+  - rm -rf /home/travis/.nvm                                         #
+  - curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -   # upgrade node manually as we're building on
+  - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
+  - sudo npm update -g npm                                           #
   # The following three lines came from angular-seed, unsure
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
@@ -53,7 +53,7 @@ after_failure: cat /home/travis/build/lathonez/clicker/npm-debug.log
 
 after_success:
   # push compiled TS to test folder in git for reference in coveralls
-  - .travis/push_built_tests.sh
+  # - .travis/push_built_tests.sh
   # Send coverage info off to cloud ppl
   - cat coverage/lcov.info | node_modules/.bin/coveralls
   - cat coverage/lcov.info | ./node_modules/.bin/codecov
