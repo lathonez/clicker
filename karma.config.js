@@ -30,9 +30,7 @@ module.exports = function(config) {
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
-      { pattern: 'www/app/app.html', included: false, served: true },
-      { pattern: 'www/index.html', included: false, served: true },
-
+      { pattern: 'www/test/stub.html', included: false, served: true },
 
       'test-main.js'
     ],
@@ -75,7 +73,7 @@ module.exports = function(config) {
     //           Also any files you want to serve need to be in the files array above with serverd: true
     proxies: {
     //  '/app/': '/base/www/app/'
-      '/app/app.html': '/base/www/index.html'
+      '/app/app.html': '/base/www/test/stub.html' // just to avoid 404
     },
 
     // level of logging
