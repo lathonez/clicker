@@ -6,14 +6,7 @@
 </ion-navbar>
 
 <ion-content padding>
-  <ion-row>
-    <ion-col width-80>
-      <ion-input block><input #newclicker type="text" placeholder="New Clicker"></ion-input>
-    </ion-col>
-    <ion-col>
-      <button block secondary outline (click)="newClicker(newclicker.value)"><icon add-circle></icon></button>
-    </ion-col>
-  </ion-row>
+  <clicker-form></clicker-form>
   <ion-row *ngFor="#clicker of clickerService.getClickers()">
     <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>
     <ion-col>

@@ -18,7 +18,7 @@ export class ClickerButton {
 
   private clickerService: Clickers;
 
-  constructor(clickers: Clickers) {
-    this.clickerService = clickers;
+  constructor(clickerService: Clickers) {
+    this.clickerService = clickerService;
   }
 }

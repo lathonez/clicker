@@ -3,11 +3,12 @@
 import { Page, NavController } from 'ionic-framework/ionic';
 import { Clickers } from '../../services/clickers';
 import { ClickerButton } from '../../components/clickerButton/clickerButton';
+import { ClickerForm } from '../../components/clickerForm/clickerForm';
 
 @Page({
   templateUrl: 'app/pages/clickerList/clickerList.html',
   providers: [Clickers],
-  directives: [ClickerButton],
+  directives: [ClickerButton, ClickerForm],
 })
 
 export class ClickerList {
@@ -20,16 +21,5 @@ export class ClickerList {
     this.nav = nav;
     this.clickerService = clickerService;
     this.title = 'Clickers';
-  }
-
-  public newClicker(name: string) {
-    if (!name) {
-      // TODO - validate
-      return false;
-    }
-
-    this.clickerService.newClicker(name);
-
-    // TODO - clear text on input field
   }
 }
