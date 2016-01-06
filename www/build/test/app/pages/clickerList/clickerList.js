@@ -17,12 +17,12 @@ var ClickerList = (function () {
         this.clickerService = clickerService;
         this.title = 'Clickers';
     }
-    ClickerList.prototype.newClicker = function (id) {
-        if (!id) {
+    ClickerList.prototype.newClicker = function (name) {
+        if (!name) {
             // TODO - validate
             return false;
         }
-        this.clickerService.newClicker(id);
+        this.clickerService.newClicker(name);
         // TODO - clear text on input field
     };
     ClickerList = __decorate([
