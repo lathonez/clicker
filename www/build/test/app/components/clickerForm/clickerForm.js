@@ -11,21 +11,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var clickers_1 = require('../../services/clickers');
 var ionic_1 = require('ionic-framework/ionic');
-var ClickerButton = (function () {
-    function ClickerButton(clickerService) {
+var ClickerForm = (function () {
+    function ClickerForm(clickerService, fb) {
         this.clickerService = clickerService;
+        this.clickerForm = fb.group({
+            clicker: ['newClicker', angular2_1.Validators.required]
+        });
     }
-    ClickerButton = __decorate([
+    ClickerForm.prototype.newClicker = function (name) {
+        if (!name) {
+            // TODO - validate
+            return false;
+        }
+        this.clickerService.newClicker(name);
+        // TODO - clear text on input field
+    };
+    ClickerForm = __decorate([
         angular2_1.Component({
-            selector: 'clicker-button',
-            inputs: ['clicker: clicker'],
+            selector: 'clicker-form'
         }),
         angular2_1.View({
-            templateUrl: 'app/components/clickerButton/clickerButton.html',
-            directives: [ionic_1.Button],
+            templateUrl: 'app/components/clickerForm/clickerForm.html',
+            directives: [ionic_1.Button, ionic_1.Icon, ionic_1.TextInputElement, ionic_1.TextInput],
         }), 
-        __metadata('design:paramtypes', [clickers_1.Clickers])
-    ], ClickerButton);
-    return ClickerButton;
+        __metadata('design:paramtypes', [clickers_1.Clickers, angular2_1.FormBuilder])
+    ], ClickerForm);
+    return ClickerForm;
 })();
-exports.ClickerButton = ClickerButton;
+exports.ClickerForm = ClickerForm;

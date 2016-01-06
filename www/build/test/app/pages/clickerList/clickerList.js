@@ -11,25 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_1 = require('ionic-framework/ionic');
 var clickers_1 = require('../../services/clickers');
 var clickerButton_1 = require('../../components/clickerButton/clickerButton');
+var clickerForm_1 = require('../../components/clickerForm/clickerForm');
 var ClickerList = (function () {
     function ClickerList(nav, clickerService) {
         this.nav = nav;
         this.clickerService = clickerService;
         this.title = 'Clickers';
     }
-    ClickerList.prototype.newClicker = function (name) {
-        if (!name) {
-            // TODO - validate
-            return false;
-        }
-        this.clickerService.newClicker(name);
-        // TODO - clear text on input field
-    };
     ClickerList = __decorate([
         ionic_1.Page({
             templateUrl: 'app/pages/clickerList/clickerList.html',
             providers: [clickers_1.Clickers],
-            directives: [clickerButton_1.ClickerButton],
+            directives: [clickerButton_1.ClickerButton, clickerForm_1.ClickerForm],
         }), 
         __metadata('design:paramtypes', [ionic_1.NavController, clickers_1.Clickers])
     ], ClickerList);
