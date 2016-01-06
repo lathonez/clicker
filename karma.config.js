@@ -72,8 +72,10 @@ module.exports = function(config) {
     // GOTCHA -- Karma proxies _everything_ through base first..
     //           Also any files you want to serve need to be in the files array above with serverd: true
     proxies: {
-    //  '/app/': '/base/www/app/'
-      '/app/app.html': '/base/www/test/stub.html' // just to avoid 404
+      // '/app/': '/base/www/app/'
+      '/app/app.html': '/base/www/test/stub.html'
+      // ^^ no matter what we serve back from this we randomly get EXCEPTION: The selector "ion-app" did not match any elements
+      // so we ust need to live with the 404s for now - will have to fix it eventually
     },
 
     // level of logging
