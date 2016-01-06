@@ -15,7 +15,7 @@ var ionic_1 = require('ionic-framework/ionic');
 var Clickers = (function () {
     function Clickers() {
         var _this = this;
-        this.storage = new ionic_1.SqlStorage(); // typeof SqlStorage is not assignable to type StorageEngine seems to be an ionic issue
+        this.storage = Clickers.initStorage(); // typeof SqlStorage is not assignable to type StorageEngine seems to be an ionic issue
         this.ids = [];
         this.clickers = [];
         this.initIds()
@@ -62,6 +62,9 @@ var Clickers = (function () {
             newClicker.addClick(new click_1.Click(click.time, click.location));
         }
         return newClicker;
+    };
+    Clickers.initStorage = function () {
+        return new ionic_1.SqlStorage();
     };
     Clickers.prototype.getClicker = function (id) {
         return this.clickers.find(function (clicker) { return clicker.getId() === id; });
