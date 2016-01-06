@@ -30,7 +30,7 @@ module.exports = function(config) {
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
-      { pattern: 'www/test/stub.html', included: false, served: true },
+      // { pattern: 'www/test/stub.html', included: false, served: true },
 
       'test-main.js'
     ],
