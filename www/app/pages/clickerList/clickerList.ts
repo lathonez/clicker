@@ -22,13 +22,13 @@ export class ClickerList {
     this.title = 'Clickers';
   }
 
-  public newClicker(id) {
-    if (!id) {
+  public newClicker(name: string) {
+    if (!name) {
       // TODO - validate
       return false;
     }
 
-    this.clickerService.newClicker(id);
+    this.clickerService.newClicker(name);
 
     // TODO - clear text on input field
   }
