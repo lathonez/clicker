@@ -31,6 +31,8 @@ module.exports = function(config) {
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
       { pattern: 'www/app/app.html', included: false, served: true },
+      { pattern: 'www/index.html', included: false, served: true },
+
 
       'test-main.js'
     ],
@@ -72,7 +74,8 @@ module.exports = function(config) {
     // GOTCHA -- Karma proxies _everything_ through base first..
     //           Also any files you want to serve need to be in the files array above with serverd: true
     proxies: {
-      '/app/': '/base/www/app/'
+    //  '/app/': '/base/www/app/'
+      '/app/app.html': '/base/www/index.html'
     },
 
     // level of logging
