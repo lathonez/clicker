@@ -28,11 +28,30 @@ function storageGetStub(key) {
   });
 }
 
+function storageSetStub(key, value) {
+  return new Promise((resolve) => {
+    resolve(true);
+  });
+}
+
+function storageRemoveStub(key) {
+    return new Promise((resolve) => {
+    resolve(true);
+  });
+}
+
+let mockSqlStorage = {
+  get: storageGetStub,
+  set: storageSetStub,
+  remove: storageRemoveStub,
+};
+
 export function main() {
 
   describe('Clickers', () => {
 
     beforeEach(function() {
+      spyOn(Clickers, 'initStorage').and.returnValue(mockSqlStorage);
       clickers = new Clickers();
       spyOn(clickers.storage, 'set');
     });
@@ -42,7 +61,6 @@ export function main() {
     });
 
     it('has empty ids with no storage', (done) => {
-      spyOn(clickers.storage, 'get').and.callFake(storageGetStub);
       (<any>clickers).initIds()
         .then(() => {
           expect(clickers.getClickers()).toEqual([]);
@@ -92,8 +110,6 @@ export function main() {
     });
 
     it('loads IDs from storage', (done) => {
-      spyOn(clickers.storage, 'get').and.callFake(storageGetStub);
-
       (<any>clickers).initIds()
         .then((ids) => {
           expect(ids).toEqual(CLICKER_IDS);
@@ -102,8 +118,6 @@ export function main() {
     });
 
     it('loads clickers from storage', (done) => {
-      spyOn(clickers.storage, 'get').and.callFake(storageGetStub);
-
       (<any>clickers).initClickers(CLICKER_IDS)
         .then((resolvedClickers) => {
           expect(resolvedClickers.length).toEqual(3);

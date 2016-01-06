@@ -1,5 +1,4 @@
 import { ClickerButton } from '../../../app/components/clickerButton/clickerButton';
-import { Clickers } from '../../../app/services/clickers';
 
 let clickerButton = null;
 
@@ -8,7 +7,7 @@ export function main() {
   describe('ClickerButton', () => {
 
     beforeEach(function() {
-      clickerButton = new ClickerButton(new Clickers());
+      clickerButton = new ClickerButton(null);
     });
 
     it('initialises', () => {

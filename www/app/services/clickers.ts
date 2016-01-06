@@ -13,7 +13,7 @@ export class Clickers {
   private storage: SqlStorage;
 
   constructor() {
-    this.storage = new SqlStorage(); // typeof SqlStorage is not assignable to type StorageEngine seems to be an ionic issue
+    this.storage = Clickers.initStorage(); // typeof SqlStorage is not assignable to type StorageEngine seems to be an ionic issue
     this.ids = [];
     this.clickers = [];
     this.initIds()
@@ -61,6 +61,10 @@ export class Clickers {
     }
 
     return newClicker;
+  }
+
+  private static initStorage() {
+    return new SqlStorage();
   }
 
   public getClicker(id) {
