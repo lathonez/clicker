@@ -60,6 +60,10 @@ export function main() {
       expect(clickers.getClickers()).toEqual([]);
     });
 
+    it('creates an instance of SqlStorage', () => {
+      expect((<any>Clickers).initStorage()).toEqual(mockSqlStorage);
+    });
+
     it('has empty ids with no storage', (done) => {
       (<any>clickers).initIds()
         .then(() => {
