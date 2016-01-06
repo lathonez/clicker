@@ -22,11 +22,12 @@ export class ClickerForm {
     this.clickerService = clickerService;
 
     this.clickerForm = fb.group({
-      clicker: ['newClicker', Validators.required]
+      clickerName: ['', Validators.required]
     });
   }
 
   public newClicker(name: string) {
+
     if (!name) {
       // TODO - validate
       return false;
