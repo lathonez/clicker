@@ -8,7 +8,13 @@ export function main() {
 
     it('initialises with defaults', () => {
       let click = new Click();
-      expect(click.getTime()).toBeCloseTo(new Date().getTime(), 2);
+
+      // toString() prints out something like "Thu Jan 07 2016 14:05:14 GMT+1300 (NZDT)"
+      // comparing millis directly sometimes fails test (as it will be one milli too late!)
+      let currentDateString = new Date().toString();
+      let defaultDateString = new Date(click.getTime()).toString();
+
+      expect(currentDateString).toEqual(defaultDateString);
       expect(click.getLocation()).toEqual('TODO');
     });
 
