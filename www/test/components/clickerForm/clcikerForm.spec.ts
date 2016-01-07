@@ -23,9 +23,11 @@ export function main() {
     });
 
     it('passes new clicker through to service', () => {
-      clickerForm.newClicker('dave');
-      expect(clickerForm.newClicker).toHaveBeenCalledWith('dave');
-      expect(mockClickers.newClicker).toHaveBeenCalledWith('dave');
+      let clickerName = 'dave';
+      clickerForm.clickerName.updateValue(clickerName, true);
+      clickerForm.newClicker({clickerName: clickerName});
+      expect(clickerForm.newClicker).toHaveBeenCalledWith(Object({ clickerName: clickerName }));
+      expect(mockClickers.newClicker).toHaveBeenCalledWith(clickerName);
     });
 
     it('doesn\'t try to add a clicker with no name', () => {

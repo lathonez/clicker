@@ -1,6 +1,6 @@
 'use strict';
 
-import { Component, ControlGroup, FormBuilder, Validators, View } from 'angular2/angular2';
+import { AbstractControl, Component, ControlGroup, FormBuilder, Validators, View } from 'angular2/angular2';
 import { Clickers } from '../../services/clickers';
 import { Button, Icon, TextInputElement, TextInput } from 'ionic-framework/ionic';
 
@@ -17,6 +17,7 @@ export class ClickerForm {
 
   private clickerService: Clickers;
   private clickerForm: ControlGroup;
+  private clickerName: AbstractControl;
 
   constructor(clickerService: Clickers, fb: FormBuilder) {
     this.clickerService = clickerService;
@@ -24,16 +25,25 @@ export class ClickerForm {
     this.clickerForm = fb.group({
       clickerName: ['', Validators.required]
     });
+
+    this.clickerName = this.clickerForm.controls['clickerName'];
   }
 
-  public newClicker(name: string) {
+  public newClicker(formValue: Object) {
 
-    if (!name) {
-      // TODO - validate
+    let clickerName = null;
+
+    // need to mark the clickerName control as touched so validation
+    // will apply after the user has tried to add a clicker
+    this.clickerName.markAsTouched();
+
+    if (!this.clickerName.valid) {
       return false;
     }
 
-    this.clickerService.newClicker(name);
+    clickerName = formValue['clickerName'];
+
+    this.clickerService.newClicker(clickerName);
 
     // TODO - clear text on input field
   }
