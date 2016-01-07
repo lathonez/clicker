@@ -17,13 +17,18 @@ var ClickerForm = (function () {
         this.clickerForm = fb.group({
             clickerName: ['', angular2_1.Validators.required]
         });
+        this.clickerName = this.clickerForm.controls['clickerName'];
     }
-    ClickerForm.prototype.newClicker = function (name) {
-        if (!name) {
-            // TODO - validate
+    ClickerForm.prototype.newClicker = function (formValue) {
+        var clickerName = null;
+        // need to mark the clickerName control as touched so validation
+        // will apply after the user has tried to add a clicker
+        this.clickerName.markAsTouched();
+        if (!this.clickerName.valid) {
             return false;
         }
-        this.clickerService.newClicker(name);
+        clickerName = formValue['clickerName'];
+        this.clickerService.newClicker(clickerName);
         // TODO - clear text on input field
     };
     ClickerForm = __decorate([
