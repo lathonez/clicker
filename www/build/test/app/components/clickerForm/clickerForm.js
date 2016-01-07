@@ -15,7 +15,7 @@ var ClickerForm = (function () {
     function ClickerForm(clickerService, fb) {
         this.clickerService = clickerService;
         this.clickerForm = fb.group({
-            clicker: ['newClicker', angular2_1.Validators.required]
+            clickerName: ['', angular2_1.Validators.required]
         });
     }
     ClickerForm.prototype.newClicker = function (name) {
