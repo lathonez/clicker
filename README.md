@@ -17,7 +17,7 @@ npm start         # start the application
 * ~~tslint / eshint~~
 * ~~travis~~
 * ~~convert clickers to use map? - doesn't make sense as we need to persist it anyway and you can't JSON.stringify a map~~
-* full test coverage
+* ~~full test coverage~~
 * finish README (better description, ~~install from scratch~~)
 * licence
 

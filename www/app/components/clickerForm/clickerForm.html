@@ -1,8 +1,8 @@
-<form [ngFormModel]="clickerForm" (submit)="newClicker(clickerForm.value)">
+<form [ngFormModel]="form" (submit)="newClicker(form.value)">
   <ion-row>
     <ion-col width-80>
       <ion-input block>
-      	<input ngControl="clickerName" type="text" placeholder="New Clicker">
+      	<input ngControl="clickerNameInput" type="text" placeholder="New Clicker">
       </ion-input>
     </ion-col>
     <ion-col>

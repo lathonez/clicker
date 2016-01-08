@@ -3,6 +3,7 @@
 import { AbstractControl, Component, ControlGroup, FormBuilder, Validators, View } from 'angular2/angular2';
 import { Clickers } from '../../services/clickers';
 import { Button, Icon, TextInputElement, TextInput } from 'ionic-framework/ionic';
+import { Utils } from '../../services/utils';
 
 @Component({
   selector: 'clicker-form'
@@ -16,35 +17,32 @@ import { Button, Icon, TextInputElement, TextInput } from 'ionic-framework/ionic
 export class ClickerForm {
 
   private clickerService: Clickers;
-  private clickerForm: ControlGroup;
-  private clickerName: AbstractControl;
+  private form: ControlGroup;
+  private clickerNameInput: AbstractControl;
 
   constructor(clickerService: Clickers, fb: FormBuilder) {
     this.clickerService = clickerService;
 
-    this.clickerForm = fb.group({
-      clickerName: ['', Validators.required]
+    this.form = fb.group({
+      clickerNameInput: ['', Validators.required]
     });
 
-    this.clickerName = this.clickerForm.controls['clickerName'];
+    this.clickerNameInput = this.form.controls['clickerNameInput'];
   }
 
   public newClicker(formValue: Object) {
 
-    let clickerName = null;
-
     // need to mark the clickerName control as touched so validation
     // will apply after the user has tried to add a clicker
-    this.clickerName.markAsTouched();
+    this.clickerNameInput.markAsTouched();
 
-    if (!this.clickerName.valid) {
+    if (!this.clickerNameInput.valid) {
       return false;
     }
 
-    clickerName = formValue['clickerName'];
+    this.clickerService.newClicker(formValue['clickerNameInput']);
 
-    this.clickerService.newClicker(clickerName);
-
-    // TODO - clear text on input field
+    // reset the value of the contorl and all validation / state
+    this.clickerNameInput = Utils.resetControl(this.clickerNameInput);
   }
 }
