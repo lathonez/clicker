@@ -11,25 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var clickers_1 = require('../../services/clickers');
 var ionic_1 = require('ionic-framework/ionic');
+var utils_1 = require('../../services/utils');
 var ClickerForm = (function () {
     function ClickerForm(clickerService, fb) {
         this.clickerService = clickerService;
-        this.clickerForm = fb.group({
-            clickerName: ['', angular2_1.Validators.required]
+        this.form = fb.group({
+            clickerNameInput: ['', angular2_1.Validators.required]
         });
-        this.clickerName = this.clickerForm.controls['clickerName'];
+        this.clickerNameInput = this.form.controls['clickerNameInput'];
     }
     ClickerForm.prototype.newClicker = function (formValue) {
-        var clickerName = null;
         // need to mark the clickerName control as touched so validation
         // will apply after the user has tried to add a clicker
-        this.clickerName.markAsTouched();
-        if (!this.clickerName.valid) {
+        this.clickerNameInput.markAsTouched();
+        if (!this.clickerNameInput.valid) {
             return false;
         }
-        clickerName = formValue['clickerName'];
-        this.clickerService.newClicker(clickerName);
-        // TODO - clear text on input field
+        this.clickerService.newClicker(formValue['clickerNameInput']);
+        // reset the value of the contorl and all validation / state
+        this.clickerNameInput = utils_1.Utils.resetControl(this.clickerNameInput);
     };
     ClickerForm = __decorate([
         angular2_1.Component({
