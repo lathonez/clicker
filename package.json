@@ -1,13 +1,13 @@
 {
   "dependencies": {
-    "angular2": "2.0.0-alpha.52",
+    "angular2": "2.0.0-beta.3",
     "codecov.io": "^0.1.6",
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.13",
-    "ionic-framework": "2.0.0-alpha.42",
+    "ionic-framework": "2.0.0-beta.0",
     "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-alpha.14",
-    "zone.js": "0.5.8"
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.11"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^0.15.9",
@@ -44,5 +44,10 @@
   "cordovaPlugins": [
     "cordova-sqlite-storage"
   ],
-  "cordovaPlatforms": ["android"]
+  "cordovaPlatforms": ["android"],
+  "license": "MIT",
+  "repository" :{
+    "type" : "git",
+    "url" : "https://github.com/lathonez/clicker.git"
+	}
 }
