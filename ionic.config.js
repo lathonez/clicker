@@ -14,7 +14,7 @@ module.exports = {
       dest: 'www/build/test'
     },
     sass: {
-      src: ['app/app.+(ios|md).scss'],
+      src: ['app/theme/app.+(ios|md).scss'],
       dest: 'www/build/css',
       include: [
         'node_modules/ionic-framework',
@@ -22,7 +22,7 @@ module.exports = {
       ]
     },
     fonts: {
-      src: ['node_modules/ionic-framework/fonts/**/*.{ttf,woff,woff2}'],
+      src: ['node_modules/ionic-framework/fonts/**/*.+(ttf|woff|woff2)'],
       dest: "www/build/fonts"
     },
     watch: {
