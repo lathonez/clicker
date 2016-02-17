@@ -1,19 +1,16 @@
-var path = require('path');
-var paths = require('./ionic.config').paths;
-
+var path    = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'es6-shim/es6-shim.min',
+    path.normalize('es6-shim/es6-shim.min'),
     'reflect-metadata',
-    'web-animations.min',
-    'zone.js',
-    path.join(__dirname, paths.wwwDir, paths.appDir, paths.appSrcModule)
+    path.normalize('zone.js/dist/zone-microtask'),
+    path.resolve('app/app')
   ],
   output: {
-    path: path.join(__dirname, paths.wwwDir, paths.buildDir, paths.buildJSDir),
-    filename: paths.appBuildBundle,
-    publicPath: path.join(paths.buildDir, paths.buildJSDir),
+    path: path.resolve('www/build/js'),
+    filename: 'app.bundle.js',
     pathinfo: false // show module paths in the bundle, handy for debugging
   },
   module: {
@@ -22,22 +19,28 @@ module.exports = {
         test: /\.ts$/,
         loader: 'awesome-typescript',
         query: {
-          'doTypeCheck': false
+          'doTypeCheck': true
         },
-        include: [path.join(__dirname, paths.wwwDir)],
+        include: path.resolve('app'),
         exclude: /node_modules/
       },
       {
         test: /\.js$/,
-        include: /node_modules\/angular2/,
+        include: path.resolve('node_modules/angular2'),
         loader: 'strip-sourcemap'
       }
+    ],
+    noParse: [
+      /es6-shim/,
+      /reflect-metadata/,
+      /zone\.js(\/|\\)dist(\/|\\)zone-microtask/
     ]
   },
   resolve: {
     alias: {
-      'web-animations.min': 'ionic-framework/js/web-animations.min',
+      'angular2': path.resolve('node_modules/angular2'),
+      'ionic': 'ionic-framework',
     },
-    extensions: ["", ".js", ".ts"]
+    extensions: ['', '.js', '.ts']
   }
 };

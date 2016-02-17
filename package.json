@@ -5,6 +5,7 @@
     "es6-promise": "^3.0.2",
     "es6-shim": "0.33.13",
     "ionic-framework": "2.0.0-beta.0",
+    "ionicons": "3.0.0-alpha.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.11"
@@ -27,25 +28,26 @@
     "karma-systemjs": "^0.10.0",
     "strip-sourcemap-loader": "0.0.1",
     "systemjs": "^0.19.15",
-    "traceur": "0.0.102",
+    "traceur": "0.0.93",
     "tslint": "^3.2.1",
     "tslint-eslint-rules": "^1.0.1",
-    "typescript": "^1.8.0"
+    "typescript": "^1.8.0",
+    "webpack": "^1.12.11"
   },
   "name": "clicker",
   "description": "clicker: An Ionic project",
-  "scripts": {
-    "start": "ionic serve",
-    "test": "gulp test",
-    "postinstall": "tsd install"
-  },
   "cordovaPlugins": [
     "cordova-sqlite-storage"
   ],
   "cordovaPlatforms": ["android"],
-  "license": "MIT",
-  "repository" :{
-    "type" : "git",
-    "url" : "https://github.com/lathonez/clicker.git"
-	}
+  "scripts": {
+    "postinstall": "tsd install",
+    "start": "ionic serve",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lathonez/clicker.git"
+  },
+  "license": "MIT"
 }

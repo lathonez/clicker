@@ -6,7 +6,7 @@ import { ClickerButton } from '../../components/clickerButton/clickerButton';
 import { ClickerForm } from '../../components/clickerForm/clickerForm';
 
 @Page({
-  templateUrl: 'app/pages/clickerList/clickerList.html',
+  templateUrl: 'build/pages/clickerList/clickerList.html',
   providers: [Clickers],
   directives: [ClickerButton, ClickerForm],
 })

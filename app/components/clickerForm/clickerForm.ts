@@ -11,7 +11,7 @@ import { Utils } from '../../services/utils';
 })
 
 @View({
-  templateUrl: 'app/components/clickerForm/clickerForm.html',
+  templateUrl: 'build/components/clickerForm/clickerForm.html',
   directives: [Button, Icon, Item, Label, TextInput],
 })
 

@@ -10,7 +10,7 @@ import { Button } from 'ionic-framework/ionic';
 })
 
 @View({
-  templateUrl: 'app/components/clickerButton/clickerButton.html',
+  templateUrl: 'build/components/clickerButton/clickerButton.html',
   directives: [Button],
 })
 

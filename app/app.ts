@@ -5,7 +5,7 @@ import { ClickerList } from './pages/clickerList/clickerList';
 import { Page2 } from './pages/page2/page2';
 
 @App({
-  templateUrl: 'app/app.html'
+  templateUrl: 'build/app.html'
 })
 export class ClickerApp {
 
@@ -13,14 +13,13 @@ export class ClickerApp {
   public pages: Array<Object>;
   public rootPage; // Ionic page definition takes any class type
 
-  constructor(app: IonicApp, platform: Platform) {
+  constructor(platform: Platform) {
     this.pages = [
       { title: 'Clickers', component: ClickerList },
       { title: 'Goodbye Ionic', component: Page2 },
     ];
 
     this.rootPage = ClickerList;
-    this.app = app;
 
     platform.ready().then(() => {
       // Do any necessary cordova or native calls here now that the platform is ready
