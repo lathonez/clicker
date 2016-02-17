@@ -13,7 +13,7 @@
   },
   "files": [
     "typings/tsd.d.ts",
-    "www/app/app.ts"
+    "app/app.ts"
   ],
   "exclude": [
     "node_modules"
