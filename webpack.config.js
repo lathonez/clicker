@@ -1,5 +1,5 @@
-var path    = require('path');
-var webpack = require('webpack');
+var path = require('path');
+
 
 module.exports = {
   entry: [
@@ -37,10 +37,12 @@ module.exports = {
     ]
   },
   resolve: {
+    root: [
+      'app'
+    ],
     alias: {
-      'angular2': path.resolve('node_modules/angular2'),
-      'ionic': 'ionic-framework',
+      'angular2': path.resolve('node_modules/angular2')
     },
-    extensions: ['', '.js', '.ts']
+    extensions: ["", ".js", ".ts"]
   }
 };
