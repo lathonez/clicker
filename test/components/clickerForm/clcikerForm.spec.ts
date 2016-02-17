@@ -1,6 +1,6 @@
 import { ClickerForm } from '../../../app/components/clickerForm/clickerForm';
 import { Clickers } from '../../../app/services/clickers';
-import { FormBuilder } from 'angular2/angular2';
+import { FormBuilder } from 'angular2/common';
 import { Utils } from '../../../app/services/utils';
 
 let clickerForm = null;

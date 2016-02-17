@@ -14,9 +14,7 @@ var karma = require('karma').Server;
 // typescript files are compiled individually and saved to www/build/test/ - delete them here
 gulp.task('test.clean', function() {
   // You can use multiple globbing patterns as you would with `gulp.src`
-  return del([
-    'www/build/test'
-  ]);
+  return del([config.paths.test.dest]);
 });
 
 // run tslint against all typescript
@@ -44,6 +42,7 @@ gulp.task('test.compile', ['test.clean'], function () {
 
   var tsResult = gulp.src([
     config.paths.test.app,
+    config.paths.test.spec,
     config.paths.test.typings
   ])
   .pipe(ts(tsOptions))

@@ -1,8 +1,9 @@
 'use strict';
 
-import { AbstractControl, Component, ControlGroup, FormBuilder, Validators, View } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
+import { AbstractControl, ControlGroup, FormBuilder, Validators } from 'angular2/common';
 import { Clickers } from '../../services/clickers';
-import { Button, Icon, TextInputElement, TextInput } from 'ionic-framework/ionic';
+import { Button, Icon, Item, Label, TextInput } from 'ionic-framework/ionic';
 import { Utils } from '../../services/utils';
 
 @Component({
@@ -11,7 +12,7 @@ import { Utils } from '../../services/utils';
 
 @View({
   templateUrl: 'app/components/clickerForm/clickerForm.html',
-  directives: [Button, Icon, TextInputElement, TextInput],
+  directives: [Button, Icon, Item, Label, TextInput],
 })
 
 export class ClickerForm {

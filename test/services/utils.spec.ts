@@ -1,5 +1,5 @@
 import { Utils } from '../../app/services/utils';
-import { Control } from 'angular2/angular2';
+import { Control } from 'angular2/common';
 
 export function main() {
 

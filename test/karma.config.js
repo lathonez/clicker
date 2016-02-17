@@ -1,12 +1,12 @@
 // Karma configuration
 // Generated on Wed Jul 15 2015 09:44:02 GMT+0200 (Romance Daylight Time)
-'use strict';
 
 module.exports = function(config) {
+  'use strict';
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: './',
+    basePath: '../',
 
 
     // frameworks to use
@@ -32,7 +32,7 @@ module.exports = function(config) {
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
       // { pattern: 'www/test/stub.html', included: false, served: true },
 
-      'test-main.js'
+      'test/test-main.js'
     ],
 
 
@@ -45,7 +45,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'www/build/test/app/**/*.js': 'coverage',
+      'www/build/test/**/*.js': 'coverage',
     },
 
     // options on how to report coverage:
@@ -72,10 +72,8 @@ module.exports = function(config) {
     // GOTCHA -- Karma proxies _everything_ through base first..
     //           Also any files you want to serve need to be in the files array above with serverd: true
     proxies: {
-      // '/app/': '/base/www/app/'
-      '/app/app.html': '/base/www/test/stub.html'
-      // ^^ no matter what we serve back from this we randomly get EXCEPTION: The selector "ion-app" did not match any elements
-      // so we ust need to live with the 404s for now - will have to fix it eventually
+      // allows us to keep test code separate from app code and still have the references work
+      '/base/www/build/app': '/base/www/build/test'
     },
 
     // level of logging

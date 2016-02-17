@@ -1,9 +1,9 @@
 <form [ngFormModel]="form" (submit)="newClicker(form.value)">
   <ion-row>
     <ion-col width-80>
-      <ion-input block>
-      	<input ngControl="clickerNameInput" type="text" placeholder="New Clicker">
-      </ion-input>
+      <ion-item>
+        <ion-input block [ngFormControl]="clickerNameInput" type="text" placeholder="New Clicker">
+      </ion-item>
     </ion-col>
     <ion-col>
       <button type="submit" block secondary outline><icon add-circle></icon></button>

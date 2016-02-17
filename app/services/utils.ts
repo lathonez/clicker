@@ -1,6 +1,6 @@
 'use strict';
 
-import { AbstractControl } from 'angular2/angular2';
+import { AbstractControl } from 'angular2/common';
 
 export class Utils {
 
