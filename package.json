@@ -39,7 +39,8 @@
   "description": "clicker: An Ionic project",
   "scripts": {
     "start": "ionic serve",
-    "test": "gulp test"
+    "test": "gulp test",
+    "postinstall": "tsd install"
   },
   "cordovaPlugins": [
     "cordova-sqlite-storage"

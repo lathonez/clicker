@@ -9,84 +9,7 @@ var path = require('path');
 var config = require('./ionic.config');
 var ts = require('gulp-typescript');
 var tslint = require('gulp-tslint');
-var Server = require('karma').Server;
-
-
-/******************************************************************************
- * gulp watch
- * Build the styles, and rebuild when source files change.
- ******************************************************************************/
-gulp.task('watch', ['sass', 'fonts'], function(done) {
-  var watch = require('gulp-watch');
-  var sassFiles = path.join(config.paths.wwwDir, config.paths.appDir, config.paths.appSassWatch);
-  watch(sassFiles, function(){
-    gulp.start('sass');
-  });
-});
-
-
-/******************************************************************************
- * gulp build
- * Build the styles once, without watching for source file changes.
- ******************************************************************************/
-gulp.task('build', ['sass', 'fonts']);
-
-
-/******************************************************************************
- * gulp sass
- * Convert Sass files to a single bundled CSS file. Uses auto-prefixer
- * to automatically add required vendor prefixes when needed.
- ******************************************************************************/
-gulp.task('sass', function(){
-  var sass = require('gulp-sass');
-  var autoprefixer = require('gulp-autoprefixer');
-
-  var sassSrcFiles = [];
-  config.paths.appSassSrc.forEach(function(sassSrc) {
-    sassSrcFiles.push( path.join(config.paths.wwwDir, config.paths.appDir, sassSrc) );
-  });
-
-  gulp.src(sassSrcFiles)
-    .pipe(sass({
-      includePaths: [path.join(config.paths.ionicDir, config.paths.ionicSassDir)],
-    }))
-    .on('error', function(err){
-      console.error(err.message);
-      this.emit('end');
-    })
-    .pipe(autoprefixer(config.autoPrefixerOpts))
-    .pipe(gulp.dest(
-      path.join(config.paths.wwwDir, config.paths.buildDir, config.paths.buildCSSDir)
-    ));
-});
-
-
-/******************************************************************************
- * gulp fonts
- * Copy Ionic font files to build directory.
- ******************************************************************************/
-gulp.task('fonts', function() {
-  return gulp.src(path.join(config.paths.ionicDir, config.paths.ionicFontFiles))
-         .pipe(gulp.dest(path.join(config.paths.wwwDir, config.paths.buildDir, config.paths.buildFontsDir)));
-});
-
-
-/******************************************************************************
- * gulp clean
- * Delete previous build files.
- ******************************************************************************/
-gulp.task('clean', function(done) {
-  var del = require('del');
-  del([config.paths.buildDir], done);
-});
-
-
-/******************************************************************************
- * Code above is directly from `ionic start --v2` webpack config
- * Code below is for testing and is separate from the ionic workflow (at the moment)
- * All testing tasks are prefixed with "test"
- ******************************************************************************/
-
+var karma = require('karma').Server;
 
 // typescript files are compiled individually and saved to www/build/test/ - delete them here
 gulp.task('test.clean', function() {
@@ -98,9 +21,9 @@ gulp.task('test.clean', function() {
 
 // run tslint against all typescript
 gulp.task('test.lint', function () {
-  gulp.src('www/**/*.ts')
+  gulp.src(config.paths.test.app)
     .pipe(tslint())
-    .pipe(tslint.report('verbose'))
+    .pipe(tslint.report('verbose'));
 });
 
 // compile typescript into indivudal files, project directoy structure is replicated under www/build/test
@@ -120,20 +43,24 @@ gulp.task('test.compile', ['test.clean'], function () {
   };
 
   var tsResult = gulp.src([
-    'www/**/*.ts'
+    config.paths.test.app,
+    config.paths.test.typings
   ])
-    .pipe(ts(tsOptions))
-    .pipe(gulp.dest(
-      path.join(config.paths.wwwDir, config.paths.buildDir, 'test')
-    )
-  );
+  .pipe(ts(tsOptions))
+  .pipe(gulp.dest(config.paths.test.dest));
 
   return tsResult;
 });
 
 // run jasmine unit tests using karma - lint and compile are run in parallel
-gulp.task('test', ['test.lint', 'test.compile'], function(done) {
-  new Server({
-    configFile: __dirname + '/karma.config.js',
-  }, done).start();
+gulp.task('test', ['test.lint', 'test.compile'], function() {
+  karma.start({
+    configFile: __dirname + '/' + config.paths.test.config,
+  }, function(karmaExitCode) {
+    // https://github.com/meanjs/mean/issues/873
+    // there are some issues with karma hanging for 30 seconds when invoked by gulp..
+    // process.exit is dirty enough but does the trick for now
+    console.log('karma exited with ' + karmaExitCode);
+    process.exit(karmaExitCode);
+  });
 });

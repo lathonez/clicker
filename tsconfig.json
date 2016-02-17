@@ -12,6 +12,7 @@
     "inlineSources": false
   },
   "files": [
+    "typings/tsd.d.ts",
     "www/app/app.ts"
   ],
   "exclude": [
