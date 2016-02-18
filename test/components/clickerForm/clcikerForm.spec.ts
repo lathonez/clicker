@@ -20,7 +20,7 @@ export function main() {
     });
 
     it('initialises', () => {
-      expect(clickerForm).toBeDefined();
+      expect(clickerForm).not.toBeNull();
     });
 
     it('passes new clicker through to service', () => {
@@ -102,8 +102,6 @@ export function main() {
 //         .then((componentFixture: ComponentFixture) => {
 //           clickerFormFixture = componentFixture;
 //           clickerForm = componentFixture.componentInstance;
-//           window['fixture'] = clickerFormFixture;
-//           window['testUtils'] = TestUtils;
 //           spyOn(clickerForm, 'newClicker').and.callThrough();
 //           spyOn(clickerForm['clickerService'], 'newClicker').and.callThrough();
 //         })
