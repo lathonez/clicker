@@ -15,7 +15,11 @@ export class Utils {
   // http://stackoverflow.com/questions/33084280/how-to-reset-control-value
   public static resetControl(control: AbstractControl): AbstractControl {
     control['updateValue']('');
-    control.setErrors(null);
+    control['_touched'] = false;
+    control['_untouched'] = true;
+    control['_pristine'] = true;
+    control['_dirty'] = false;
+    // control.setErrors(null);
     return control;
   }
 }
