@@ -11,7 +11,7 @@ export function main() {
     });
 
     it('initialises', () => {
-      expect(clickerList).toBeDefined();
+      expect(clickerList).not.toBeNull();
     });
   });
 }
