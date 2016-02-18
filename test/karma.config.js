@@ -30,7 +30,7 @@ module.exports = function(config) {
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
-      // { pattern: 'www/test/stub.html', included: false, served: true },
+      { pattern: 'www/build/test/**/*.html', included: false, served: true},
 
       'test/test-main.js'
     ],
@@ -39,7 +39,8 @@ module.exports = function(config) {
     // list of files to exclude
     exclude: [
       'node_modules/angular2/**/*_spec.js',
-      'node_modules/ionic-framework/**/*spec*'
+      'node_modules/ionic-framework/**/*spec*',
+      'node_modules/ionic-framework/decorators/app.js'
     ],
 
     // preprocess matching files before serving them to the browser
@@ -73,7 +74,9 @@ module.exports = function(config) {
     //           Also any files you want to serve need to be in the files array above with serverd: true
     proxies: {
       // allows us to keep test code separate from app code and still have the references work
-      '/base/www/build/app': '/base/www/build/test'
+      '/base/node_modules/ionic-framework/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
+      '/base/www/build/app': '/base/www/build/test',
+      '/build': '/base/www/build/test'
     },
 
     // level of logging
