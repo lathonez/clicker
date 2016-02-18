@@ -9,7 +9,7 @@ import { SqlStorage } from 'ionic-framework/ionic';
 export class Clickers {
 
   private clickers: Array<Clicker>;
-  private ids: Array<String>; // we need to keep a separate reference to ids so we can lookup when the app loads from scratch
+  private ids: Array<string>; // we need to keep a separate reference to ids so we can lookup when the app loads from scratch
   private storage: SqlStorage;
 
   constructor() {
@@ -17,7 +17,7 @@ export class Clickers {
     this.ids = [];
     this.clickers = [];
     this.initIds()
-      .then((ids: Array<String>) => { this.ids = ids; })
+      .then((ids: Array<string>) => { this.ids = ids; })
       .then(() => this.initClickers(this.ids))
       .then((clickers: Array<Clicker>) => this.clickers = clickers);
   }
@@ -29,7 +29,7 @@ export class Clickers {
       this.storage.get('ids') // return the promise so we can chain initClickers
         .then((rawIds: string) => {
           // ids are stored as stringified JSON array
-          ids = JSON.parse(String(rawIds)) || [];
+          ids = JSON.parse(rawIds) || [];
         })
         .then(() => resolve(ids));
     });
