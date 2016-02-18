@@ -66,6 +66,7 @@ export function main() {
 // }                        from 'ionic-framework/ionic';
 // import { ClickerForm }   from '../../../app/components/clickerForm/clickerForm';
 // import { Clickers }      from '../../../app/services/clickers';
+// import { TestUtils }     from '../../testUtils';
 // import { Utils }         from '../../../app/services/utils';
 
 // let clickerForm = null;
@@ -88,8 +89,8 @@ export function main() {
 //   describe('ClickerForm', () => {
 
 //     beforeEachProviders(() => [
-//       provide(Clickers, {useClass: MockClickers}),
 //       Form,
+//       provide(Clickers, {useClass: MockClickers}),
 //       provide(IonicApp, {useClass: MockClass}),
 //       provide(Platform, {useClass: MockClass}),
 //       provide(Config, {useClass: MockClass}),
@@ -101,6 +102,8 @@ export function main() {
 //         .then((componentFixture: ComponentFixture) => {
 //           clickerFormFixture = componentFixture;
 //           clickerForm = componentFixture.componentInstance;
+//           window['fixture'] = clickerFormFixture;
+//           window['testUtils'] = TestUtils;
 //           spyOn(clickerForm, 'newClicker').and.callThrough();
 //           spyOn(clickerForm['clickerService'], 'newClicker').and.callThrough();
 //         })
@@ -113,17 +116,22 @@ export function main() {
 
 //     it('passes new clicker through to service', () => {
 //       let clickerName = 'dave';
+//       let input = clickerFormFixture.nativeElement.querySelectorAll('.text-input')[0];
+//       let button = clickerFormFixture.nativeElement.querySelectorAll('button')[0];
 //       spyOn(Utils, 'resetControl').and.callThrough();
-//       clickerForm.clickerNameInput.updateValue(clickerName, true);
-//       clickerForm.newClicker({clickerNameInput: clickerName});
+//       input.value = clickerName;
+//       clickerFormFixture.detectChanges();
+//       // clickerForm.clickerNameInput.updateValue(clickerName, true);
+//       TestUtils.eventFire(input, 'input');
+//       TestUtils.eventFire(button, 'click');
 //       expect(clickerForm.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
 //       expect(clickerForm['clickerService'].newClicker).toHaveBeenCalledWith(clickerName);
 //       expect(Utils.resetControl).toHaveBeenCalledWith(clickerForm.clickerNameInput);
 //     });
 
 //     it('doesn\'t try to add a clicker with no name', () => {
-//       let rtn = clickerForm.newClicker();
-//       expect(rtn).toBe(false);
+//       let button = clickerFormFixture.nativeElement.querySelectorAll('button')[0];
+//       TestUtils.eventFire(button, 'click');
 //       expect(clickerForm.newClicker).toHaveBeenCalled();
 //       expect(clickerForm['clickerService'].newClicker).not.toHaveBeenCalled();
 //     });
