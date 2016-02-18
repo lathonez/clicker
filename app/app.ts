@@ -31,7 +31,7 @@ export class ClickerApp {
     ];
   }
 
-  private initializeApp() {
+  private initializeApp(): void {
     this.platform.ready().then(() => {
       // The platform is now ready. Note: if this callback fails to fire, follow
       // the Troubleshooting guide for a number of possible solutions:
@@ -50,7 +50,7 @@ export class ClickerApp {
     });
   }
 
-  public openPage(page) {
+  public openPage(page: any): void {
     // close the menu when clicking a link from the menu
     this.app.getComponent('leftMenu').close();
     // navigate to the new page if it is not the current page

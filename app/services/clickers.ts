@@ -23,11 +23,11 @@ export class Clickers {
   }
 
   // initialise Ids from SQL storage
-  private initIds() {
-    return new Promise((resolve) => {
-      let ids = [];
+  private initIds(): Promise<{}> {
+    return new Promise((resolve: Function) => {
+      let ids: Array<string> = [];
       this.storage.get('ids') // return the promise so we can chain initClickers
-        .then((rawIds) => {
+        .then((rawIds: string) => {
           // ids are stored as stringified JSON array
           ids = JSON.parse(String(rawIds)) || [];
         })
@@ -36,13 +36,13 @@ export class Clickers {
   }
 
   // initialise Clickers from SQL storage given an array of ids
-  private initClickers(ids) {
+  private initClickers(ids: Array<string>): Promise<{}> {
     // get all existing ids
-    return new Promise((resolve) => {
-      let clickers = [];
+    return new Promise((resolve: Function) => {
+      let clickers: Array<Clicker> = [];
       for (let id of ids) {
         this.storage.get(id)
-          .then((clicker) => {
+          .then((clicker: string) => {
             clickers.push(this.initClicker(clicker));
           });
       }
@@ -51,33 +51,33 @@ export class Clickers {
   }
 
   // initialise a clicker from a raw JSON string out of the DB
-  private initClicker(clicker) {
-    const parsedClicker = JSON.parse(clicker);
-    const newClicker = new Clicker(parsedClicker.id, parsedClicker.name);
+  private initClicker(clicker: string): Clicker {
+    const parsedClicker: Object = JSON.parse(clicker);
+    const newClicker: Clicker = new Clicker(parsedClicker['id'], parsedClicker['name']);
 
     // add the clicks - need to re-instantiate object
-    for (let click of parsedClicker.clicks) {
+    for (let click of parsedClicker['clicks']) {
       newClicker.addClick(new Click(click.time, click.location));
     }
 
     return newClicker;
   }
 
-  private static initStorage() {
+  private static initStorage(): SqlStorage {
     return new SqlStorage();
   }
 
-  public getClicker(id) {
-    return this.clickers.find(clicker => { return clicker.getId() === id; });
+  public getClicker(id: string): Clicker {
+    return this.clickers.find((clicker: Clicker) => { return clicker.getId() === id; } );
   }
 
-  public getClickers() {
+  public getClickers():  Array<Clicker> {
     return this.clickers;
   }
 
-  public newClicker(name) {
-    const id = this.uid();
-    const clicker = new Clicker(id, name);
+  public newClicker(name: string): string {
+    const id: string = this.uid();
+    const clicker: Clicker = new Clicker(id, name);
 
     // add the clicker to the service
     this.clickers.push(clicker);
@@ -91,13 +91,13 @@ export class Clickers {
     return id;
   }
 
-  public removeClicker(id) {
+  public removeClicker(id: string): void {
 
     // remove clicker from the service
-    this.clickers = this.clickers.filter(clicker => { return clicker.getId() !== id; });
+    this.clickers = this.clickers.filter((clicker: Clicker) => { return clicker.getId() !== id; });
 
     // remove from ids array
-    this.ids = this.ids.filter(filterId => { return filterId !== id; });
+    this.ids = this.ids.filter((filterId: string) => { return filterId !== id; });
 
     // null id in db
     this.storage.remove(id);
@@ -106,14 +106,14 @@ export class Clickers {
     this.storage.set('ids', JSON.stringify(this.ids));
   }
 
-  public doClick(id) {
-    const clicker = this.getClicker(id);
+  public doClick(id: string): void {
+    const clicker: Clicker = this.getClicker(id);
     clicker.doClick();
     // save the clicker with updated click in storage
     this.storage.set(clicker.getId(), JSON.stringify(clicker));
   }
 
-  private uid() {
+  private uid(): string {
     return Math.random().toString(35).substr(2, 10);
   }
 }

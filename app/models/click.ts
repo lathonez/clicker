@@ -10,11 +10,11 @@ export class Click {
     this.location = location || 'TODO';
   }
 
-  public getTime() {
+  public getTime(): number {
     return this.time;
   }
 
-  public getLocation() {
+  public getLocation(): string {
     return this.location;
   }
 }

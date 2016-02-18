@@ -77,7 +77,14 @@
       }
     ],
     "triple-equals": [true],
-    "typedef": [false],
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "property-declaration",
+      "variable-declaration",
+      "member-variable-declaration"
+    ],
     "typedef-whitespace": [
       true,
       {
@@ -88,7 +95,11 @@
         "variable-declaration": "nospace"
       }
     ],
-    "use-strict": [false],
+    "use-strict": [
+      true,
+      "check-module",
+      "check-function"
+    ],
     "variable-name": [
       true,
       "check-format",

@@ -15,23 +15,23 @@ export class Clicker {
     this.clicks = [];
   }
 
-  public doClick() {
+  public doClick(): void {
     this.clicks.push(new Click());
   }
 
-  public addClick(click: Click) {
+  public addClick(click: Click): void {
     this.clicks.push(click);
   }
 
-  public getCount() {
+  public getCount(): number {
     return this.clicks.length;
   }
 
-  public getId() {
+  public getId(): string {
     return this.id;
   }
 
-  public getName() {
+  public getName(): string {
     return this.name;
   }
 }

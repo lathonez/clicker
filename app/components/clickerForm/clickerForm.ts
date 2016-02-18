@@ -31,7 +31,7 @@ export class ClickerForm {
     this.clickerNameInput = this.form.controls['clickerNameInput'];
   }
 
-  public newClicker(formValue: Object) {
+  public newClicker(formValue: Object): boolean {
 
     // need to mark the clickerName control as touched so validation
     // will apply after the user has tried to add a clicker
@@ -45,5 +45,7 @@ export class ClickerForm {
 
     // reset the value of the contorl and all validation / state
     this.clickerNameInput = Utils.resetControl(this.clickerNameInput);
+
+    return true;
   }
 }
