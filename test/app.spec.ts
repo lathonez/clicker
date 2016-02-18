@@ -1,9 +1,10 @@
+import { TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} from 'angular2/platform/testing/browser';
+import { setBaseTestProviders } from 'angular2/testing';
+import { IonicApp, Platform }   from 'ionic-framework/ionic';
+import { ClickerApp }           from '../app/app';
 
-// bit of a hack (though we'd want to test app anyway at some point)
-// can't get includeAllSources to work in Karma: including the main app.ts does this implicitly
-
-import { IonicApp, Platform } from 'ionic-framework/ionic';
-import { ClickerApp } from '../app/app';
+// this needs doing _once_ for the entire test suite, hence it's here
+setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
 let clickerApp = null;
 
