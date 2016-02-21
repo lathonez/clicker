@@ -10,7 +10,6 @@ var config = require('./ionic.config');
 var ts = require('gulp-typescript');
 var tslint = require('gulp-tslint');
 var karma = require('karma').Server;
-var mkdirp = require('mkdirp');
 
 // typescript files are compiled individually and saved to www/build/test/ - delete them here
 gulp.task('test.clean', function() {
@@ -26,15 +25,8 @@ gulp.task('test.lint', function () {
 });
 
 gulp.task('test.copyHTML', ['test.clean'], function() {
-  // need to manually make a directoy for admin atm as there is no *.ts inside
-  mkdirp(config.paths.test.dest + '/admin', function(err) {
-    if (err) {
-      console.log(err);
-      throw err;
-    }
-    gulp.src(config.paths.html.src)
-      .pipe(gulp.dest(config.paths.test.dest));
-  });
+  gulp.src(config.paths.html.src)
+    .pipe(gulp.dest(config.paths.test.dest));
 });
 
 // compile typescript into indivudal files, project directoy structure is replicated under www/build/test
