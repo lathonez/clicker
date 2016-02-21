@@ -7,7 +7,7 @@ import { Button, Icon, Item, Label, TextInput } from 'ionic-framework/ionic';
 import { Utils } from '../../services/utils';
 
 @Component({
-  selector: 'clicker-form'
+  selector: 'clicker-form',
 })
 
 @View({
@@ -25,7 +25,7 @@ export class ClickerForm {
     this.clickerService = clickerService;
 
     this.form = fb.group({
-      clickerNameInput: ['', Validators.required]
+      clickerNameInput: ['', Validators.required],
     });
 
     this.clickerNameInput = this.form.controls['clickerNameInput'];
