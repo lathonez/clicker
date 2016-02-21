@@ -25,8 +25,7 @@ gulp.task('test.lint', function () {
 });
 
 gulp.task('test.copyHTML', ['test.clean'], function() {
-  gulp.src(config.paths.html.src)
-    .pipe(gulp.dest(config.paths.test.dest));
+  gulp.src(config.paths.html.src).pipe(gulp.dest(config.paths.test.dest));
 });
 
 // compile typescript into indivudal files, project directoy structure is replicated under www/build/test
