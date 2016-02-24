@@ -22,12 +22,20 @@ module.exports = {
           'doTypeCheck': true
         },
         include: path.resolve('app'),
-        exclude: /node_modules/
+        exclude: [
+          /\.(e2e|spec)\.ts$/,
+          /node_modules/,
+          /test/
+        ]
       },
       {
         test: /\.js$/,
         include: path.resolve('node_modules/angular2'),
-        loader: 'strip-sourcemap'
+        loader: 'strip-sourcemap',
+        exclude: [
+          /\.(e2e|spec)\.js$/,
+          /test/
+        ]
       }
     ],
     noParse: [
