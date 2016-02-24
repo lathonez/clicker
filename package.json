@@ -7,6 +7,7 @@
     "ionicons": "3.0.0-alpha.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
+    "typings": "^0.6.8",
     "zone.js": "0.5.14"
   },
   "devDependencies": {
@@ -29,7 +30,6 @@
     "strip-sourcemap-loader": "0.0.1",
     "systemjs": "^0.19.15",
     "traceur": "0.0.93",
-    "tsd": "^0.6.5",
     "tslint": "^3.2.1",
     "tslint-eslint-rules": "^1.0.1",
     "typescript": "1.8.2",
@@ -44,7 +44,7 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "./node_modules/tsd/build/cli.js install",
+    "postinstall": "./node_modules/typings/dist/bin/typings.js install",
     "start": "ionic serve",
     "test": "gulp test"
   },

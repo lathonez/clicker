@@ -9,7 +9,7 @@ module.exports = {
     test : {
       app: 'app/**/*.ts',
       stub: 'test/**/*.ts',
-      typings: 'typings/tsd.d.ts',
+      typings: 'typings/main.d.ts',
       config: 'test/karma.config.js',
       dest: 'www/build/test'
     },
