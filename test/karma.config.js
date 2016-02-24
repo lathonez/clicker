@@ -20,7 +20,6 @@ module.exports = function(config) {
       'node_modules/zone.js/dist/long-stack-trace-zone.js',
       'node_modules/zone.js/dist/jasmine-patch.js',
       'node_modules/es6-module-loader/dist/es6-module-loader.js',
-      'node_modules/traceur/bin/traceur-runtime.js', // Required by PhantomJS2, otherwise it shouts ReferenceError: Can't find variable: require
       'node_modules/traceur/bin/traceur.js',
       'node_modules/systemjs/dist/system.src.js',
       'node_modules/reflect-metadata/Reflect.js',
@@ -28,7 +27,6 @@ module.exports = function(config) {
       { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/ionic-framework/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
       { pattern: 'www/build/test/**/*.html', included: false, served: true},
 
@@ -91,7 +89,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'PhantomJS2',
+      'PhantomJS',
     ],
 
 
