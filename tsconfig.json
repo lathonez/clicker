@@ -6,8 +6,9 @@
     "experimentalDecorators": true
   },
   "filesGlob": [
-    "**/*.ts",
-    "!node_modules/**/*"
+    "./app/**/*.ts",
+    "!node_modules/**/*",
+    "typings/browser.d.ts"
   ],
   "exclude": [
     "node_modules"
