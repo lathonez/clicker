@@ -30,26 +30,18 @@ gulp.task('test.copyHTML', ['test.clean'], function() {
 
 // compile typescript into indivudal files, project directoy structure is replicated under www/build/test
 gulp.task('test.compile', ['test.clean'], function () {
-  // tsconfig options basically copy pasta from tsconfig.json
-  var tsOptions = {
-    "target": "es5",
-    "module": "commonjs",
-    // "noEmitOnError": true,
-    "noEmitOnError": false, // need to wait for animation.d.ts to get fixed by ionic #783
-    "rootDir": ".",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "sourceMap": false,
-    "inlineSourceMap": false,
-    "inlineSources": false
-  };
+
+  var tsProject = ts.createProject(
+    './tsconfig.json',
+    { typescript: require('typescript') }
+  );
 
   var tsResult = gulp.src([
     config.paths.test.app,
     config.paths.test.spec,
     config.paths.test.typings
   ])
-  .pipe(ts(tsOptions))
+  .pipe(ts(tsProject))
   .pipe(gulp.dest(config.paths.test.dest));
 
   return tsResult;
