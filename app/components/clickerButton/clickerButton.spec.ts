@@ -10,23 +10,23 @@ import {
 }                        from 'angular2/testing';
 import { provide }       from 'angular2/core';
 import { Config }        from 'ionic-framework/ionic';
-import { ClickerButton } from '../../../app/components/clickerButton/clickerButton';
-import { Clickers }      from '../../../app/services/clickers';
-import { TestUtils }     from '../../testUtils';
-import { Utils }         from '../../../app/services/utils';
+import { ClickerButton } from './clickerButton';
+import { Clickers }      from '../../services/clickers';
+import { TestUtils }     from '../../../test/testUtils';
+import { Utils }         from '../../services/utils';
 
-let clickerButton = null;
-let clickerButtonFixture = null;
+let clickerButton: ClickerButton = null;
+let clickerButtonFixture: ComponentFixture = null;
 
 class MockClickers {
-  public doClick() {
+  public doClick(): boolean {
     return true;
   }
 }
 
 class MockClicker {
-  public name = 'TEST CLICKER';
-  public getCount() { return 10; };
+  public name: string = 'TEST CLICKER';
+  public getCount(): number { return 10; };
 }
 
 class MockClass {
@@ -35,7 +35,8 @@ class MockClass {
   }
 }
 
-export function main() {
+export function main(): void {
+  'use strict';
 
   describe('ClickerForm', () => {
 
@@ -50,10 +51,8 @@ export function main() {
         .then((componentFixture: ComponentFixture) => {
           clickerButtonFixture = componentFixture;
           clickerButton = componentFixture.componentInstance;
-          clickerButton.clicker = {
-            name: 'TEST CLICKER'
-          };
-          clickerButton.clicker.getCount = function() { return 10; };
+          clickerButton['clicker'] = { name: 'TEST CLICKER' };
+          clickerButton['clicker'].getCount = function(): number { return 10; };
           window['fixture'] = clickerButtonFixture;
           window['testUtils'] = TestUtils;
         })
@@ -71,9 +70,9 @@ export function main() {
 
     it('does a click', () => {
       clickerButtonFixture.detectChanges();
-      spyOn(clickerButton.clickerService, 'doClick');
+      spyOn(clickerButton['clickerService'], 'doClick');
       TestUtils.eventFire(clickerButtonFixture.nativeElement.querySelectorAll('button')[0], 'click');
-      expect(clickerButton.clickerService.doClick).toHaveBeenCalled();
+      expect(clickerButton['clickerService'].doClick).toHaveBeenCalled();
     });
   });
 }

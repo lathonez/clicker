@@ -38,7 +38,7 @@ gulp.task('test.compile', ['test.clean'], function () {
 
   var tsResult = gulp.src([
     config.paths.test.app,
-    config.paths.test.spec,
+    config.paths.test.stub,
     config.paths.test.typings
   ])
   .pipe(ts(tsProject))

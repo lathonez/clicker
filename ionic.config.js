@@ -8,7 +8,7 @@ module.exports = {
     },
     test : {
       app: 'app/**/*.ts',
-      spec: 'test/**/*.ts',
+      stub: 'test/**/*.ts',
       typings: 'typings/tsd.d.ts',
       config: 'test/karma.config.js',
       dest: 'www/build/test'

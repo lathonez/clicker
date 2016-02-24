@@ -1,12 +1,13 @@
-import { ClickerList } from '../../../app/pages/clickerList/clickerList';
+import { ClickerList } from './clickerList';
 
-let clickerList = null;
+let clickerList: ClickerList = null;
 
-export function main() {
+export function main(): void {
+  'use strict';
 
   describe('ClickerList', () => {
 
-    beforeEach(function() {
+    beforeEach(() => {
       clickerList = new ClickerList(null, null);
     });
 

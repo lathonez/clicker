@@ -1,13 +1,14 @@
-import { Utils } from '../../app/services/utils';
-import { Control } from 'angular2/common';
+import { Utils } from './utils';
+import { AbstractControl, Control } from 'angular2/common';
 
-export function main() {
+export function main(): void {
+  'use strict';
 
   describe('Utils', () => {
 
     it('resets a control', () => {
-      let control = new Control('');
-      let returnedControl = null;
+      let control: Control = new Control('');
+      let returnedControl: AbstractControl = null;
       control.markAsTouched();
       control.updateValue('dave');
       returnedControl = Utils.resetControl(control);

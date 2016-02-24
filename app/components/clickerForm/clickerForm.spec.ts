@@ -1,19 +1,20 @@
-import { ClickerForm } from '../../../app/components/clickerForm/clickerForm';
-import { Clickers } from '../../../app/services/clickers';
 import { FormBuilder } from 'angular2/common';
-import { Utils } from '../../../app/services/utils';
+import { ClickerForm } from './clickerForm';
+import { Clickers }    from '../../services/clickers';
+import { Utils }       from '../../services/utils';
 
-let clickerForm = null;
+let clickerForm: ClickerForm = null;
 
-let mockClickers = Object.create(Clickers);
+let mockClickers: Clickers = Object.create(Clickers);
 
-mockClickers.newClicker = function() { return true; };
+mockClickers.newClicker = function(): string { return 'dave'; };
 
-export function main() {
+export function main(): void {
+  'use strict';
 
   describe('ClickerForm', () => {
 
-    beforeEach(function() {
+    beforeEach(() => {
       clickerForm = new ClickerForm(mockClickers, new FormBuilder());
       spyOn(clickerForm, 'newClicker').and.callThrough();
       spyOn(mockClickers, 'newClicker').and.callThrough();
@@ -24,17 +25,17 @@ export function main() {
     });
 
     it('passes new clicker through to service', () => {
-      let clickerName = 'dave';
+      let clickerName: string = 'dave';
       spyOn(Utils, 'resetControl').and.callThrough();
-      clickerForm.clickerNameInput.updateValue(clickerName, true);
+      clickerForm['clickerNameInput']['updateValue'](clickerName, true);
       clickerForm.newClicker({clickerNameInput: clickerName});
       expect(clickerForm.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
       expect(mockClickers.newClicker).toHaveBeenCalledWith(clickerName);
-      expect(Utils.resetControl).toHaveBeenCalledWith(clickerForm.clickerNameInput);
+      expect(Utils.resetControl).toHaveBeenCalledWith(clickerForm['clickerNameInput']);
     });
 
     it('doesn\'t try to add a clicker with no name', () => {
-      let rtn = clickerForm.newClicker();
+      let rtn: boolean = clickerForm.newClicker('dave');
       expect(rtn).toBe(false);
       expect(clickerForm.newClicker).toHaveBeenCalled();
       expect(mockClickers.newClicker).not.toHaveBeenCalled();
