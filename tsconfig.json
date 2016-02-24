@@ -5,9 +5,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
+  "files":[],
   "filesGlob": [
-    "**/*.ts",
-    "!node_modules/**/*"
+    "./app/**/*.ts",
+    "./app/**/*.spec.ts",
+    "!./node_modules/**/*.ts",
+    "typings/browser.d.ts"
   ],
   "exclude": [
     "node_modules"
