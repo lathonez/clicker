@@ -43,7 +43,7 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "./node_modules/typings/dist/bin/typings.js install",
+    "postinstall": "typings install",
     "start": "ionic serve",
     "test": "gulp test"
   },
