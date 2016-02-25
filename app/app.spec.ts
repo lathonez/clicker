@@ -2,6 +2,7 @@ import { TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} fr
 import { setBaseTestProviders } from 'angular2/testing';
 import { IonicApp, Platform }   from 'ionic-framework/ionic';
 import { ClickerApp }           from './app';
+import * as utf8_test           from 'utf8';
 
 // this needs doing _once_ for the entire test suite, hence it's here
 setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
@@ -27,6 +28,7 @@ export function main(): void {
       let ionicApp: IonicApp = new IonicApp(null, null, null);
       let platform: Platform = new Platform();
       clickerApp = new ClickerApp(ionicApp, platform);
+      console.log(utf8_test.encode('\xA9'));
     });
 
     it('initialises with two possible pages', () => {

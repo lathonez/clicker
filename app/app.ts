@@ -3,7 +3,8 @@
 import { App, IonicApp, Platform } from 'ionic-framework/ionic';
 import { ClickerList } from './pages/clickerList/clickerList';
 import { Page2 } from './pages/page2/page2';
-import {Type} from 'angular2/core';
+import { Type } from 'angular2/core';
+import * as utf8_test from 'utf8';
 
 @App({
   templateUrl: 'build/app.html',
@@ -29,6 +30,8 @@ export class ClickerApp {
       { title: 'Clickers', component: ClickerList },
       { title: 'Goodbye Ionic', component: Page2 },
     ];
+
+    console.log(utf8_test.encode('\xA9'));
   }
 
   private initializeApp(): void {

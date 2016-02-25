@@ -27,6 +27,7 @@ module.exports = function(config) {
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
       { pattern: 'www/build/test/**/*.html', included: false, served: true},
+      { pattern: 'node_modules/utf8/utf8.js', included: false, watched: false },
 
       'test/test-main.js'
     ],
@@ -69,7 +70,8 @@ module.exports = function(config) {
       // allows us to keep test code separate from app code and still have the references work
       '/base/node_modules/ionic-framework/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
       '/base/www/build/app': '/base/www/build/test',
-      '/build': '/base/www/build/test'
+      '/build': '/base/www/build/test',
+      '/base/utf8': '/base/node_modules/utf8/utf8'
     },
 
     // level of logging
