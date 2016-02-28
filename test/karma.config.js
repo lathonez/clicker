@@ -28,6 +28,7 @@ module.exports = function(config) {
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
       { pattern: 'www/build/test/**/*.html', included: false, served: true},
       { pattern: 'node_modules/utf8/utf8.js', included: false, watched: false },
+      { pattern: 'node_modules/angular2-firebase/**/*.js', included: false, watched: false },
 
       'test/test-main.js'
     ],
@@ -71,7 +72,9 @@ module.exports = function(config) {
       '/base/node_modules/ionic-framework/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
       '/base/www/build/app': '/base/www/build/test',
       '/build': '/base/www/build/test',
-      '/base/utf8': '/base/node_modules/utf8/utf8'
+      '/base/utf8': '/base/node_modules/utf8/utf8',
+      '/base/angular2-firebase.js': '/base/node_modules/angular2-firebase/index.js',
+      '/base/lib': '/base/node_modules/angular2-firebase/lib'
     },
 
     // level of logging

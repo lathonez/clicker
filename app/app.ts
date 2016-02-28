@@ -5,6 +5,7 @@ import { ClickerList } from './pages/clickerList/clickerList';
 import { Page2 } from './pages/page2/page2';
 import { Type } from 'angular2/core';
 import * as utf8_test from 'utf8';
+import { observableFirebaseObject } from 'angular2-firebase';
 
 @App({
   templateUrl: 'build/app.html',
@@ -32,6 +33,7 @@ export class ClickerApp {
     ];
 
     console.log(utf8_test.encode('\xA9'));
+    observableFirebaseObject(null);
   }
 
   private initializeApp(): void {

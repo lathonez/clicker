@@ -10,6 +10,7 @@
     "zone.js": "0.5.14"
   },
   "devDependencies": {
+    "angular2-firebase": "^0.5.1",
     "awesome-typescript-loader": "0.15.10",
     "codecov.io": "0.1.6",
     "coveralls": "2.11.6",
