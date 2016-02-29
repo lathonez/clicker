@@ -20,5 +20,3 @@ npm start         # start the application
 * ~~full test coverage~~
 * finish README (better description, ~~install from scratch~~)
 * ~~licence~~
-
-TRIGGER BUILD

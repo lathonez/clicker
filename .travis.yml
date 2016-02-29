@@ -38,6 +38,7 @@ before_install:
   - curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -   # upgrade node manually as we're building on
   - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
   - sudo npm update -g npm                                           #
+  - sudo npm install -g cordova ionic@beta
   # The following three lines came from angular-seed, unsure
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
@@ -60,7 +61,6 @@ after_success:
 
 before_deploy:
   # build for android
-  - sudo npm install -g cordova ionic@beta
   - ionic state restore # install cordova stuff from package.json
   - ionic build android
 
