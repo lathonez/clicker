@@ -37,7 +37,13 @@
   "name": "clicker",
   "description": "clicker: An Ionic project",
   "cordovaPlugins": [
-    "cordova-sqlite-storage"
+    "cordova-sqlite-storage",
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
     "android"
