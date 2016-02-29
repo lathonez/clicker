@@ -21,3 +21,4 @@ npm start         # start the application
 * finish README (better description, ~~install from scratch~~)
 * ~~licence~~
 
+TRIGGER BUILD
