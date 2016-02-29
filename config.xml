@@ -26,4 +26,5 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <hook type="before_compile" src="cordovaHooks/beforeCompile.js" />
 </widget>
