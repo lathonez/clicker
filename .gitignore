@@ -16,7 +16,7 @@ log.txt
 coverage/
 bower_components/
 dist/
-hooks/
+hooks/after_prepare/010_add_platform_class.js
 resources/
 node_modules/
 tmp/
