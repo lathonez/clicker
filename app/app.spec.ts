@@ -4,6 +4,7 @@ import { IonicApp, Platform }   from 'ionic-framework/ionic';
 import { ClickerApp }           from './app';
 import * as utf8_test           from 'utf8';
 import { observableFirebaseObject } from 'angular2-firebase';
+import { MockFirebase }         from 'mockfirebase';
 
 // this needs doing _once_ for the entire test suite, hence it's here
 setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
@@ -31,6 +32,43 @@ export function main(): void {
       clickerApp = new ClickerApp(ionicApp, platform);
       console.log(utf8_test.encode('\xA9'));
       observableFirebaseObject(null);
+    });
+
+    it('should do basic mocked firebase operations', () => {
+      let fb: MockFirebase = new MockFirebase('https://mocked.firebaseio.com/dummy');
+      expect(fb).toBeDefined();
+
+      let expectedAuthState: any = null;
+
+      fb.onAuth((authData: FirebaseAuthData) => {
+        expect(authData).toEqual(expectedAuthState);
+        console.log('authData0: ', JSON.stringify(authData, null, 2));
+      });
+
+      expectedAuthState = {user: 'dummy'};
+
+      fb.authAnonymously((err, authData: FirebaseAuthData) => {
+        expect(authData).toEqual(expectedAuthState);
+        console.log('authData: ', err, JSON.stringify(authData, null, 2));
+      });
+
+      fb.changeAuthState(expectedAuthState);
+
+      fb.push({
+        dummyKey: 'dummyVal',
+      });
+      fb.flush();
+
+      let error: Error = new Error('Oh no!');
+      fb.failNext('set', error);
+      let err: Error = null;
+      fb.set('data', function onComplete (err0: Error): void {
+        err = err0;
+      });
+
+      expect(err).toBeNull('expected null but got' + JSON.stringify(err));
+      fb.flush();
+      expect(err).toBe(error, 'err passed to callback');
     });
 
     it('initialises with two possible pages', () => {
