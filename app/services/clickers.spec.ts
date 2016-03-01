@@ -4,7 +4,7 @@ import { Clicker } from '../models/clicker';
 const CLICKER_IDS: Array<string> = ['yy5d8klsj0', 'q20iexxg4a', 'wao2xajl8a'];
 let clickers: Clickers = null;
 
-function storageGetStub(key: string): Promise<string> {
+function storageGetStub(key: string): Promise<{}> {
   'use strict';
 
   let rtn: string = null;
