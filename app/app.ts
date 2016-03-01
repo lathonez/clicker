@@ -1,9 +1,9 @@
 'use strict';
 
-import { App, IonicApp, Platform } from 'ionic-framework/ionic';
-import { ClickerList } from './pages/clickerList/clickerList';
-import { Page2 } from './pages/page2/page2';
-import {Type} from 'angular2/core';
+import { Type }                    from 'angular2/core';
+import { App, IonicApp, Platform } from 'ionic-angular/index';
+import { ClickerList }             from './pages/clickerList/clickerList';
+import { Page2 }                   from './pages/page2/page2';
 
 @App({
   templateUrl: 'build/app.html',

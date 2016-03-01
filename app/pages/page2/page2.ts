@@ -1,6 +1,6 @@
 'use strict';
 
-import { Page } from 'ionic-framework/ionic';
+import { Page } from 'ionic-angular/index';
 
 @Page({
   templateUrl: 'build/pages/page2/page2.html',

@@ -1,10 +1,10 @@
 'use strict';
 
-import { Component, View } from 'angular2/core';
 import { AbstractControl, ControlGroup, FormBuilder, Validators } from 'angular2/common';
-import { Clickers } from '../../services/clickers';
-import { Button, Icon, Item, Label, TextInput } from 'ionic-framework/ionic';
-import { Utils } from '../../services/utils';
+import { Component, View }                                        from 'angular2/core';
+import { Button, Icon, Item, Label, TextInput }                   from 'ionic-angular/index';
+import { Clickers }                                               from '../../services/clickers';
+import { Utils }                                                  from '../../services/utils';
 
 @Component({
   selector: 'clicker-form',

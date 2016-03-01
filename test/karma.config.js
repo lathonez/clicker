@@ -23,7 +23,7 @@ module.exports = function(config) {
       'node_modules/reflect-metadata/Reflect.js',
 
       { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/ionic-framework/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/ionic-angular/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'www/build/test/**/*.js', included: false, watched: true },
       { pattern: 'www/build/test/**/*.html', included: false, served: true},
@@ -34,8 +34,8 @@ module.exports = function(config) {
     // list of files to exclude
     exclude: [
       'node_modules/angular2/**/*_spec.js',
-      'node_modules/ionic-framework/**/*spec*',
-      'node_modules/ionic-framework/decorators/app.js'
+      'node_modules/ionic-angular/**/*spec*',
+      'node_modules/ionic-angular/decorators/app.js'
     ],
 
     // preprocess matching files before serving them to the browser
@@ -67,7 +67,7 @@ module.exports = function(config) {
     //           Also any files you want to serve need to be in the files array above with serverd: true
     proxies: {
       // allows us to keep test code separate from app code and still have the references work
-      '/base/node_modules/ionic-framework/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
+      '/base/node_modules/ionic-angular/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
       '/base/www/build/app': '/base/www/build/test',
       '/build': '/base/www/build/test'
     },

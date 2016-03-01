@@ -64,7 +64,7 @@ export function main(): void {
 //   Form,
 //   IonicApp,
 //   Platform,
-// }                        from 'ionic-framework/ionic';
+// }                        from 'ionic-angular/index';
 // import { ClickerForm }   from '../../../app/components/clickerForm/clickerForm';
 // import { Clickers }      from '../../../app/services/clickers';
 // import { TestUtils }     from '../../testUtils';

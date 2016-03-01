@@ -1,8 +1,8 @@
 'use strict';
 
 import { Component, View } from 'angular2/core';
-import { Clickers } from '../../services/clickers';
-import { Button } from 'ionic-framework/ionic';
+import { Button }          from 'ionic-angular/index';
+import { Clickers }        from '../../services/clickers';
 
 @Component({
   selector: 'clicker-button',
