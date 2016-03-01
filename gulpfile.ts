@@ -1,4 +1,4 @@
-import { APP_DIR, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './config';
+import { APP_DIR, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './test/config';
 import { join }          from 'path';
 import * as runSequence  from 'run-sequence';
 import * as chalk        from 'chalk';
