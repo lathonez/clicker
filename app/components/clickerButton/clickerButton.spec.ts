@@ -38,7 +38,7 @@ class MockClass {
 export function main(): void {
   'use strict';
 
-  describe('ClickerForm', () => {
+  describe('ClickerButton', () => {
 
     beforeEachProviders(() => [
       provide(Clickers, {useClass: MockClickers}),
