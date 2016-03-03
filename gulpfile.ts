@@ -23,6 +23,7 @@ function build() {
     join(TYPINGS_DIR, '/browser.d.ts'),
   ];
   let result = gulp.src(src)
+    .pipe(plugins.inlineNg2Template({ useRelativePaths: false }))
     .pipe(plugins.typescript(tsProject));
 
   return result.js
@@ -35,11 +36,6 @@ function clean(done) {
   return del([TEST_DEST]).then((paths) => {
     util.log('Deleted', chalk.yellow(paths && paths.join(', ') || '-'));
   });
-}
-
-function copyHTML() {
-  return gulp.src(join(APP_DIR, '**/*.html'))
-    .pipe(gulp.dest(TEST_DEST));
 }
 
 // run tslint against all typescript
@@ -62,8 +58,7 @@ function startKarma(done) {
 
 gulp.task('test.clean', clean);
 gulp.task('test.lint', lint);
-gulp.task('test.copyHTML', copyHTML);
-gulp.task('test.build', ['test.copyHTML'], build);
+gulp.task('test.build', build);
 gulp.task('startKarma', startKarma);
 
 gulp.task('test', (done) => {

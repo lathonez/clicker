@@ -17,6 +17,7 @@
     "del": "2.2.0",
     "es6-module-loader": "0.17.11",
     "gulp": "3.9.1",
+    "gulp-inline-ng2-template": "^1.1.2",
     "gulp-load-plugins": "1.2.0",
     "gulp-tslint": "4.3.2",
     "gulp-typescript": "2.12.0",
