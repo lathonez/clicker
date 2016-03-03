@@ -22,6 +22,7 @@ module.exports = function(config) {
       'node_modules/systemjs/dist/system.src.js',
       'node_modules/reflect-metadata/Reflect.js',
 
+      { pattern: 'test/ionic-angular.js', included: false, watched: false },
       { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/ionic-angular/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
@@ -67,6 +68,7 @@ module.exports = function(config) {
     proxies: {
       // allows us to keep test code separate from app code and still have the references work
       '/base/node_modules/ionic-angular/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
+      '/base/ionic-angular.js': '/base/test/ionic-angular.js'
     },
 
     // level of logging

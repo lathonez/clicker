@@ -1,6 +1,6 @@
 'use strict';
 
-import { Page, NavController } from 'ionic-angular/index';
+import { Page, NavController } from 'ionic-angular';
 import { Clickers }            from '../../services/clickers';
 import { ClickerButton }       from '../../components/clickerButton/clickerButton';
 import { ClickerForm }         from '../../components/clickerForm/clickerForm';

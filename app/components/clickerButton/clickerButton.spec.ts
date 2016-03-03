@@ -9,7 +9,7 @@ import {
   TestComponentBuilder,
 }                        from 'angular2/testing';
 import { provide }       from 'angular2/core';
-import { Config }        from 'ionic-angular/index';
+import { Config }        from 'ionic-angular';
 import { ClickerButton } from './clickerButton';
 import { Clickers }      from '../../services/clickers';
 import { TestUtils }     from '../../../test/testUtils';

@@ -2,7 +2,7 @@
 
 import { AbstractControl, ControlGroup, FormBuilder, Validators } from 'angular2/common';
 import { Component, View }                                        from 'angular2/core';
-import { Button, Icon, Item, Label, TextInput }                   from 'ionic-angular/index';
+import { Button, Icon, Item, Label, TextInput }                   from 'ionic-angular';
 import { Clickers }                                               from '../../services/clickers';
 import { Utils }                                                  from '../../services/utils';
 
