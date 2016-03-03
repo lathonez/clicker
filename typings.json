@@ -10,6 +10,7 @@
     "gulp-load-plugins": "github:DefinitelyTyped/DefinitelyTyped/gulp-load-plugins/gulp-load-plugins.d.ts#e081148d88b857d66509e3b46edbd08b3f75f96a",
     "gulp-typescript": "github:DefinitelyTyped/DefinitelyTyped/gulp-typescript/gulp-typescript.d.ts#960fd659b456e2fb5d23c52794ffdc56b09796cf",
     "gulp-util": "github:DefinitelyTyped/DefinitelyTyped/gulp-util/gulp-util.d.ts#5d4a87811a8282f01bc1cdf2156020d78515fa2e",
+    "ionic-app-lib": "file:test/ionic-app-lib.d.ts",
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#dd638012d63e069f2c99d06ef4dcc9616a943ee4",
     "karma": "github:DefinitelyTyped/DefinitelyTyped/karma/karma.d.ts#02dd2f323e1bcb8a823269f89e0909ec9e5e38b5",
     "log4js": "github:DefinitelyTyped/DefinitelyTyped/log4js/log4js.d.ts#7554cff7c4dd34decc2f3dc0d711a6c288174eee",

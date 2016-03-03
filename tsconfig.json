@@ -8,8 +8,7 @@
   "filesGlob": [
     "./app/**/*.ts",
     "!node_modules/**/*",
-    "typings/browser.d.ts",
-    "test/ionic-app-lib.d.ts"
+    "typings/browser.d.ts"
   ],
   "exclude": [
     "node_modules"
