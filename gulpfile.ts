@@ -62,7 +62,7 @@ function buildLocker(done: Function): any {
   let unlocked: boolean = true;
   let files: Array<{}> = [
     {'path': join(DIST_DIR, 'fonts', 'ionicons.ttf'), 'waits': 'fonts'},
-    {'path': join(DIST_DIR, 'app.html'), 'waits': 'html'},
+    {'path': join(DIST_DIR, 'pages', 'page2', 'page2.html'), 'waits': 'html'},
     {'path': join(DIST_DIR, 'css', 'app.md.css'), 'waits': 'css'},
   ]; // files we expect to exist after building
 
