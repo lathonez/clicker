@@ -1,4 +1,4 @@
-import { APP_DIR, DIST_DIR, JS_DEST, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './test/config';
+import { APP_DIR, DIST_DIR, JS_DEST, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './config';
 import { join }          from 'path';
 import { accessSync }    from 'fs';
 import * as chalk        from 'chalk';
@@ -20,26 +20,6 @@ let ionicBuildOptions: any = {
   watch: false,
   config: require(join(process.cwd(), 'ionic.config.js')),
 };
-
-// compile typescript into individual files, project directoy structure is replicated under www/build/test
-function build(): any {
-  'use strict';
-
-  let tsProject: any = plugins.typescript.createProject('tsconfig.json', {
-    typescript: require('typescript')
-  });
-  let src: Array<any> = [
-    join(APP_DIR, '**/*.ts'),
-    join(TEST_DIR, '**/*.ts'),
-    join(TYPINGS_DIR, '/browser.d.ts'),
-  ];
-  let result: any = gulp.src(src)
-    .pipe(plugins.inlineNg2Template({ base: 'www', useRelativePaths: false }))
-    .pipe(plugins.typescript(tsProject));
-
-  return result.js
-    .pipe(gulp.dest(TEST_DEST));
-}
 
 // this does the exact same thing as `ionic serve` (wrt building fonts)
 function buildFonts(): any {
@@ -96,6 +76,26 @@ function buildSass(): any {
   return ionicBuild.sass(ionicBuildOptions);
 }
 
+// compile typescript into individual files, project directoy structure is replicated under www/build/test
+function buildTypescript(): any {
+  'use strict';
+
+  let tsProject: any = plugins.typescript.createProject('tsconfig.json', {
+    typescript: require('typescript')
+  });
+  let src: Array<any> = [
+    join(APP_DIR, '**/*.ts'),
+    join(TEST_DIR, '**/*.ts'),
+    join(TYPINGS_DIR, '/browser.d.ts'),
+  ];
+  let result: any = gulp.src(src)
+    .pipe(plugins.inlineNg2Template({ base: 'www', useRelativePaths: false }))
+    .pipe(plugins.typescript(tsProject));
+
+  return result.js
+    .pipe(gulp.dest(TEST_DEST));
+}
+
 // typescript files are compiled individually and saved to www/build/test/ - delete them here
 function clean(done: Function): any {
   'use strict';
@@ -128,13 +128,13 @@ function startKarma(done: Function): any {
   }).start(done);
 }
 
-gulp.task('startKarma', startKarma);
-gulp.task('test.build', build);
 gulp.task('test.build.fonts', buildFonts);
 gulp.task('test.build.html', buildHTML);
 gulp.task('test.build.locker', buildLocker);
 gulp.task('test.build.sass', buildSass);
+gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
+gulp.task('test.karma', startKarma);
 gulp.task('test.lint', lint);
 
 gulp.task('test', (done: any) => {
@@ -142,8 +142,8 @@ gulp.task('test', (done: any) => {
     ['test.clean', 'test.lint'],
     ['test.build.html', 'test.build.fonts', 'test.build.sass'],
     'test.build.locker',
-    'test.build',
-    'startKarma',
+    'test.build.typescript',
+    'test.karma',
     done
   );
 });

@@ -56,7 +56,7 @@
   "scripts": {
     "postinstall": "typings install",
     "start": "ionic serve",
-    "test": "gulp test"
+    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test"
   },
   "repository": {
     "type": "git",
