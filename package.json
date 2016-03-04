@@ -21,7 +21,6 @@
     "gulp-load-plugins": "1.2.0",
     "gulp-tslint": "4.3.2",
     "gulp-typescript": "^2.12.1",
-    "ionic-app-lib": "^2.0.0-beta.9",
     "jasmine-core": "2.4.1",
     "karma": "0.13.21",
     "karma-chrome-launcher": "0.2.2",
