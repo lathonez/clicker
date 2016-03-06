@@ -1,6 +1,5 @@
 import { APP_DIR, DIST_DIR, JS_DEST, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './config';
-import { join }          from 'path';
-import { accessSync }    from 'fs';
+import { join, extname } from 'path';
 import * as chalk        from 'chalk';
 import * as del          from 'del';
 import * as gulp         from 'gulp';
@@ -21,6 +20,9 @@ let ionicBuildOptions: any = {
   config: require(join(process.cwd(), 'ionic.config.js')),
 };
 
+let srcCounts: any = {};
+let destCounts: any = {};
+
 // this does the exact same thing as `ionic serve` (wrt building fonts)
 function buildFonts(): any {
   'use strict';
@@ -40,33 +42,25 @@ function buildLocker(done: Function): any {
   'use strict';
 
   let unlocked: boolean = true;
-  let files: Array<{}> = [
-    {'path': join(DIST_DIR, 'fonts', 'ionicons.ttf'), 'waits': 'fonts'},
-    {'path': join(DIST_DIR, 'pages', 'page2', 'page2.html'), 'waits': 'html'},
-    {'path': join(DIST_DIR, 'css', 'app.md.css'), 'waits': 'css'},
-  ]; // files we expect to exist after building
 
   let recurse: Function = function(): void {
     buildLocker(done);
   };
 
-  files.some((file: {}, index: number, array: Array<string>) => {
-    try {
-      accessSync(file['path']);
-    } catch (e) {
-      util.log('buildLocker:' + chalk.yellow(' waiting for ' + file['waits'] + ' build to complete'));
-      setTimeout(recurse, 100);
-      unlocked = false;
-      return true;
-    }
-  });
+  count(null, true)
+    .then(() => {
+      if (!compareCounts('html')) unlocked = false;
+      if (!compareCounts('fonts')) unlocked = false;
+      if (!compareCounts('sass')) unlocked = false;
 
-  if (!unlocked) {
-    return;
-  }
+      if (!unlocked) {
+        setTimeout(recurse, 100);
+        return;
+      }
 
-  util.log('buildLocker:' + chalk.green(' unlocked'));
-  done();
+      util.log('buildLocker:' + chalk.green(' unlocked'));
+      done();
+    });
 }
 
 // this does the exact same thing as `ionic serve` (wrt building sass)
@@ -106,6 +100,68 @@ function clean(done: Function): any {
   });
 }
 
+// check that source and dest counts are equal for the given type (html|fonts|sass)
+function compareCounts(count: string): boolean {
+  'use strict';
+
+  if (srcCounts[count] !== destCounts[count]) {
+    util.log('buildLocker: ' + chalk.yellow(destCounts[count] + '/' + srcCounts[count] + ' ' + count));
+    return false;
+  }
+
+  return true;
+}
+
+// count files in a src pattern, storing results in a global counter
+function count(done: Function, dest?: boolean): any {
+  'use strict';
+
+  let countObj: any = srcCounts;
+  let src: Array<any> = [
+    ionicBuildOptions.config.paths.html.src[0],
+    ionicBuildOptions.config.paths.fonts.src[0],
+    ionicBuildOptions.config.paths.sass.src[0],
+  ];
+
+  if (dest) {
+    // overwrite for dest mode
+    countObj = destCounts;
+    src = [
+      join(ionicBuildOptions.config.paths.html.dest, '**/*.html'),
+      join(ionicBuildOptions.config.paths.fonts.dest, '**/*.+(ttf|woff|woff2)'),
+      join(ionicBuildOptions.config.paths.sass.dest, '**/*.css'),
+    ];
+  }
+
+  countObj.html = 0;
+  countObj.fonts = 0;
+  countObj.sass = 0;
+
+  return new Promise((resolve: Function, reject: Function) => {
+    gulp.src(src)
+      .pipe(plugins.tap((file: any, t: any) => {
+        switch (extname(file.path)) {
+          case '.html':
+            countObj.html ++;
+            break;
+          case '.ttf':
+          case '.woff':
+          case '.woff2':
+            countObj.fonts ++;
+            break;
+          case '.scss':
+          case '.css':
+            countObj.sass ++;
+            break;
+          default:
+            throw 'unhandled extension: ' + extname(file.path);
+        }
+      }))
+      .on('error', reject)
+      .on('end', resolve);
+  });
+}
+
 // run tslint against all typescript
 function lint(): any {
   'use strict';
@@ -134,14 +190,14 @@ gulp.task('test.build.locker', buildLocker);
 gulp.task('test.build.sass', buildSass);
 gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
+gulp.task('test.srcCount', count);
 gulp.task('test.karma', startKarma);
 gulp.task('test.lint', lint);
 
 gulp.task('test', (done: any) => {
   runSequence(
-    ['test.clean', 'test.lint'],
-    ['test.build.html', 'test.build.fonts', 'test.build.sass'],
-    'test.build.locker',
+    ['test.clean', 'test.lint', 'test.srcCount'],
+    ['test.build.html', 'test.build.fonts', 'test.build.sass', 'test.build.locker'],
     'test.build.typescript',
     'test.karma',
     done
