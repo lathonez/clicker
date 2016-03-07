@@ -13,9 +13,6 @@ let plugins: any = loadPlugins();
 let ionicBuild: any = ionicAppLib.v2.build;
 let ionicBuildOptions: any = {
   appDirectory: process.cwd(),
-  callback: (): void => {
-    util.log(chalk.green('√ Compiling files complete.'));
-  },
   watch: false,
   config: require(join(process.cwd(), 'ionic.config.js')),
 };
@@ -90,13 +87,24 @@ function buildTypescript(): any {
     .pipe(gulp.dest(TEST_DEST));
 }
 
-// typescript files are compiled individually and saved to www/build/test/ - delete them here
-function clean(done: Function): any {
+// delete everything used in our test cycle here
+function clean(): any {
   'use strict';
 
   // You can use multiple globbing patterns as you would with `gulp.src`
   return del([DIST_DIR + '**/*', '!' + JS_DEST]).then((paths: Array<any>) => {
     util.log('Deleted', chalk.yellow(paths && paths.join(', ') || '-'));
+  });
+}
+
+// delete everything used in our test cycle here __apart__ from HTML
+// -- ionic caches html so we can't delete it when watching
+function cleanIgnoreHTML(): any {
+  'use strict';
+
+  // You can use multiple globbing patterns as you would with `gulp.src`
+  return del([DIST_DIR + '/**/*', '!' + JS_DEST, '!' + DIST_DIR + '/**/*.html'], {'nodir': true}).then((paths: Array<any>) => {
+    util.log('Deleted', chalk.yellow(paths && paths.length + ' files' || '-'));
   });
 }
 
@@ -175,14 +183,32 @@ function lint(): any {
     }));
 }
 
-// run jasmine unit tests using karma - lint and build are run in parallel
+// run jasmine unit tests using karma with Chrome, Karma will be left open in Chrome for debug
+function debugKarma(done: Function): any {
+  'use strict';
+
+  new (<any>karma).Server({
+    configFile: join(process.cwd(), TEST_DIR, 'karma.config.js'),
+    singleRun: false,
+    browsers: ['Chrome'],
+  }).start(done);
+}
+
+// run jasmine unit tests using karma with PhantomJS2 in single run mode
 function startKarma(done: Function): any {
   'use strict';
 
   new (<any>karma).Server({
-    configFile: join(process.cwd(), TEST_DIR, 'karma.config.js')
+    configFile: join(process.cwd(), TEST_DIR, 'karma.config.js'),
+    singleRun: true
   }).start(done);
 }
+
+function watchTest() {
+  plugins.watch(join(APP_DIR, '**/*.ts'), () => {
+    gulp.start('test.watch.rebuild')
+  });
+};
 
 gulp.task('test.build.fonts', buildFonts);
 gulp.task('test.build.html', buildHTML);
@@ -190,15 +216,46 @@ gulp.task('test.build.locker', buildLocker);
 gulp.task('test.build.sass', buildSass);
 gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
+gulp.task('test.clean.ignoreHTML', cleanIgnoreHTML)
 gulp.task('test.srcCount', count);
 gulp.task('test.karma', startKarma);
+gulp.task('test.karma.debug', debugKarma);
 gulp.task('test.lint', lint);
+gulp.task('test.watch', watchTest);
+
+gulp.task('test.build', (done: any) => {
+  runSequence(
+    ['test.lint', 'test.srcCount'],
+    ['test.build.html', 'test.build.fonts', 'test.build.sass', 'test.build.locker'],
+    'test.build.typescript',
+    done
+  );
+});
+
+// first time round we should nuke everything
+gulp.task('test.watch.build', (done: any) => {
+  runSequence(
+    'test.clean',
+    'test.build',
+    'test.watch',
+    done
+  );
+});
+
+// subsequent triggers (watch changes), we don't want to delete HTML as Ionic caches it (and it wont be rebuilt!)
+gulp.task('test.watch.rebuild', (done: any) => {
+  runSequence(
+    'test.clean.ignoreHTML',
+    'test.build',
+    'test.watch',
+    done
+  );
+});
 
 gulp.task('test', (done: any) => {
   runSequence(
-    ['test.clean', 'test.lint', 'test.srcCount'],
-    ['test.build.html', 'test.build.fonts', 'test.build.sass', 'test.build.locker'],
-    'test.build.typescript',
+    'test.clean',
+    'test.build',
     'test.karma',
     done
   );

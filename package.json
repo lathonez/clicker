@@ -22,6 +22,7 @@
     "gulp-tap": "^0.1.3",
     "gulp-tslint": "4.3.2",
     "gulp-typescript": "^2.12.1",
+    "gulp-watch": "^4.3.5",
     "jasmine-core": "2.4.1",
     "karma": "0.13.21",
     "karma-chrome-launcher": "0.2.2",
@@ -57,7 +58,9 @@
   "scripts": {
     "postinstall": "typings install",
     "start": "ionic serve",
-    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test"
+    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",
+    "test.watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.watch.build",
+    "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.karma.debug"
   },
   "repository": {
     "type": "git",

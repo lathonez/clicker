@@ -90,10 +90,6 @@ module.exports = function(config) {
         flags: ['--no-sandbox']
       }
     },
-
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
   });
 
   if (process.env.APPVEYOR) {
