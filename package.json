@@ -56,7 +56,7 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "typings install",
+    "postinstall": "npm link ionic-app-lib && typings install",
     "start": "ionic serve",
     "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",
     "test.watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.watch.build",
