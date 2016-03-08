@@ -55,7 +55,7 @@ function buildLocker(done: Function): any {
         return;
       }
 
-      util.log('buildLocker:' + chalk.green(' unlocked'));
+      util.log('test.build.locker:' + chalk.green(' unlocked'));
       done();
     });
 }
