@@ -113,7 +113,7 @@ function compareCounts(count: string): boolean {
   'use strict';
 
   if (srcCounts[count] !== destCounts[count]) {
-    util.log('buildLocker: ' + chalk.yellow(destCounts[count] + '/' + srcCounts[count] + ' ' + count));
+    util.log('test.build.locker: ' + chalk.yellow(destCounts[count] + '/' + srcCounts[count] + ' ' + count));
     return false;
   }
 
