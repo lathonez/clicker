@@ -19,7 +19,9 @@ module.exports = {
         test: /\.ts$/,
         loader: 'awesome-typescript',
         query: {
-          'doTypeCheck': true
+          doTypeCheck: true,
+          resolveGlobs: false,
+          externals: ['typings/browser.d.ts']
         },
         include: path.resolve('app'),
         exclude: /node_modules/
@@ -37,9 +39,7 @@ module.exports = {
     ]
   },
   resolve: {
-    root: [
-      'app'
-    ],
+    root: ['app'],
     alias: {
       'angular2': path.resolve('node_modules/angular2')
     },
