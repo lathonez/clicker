@@ -23,3 +23,4 @@ require('./node_modules/ionic-angular/platform/registry');
 require('./node_modules/ionic-angular/animations/builtins');
 require('./node_modules/ionic-angular/transitions/transition-ios');
 require('./node_modules/ionic-angular/transitions/transition-md');
+require('./node_modules/ionic-angular/transitions/transition-wp');
