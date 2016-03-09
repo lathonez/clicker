@@ -21,3 +21,5 @@ npm test          # run unit tests
 npm run test.watch   # in one window - build all the tests and start watching for changes
 npm run karma        # start karma in debug mode: mutli run Chrome, hit `debug` to get going
 ```
+## Contribute
+Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/issues/38)
