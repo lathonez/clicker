@@ -1,4 +1,5 @@
-import { APP_DIR, DIST_DIR, JS_DEST, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './config';
+import { APP_DIR, DIST_DIR, E2E_DEST, JS_DEST, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './config';
+import * as CONFIG       from './config';
 import { join, extname } from 'path';
 import * as chalk        from 'chalk';
 import * as del          from 'del';
@@ -19,6 +20,29 @@ let ionicBuildOptions: any = {
 
 let srcCounts: any = {};
 let destCounts: any = {};
+
+function buildE2E (): any {
+  'use strict';
+
+  let tsProject: any = plugins.typescript.createProject('tsconfig.json', {
+    typescript: require('typescript')
+  });
+
+  let src: Array<string> = [
+    'typings/browser.d.ts',
+    join(APP_DIR, '**/*.ts'),
+    '!' + join(APP_DIR, '**/*.spec.ts'),
+  ];
+
+  let result: any = gulp.src(src)
+    .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.typescript(tsProject));
+
+  return result.js
+    .pipe(plugins.sourcemaps.write())
+    .pipe(plugins.template(templateLocals()))
+    .pipe(gulp.dest(E2E_DEST));
+};
 
 // this does the exact same thing as `ionic serve` (wrt building fonts)
 function buildFonts(): any {
@@ -78,6 +102,7 @@ function buildTypescript(): any {
     join(APP_DIR, '**/*.ts'),
     join(TEST_DIR, '**/*.ts'),
     join(TYPINGS_DIR, '/browser.d.ts'),
+    '!' + join(APP_DIR, '**/*.e2e.ts'),
   ];
   let result: any = gulp.src(src)
     .pipe(plugins.inlineNg2Template({ base: 'www', useRelativePaths: false }))
@@ -200,23 +225,32 @@ function startKarma(done: Function): any {
 
   new (<any>karma).Server({
     configFile: join(process.cwd(), TEST_DIR, 'karma.config.js'),
-    singleRun: true
+    singleRun: true,
   }).start(done);
 }
 
-function watchTest() {
+function templateLocals(): any {
+  'use strict';
+
+  return CONFIG;
+}
+
+function watchTest(): any {
+  'use strict';
+
   plugins.watch(join(APP_DIR, '**/*.ts'), () => {
-    gulp.start('test.watch.rebuild')
+    gulp.start('test.watch.rebuild');
   });
 };
 
+gulp.task('test.build.e2e', buildE2E);
 gulp.task('test.build.fonts', buildFonts);
 gulp.task('test.build.html', buildHTML);
 gulp.task('test.build.locker', buildLocker);
 gulp.task('test.build.sass', buildSass);
 gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
-gulp.task('test.clean.ignoreHTML', cleanIgnoreHTML)
+gulp.task('test.clean.ignoreHTML', cleanIgnoreHTML);
 gulp.task('test.srcCount', count);
 gulp.task('test.karma', startKarma);
 gulp.task('test.karma.debug', debugKarma);
