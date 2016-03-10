@@ -44,7 +44,7 @@
     "tslint": "3.5.0",
     "tslint-eslint-rules": "1.0.1",
     "typescript": "1.8.2",
-    "typings": "0.6.8"
+    "typings": "0.7.7"
   },
   "name": "clicker",
   "description": "clicker: An Ionic project",
