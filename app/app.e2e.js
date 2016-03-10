@@ -9,7 +9,7 @@ describe('App', () => {
   });
 
   it('should have <nav>', () => {
-      expect(element(by.css('sd-app sd-navbar nav')).isPresent()).toEqual(true);
+      expect(element(by.css('ion-navbar')).isPresent()).toEqual(true);
   });
 
   it('should have correct nav text for Home', () => {
