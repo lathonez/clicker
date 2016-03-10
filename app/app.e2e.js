@@ -3,7 +3,7 @@ describe('App', () => {
   var clickerField = element(by.css('.text-input'));
   var clickerButton = element.all(by.className('button')).first();
   var removeButton = element(by.css('.button-outline-danger'));
-  var clickerList = element(by.className('clickerList'));
+  var clickerList = element.all(by.className('clickerList')).first();
   var message = element(by.className('message'));
 
   beforeEach(() => {
@@ -24,7 +24,7 @@ describe('App', () => {
 
   it('has a menu button that displays the left menu', () => {
     element(by.css('.bar-button-menutoggle')).click();
-    expect(element(by.css('.toolbar-title')).getText()).toEqual('Menu');
+    expect(element.all(by.css('.toolbar-title')).first().getText()).toEqual('Menu');
   });
 
   it('the left menu has a link with title Clickers', () => {
