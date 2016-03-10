@@ -2,7 +2,7 @@ describe('App', () => {
 
   var clickerField = element(by.css('.text-input'));
   var clickerButton = element.all(by.className('button')).first();
-  var removeButton = element(by.css('.button-outline-danger'));
+  var removeButton = element.all(by.css('.button-outline-danger')).first();
   var clickerList = element.all(by.className('clickerList')).first();
   var message = element(by.className('message'));
 
