@@ -13,7 +13,7 @@ describe('App', () => {
   });
 
   it('should have correct nav text for Home', () => {
-      expect(element(by.css('sd-app sd-navbar nav a:first-child')).getText()).toEqual('HOME');
+      expect(element(by.css('ion-navbar:first-child')).getText()).toEqual('Clickers');
   });
 
   it('should have correct nav text for About', () => {
