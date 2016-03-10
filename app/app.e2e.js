@@ -25,17 +25,11 @@ describe('App', () => {
     expect(element(by.css('.text-input')).isPresent()).toEqual(true);
   });
 
-  xit('should have correct nav text for About', () => {
-      expect(element(by.css('sd-app sd-navbar nav a:last-child')).getText()).toEqual('ABOUT');
-
-  });
 
   it('has a menu button that displays the left menu', () => {
-      element(by.css('.bar-button-menutoggle')).click();
-      expect(element(by.css('.toolbar-title')).getText()).toEqual('Menu');
-
-  });
-
+       element(by.css('.bar-button-menutoggle')).click();
+       expect(element(by.css('.toolbar-title')).getText()).toEqual('Menu');
+   });
 
   it('should add a new Clicker to the page', () => {
     clickerField.sendKeys('deal with protractor');
