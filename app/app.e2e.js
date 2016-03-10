@@ -32,6 +32,14 @@ describe('App', () => {
     expect(element.all(by.css('ion-label')).first().getText()).toEqual('Clickers');
   });
 
+  it('should display Clickers when Clickers link is selected', () => {
+    element(by.css('.bar-button-menutoggle')).click();
+    element.all(by.css('ion-label')).first().click();
+    clickerField.sendKeys('deal with protractor');
+    clickerButton.click();
+    expect(clickerList.getText()).toContain('deal with protractor');
+  });
+
   it('the left menu has a link with title Goodbye Ionic', () => {
     element(by.css('.bar-button-menutoggle')).click();
     expect(element.all(by.css('ion-label')).last().getText()).toEqual('Goodbye Ionic');
