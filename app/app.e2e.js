@@ -4,6 +4,7 @@ describe('App', () => {
   var clickerButton = element.all(by.className('button')).first();
   var removeButton = element(by.css('.button-outline-danger'));
   var clickerList = element(by.className('clickerList'));
+  var message = element(by.className('message'));
 
   beforeEach(() => {
     browser.get('');
@@ -31,9 +32,15 @@ describe('App', () => {
     expect(element.all(by.css('ion-label')).first().getText()).toEqual('Clickers');
   });
 
-  it('the left menu has a link with title Clickers', () => {
+  it('the left menu has a link with title Goodbye Ionic', () => {
     element(by.css('.bar-button-menutoggle')).click();
     expect(element.all(by.css('ion-label')).last().getText()).toEqual('Goodbye Ionic');
+  });
+
+  it('should have correct text when Goodbye Ionic is selected', () => {
+    element(by.css('.bar-button-menutoggle')).click();
+    element.all(by.css('ion-label')).last().click();
+    expect(message.getText()).toEqual('Bye!');
   });
 
   it('has an input box for new Clickers', () => {
