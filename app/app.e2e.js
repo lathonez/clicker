@@ -28,8 +28,12 @@ describe('App', () => {
 
   it('the left menu has a link with title Clickers', () => {
     element(by.css('.bar-button-menutoggle')).click();
-    expect(element(by.css('ion-label')).getText()).toEqual('Clickers');
-  //
+    expect(element.all(by.css('ion-label')).first().getText()).toEqual('Clickers');
+  });
+
+  it('the left menu has a link with title Clickers', () => {
+    element(by.css('.bar-button-menutoggle')).click();
+    expect(element.all(by.css('ion-label')).last().getText()).toEqual('Goodbye Ionic');
   });
 
   it('has an input box for new Clickers', () => {
