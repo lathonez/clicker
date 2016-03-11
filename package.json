@@ -45,7 +45,8 @@
     "tslint": "3.5.0",
     "tslint-eslint-rules": "1.0.1",
     "typescript": "1.8.2",
-    "typings": "0.7.7"
+    "typings": "0.7.7",
+    "webpack": "^1.12.14"
   },
   "name": "clicker",
   "description": "clicker: An Ionic project",
@@ -62,8 +63,8 @@
     "android"
   ],
   "scripts": {
-    "e2e":  "./node_modules/protractor/bin/protractor test/protractor.conf.js",
-    "postinstall": "npm link ionic-app-lib && typings install",
+    "e2e": "./node_modules/protractor/bin/protractor test/protractor.conf.js",
+    "postinstall": "typings install",
     "start": "ionic serve",
     "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",
     "test.watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.watch.build",

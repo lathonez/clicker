@@ -5,7 +5,6 @@
 ## Install & Start
 
 ```bash
-npm install -g ionic-app-lib
 git clone https://github.com/lathonez/clicker.git
 cd clicker
 npm install       # or `npm run reinstall` if you get an error
