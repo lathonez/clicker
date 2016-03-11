@@ -11,7 +11,6 @@
     "gulp-load-plugins": "registry:dt/gulp-load-plugins#0.0.0+20151230112651",
     "gulp-typescript": "registry:dt/gulp-typescript#0.0.0+20160122061535",
     "gulp-util": "registry:dt/gulp-util#3.0.0+20141016163602",
-    "ionic-app-lib": "github:lathonez/typings/ionic-app-lib.d.ts#a8456d0ceb9eb5830003cb401bf558c5a6e66d9d",
     "jasmine": "registry:dt/jasmine#2.2.0+20160303225035",
     "karma": "registry:dt/karma#0.13.9+20151121143311",
     "log4js": "registry:dt/log4js#0.0.0+20160115192620",
