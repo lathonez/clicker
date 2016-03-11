@@ -23,6 +23,17 @@ npm run test.watch   # in one window - build all the tests and start watching fo
 npm run karma        # start karma in debug mode: mutli run Chrome, hit `debug` to get going
 ```
 
+## Run E2E
+```
+# e2e (aka. end-to-end, integration) - In three different shell windows
+# Make sure you don't have a global instance of Protractor
+
+# npm run webdriver-update <- You will need to run this the first time
+npm run webdriver-start
+npm start
+npm run e2e
+```
+
 ## Blog Topics
 
 * [Unit testing walkthrough](http://lathonez.com/2016/ionic-2-unit-testing/)
@@ -30,3 +41,8 @@ npm run karma        # start karma in debug mode: mutli run Chrome, hit `debug` 
 
 ## Contribute
 Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/issues/38)
+
+## Acks
+
+* This project is essential a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
+* @ric9176 and @DanielaGSB for E2E tests (#50)
