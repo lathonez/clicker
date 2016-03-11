@@ -2,7 +2,7 @@ exports.config = {
     baseUrl: 'http://localhost:8100',
 
     specs: [
-        '../app/app.e2e.js'
+        'e2e/app.js'
     ],
     exclude: [],
 
