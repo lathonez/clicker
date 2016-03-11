@@ -7,7 +7,7 @@
 
 <ion-content padding>
   <clicker-form></clicker-form>
-  <ion-row *ngFor="#clicker of clickerService.getClickers()">
+  <ion-row *ngFor="#clicker of clickerService.getClickers()" class="clickerList">
     <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>
     <ion-col>
       <button block danger outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>
