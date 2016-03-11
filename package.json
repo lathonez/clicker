@@ -62,11 +62,14 @@
     "android"
   ],
   "scripts": {
+    "e2e":  "./node_modules/protractor/bin/protractor test/protractor.conf.js",
     "postinstall": "npm link ionic-app-lib && typings install",
     "start": "ionic serve",
     "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",
     "test.watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.watch.build",
-    "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.karma.debug"
+    "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.karma.debug",
+    "webdriver-start": "webdriver-manager start",
+    "webdriver-update": "webdriver-manager update"
   },
   "repository": {
     "type": "git",
