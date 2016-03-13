@@ -1,12 +1,4 @@
-import { ElementFinder } from 'protractor';
-
 describe('ClickerApp', () => {
-
-  let clickerField: ElementFinder = element(by.css('.text-input'));
-  let clickerButton: ElementFinder = element.all(by.className('button')).first();
-  let removeButton: ElementFinder = element.all(by.css('.button-outline-danger')).first();
-  let clickerList: ElementFinder = element.all(by.className('clickerList')).first();
-  let message: ElementFinder = element(by.className('message'));
 
   beforeEach(() => {
     browser.get('');
@@ -34,40 +26,8 @@ describe('ClickerApp', () => {
     expect(element.all(by.css('ion-label')).first().getText()).toEqual('Clickers');
   });
 
-  it('should display Clickers when Clickers link is selected', () => {
-    element(by.css('.bar-button-menutoggle')).click();
-    element.all(by.css('ion-label')).first().click();
-    clickerField.sendKeys('deal with protractor');
-    clickerButton.click();
-    expect(clickerList.getText()).toContain('deal with protractor');
-  });
-
   it('the left menu has a link with title Goodbye Ionic', () => {
     element(by.css('.bar-button-menutoggle')).click();
     expect(element.all(by.css('ion-label')).last().getText()).toEqual('Goodbye Ionic');
   });
-
-  it('should have correct text when Goodbye Ionic is selected', () => {
-    element(by.css('.bar-button-menutoggle')).click();
-    element.all(by.css('ion-label')).last().click();
-    expect(message.getText()).toEqual('Bye!');
-  });
-
-  it('has an input box for new Clickers', () => {
-    expect(element(by.css('.text-input')).isPresent()).toEqual(true);
-  });
-
-  it('should add a new Clicker to the page', () => {
-    clickerField.sendKeys('deal with protractor');
-    clickerButton.click();
-    expect(clickerList.getText()).toContain('deal with protractor');
-  });
-
-  it('should delete a Clicker from the page when delete button selected', () => {
-    clickerField.sendKeys('master angular');
-    clickerButton.click();
-    removeButton.click();
-    expect(clickerList.getText()).not.toContain('master angular');
-  });
-
 });
