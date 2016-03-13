@@ -35,8 +35,8 @@ branches:
 
 before_install:
   - rm -rf /home/travis/.nvm                                         #
-  - curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -   # upgrade node manually as we're building on
-  - sudo apt-get install -y nodejs npm                               # android language and can't pick it in yml
+  - curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -   # upgrade node manually as we're building on
+  - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
   - sudo npm update -g npm
   # The following three lines came from angular-seed, unsure
   - export CHROME_BIN=chromium-browser
