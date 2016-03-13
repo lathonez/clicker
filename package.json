@@ -63,7 +63,7 @@
     "android"
   ],
   "scripts": {
-    "e2e": "./node_modules/protractor/bin/protractor test/protractor.conf.js",
+    "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.build && ./node_modules/protractor/bin/protractor test/protractor.conf.js",
     "postinstall": "typings install",
     "start": "ionic serve",
     "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",

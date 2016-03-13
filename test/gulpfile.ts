@@ -1,5 +1,4 @@
-import { APP_DIR, DIST_DIR, E2E_DEST, JS_DEST, TEST_DIR, TYPINGS_DIR, TEST_DEST } from './config';
-import * as CONFIG       from './config';
+import { APP_DIR, TEST_DIR, TEST_DEST, TYPINGS_DIR } from './config';
 import { join }          from 'path';
 import * as chalk        from 'chalk';
 import * as del          from 'del';
@@ -12,44 +11,23 @@ import * as util         from 'gulp-util';
 let plugins: any = loadPlugins();
 
 let ionicGulpfile: any = {
-  gulpfile: require(join(process.cwd(), 'gulpfile.js'))
+  gulpfile: require(join(process.cwd(), 'gulpfile.js')),
+  logline: 'sourced Ionic\'s gulpfile @ ' + join(process.cwd(), 'gulpfile.js'),
 };
 
-function buildE2E (): any {
-  'use strict';
-
-  let tsProject: any = plugins.typescript.createProject('tsconfig.json', {
-    typescript: require('typescript')
-  });
-
-  let src: Array<string> = [
-    'typings/browser.d.ts',
-    join(APP_DIR, '**/*.ts'),
-    '!' + join(APP_DIR, '**/*.spec.ts'),
-  ];
-
-  let result: any = gulp.src(src)
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.typescript(tsProject));
-
-  return result.js
-    .pipe(plugins.sourcemaps.write())
-    .pipe(plugins.template(templateLocals()))
-    .pipe(gulp.dest(E2E_DEST));
-};
+util.log(ionicGulpfile.logline);
 
 // compile typescript into individual files, project directoy structure is replicated under www/build/test
 function buildTypescript(): any {
   'use strict';
 
   let tsProject: any = plugins.typescript.createProject('tsconfig.json', {
-    typescript: require('typescript')
+    typescript: require('typescript'),
   });
   let src: Array<any> = [
+    join(TYPINGS_DIR, '/browser.d.ts'),
     join(APP_DIR, '**/*.ts'),
     join(TEST_DIR, '**/*.ts'),
-    join(TYPINGS_DIR, '/browser.d.ts'),
-    '!' + join(APP_DIR, '**/*.e2e.ts'),
   ];
   let result: any = gulp.src(src)
     .pipe(plugins.inlineNg2Template({ base: 'www', useRelativePaths: false }))
@@ -64,7 +42,7 @@ function clean(): any {
   'use strict';
 
   // You can use multiple globbing patterns as you would with `gulp.src`
-  return del([DIST_DIR + '**/*', '!' + JS_DEST]).then((paths: Array<any>) => {
+  return del([TEST_DEST]).then((paths: Array<any>) => {
     util.log('Deleted', chalk.yellow(paths && paths.join(', ') || '-'));
   });
 }
@@ -103,12 +81,6 @@ function startKarma(done: Function): any {
   }).start(done);
 }
 
-function templateLocals(): any {
-  'use strict';
-
-  return CONFIG;
-}
-
 function watchTest(): any {
   'use strict';
 
@@ -117,7 +89,6 @@ function watchTest(): any {
   });
 };
 
-gulp.task('test.build.e2e', buildE2E);
 gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
 gulp.task('test.karma', startKarma);
@@ -130,6 +101,14 @@ gulp.task('test.build', (done: any) => {
     ['test.lint', 'test.clean'],
     ['sass', 'copy.fonts', 'copy.html'],
     'test.build.typescript',
+    done
+  );
+});
+
+gulp.task('test.build.e2e', (done: any) => {
+  runSequence(
+    ['test.lint', 'test.clean'],
+    'test.build.typescript.e2e',
     done
   );
 });

@@ -1,10 +1,12 @@
-describe('App', () => {
+import { ElementFinder } from 'protractor';
 
-  var clickerField = element(by.css('.text-input'));
-  var clickerButton = element.all(by.className('button')).first();
-  var removeButton = element.all(by.css('.button-outline-danger')).first();
-  var clickerList = element.all(by.className('clickerList')).first();
-  var message = element(by.className('message'));
+describe('ClickerApp', () => {
+
+  let clickerField: ElementFinder = element(by.css('.text-input'));
+  let clickerButton: ElementFinder = element.all(by.className('button')).first();
+  let removeButton: ElementFinder = element.all(by.css('.button-outline-danger')).first();
+  let clickerList: ElementFinder = element.all(by.className('clickerList')).first();
+  let message: ElementFinder = element(by.className('message'));
 
   beforeEach(() => {
     browser.get('');
