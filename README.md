@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="http://lathonez.github.io/images/ionic2_unit_testing/clicker.gif" alt=""/>
+</p>
+
 ## Ionic 2 Demo / Seed Project : Karma + Protractor + Travis
 [![Build Status](https://travis-ci.org/lathonez/clicker.svg?branch=master)](https://travis-ci.org/lathonez/clicker) [![Coverage Status](https://coveralls.io/repos/lathonez/clicker/badge.svg?branch=master&service=github)](https://coveralls.io/github/lathonez/clicker?branch=master) [![codecov.io](https://codecov.io/github/lathonez/clicker/coverage.svg?branch=master)](https://codecov.io/github/lathonez/clicker?branch=master) [![Join the chat at https://gitter.im/lathonez/clicker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/lathonez/clicker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![Dependency Status](https://david-dm.org/lathonez/clicker.svg)](https://david-dm.org/lathonez/clicker) [![devDependency Status](https://david-dm.org/lathonez/clicker/dev-status.svg)](https://david-dm.org/lathonez/clicker#info=devDependencies)
@@ -46,7 +50,3 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 
 * This project is essentially a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
 * @ric9176 and @DanielaGSB for E2E tests (#50)
-
-<p align="center">
-  <img src="http://lathonez.github.io/images/ionic2_unit_testing/clicker.gif" alt=""/>
-</p>
