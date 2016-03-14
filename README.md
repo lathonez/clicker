@@ -42,5 +42,5 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 
 ## Acks
 
-* This project is essential a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
+* This project is essentially a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
 * @ric9176 and @DanielaGSB for E2E tests (#50)
