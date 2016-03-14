@@ -67,7 +67,6 @@
     "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",
     "test.watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.watch.build",
     "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.karma.debug",
-    "webdriver-start": "webdriver-manager start",
     "webdriver-update": "webdriver-manager update"
   },
   "repository": {
