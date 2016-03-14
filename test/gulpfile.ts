@@ -37,6 +37,24 @@ function buildTypescript(): any {
     .pipe(gulp.dest(TEST_DEST));
 }
 
+// compile E2E typescript into individual files, project directoy structure is replicated under www/build/test
+function buildE2E(): any {
+  'use strict';
+
+  let tsProject: any = plugins.typescript.createProject('tsconfig.json', {
+    typescript: require('typescript'),
+  });
+  let src: Array<any> = [
+    join(TYPINGS_DIR, '/browser.d.ts'),
+    join(APP_DIR, '**/*e2e.ts'),
+  ];
+  let result: any = gulp.src(src)
+    .pipe(plugins.typescript(tsProject));
+
+  return result.js
+    .pipe(gulp.dest(TEST_DEST));
+}
+
 // delete everything used in our test cycle here
 function clean(): any {
   'use strict';
@@ -89,6 +107,7 @@ function watchTest(): any {
   });
 };
 
+gulp.task('test.build.e2e', buildE2E);
 gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
 gulp.task('test.karma', startKarma);
