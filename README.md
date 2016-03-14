@@ -12,10 +12,6 @@ npm install       # or `npm run reinstall` if you get an error
 npm start         # start the application (ionic serve)
 ```
 
-<p align="center">
-  <img src="http://lathonez.github.io/images/ionic2_unit_testing/clicker.gif" alt=""/>
-</p>
-
 ## Run Unit Tests
 ```bash
 npm test          # run unit tests
@@ -50,3 +46,7 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 
 * This project is essentially a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
 * @ric9176 and @DanielaGSB for E2E tests (#50)
+
+<p align="center">
+  <img src="http://lathonez.github.io/images/ionic2_unit_testing/clicker.gif" alt=""/>
+</p>
