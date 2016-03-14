@@ -3,7 +3,7 @@
 <p align="center">
   <img src="http://lathonez.github.io/images/ionic2_unit_testing/clicker.gif" alt=""/>
 </p>
-## Ionic 2 Demo / Seed Project : Karma + Protractor + Travis
+# Ionic 2 Demo / Seed Project : Karma + Protractor + Travis
 
 ## Install & Start
 
