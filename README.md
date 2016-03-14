@@ -35,6 +35,7 @@ npm run e2e
 ## Blog Topics
 
 * [Unit testing walkthrough](http://lathonez.com/2016/ionic-2-unit-testing/)
+* [E2E testing walkthrough](http://lathonez.com/2016/ionic-2-e2e-testing/)
 * [Removing assets from the APK](http://lathonez.com/2016/cordova-remove-assets/)
 
 ## Contribute
