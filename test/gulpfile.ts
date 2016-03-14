@@ -105,14 +105,6 @@ gulp.task('test.build', (done: any) => {
   );
 });
 
-gulp.task('test.build.e2e', (done: any) => {
-  runSequence(
-    ['test.lint', 'test.clean'],
-    'test.build.typescript.e2e',
-    done
-  );
-});
-
 // first time round we should nuke everything
 gulp.task('test.watch.build', (done: any) => {
   runSequence(

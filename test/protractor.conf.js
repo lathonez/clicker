@@ -1,10 +1,6 @@
 exports.config = {
     baseUrl: 'http://localhost:8100',
 
-    seleniumAddress: 'http://localhost:4444/wd/hub',
-    seleniumPort: 4444,
-    chromeDriver: '../node_modules/protractor/selenium/chromedriver',
-
     specs: [
         '../www/build/test/**/*.e2e.js'
     ],
