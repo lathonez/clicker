@@ -115,10 +115,18 @@ gulp.task('test.karma.debug', debugKarma);
 gulp.task('test.lint', lint);
 gulp.task('test.watch', watchTest);
 
+// just a hook into ionic's build
+gulp.task('ionic.build', (done: any) => {
+  runSequence(
+    'build',
+    done
+  );
+});
+
 gulp.task('test.build', (done: any) => {
   runSequence(
     ['test.lint', 'test.clean'],
-    ['sass', 'copy.fonts', 'copy.html'],
+    ['sass', 'copy.fonts', 'copy.html'], // these are hooks into ionic
     'test.build.typescript',
     done
   );
