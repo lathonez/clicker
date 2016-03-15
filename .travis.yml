@@ -38,16 +38,23 @@ before_install:
   - curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -   # upgrade node manually as we're building on
   - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
   - sudo npm update -g npm
-  # The following three lines came from angular-seed, unsure
+  - sudo npm install -g cordova ionic
+
+install:
+  - npm install
+  - ionic state restore # install cordova stuff from package.json
+  - npm run webdriver-update
+
+before_script:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
-install: npm install
-
-before_script:
-
-script: npm test
+script:
+  - npm test         # unit tests
+  - ionic serve -b & # start ionic server but don't try to launch a browser
+  - sleep 10         # allow time for ionic serve to start up
+  - npm run e2e      # run e2e tests against ionic
 
 after_failure: cat /home/travis/build/lathonez/clicker/npm-debug.log
 
@@ -60,8 +67,6 @@ after_success:
 
 before_deploy:
   # build for android
-  - sudo npm install -g cordova ionic
-  - ionic state restore # install cordova stuff from package.json
   - ionic build android
 
 deploy:
