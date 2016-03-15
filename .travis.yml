@@ -39,6 +39,7 @@ before_install:
   - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
   - sudo npm update -g npm
   - sudo npm install -g cordova ionic
+  - sudo apt-get install -y chromium-browser                         # need new version for E2E
 
 install:
   - npm install
@@ -51,12 +52,14 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - npm test         # unit tests
-  - ionic serve -b & # start ionic server but don't try to launch a browser
-  - sleep 10         # allow time for ionic serve to start up
-  - npm run e2e      # run e2e tests against ionic
+  - npm test                             # unit tests
+  - ionic serve -b --address localhost >> ionic_serve.log 2>&1 &
+  - sleep 10                             # allow time for ionic serve to start up
+  - npm run e2e                          # run e2e tests against ionic
 
-after_failure: cat /home/travis/build/lathonez/clicker/npm-debug.log
+after_failure:
+  - cat /home/travis/build/lathonez/clicker/npm-debug.log
+  - cat /home/travis/build/lathonez/clicker/ionic_serve.log
 
 after_success:
   # push compiled TS to test folder in git for reference in coveralls
