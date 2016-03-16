@@ -11,23 +11,24 @@ describe('ClickerList', () => {
     browser.get('');
   });
 
-  // it('should display Clickers when Clickers link is selected', () => {
-  //   element(by.css('.bar-button-menutoggle')).click();
-  //   element.all(by.css('ion-label')).first().click();
-  //   clickerField.sendKeys('deal with protractor');
-  //   clickerButton.click();
-  //   expect(clickerList.getText()).toContain('deal with protractor');
-  // });
+  it('should switch into clickers page from menu', () => {
+    element(by.css('.bar-button-menutoggle')).click();
+    element.all(by.css('ion-label')).first().click();
+    expect(element.all(by.css('.toolbar-title')).last().getText()).toEqual('Clickers');
+  });
 
   it('has an input box for new Clickers', () => {
     expect(element(by.css('.text-input')).isPresent()).toEqual(true);
   });
 
-  // it('should add a new Clicker to the page', () => {
-  //   clickerField.sendKeys('deal with protractor');
-  //   clickerButton.click();
-  //   expect(clickerList.getText()).toContain('deal with protractor');
-  // });
+  it('should add a new Clicker to the page', () => {
+    clickerField.sendKeys('deal with protractor');
+    clickerButton.click();
+    browser.sleep(1000)
+      .then(() => {
+        expect(clickerList.getText()).toContain('deal with protractor');
+      });
+  });
 
   it('should delete a Clicker from the page when delete button selected', () => {
     clickerField.sendKeys('master angular');
