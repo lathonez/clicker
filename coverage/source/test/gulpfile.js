@@ -88,7 +88,6 @@ function watchTest() {
         gulp.start('test.watch.build');
     });
 }
-;
 gulp.task('test.build.e2e', buildE2E);
 gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
