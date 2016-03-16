@@ -5,7 +5,7 @@ let clickerButton: ElementFinder = element.all(by.className('button')).first();
 let removeButton: ElementFinder = element.all(by.css('.button-outline-danger')).first();
 let firstClicker: ElementFinder = element.all(by.className('clickerList')).first();
 
-describe('firstClicker', () => {
+describe('ClickerList', () => {
 
   beforeEach(() => {
     browser.get('');
@@ -22,18 +22,18 @@ describe('firstClicker', () => {
   });
 
   it('should add a Clicker', () => {
-    'test clicker one'.split('').forEach((c) => clickerField.sendKeys(c))
+    'test clicker one'.split('').forEach((c) => clickerField.sendKeys(c));
     clickerButton.click();
     expect(firstClicker.getText()).toEqual('test clicker one (0)');
   });
 
   it('should click a Clicker', () => {
-    firstClicker.click()
-    expect(firstClicker.getText()).toEqual('test clicker one (1)')
+    firstClicker.click();
+    expect(firstClicker.getText()).toEqual('test clicker one (1)');
   });
 
   it('should delete a Clicker', () => {
-    removeButton.click()
+    removeButton.click();
     element.all(by.className('clickerList')).count()
       .then((count) => expect(count).toEqual(0));
   });
