@@ -13,7 +13,6 @@
     "awesome-typescript-loader": "0.15.10",
     "chalk": "1.1.1",
     "codecov.io": "0.1.6",
-    "coveralls": "2.11.8",
     "del": "2.2.0",
     "es6-module-loader": "0.17.11",
     "gulp": "3.9.1",

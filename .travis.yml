@@ -71,7 +71,6 @@ after_success:
   # push compiled TS to test folder in git for reference in coveralls
   - .travis/push_built_tests.sh
   # Send coverage info off to cloud ppl
-  - cat coverage/lcov.info | node_modules/.bin/coveralls
   - cat coverage/lcov.info | ./node_modules/.bin/codecov
 
 before_deploy:

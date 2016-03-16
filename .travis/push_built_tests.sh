@@ -9,8 +9,12 @@ openssl aes-256-cbc -K $encrypted_a2f47a5da016_key -iv $encrypted_a2f47a5da016_i
 eval "$(ssh-agent -s)"
 chmod 600 .travis/travis_rsa.pem
 ssh-add .travis/travis_rsa.pem
-# using -f as www/build is in .gitignore for dev purposes
-find www/build/test -name "*.js" | grep -v spec | grep -v e2e | xargs git add -f
+
+# using -f as coverage is in .gitignore for dev purposes
+mkdir -p coverage/source
+cp -r www/build/test coverage/source
+
+find coverage/source/test -name "*.js" | grep -v spec | grep -v e2e | xargs git add -f
 git remote rm origin                                       # originally cloned by travis on https
 git remote add origin git@github.com:lathonez/clicker.git  # ditto
 # careful not to trigger another build
