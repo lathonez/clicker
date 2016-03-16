@@ -105,7 +105,7 @@ function watchTest(): any {
   plugins.watch(join(APP_DIR, '**/*.ts'), () => {
     gulp.start('test.watch.build');
   });
-};
+}
 
 gulp.task('test.build.e2e', buildE2E);
 gulp.task('test.build.typescript', buildTypescript);
