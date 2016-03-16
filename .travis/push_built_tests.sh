@@ -14,7 +14,7 @@ ssh-add .travis/travis_rsa.pem
 mkdir -p coverage/source
 cp -r www/build/test coverage/source
 
-find coverage/source/test -name "*.js" | grep -v spec | grep -v e2e | xargs git add -f
+find coverage/source/test -name "*.js" | grep -v spec | grep -v e2e | grep -v stub | xargs git add -f
 git remote rm origin                                       # originally cloned by travis on https
 git remote add origin git@github.com:lathonez/clicker.git  # ditto
 # careful not to trigger another build
