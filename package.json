@@ -23,6 +23,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tslint": "4.3.2",
     "gulp-typescript": "^2.12.1",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "4.3.5",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
