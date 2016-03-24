@@ -100,7 +100,7 @@ gulp.task('ionic.build', function (done) {
     runSequence('build', done);
 });
 gulp.task('test.build', function (done) {
-    runSequence(['test.lint', 'test.clean'], ['sass', 'copy.fonts', 'copy.html'], // these are hooks into ionic
+    runSequence(['test.lint', 'test.clean'], ['sass', 'fonts', 'html'], // these are hooks into ionic
     'test.build.typescript', done);
 });
 // first time round we should nuke everything
