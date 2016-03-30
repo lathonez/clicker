@@ -2,6 +2,7 @@
 
 import { Type }                    from 'angular2/core';
 import { App, IonicApp, Platform } from 'ionic-angular';
+import { StatusBar }               from 'ionic-native';
 import { ClickerList }             from './pages/clickerList/clickerList';
 import { Page2 }                   from './pages/page2/page2';
 
@@ -46,7 +47,9 @@ export class ClickerApp {
       //
       // For example, we might change the StatusBar color. This one below is
       // good for dark backgrounds and light text:
-      // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
+      if (typeof StatusBar !== 'undefined') {
+        StatusBar.styleBlackTranslucent();
+      }
     });
   }
 
