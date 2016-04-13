@@ -24,6 +24,10 @@ class MockClass {
   public get(): any {
     return {};
   }
+
+  public getBoolean(): any {
+    return true;
+  }
 };
 
 let clickerList: ClickerList = null;

@@ -13,7 +13,6 @@ describe('ClickerList', () => {
 
   it('should switch into clickers page from menu', () => {
     element(by.css('.bar-button-menutoggle')).click();
-    element.all(by.css('ion-label')).first().click();
     expect(element.all(by.css('.toolbar-title')).last().getText()).toEqual('Clickers');
   });
 

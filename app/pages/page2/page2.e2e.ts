@@ -9,8 +9,10 @@ describe('Page2', () => {
   });
 
   it('should have correct text when Goodbye Ionic is selected', () => {
-    element(by.css('.bar-button-menutoggle')).click();
-    element.all(by.css('ion-label')).last().click();
-    expect(message.getText()).toEqual('Bye!');
+    element(by.css('.bar-button-menutoggle')).click().then(() => {
+      browser.driver.sleep(2000); // wait for the animation
+      element.all(by.css('ion-label')).last().click();
+      expect(message.getText()).toEqual('Bye!');
+    });
   });
 });

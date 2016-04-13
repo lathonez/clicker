@@ -125,7 +125,7 @@ gulp.task('ionic.build', (done: any) => {
 
 gulp.task('test.build', (done: any) => {
   runSequence(
-    ['test.lint', 'test.clean'],
+    ['test.clean'],
     ['sass', 'fonts', 'html'], // these are hooks into ionic
     'test.build.typescript',
     done

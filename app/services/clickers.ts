@@ -28,8 +28,12 @@ export class Clickers {
       let ids: Array<string> = [];
       this.storage.get('ids') // return the promise so we can chain initClickers
         .then((rawIds: string) => {
-          // ids are stored as stringified JSON array
-          ids = JSON.parse(rawIds) || [];
+          if (rawIds) {
+            // ids are stored as stringified JSON array
+            ids = JSON.parse(rawIds);
+          } else {
+            ids = [];
+          }
         })
         .then(() => resolve(ids));
     });
