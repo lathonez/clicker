@@ -9,7 +9,7 @@ var gulp = require('gulp'),
  * Ionic Gulp tasks, for more information on each see
  * https://github.com/driftyco/ionic-gulp-tasks
  */
-var buildWebpack = require('ionic-gulp-webpack-build');
+var buildWebpack = require('ionic-gulp-webpack');
 var buildSass = require('ionic-gulp-sass-build');
 var copyHTML = require('ionic-gulp-html-copy');
 var copyFonts = require('ionic-gulp-fonts-copy');
