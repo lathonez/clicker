@@ -107,6 +107,28 @@ function watchTest(): any {
   });
 }
 
+function bundleSpecs(done: Function): any {
+
+  var browserify = require('ionic-gulp-browserify-typescript');
+  let glob = require('glob');
+  let specs = glob.sync('**/*.spec.ts')
+
+  browserify(
+    {
+      watch: false,
+      src: specs,
+      outputPath: TEST_DEST,
+      outputFile: 'test.bundle.js',
+      browserifyOptions: {
+        cache: {},
+        packageCache: {},
+        debug: true
+      },
+    }
+  ).on('end', done);
+};
+
+gulp.task('test.bundle.specs', bundleSpecs);
 gulp.task('test.build.e2e', buildE2E);
 gulp.task('test.build.typescript', buildTypescript);
 gulp.task('test.clean', clean);
@@ -132,6 +154,15 @@ gulp.task('test.build', (done: any) => {
   );
 });
 
+gulp.task('test.bundle', (done: any) => {
+  runSequence(
+    'test.clean',
+    'html', // this is a hook into ionic
+    'test.bundle.specs',
+    done
+  )
+});
+
 // first time round we should nuke everything
 gulp.task('test.watch.build', (done: any) => {
   runSequence(
@@ -144,6 +175,15 @@ gulp.task('test.watch.build', (done: any) => {
 gulp.task('test', (done: any) => {
   runSequence(
     'test.build',
+    'test.karma',
+    done
+  );
+});
+
+
+gulp.task('test.new', (done: any) => {
+  runSequence(
+    'test.bundle',
     'test.karma',
     done
   );

@@ -14,21 +14,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/zone.js/dist/zone.js',
-      'node_modules/zone.js/dist/long-stack-trace-zone.js',
-      'node_modules/zone.js/dist/jasmine-patch.js',
-      'node_modules/es6-module-loader/dist/es6-module-loader.js',
-      'node_modules/traceur/bin/traceur.js',
-      'node_modules/systemjs/dist/system.src.js',
-      'node_modules/reflect-metadata/Reflect.js',
-
-      { pattern: 'test/ionic-angular.js', included: false, watched: false },
-      { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/ionic-angular/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
-      { pattern: 'www/build/test/**/*.js', included: false, watched: true },
-
-      'test/test-main.js'
+      'www/build/js/angular2-polyfills.js',
+      'node_modules/traceur/bin/traceur-runtime.js', // Required by PhantomJS2, otherwise it shouts ReferenceError: Can't find variable: require
+      {pattern: 'www/build/test/test.bundle.js', included: true},
+      {pattern: 'www/build/test/test.bundle.js.map', included: false},
+      {pattern: 'www/build/**/*.html', included: false},
     ],
 
     // list of files to exclude
@@ -42,6 +32,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'www/build/test/**/!(*.spec|*.stub).js': 'coverage',
+       '**/*.js': ['sourcemap']
     },
 
     // options on how to report coverage:
