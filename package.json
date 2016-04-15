@@ -43,6 +43,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "phantomjs-prebuilt": "2.1.7",
     "protractor": "^3.1.1",
+    "remap-istanbul": "^0.6.2",
     "run-sequence": "1.1.5",
     "strip-sourcemap-loader": "0.0.1",
     "systemjs": "0.19.26",
@@ -73,9 +74,7 @@
     "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.karma.debug",
     "postinstall": "typings install",
     "start": "ionic serve",
-    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test",
-    "test.bundle": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.bundle",
-    "test.new": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.new",
+    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.new",
     "test.watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ test.watch.build",
     "webdriver-update": "webdriver-manager update"
   },

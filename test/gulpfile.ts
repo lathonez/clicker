@@ -1,4 +1,4 @@
-import { APP_DIR, TEST_DIR, TEST_DEST, TYPINGS_DIR } from './config';
+import { APP_DIR, COVERAGE, TEST_DIR, TEST_DEST, TYPINGS_DIR } from './config';
 import { join }          from 'path';
 import * as chalk        from 'chalk';
 import * as del          from 'del';
@@ -86,7 +86,7 @@ function debugKarma(done: Function): any {
     configFile: join(process.cwd(), TEST_DIR, 'karma.config.js'),
     singleRun: false,
     browsers: ['Chrome'],
-  }).start(done);
+  }, done).start();
 }
 
 // run jasmine unit tests using karma with PhantomJS2 in single run mode
@@ -96,7 +96,7 @@ function startKarma(done: Function): any {
   new (<any>karma).Server({
     configFile: join(process.cwd(), TEST_DIR, 'karma.config.js'),
     singleRun: true,
-  }).start(done);
+  }, done).start();
 }
 
 function watchTest(): any {
@@ -128,6 +128,19 @@ function bundleSpecs(done: Function): any {
   ).on('end', done);
 };
 
+function remapIstanbul(): any {
+  var remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
+
+  return gulp.src(join(COVERAGE, 'istanbul-remap', 'coverage-final.json'))
+    .pipe(remapIstanbul({
+        reports: {
+          'json': join(COVERAGE, 'istanbul-remap', 'coverage-remapped.json'),
+          'lcovonly': join(COVERAGE, 'lcov.info'),
+          'text': null,
+        }
+    }));
+}
+
 gulp.task('test.bundle.specs', bundleSpecs);
 gulp.task('test.build.e2e', buildE2E);
 gulp.task('test.build.typescript', buildTypescript);
@@ -136,6 +149,7 @@ gulp.task('test.karma', startKarma);
 gulp.task('test.karma.debug', debugKarma);
 gulp.task('test.lint', lint);
 gulp.task('test.watch', watchTest);
+gulp.task('remap-istanbul', remapIstanbul);
 
 // just a hook into ionic's build
 gulp.task('ionic.build', (done: any) => {
@@ -185,6 +199,7 @@ gulp.task('test.new', (done: any) => {
   runSequence(
     'test.bundle',
     'test.karma',
+    'remap-istanbul',
     done
   );
 });

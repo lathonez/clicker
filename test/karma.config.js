@@ -31,15 +31,13 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'www/build/test/**/!(*.spec|*.stub).js': 'coverage',
-       '**/*.js': ['sourcemap']
+      'www/build/test/test.bundle.js': 'coverage'
     },
 
     // options on how to report coverage:
     coverageReporter: {
       reporters: [
-        {type: 'text'},
-        {type: 'lcov', dir: 'coverage', subdir: '.'}
+        {type: 'json', dir: 'coverage', subdir: 'istanbul-remap'}
       ]
     },
 
