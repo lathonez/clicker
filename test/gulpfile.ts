@@ -134,11 +134,21 @@ function remapIstanbul(): any {
   return gulp.src(join(COVERAGE, 'istanbul-remap', 'coverage-final.json'))
     .pipe(remapIstanbul({
         reports: {
-          'json': join(COVERAGE, 'istanbul-remap', 'coverage-remapped.json'),
-          'lcovonly': join(COVERAGE, 'lcov.info'),
-          'text': null,
+          'json': join(COVERAGE, 'istanbul-remap', 'coverage-remapped.json')
         }
     }));
+}
+
+function reportIstanbul(): any {
+
+  var istanbulReport = require('gulp-istanbul-report');
+  gulp.src(join(COVERAGE, 'istanbul-remap', 'coverage-remapped.json'))
+    .pipe(istanbulReport({
+    reporters: [
+      'text',
+      {name: 'lcovonly', file: 'lcov'}
+    ]
+  }))
 }
 
 gulp.task('test.bundle.specs', bundleSpecs);
@@ -150,6 +160,7 @@ gulp.task('test.karma.debug', debugKarma);
 gulp.task('test.lint', lint);
 gulp.task('test.watch', watchTest);
 gulp.task('remap-istanbul', remapIstanbul);
+gulp.task('report-istanbul', reportIstanbul);
 
 // just a hook into ionic's build
 gulp.task('ionic.build', (done: any) => {
@@ -200,6 +211,7 @@ gulp.task('test.new', (done: any) => {
     'test.bundle',
     'test.karma',
     'remap-istanbul',
+    'report-istanbul',
     done
   );
 });
