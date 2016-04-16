@@ -116,7 +116,7 @@ function bundleSpecs(done: Function): any {
   browserify(
     {
       watch: false,
-      src: specs,
+      src: [specs, './typings/main.d.ts'],
       outputPath: TEST_DEST,
       outputFile: 'test.bundle.js',
       browserifyOptions: {
