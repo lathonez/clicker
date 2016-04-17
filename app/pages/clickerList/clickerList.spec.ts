@@ -33,34 +33,30 @@ class MockClass {
 let clickerList: ClickerList = null;
 let clickerListFixture: ComponentFixture = null;
 
-export function main(): void {
-  'use strict';
+describe('ClickerList', () => {
 
-  describe('ClickerList', () => {
+  beforeEachProviders(() => [
+    Form,
+    provide(NavController, {useClass: MockClass}),
+    provide(NavParams, {useClass: MockClass}),
+    provide(Config, {useClass: MockClass}),
+    provide(IonicApp, {useClass: MockClass}),
+    provide(Platform, {useClass: MockClass}),
+  ]);
 
-    beforeEachProviders(() => [
-      Form,
-      provide(NavController, {useClass: MockClass}),
-      provide(NavParams, {useClass: MockClass}),
-      provide(Config, {useClass: MockClass}),
-      provide(IonicApp, {useClass: MockClass}),
-      provide(Platform, {useClass: MockClass}),
-    ]);
+  beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    return tcb
+      .createAsync(ClickerList)
+      .then((componentFixture: ComponentFixture) => {
+        clickerListFixture = componentFixture;
+        clickerList = componentFixture.componentInstance;
+        clickerListFixture.detectChanges();
+      })
+      .catch(Utils.promiseCatchHandler);
+  }));
 
-    beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-      return tcb
-        .createAsync(ClickerList)
-        .then((componentFixture: ComponentFixture) => {
-          clickerListFixture = componentFixture;
-          clickerList = componentFixture.componentInstance;
-          clickerListFixture.detectChanges();
-        })
-        .catch(Utils.promiseCatchHandler);
-    }));
-
-    it('initialises', () => {
-      expect(clickerList).not.toBeNull();
-      expect(clickerListFixture).not.toBeNull();
-    });
+  it('initialises', () => {
+    expect(clickerList).not.toBeNull();
+    expect(clickerListFixture).not.toBeNull();
   });
-}
+});
