@@ -167,7 +167,7 @@ function reportIstanbul(done: any): any {
 function pruneIstanbul(): any {
   'use strict';
 
-  const toPrune: Array<string> = ['node_modules', '.spec.ts', '.d.ts'];
+  const toPrune: Array<string> = ['node_modules', '.spec.ts', '.d.ts', 'testUtils.ts'];
   let fs: any = require('fs');
   let remapped: any = JSON.parse(fs.readFileSync(join(COVERAGE, 'istanbul-remap', 'coverage-remapped.json')));
   let pruned: Object = {};
