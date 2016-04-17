@@ -24,8 +24,7 @@ module.exports = function(config) {
     // list of files to exclude
     exclude: [
       'node_modules/angular2/**/*_spec.js',
-      'node_modules/ionic-angular/**/*spec*',
-      'node_modules/ionic-angular/decorators/app.js'
+      'node_modules/ionic-angular/**/*spec*'
     ],
 
     // preprocess matching files before serving them to the browser
@@ -55,9 +54,6 @@ module.exports = function(config) {
     // GOTCHA -- Karma proxies _everything_ through base first..
     //           Also any files you want to serve need to be in the files array above with serverd: true
     proxies: {
-      // allows us to keep test code separate from app code and still have the references work
-      '/base/node_modules/ionic-angular/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
-      '/base/ionic-angular.js': '/base/test/ionic-angular.js',
       '/build': '/base/www/build'
     },
 

@@ -1,3 +1,6 @@
+// TODO:
+// Need to figure out how to use the app stub (test/app.stub.ts) instead of Ionic's decorator in the test bundling process.
+
 import { TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} from 'angular2/platform/testing/browser';
 import { setBaseTestProviders } from 'angular2/testing';
 // import { IonicApp, Platform }   from 'ionic-angular';

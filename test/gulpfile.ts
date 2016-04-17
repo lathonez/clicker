@@ -148,17 +148,20 @@ function remapIstanbul(): any {
     }));
 }
 
-function reportIstanbul(): any {
+function reportIstanbul(done: any): any {
   'use strict';
 
-  let istanbulReport: any = require('gulp-istanbul-report');
-  gulp.src(join(COVERAGE, 'istanbul-remap', 'coverage-pruned.json'))
-    .pipe(istanbulReport({
-    reporters: [
-      'text',
-      {name: 'lcovonly', file: 'lcov'},
-    ],
-  }));
+  let istanbul: any = require('istanbul');
+  let collector: any = new istanbul.Collector();
+  let reporter: any = new istanbul.Reporter();
+
+  let fs: any = require('fs');
+  let pruned: any = JSON.parse(fs.readFileSync(join(COVERAGE, 'istanbul-remap', 'coverage-pruned.json')));
+
+  collector.add(pruned);
+
+  reporter.addAll([ 'text', 'lcov']);
+  reporter.write(collector, false, done);
 }
 
 function pruneIstanbul(): any {
@@ -174,6 +177,7 @@ function pruneIstanbul(): any {
     // the find will return `undefined` if there is nothing to be pruned
     if (doPrune) return;
     pruned[key] = remapped[key];
+    pruned[key].path = remapped[key].path.replace('/source/', '');
   });
 
   fs.writeFileSync(join(COVERAGE, 'istanbul-remap', 'coverage-pruned.json'), JSON.stringify(pruned));
