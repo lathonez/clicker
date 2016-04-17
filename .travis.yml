@@ -1,5 +1,5 @@
 #
-# Configuration 
+# Configuration
 #
 
 language: android
@@ -69,8 +69,6 @@ after_failure:
   - cat /home/travis/build/lathonez/clicker/ionic_serve.log
 
 after_success:
-  # push compiled TS to test folder in git for reference in coveralls
-  - .travis/push_built_tests.sh
   # Send coverage info off to cloud ppl
   - cat coverage/lcov.info | ./node_modules/.bin/codecov
 
