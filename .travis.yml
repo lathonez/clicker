@@ -27,7 +27,8 @@ sudo: required
 
 branches:
   only:
-  - master
+    - master
+    - lightweightify
 
 #
 # Build Lifecycle:
