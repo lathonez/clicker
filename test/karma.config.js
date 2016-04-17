@@ -57,7 +57,8 @@ module.exports = function(config) {
     proxies: {
       // allows us to keep test code separate from app code and still have the references work
       '/base/node_modules/ionic-angular/decorators/app.js': '/base/www/build/test/app.stub.js', // stub out Ionic's @App decorator
-      '/base/ionic-angular.js': '/base/test/ionic-angular.js'
+      '/base/ionic-angular.js': '/base/test/ionic-angular.js',
+      '/build': '/base/www/build'
     },
 
     // level of logging
