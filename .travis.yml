@@ -48,7 +48,7 @@ before_install:
 
 install:
   # Hack for phantom 403
-  - mkdir /tmp/phantomjs && wget -O /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+  # - mkdir /tmp/phantomjs && wget -O /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
   - npm install
   - ionic state restore # install cordova stuff from package.json
   - npm run webdriver-update
