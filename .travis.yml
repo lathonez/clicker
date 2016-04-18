@@ -41,14 +41,12 @@ before_install:
   - sudo npm update -g npm
   - sudo npm install -g cordova ionic
   # Everything below here is installing latest chrome
-  # - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  # - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  # - sudo apt-get update
-  # - sudo apt-get install -y google-chrome-stable
+  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+  - sudo apt-get update
+  - sudo apt-get install -y google-chrome-stable
 
 install:
-  # Hack for phantom 403
-  # - mkdir /tmp/phantomjs && wget -O /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
   - npm install
   - ionic state restore # install cordova stuff from package.json
   - npm run webdriver-update
@@ -60,10 +58,10 @@ before_script:
 
 script:
   - npm test                             # unit tests
-  # - npm run build                        # ionic build
-  # # Serve with python as ionic serve needs interaction
-  # - cd www && python -m SimpleHTTPServer 8100 >> python_serve.log 2>&1 &
-  # - npm run e2e                          # run e2e tests against ionic
+  - npm run build                        # ionic build
+  # Serve with python as ionic serve needs interaction
+  - cd www && python -m SimpleHTTPServer 8100 >> python_serve.log 2>&1 &
+  - npm run e2e                          # run e2e tests against ionic
 
 after_failure:
   - cat /home/travis/build/lathonez/clicker/python_serve.log
