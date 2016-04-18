@@ -40,11 +40,10 @@ before_install:
   - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
   - sudo npm update -g npm
   - sudo npm install -g cordova ionic
-  # Everything below here is installing latest chrome
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo apt-get update
-  - sudo apt-get install -y google-chrome-stable
+  # Everything below here is installing the last version of chrome that supports ubuntu 12.*
+  - wget http://mirror.pcbeta.com/google/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_49.0.2623.87-1_amd64.deb
+  - sudo dpkg -i google-chrome-stable_49.0.2623.87-1_amd64.deb
+  - sudo apt-get install -f
 
 install:
   - npm install
