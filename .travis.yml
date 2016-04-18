@@ -43,7 +43,7 @@ before_install:
   # Everything below here is installing the last version of chrome that supports ubuntu 12.*
   - wget http://mirror.pcbeta.com/google/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_49.0.2623.87-1_amd64.deb
   - sudo dpkg -i google-chrome-stable_49.0.2623.87-1_amd64.deb
-  - sudo apt-get install -f
+  - sudo apt-get -f install
 
 install:
   - npm install
