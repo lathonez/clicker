@@ -113,6 +113,37 @@ function watchTest(): any {
   });
 }
 
+function patchApp(): any {
+
+  let appSrc: string  = 'node_modules/ionic-angular/decorators/';
+  let stubSrc: string = 'test/app.stub.js';
+  let rename = require('gulp-rename');
+
+  gulp.src(join(appSrc, 'app.js'))
+    .pipe(rename('app.backup'))
+    .pipe(gulp.dest(appSrc))
+
+  util.log(join(appSrc, 'app.js') + ' has been backed up to ' + join(appSrc, 'app.backup'));
+
+  gulp.src(stubSrc)
+    .pipe(rename('app.js'))
+    .pipe(gulp.dest(appSrc));
+
+  util.log(join(appSrc, 'app.js') + ' has been patched with ' + stubSrc);
+}
+
+function restoreApp(): any {
+
+  let appSrc: string  = 'node_modules/ionic-angular/decorators/';
+  let rename = require('gulp-rename');
+
+  gulp.src(join(appSrc, 'app.backup'))
+    .pipe(rename('app.js'))
+    .pipe(gulp.dest(appSrc))
+
+  util.log(join(appSrc, 'app.backup') + ' has been restored to ' + join(appSrc, 'app.js'));
+}
+
 function bundleSpecs(done: Function): any {
   'use strict';
 
@@ -194,6 +225,8 @@ gulp.task('test.watch', watchTest);
 gulp.task('remap-istanbul', remapIstanbul);
 gulp.task('report-istanbul', reportIstanbul);
 gulp.task('prune-istanbul', pruneIstanbul);
+gulp.task('patch-app', patchApp);
+gulp.task('restore-app', restoreApp);
 
 // just a hook into ionic's build
 gulp.task('ionic.build', (done: any) => {
@@ -240,8 +273,9 @@ gulp.task('test', (done: any) => {
 
 gulp.task('test.new', (done: any) => {
   runSequence(
+    'patch-app',
     'test.bundle',
-    'test.karma',
+    ['test.karma', 'restore-app'],
     'remap-istanbul',
     'prune-istanbul',
     'report-istanbul',
