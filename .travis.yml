@@ -19,10 +19,8 @@ notifications:
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
-      - google-chrome
+      - ubuntu-toolchain-r-test1
     packages:
-      - google-chrome-stable
       - g++-4.8
 
 sudo: required
