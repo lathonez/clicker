@@ -67,6 +67,7 @@ External dependencies are listed here to justify their inclusion and to enable t
 * karma-chrome-launcher: allows using chrome with Karma - chrome is used in Travis
 * karma-coverage: unit test coverage reporter
 * karma-jasmine: jasmine framework for Karma
+* karma-mocha-reporter: mocha progress reporter for Karma
 * karma-phantomjs-launcher: allows using phantom with Karma
 * phantomjs-prebuilt: phantom headless browser
 * protractor: e2e test runner
