@@ -12,6 +12,7 @@
     "gulp-load-plugins": "registry:dt/gulp-load-plugins#0.0.0+20160316155526",
     "gulp-typescript": "registry:dt/gulp-typescript#0.0.0+20160317120654",
     "gulp-util": "registry:dt/gulp-util#3.0.0+20141016163602",
+    "istanbul": "registry:dt/istanbul#0.4.0+20160316155526",
     "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
     "karma": "registry:dt/karma#0.13.9+20160316155526",
     "log4js": "registry:dt/log4js#0.0.0+20160316155526",
