@@ -35,6 +35,21 @@ npm start
 npm run e2e
 ```
 
+## Blog Topics
+
+* [Unit testing walkthrough](http://lathonez.com/2016/ionic-2-unit-testing/)
+* [E2E testing walkthrough](http://lathonez.com/2016/ionic-2-e2e-testing/)
+* [Removing assets from the APK](http://lathonez.com/2016/cordova-remove-assets/)
+
+## Contribute
+Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/issues/38)
+
+## Acks
+
+* This started out as a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
+* @bengro for the lightweightify inspiration (#68)
+* @ric9176 and @DanielaGSB for E2E tests (#50)
+
 ## Dependencies
 
 External dependencies are listed here to justify their inclusion and to enable their removal if you aren't using the related functionality.
@@ -61,18 +76,3 @@ External dependencies are listed here to justify their inclusion and to enable t
 * tslint-eslint-rules: eslint rules plugin for tslint
 * typescript: transpile e2e tests
 * typings: type definitions manager
-
-## Blog Topics
-
-* [Unit testing walkthrough](http://lathonez.com/2016/ionic-2-unit-testing/)
-* [E2E testing walkthrough](http://lathonez.com/2016/ionic-2-e2e-testing/)
-* [Removing assets from the APK](http://lathonez.com/2016/cordova-remove-assets/)
-
-## Contribute
-Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/issues/38)
-
-## Acks
-
-* This started out as a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
-* @bengro for the lightweightify inspiration (#68)
-* @ric9176 and @DanielaGSB for E2E tests (#50
