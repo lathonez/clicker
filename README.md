@@ -35,6 +35,33 @@ npm start
 npm run e2e
 ```
 
+## Dependencies
+
+External dependencies are listed here to justify their inclusion and to enable their removal if you aren't using the related functionality.
+
+* codecov.io: sending unit test coverage reports to codecov.io
+* gulp-load-plugins: helper to load other gulp plugins easily
+* gulp-rename: rename a file in gulp, used to patch Ionic's app decorator
+* gulp-tslint: access tslint from gulp
+* gulp-typescript: transpile typescript in gulp
+* gulp-util: logging in gulp
+* istanbul: unit test coverage reporter
+* jasmine-spec-reporter: e2e coverage reporter
+* karma: unit test runner
+* karma-chrome-launcher: allows using chrome with Karma - chrome is used in Travis
+* karma-coverage: unit test coverage reporter
+* karma-jasmine: jasmine framework for Karma
+* karma-phantomjs-launcher: allows using phantom with Karma
+* phantomjs-prebuilt: phantom headless browser
+* protractor: e2e test runner
+* remap-istanbul: remap unit test coverage using sourcemaps
+* traceur: needed to prevent errors in Phantom
+* ts-node: transpile gulpfile
+* tslint: static code analysis for typescript
+* tslint-eslint-rules: eslint rules plugin for tslint
+* typescript: transpile e2e tests
+* typings: type definitions manager
+
 ## Blog Topics
 
 * [Unit testing walkthrough](http://lathonez.com/2016/ionic-2-unit-testing/)
@@ -46,5 +73,6 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 
 ## Acks
 
-* This project is essentially a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
-* @ric9176 and @DanielaGSB for E2E tests (#50)
+* This started out as a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
+* @bengro for the lightweightify inspiration (#68)
+* @ric9176 and @DanielaGSB for E2E tests (#50
