@@ -46,7 +46,7 @@
     "typings": "0.7.12"
   },
   "name": "clicker",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "clicker: An Ionic project",
   "cordovaPlugins": [
     "cordova-sqlite-storage",
