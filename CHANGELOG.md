@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Unit**: [Lightweightify](https://github.com/lathonez/clicker/issues/68) ([commitHash](https://github.com/lathonez/clicker/commit/commitHash))
+* **Unit Test**: [Lightweightify](https://github.com/lathonez/clicker/issues/68) ([commitHash](https://github.com/lathonez/clicker/commit/commitHash))
 
 ### BREAKING CHANGES
 
@@ -69,7 +69,7 @@ Hopefully that should be it.
 ### Features
 
 * **Travis**: Testing e2e in Travis ([4a6f5eb](https://github.com/lathonez/clicker/commit/4a6f5eb))
-* **Unit**: DOM test skeleton for @Page Clicker List ([65bf5d5](https://github.com/lathonez/clicker/commit/65bf5d5))
+* **Unit Test**: DOM test skeleton for @Page Clicker List ([65bf5d5](https://github.com/lathonez/clicker/commit/65bf5d5))
 
 <a name="0.9.0"></a>
 # 0.9.0 (2016-03-12)
@@ -115,7 +115,7 @@ Hopefully that should be it.
 ### Features
 
 * **Build**: Using Ionic's build tools in `ionic-app-lib` ([9005006](https://github.com/lathonez/clicker/commit/9005006))
-* **Unit**: Enable form tests again after our PR is merged into Ionic ([#12](https://github.com/lathonez/clicker/issues/12)) ([aa726486](https://github.com/lathonez/clicker/commit/aa726486))
+* **Unit Test**: Enable form tests again after our PR is merged into Ionic ([#12](https://github.com/lathonez/clicker/issues/12)) ([aa726486](https://github.com/lathonez/clicker/commit/aa726486))
 * **Build**: Improve workaround for `ionic-angular/index` by creating own references in `ionic-angular.js` ([#27](https://github.com/lathonez/clicker/issues/27)) ([21ba465](https://github.com/lathonez/clicker/commit/21ba465))
 
 <a name="0.5.1"></a>
@@ -159,7 +159,7 @@ Hopefully that should be it.
 
 ### Bug Fixes
 
-* **Unit**: Previously using a bunch of hacks accessing private control variables ([cc5c0a5](https://github.com/lathonez/clicker/commit/cc5c0a5))
+* **Unit Test**: Previously using a bunch of hacks accessing private control variables ([cc5c0a5](https://github.com/lathonez/clicker/commit/cc5c0a5))
 * **App**: Need to use one or the other when typing ([cc2d919](https://github.com/lathonez/clicker/commit/cc2d919))
 
 ### Features
@@ -171,12 +171,12 @@ Hopefully that should be it.
 
 ### Bug Fixes
 
-* **Unit**: Misconfiguration in Karma ([5af7958](https://github.com/lathonez/clicker/commit/5af7958))
-* **Unit**: Previously using toBeDefined, but they will always be defined! ([d8e1cf5](https://github.com/lathonez/clicker/commit/d8e1cf5))
+* **Unit Test**: Misconfiguration in Karma ([5af7958](https://github.com/lathonez/clicker/commit/5af7958))
+* **Unit Test**: Previously using toBeDefined, but they will always be defined! ([d8e1cf5](https://github.com/lathonez/clicker/commit/d8e1cf5))
 
 ### Features
 
-* **Unit**: Using Angular2's DI to test component's in the DOM ([07f60bf](https://github.com/lathonez/clicker/commit/07f60bf))
+* **Unit Test**: Using Angular2's DI to test component's in the DOM ([07f60bf](https://github.com/lathonez/clicker/commit/07f60bf))
 * **App**: Utility function should be placed in `.catch` in any promise to debug errors ([0621169](https://github.com/lathonez/clicker/commit/07f60bf))
 
 <a name="0.1.0"></a>
@@ -199,6 +199,6 @@ Hopefully that should be it.
 
 * **App**: ([f8865b0](https://github.com/lathonez/clicker/commit/f8865b0))
 * **Travis**: Build and deploy using Travis CI ([fb045f6](https://github.com/lathonez/clicker/commit/fb045f6))
-* **Unit**: Initial unit test set up now working ([04a1028](https://github.com/lathonez/clicker/commit/04a1028))
+* **Unit Test**: Initial unit test set up now working ([04a1028](https://github.com/lathonez/clicker/commit/04a1028))
 * **App**: Clickers functionality including local storage ([9d04f8d](https://github.com/lathonez/clicker/commit/9d04f8d))
 * **App**: Skeleton app using `ionic start --v2 --ts clickers` ([8bde84f](https://github.com/lathonez/clicker/commit/8bde84f))
