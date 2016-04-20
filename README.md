@@ -66,7 +66,8 @@ External dependencies are listed here to justify their inclusion and to enable t
 * gulp-typescript: transpile typescript in gulp
 * gulp-util: logging in gulp
 * istanbul: unit test coverage reporter
-* jasmine-spec-reporter: e2e coverage reporter
+* jasmine-core: jasmine coverage reporter
+* jasmine-spec-reporter: e2e coverage reporter for jasmine
 * karma: unit test runner
 * karma-chrome-launcher: allows using chrome with Karma - chrome is used in Travis
 * karma-coverage: unit test coverage reporter
