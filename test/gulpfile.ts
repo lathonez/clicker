@@ -44,6 +44,7 @@ gulp.task('build-e2e', () => {
     .pipe(gulp.dest(TEST_DEST));
 });
 
+// transpile unit tests into test.bundle.js, output sourcemaps
 gulp.task('build-unit', ['clean-test', 'html', 'lint', 'patch-app'], (done: Function) => {
 
   let browserify: any = require('ionic-gulp-browserify-typescript');
@@ -114,6 +115,7 @@ gulp.task('lint', () => {
     }));
 });
 
+// patch Ionic's app decorator with one that doesn't break tests, see https://github.com/lathonez/clicker/issues/79
 gulp.task('patch-app', () =>  {
 
   let appSrc: string  = 'node_modules/ionic-angular/decorators/';
@@ -132,6 +134,8 @@ gulp.task('patch-app', () =>  {
   plugins.util.log(join(appSrc, 'app.js') + ' has been patched with ' + stubSrc);
 });
 
+// remapped coverage (see remap-coverage) contains everything from the test bundle (including node modules)
+// this task removes everything we don't care about from the remapped istanbul JSON
 gulp.task('prune-coverage', () => {
 
   const toPrune: Array<string> = ['node_modules', '.spec.ts', '.d.ts', 'testUtils.ts'];
@@ -149,6 +153,7 @@ gulp.task('prune-coverage', () => {
   fs.writeFileSync(join(COVERAGE, 'istanbul-remap', 'coverage-pruned.json'), JSON.stringify(pruned));
 });
 
+// using our sourcemap, remap the initial coverage output by Karma against the source Typescript
 gulp.task('remap-coverage', () => {
 
   let remapIstanbul: any = require('remap-istanbul/lib/gulpRemapIstanbul');
@@ -161,6 +166,7 @@ gulp.task('remap-coverage', () => {
     }));
 });
 
+// reads in remapped coverage in Istanbul JSON format and outputs lcov and a text summary to the console
 gulp.task('report-coverage', (done: Function) => {
 
   let collector: any = new istanbul.Collector();
@@ -172,6 +178,7 @@ gulp.task('report-coverage', (done: Function) => {
   reporter.write(collector, false, done);
 });
 
+// restore Ionic's app decorator after patching, see https://github.com/lathonez/clicker/issues/79
 gulp.task('restore-app', () => {
 
   let appSrc: string  = 'node_modules/ionic-angular/decorators/';
@@ -183,6 +190,7 @@ gulp.task('restore-app', () => {
   plugins.util.log(join(appSrc, 'app.backup') + ' has been restored to ' + join(appSrc, 'app.js'));
 });
 
+// build unit tests, run unit tests, remap and report coverage
 gulp.task('unit-test', (done: Function) => {
   runSequence(
     'build-unit',
@@ -194,6 +202,7 @@ gulp.task('unit-test', (done: Function) => {
   );
 });
 
+// watch app directory and trigger unit test rebuild on change
 gulp.task('watch-unit', ['build-unit'], () => {
   plugins.watch(join(APP_DIR, '**/*.ts'), () => {
     gulp.start('build-unit');
