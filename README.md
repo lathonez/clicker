@@ -51,6 +51,10 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 * @ric9176 and @DanielaGSB for E2E tests (#50)
 * [Everyone else](https://github.com/lathonez/clicker/graphs/contributors) for the advice, help, PRs etc
 
+## Changelog
+
+See the changelog [here](https://github.com/lathonez/clicker/CHANGELOG.md)
+
 ## Dependencies
 
 External dependencies are listed here to justify their inclusion and to enable their removal if you aren't using the related functionality.
