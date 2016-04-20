@@ -10,7 +10,6 @@
 Lightweightify is a major refactor to the framework. See the issue for why this has been done.
 
 The main changes are listed below:
-
 * unit tests are now bundled into `test.bundle.js`
 * sourcemaps are now produced @ `test.bundle.js.map`
 * coverage is remapped onto source Typescript meaning that transpiled javascript is no longer pushed to `./coverage/source`
@@ -18,7 +17,6 @@ The main changes are listed below:
 * `app.stub.ts` has been renamed and largely re-written in `app.stub.js`, as was required by a change in the process
 
 The following files have been removed as they are no longer required:
-
 * .travis/push_built_tests.sh
 * coverage/source/**.js
 * test/ionic-angular.js
