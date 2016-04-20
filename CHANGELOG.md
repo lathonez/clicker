@@ -16,10 +16,10 @@ The main changes are listed below:
 * coverage is remapped onto source Typescript meaning that transpiled javascript is no longer pushed to `./coverage/source`
 * gulpfile.ts has had a [large refactor](https://github.com/lathonez/clicker/commit/3119b92) away from the ng2-seed style and back toward what everyone else seems to be doing
 * the following files have been removed as they are no longer required
-..* .travis/push_built_tests.sh
-..* coverage/source/**.js
-..* test/ionic-angular.js
-..* test/test-main.js
+⋅⋅* .travis/push_built_tests.sh
+⋅⋅* coverage/source/**.js
+⋅⋅* test/ionic-angular.js
+⋅⋅* test/test-main.js
 * `app.stub.ts` has been renamed and largely re-written in `app.stub.js`, as was required by a change in the process
 
 Migration
