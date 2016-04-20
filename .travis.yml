@@ -29,7 +29,6 @@ dist: trusty
 branches:
   only:
     - master
-    - lightweightify
 
 #
 # Build Lifecycle:
