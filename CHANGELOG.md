@@ -7,22 +7,22 @@
 
 ### BREAKING CHANGES
 
-Lightweightify is a major refactor to the framework. See the issue for why this has been done.
+Lightweightify is a major refactor to the framework. See [the issue](https://github.com/lathonez/clicker/issues/68) for further info.
 
-The main changes are listed below:
+**The main changes are listed below:**
 * unit tests are now bundled into `test.bundle.js`
 * sourcemaps are now produced @ `test.bundle.js.map`
 * coverage is remapped onto source Typescript meaning that transpiled javascript is no longer pushed to `./coverage/source`
 * gulpfile.ts has had a [large refactor](https://github.com/lathonez/clicker/commit/3119b92) away from the ng2-seed style and back toward what everyone else seems to be doing
 * `app.stub.ts` has been renamed and largely re-written in `app.stub.js`, as was required by a change in the process
 
-The following files have been removed as they are no longer required:
+**The following files have been removed as they are no longer required:**
 * .travis/push_built_tests.sh
 * coverage/source/**.js
 * test/ionic-angular.js
 * test/test-main.js
 
-Migration
+**Migration:**
 
 I strongly suggest adopting the new framework as it brings with it many benefits. I will update this if firsthand information is forthcoming:
 
