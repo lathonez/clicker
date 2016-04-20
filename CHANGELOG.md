@@ -3,7 +3,7 @@
 
 ### Features
 
-* **[#68](https://github.com/lathonez/clicker/issues/68)**: Lightweightify ([commitHash](https://github.com/lathonez/clicker/commit/commitHash))
+* **Unit**: [Lightweightify](https://github.com/lathonez/clicker/issues/68) ([commitHash](https://github.com/lathonez/clicker/commit/commitHash))
 
 ### BREAKING CHANGES
 
