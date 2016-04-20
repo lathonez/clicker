@@ -35,44 +35,40 @@ class MockClass {
   }
 }
 
-export function main(): void {
-  'use strict';
+describe('ClickerButton', () => {
 
-  describe('ClickerButton', () => {
+  beforeEachProviders(() => [
+    provide(Clickers, {useClass: MockClickers}),
+    provide(Config, {useClass: MockClass}),
+  ]);
 
-    beforeEachProviders(() => [
-      provide(Clickers, {useClass: MockClickers}),
-      provide(Config, {useClass: MockClass}),
-    ]);
+  beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    return tcb
+      .createAsync(ClickerButton)
+      .then((componentFixture: ComponentFixture) => {
+        clickerButtonFixture = componentFixture;
+        clickerButton = componentFixture.componentInstance;
+        clickerButton['clicker'] = { name: 'TEST CLICKER' };
+        clickerButton['clicker'].getCount = function(): number { return 10; };
+        window['fixture'] = clickerButtonFixture;
+        window['testUtils'] = TestUtils;
+      })
+      .catch(Utils.promiseCatchHandler);
+  }));
 
-    beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-      return tcb
-        .createAsync(ClickerButton)
-        .then((componentFixture: ComponentFixture) => {
-          clickerButtonFixture = componentFixture;
-          clickerButton = componentFixture.componentInstance;
-          clickerButton['clicker'] = { name: 'TEST CLICKER' };
-          clickerButton['clicker'].getCount = function(): number { return 10; };
-          window['fixture'] = clickerButtonFixture;
-          window['testUtils'] = TestUtils;
-        })
-        .catch(Utils.promiseCatchHandler);
-    }));
-
-    it('initialises', () => {
-      expect(clickerButton).not.toBeNull();
-    });
-
-    it('displays the clicker name and count', () => {
-      clickerButtonFixture.detectChanges();
-      expect(clickerButtonFixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
-    });
-
-    it('does a click', () => {
-      clickerButtonFixture.detectChanges();
-      spyOn(clickerButton['clickerService'], 'doClick');
-      TestUtils.eventFire(clickerButtonFixture.nativeElement.querySelectorAll('button')[0], 'click');
-      expect(clickerButton['clickerService'].doClick).toHaveBeenCalled();
-    });
+  it('initialises', () => {
+    expect(clickerButton).not.toBeNull();
   });
-}
+
+  it('displays the clicker name and count', () => {
+    clickerButtonFixture.detectChanges();
+    expect(clickerButtonFixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
+  });
+
+  it('does a click', () => {
+    clickerButtonFixture.detectChanges();
+    spyOn(clickerButton['clickerService'], 'doClick');
+    TestUtils.eventFire(clickerButtonFixture.nativeElement.querySelectorAll('button')[0], 'click');
+    expect(clickerButton['clickerService'].doClick).toHaveBeenCalled();
+  });
+});

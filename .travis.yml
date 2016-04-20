@@ -1,5 +1,5 @@
 #
-# Configuration 
+# Configuration
 #
 
 language: android
@@ -24,6 +24,7 @@ addons:
       - g++-4.8
 
 sudo: required
+dist: trusty
 
 branches:
   only:
@@ -40,15 +41,12 @@ before_install:
   - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
   - sudo npm update -g npm
   - sudo npm install -g cordova ionic
-  # Everything below here is installing latest chrome
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo apt-get update
-  - sudo apt-get install -y google-chrome-stable
+  # Install the last version of Chrome that supports 12.04, we're stuck here for now because of sudo + android
+  - wget http://mirror.pcbeta.com/google/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_49.0.2623.87-1_amd64.deb
+  - sudo dpkg -i google-chrome-stable_49.0.2623.87-1_amd64.deb || true
+  - sudo apt-get -f install
 
 install:
-  # Hack for phantom 403
-  - mkdir /tmp/phantomjs && wget -O /tmp/phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
   - npm install
   - ionic state restore # install cordova stuff from package.json
   - npm run webdriver-update
@@ -70,8 +68,6 @@ after_failure:
   - cat /home/travis/build/lathonez/clicker/ionic_serve.log
 
 after_success:
-  # push compiled TS to test folder in git for reference in coveralls
-  - .travis/push_built_tests.sh
   # Send coverage info off to cloud ppl
   - cat coverage/lcov.info | ./node_modules/.bin/codecov
 
