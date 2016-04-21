@@ -13,7 +13,7 @@ describe('ClickerApp', () => {
   });
 
   it('should have correct nav text for Home', () => {
-    expect(element(by.css('ion-navbar:first-child')).getText()).toEqual('Clickers');
+    expect(element(by.css('ion-navbar:first-child')).getText()).toContain('Clickers');
   });
 
   it('has a menu button that displays the left menu', () => {
