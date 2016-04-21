@@ -1,3 +1,12 @@
+<a name="1.?.?"></a>
+# 1.?.? (2016-0?-??)
+
+### Features
+
+### Bug Fixes
+
+* **Unit Test**: Merge PR [#80]https://github.com/lathonez/clicker/pull/80) removing a trailing `;` ([e8fb205](https://github.com/lathonez/clicker/commit/e8fb205))
+
 <a name="1.0.0"></a>
 # 1.0.0 (2016-04-20)
 
