@@ -28,7 +28,7 @@ class MockClass {
   public getBoolean(): any {
     return true;
   }
-};
+}
 
 let clickerList: ClickerList = null;
 let clickerListFixture: ComponentFixture = null;
