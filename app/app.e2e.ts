@@ -5,7 +5,7 @@ describe('ClickerApp', () => {
   });
 
   it('should have a title', () => {
-    expect(browser.getTitle()).toEqual('Ionic');
+    expect(browser.getTitle()).toEqual('Clickers');
   });
 
   it('should have <nav>', () => {

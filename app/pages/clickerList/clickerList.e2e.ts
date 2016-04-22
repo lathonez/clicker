@@ -23,12 +23,12 @@ describe('ClickerList', () => {
   it('should add a Clicker', () => {
     'test clicker one'.split('').forEach((c) => clickerField.sendKeys(c));
     clickerButton.click();
-    expect(firstClicker.getText()).toEqual('test clicker one (0)');
+    expect(firstClicker.getText()).toEqual('TEST CLICKER ONE (0)');
   });
 
   it('should click a Clicker', () => {
     firstClicker.click();
-    expect(firstClicker.getText()).toEqual('test clicker one (1)');
+    expect(firstClicker.getText()).toEqual('TEST CLICKER ONE (1)');
   });
 
   it('should delete a Clicker', () => {
