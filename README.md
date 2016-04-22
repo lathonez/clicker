@@ -57,7 +57,7 @@ See the changelog [here](https://github.com/lathonez/clicker/CHANGELOG.md)
 
 ## Dependencies
 
-* **Angular 2:** 2.0.0-beta.15
+* **Angular:** 2.0.0-beta.15
 * **Ionic:** 2.0.0-beta.6
 
 External dependencies are listed here to justify their inclusion and to allow for their removal if your project isn't using the related functionality.
