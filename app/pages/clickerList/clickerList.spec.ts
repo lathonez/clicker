@@ -25,8 +25,12 @@ class MockClass {
     return {};
   }
 
-  public getBoolean(): any {
+  public getBoolean(): boolean {
     return true;
+  }
+
+  public getNumber(): number {
+    return 42;
   }
 }
 

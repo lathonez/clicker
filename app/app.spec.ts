@@ -1,6 +1,5 @@
 import { TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} from 'angular2/platform/testing/browser';
 import { setBaseTestProviders } from 'angular2/testing';
-import { IonicApp, Platform }   from 'ionic-angular';
 import { ClickerApp }           from './app';
 
 // this needs doing _once_ for the entire test suite, hence it's here
@@ -18,12 +17,23 @@ function getComponentStub(name: string): any {
   return component;
 }
 
+class MockClass {
+  public ready(): any {
+    return new Promise((resolve: Function) => {
+      resolve();
+    });
+  }
+
+  public getComponent(): any {
+    return true;
+  }
+}
+
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    let ionicApp: IonicApp = new IonicApp(null, null, null);
-    let platform: Platform = new Platform();
-    clickerApp = new ClickerApp(ionicApp, platform);
+    let mockClass: any = (<any>new MockClass());
+    clickerApp = new ClickerApp(mockClass, mockClass);
   });
 
   it('initialises with two possible pages', () => {

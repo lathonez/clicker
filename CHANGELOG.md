@@ -1,7 +1,9 @@
-<a name="1.?.?"></a>
-# 1.?.? (2016-0?-??)
+<a name="1.1.0"></a>
+# 1.1.0 (2016-04-23)
 
 ### Features
+
+* **Update**: Update to Ionic 2.0.0.beta.6 ([???????](https://github.com/lathonez/clicker/commit/???????))
 
 ### Bug Fixes
 

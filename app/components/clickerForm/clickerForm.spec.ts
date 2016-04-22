@@ -33,6 +33,14 @@ class MockClass {
   public get(): any {
     return {};
   }
+
+  public getBoolean(): boolean {
+    return true;
+  }
+
+  public getNumber(): number {
+    return 42;
+  }
 }
 
 describe('ClickerForm', () => {

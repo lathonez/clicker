@@ -1,8 +1,6 @@
 "use strict";
 var core_1 = require('angular2/core');
 var browser_1 = require('angular2/platform/browser');
-var app_1 = require('../components/app/app');
-var tap_click_1 = require('../components/tap-click/tap-click');
 var bootstrap_1 = require('../config/bootstrap');
 var directives_1 = require('../config/directives');
 var _reflect = Reflect;
@@ -13,7 +11,11 @@ var _reflect = Reflect;
 * number of arguments that act as global config variables for the app.
 * `@App` is similar to Angular's `@Component` in which it can accept a `template`
 * property that has an inline template, or a `templateUrl` property that points
-* to an external html template.
+* to an external html template. The `@App` decorator runs the Angular bootstrapping
+* process automatically, however you can bootstrap your app separately if you prefer.
+* Additionally, `@App` will automatically bootstrap with all of Ionic's
+* core components, meaning they won't all have to be individually imported and added
+* to each component's `directives` property.
 *
 * @usage
 * ```ts
@@ -42,8 +44,6 @@ function App(args) {
         // get current annotations
         var annotations = _reflect.getMetadata('annotations', cls) || [];
         // args.selector = 'ion-app'; -- exactly the same as Ionic's apart from this line
-        // auto add Ionic directives
-        args.directives = args.directives ? args.directives.concat(directives_1.IONIC_DIRECTIVES) : directives_1.IONIC_DIRECTIVES;
         // if no template was provided, default so it has a root <ion-nav>
         if (!args.templateUrl && !args.template) {
             args.template = '<ion-nav></ion-nav>';
@@ -54,13 +54,15 @@ function App(args) {
         _reflect.defineMetadata('annotations', annotations, cls);
         // define array of bootstrap providers
         var providers = bootstrap_1.ionicProviders(args).concat(args.providers || []);
+        // auto add Ionic directives
+        var directives = args.directives ? args.directives.concat(directives_1.IONIC_DIRECTIVES) : directives_1.IONIC_DIRECTIVES;
+        // automatically provide all of Ionic's directives to every component
+        providers.push(core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: [directives], multi: true }));
         if (args.prodMode) {
             core_1.enableProdMode();
         }
         browser_1.bootstrap(cls, providers).then(function (appRef) {
-            appRef.injector.get(tap_click_1.TapClick);
-            var app = appRef.injector.get(app_1.IonicApp);
-            app.setProd(args.prodMode);
+            bootstrap_1.postBootstrap(appRef, args.prodMode);
         });
         return cls;
     };
