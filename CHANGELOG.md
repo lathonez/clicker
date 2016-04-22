@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic 2.0.0.beta.6 ([???????](https://github.com/lathonez/clicker/commit/???????))
+* **Update**: Update to Ionic 2.0.0.beta.6 ([a571e7c](https://github.com/lathonez/clicker/commit/a571e7c))
 
 ### Bug Fixes
 
