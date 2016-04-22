@@ -27,6 +27,7 @@
     "ionic-gulp-scripts-copy": "^1.0.0",
     "ionic-gulp-webpack": "^1.0.0",
     "istanbul": "^0.4.3",
+    "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
     "karma": "0.13.22",
     "karma-chrome-launcher": "0.2.3",
