@@ -17,18 +17,26 @@ describe('ClickerApp', () => {
   });
 
   it('has a menu button that displays the left menu', () => {
-    element(by.css('.bar-button-menutoggle')).click();
-    expect(element.all(by.css('.toolbar-title')).first().getText()).toEqual('Menu');
+    element(by.css('.bar-button-menutoggle')).click()
+      .then(() => {
+        browser.driver.sleep(2000); // wait for the animation
+        expect(element.all(by.css('.toolbar-title')).first().getText()).toEqual('Menu');
+      });
   });
 
-  // TODO - fixme
-  // it('the left menu has a link with title Clickers', () => {
-  //   element(by.css('.bar-button-menutoggle')).click();
-  //   expect(element.all(by.css('ion-label')).first().getText()).toEqual('Clickers');
-  // });
+  it('the left menu has a link with title Clickers', () => {
+    element(by.css('.bar-button-menutoggle')).click()
+      .then(() => {
+        browser.driver.sleep(2000); // wait for the animation
+        expect(element.all(by.css('ion-label')).first().getText()).toEqual('Clickers');
+      });
+  });
 
   it('the left menu has a link with title Goodbye Ionic', () => {
-    element(by.css('.bar-button-menutoggle')).click();
-    expect(element.all(by.css('ion-label')).last().getText()).toEqual('Goodbye Ionic');
+    element(by.css('.bar-button-menutoggle')).click()
+      .then(() => {
+        browser.driver.sleep(2000); // wait for the animation
+        expect(element.all(by.css('ion-label')).last().getText()).toEqual('Goodbye Ionic');
+      });
   });
 });
