@@ -62,7 +62,7 @@
   ],
   "scripts": {
     "build": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-app",
-    "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-e2e && ./node_modules/protractor/bin/protractor test/protractor.conf.js",
+    "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-e2e && protractor test/protractor.conf.js",
     "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ karma-debug",
     "postinstall": "typings install",
     "start": "ionic serve",
