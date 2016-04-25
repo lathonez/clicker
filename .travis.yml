@@ -21,6 +21,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
+      - chromium-browser
       - g++-4.8
 
 sudo: required
@@ -54,6 +55,7 @@ before_script:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  - chromium-browser --version
 
 script:
   - npm test                             # unit tests
