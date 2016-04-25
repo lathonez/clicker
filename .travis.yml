@@ -2,19 +2,8 @@
 # Configuration
 #
 
-# language: android
 sudo: required
 dist: trusty
-# group: edge
-
-# android:
-#   components:
-#     - android-23
-#     - build-tools-23.0.2
-#     - platform-tools
-
-# env:
-#   - CXX=g++-4.8
 
 notifications:
   email: true
@@ -26,7 +15,8 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
-      # - g++-4.8
+      - cordova
+      - ionic
 
 branches:
   only:
@@ -35,17 +25,6 @@ branches:
 #
 # Build Lifecycle:
 #
-
-before_install:
-  - rm -rf /home/travis/.nvm                                         #
-  - curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -   # upgrade node manually as we're building on
-  - sudo apt-get install -y nodejs                                   # android language and can't pick it in yml
-  - sudo npm update -g npm
-  - sudo npm install -g cordova ionic
-  # Install the last version of Chrome that supports 12.04, we're stuck here for now because of sudo + android
-  # - wget http://mirror.pcbeta.com/google/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_49.0.2623.87-1_amd64.deb
-  # - sudo dpkg -i google-chrome-stable_49.0.2623.87-1_amd64.deb || true
-  # - sudo apt-get -f install
 
 install:
   - npm install
@@ -74,7 +53,6 @@ after_success:
   - cat coverage/lcov.info | ./node_modules/.bin/codecov
 
 before_deploy:
-  # build for android
   - ionic build android
 
 deploy:
