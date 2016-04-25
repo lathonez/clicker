@@ -15,8 +15,6 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
-      - cordova
-      - ionic
 
 branches:
   only:
@@ -25,6 +23,9 @@ branches:
 #
 # Build Lifecycle:
 #
+
+before_install:
+  - sudo npm install -g cordova ionic
 
 install:
   - npm install
