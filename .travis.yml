@@ -2,19 +2,19 @@
 # Configuration
 #
 
-language: android
+# language: android
 sudo: required
 dist: trusty
-group: edge
+# group: edge
 
-android:
-  components:
-    - android-23
-    - build-tools-23.0.2
-    - platform-tools
+# android:
+#   components:
+#     - android-23
+#     - build-tools-23.0.2
+#     - platform-tools
 
-env:
-  - CXX=g++-4.8
+# env:
+#   - CXX=g++-4.8
 
 notifications:
   email: true
@@ -26,7 +26,7 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
-      - g++-4.8
+      # - g++-4.8
 
 branches:
   only:
