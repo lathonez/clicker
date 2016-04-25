@@ -76,6 +76,10 @@ module.exports = function(config) {
         flags: ['--no-sandbox']
       }
     },
+
+    // https://github.com/lathonez/clicker/issues/82
+    // try increasing this value if you see the error "Disconnected (1 times), because no message in 30000 ms."
+    browserNoActivityTimeout: 30000
   });
 
   if (process.env.APPVEYOR) {
