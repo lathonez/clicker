@@ -3,6 +3,9 @@
 #
 
 language: android
+sudo: required
+dist: trusty
+group: edge
 
 android:
   components:
@@ -20,12 +23,10 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - google-chrome
     packages:
-      - chromium-browser
+      - google-chrome-stable
       - g++-4.8
-
-sudo: required
-dist: trusty
 
 branches:
   only:
