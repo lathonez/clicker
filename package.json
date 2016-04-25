@@ -12,6 +12,7 @@
   "devDependencies": {
     "codecov.io": "0.1.6",
     "del": "2.2.0",
+    "glob": "^7.0.3",
     "gulp": "3.9.1",
     "gulp-load-plugins": "1.2.0",
     "gulp-rename": "^1.2.2",
