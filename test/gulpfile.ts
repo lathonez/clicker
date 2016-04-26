@@ -85,7 +85,9 @@ gulp.task('karma', (done: Function) => {
       configFile: join(process.cwd(), TEST_DIR, 'karma.config.js'),
       singleRun: true,
     },
-    done
+    function() {
+      done();
+    }
   ).start();
 });
 
