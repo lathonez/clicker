@@ -5,7 +5,7 @@
 
 * **Unit Test**: Merge PR [#87](https://github.com/lathonez/clicker/pull/87) which sorts out Karma's random "Formatting Errors" ([f3b6641](https://github.com/lathonez/clicker/commit/f3b6641))
 * **E2E**: Remove absolute path for protractor ([#83](https://github.com/lathonez/clicker/issues/83)) ([5894a5a](https://github.com/lathonez/clicker/commit/5894a5a))
-* **Unit**: Increase browser timeout ([#82](https://github.com/lathonez/clicker/issues/82)) ([ff59b33](https://github.com/lathonez/clicker/commit/ff59b33))
+* **Unit Test**: Increase browser timeout ([#82](https://github.com/lathonez/clicker/issues/82)) ([ff59b33](https://github.com/lathonez/clicker/commit/ff59b33))
 
 <a name="1.1.0"></a>
 # 1.1.0 (2016-04-23)
