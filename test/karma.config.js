@@ -70,26 +70,12 @@ module.exports = function(config) {
       'PhantomJS',
     ],
 
-    customLaunchers: {
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    },
-
     // https://github.com/lathonez/clicker/issues/82
     // try increasing this value if you see the error "Disconnected (1 times), because no message in 30000 ms."
     browserNoActivityTimeout: 30000
   });
 
-  if (process.env.APPVEYOR) {
-    config.browsers = ['IE'];
-    config.singleRun = true;
-    config.browserNoActivityTimeout = 90000; // Note: default value (10000) is not enough
-  }
-
   if (process.env.TRAVIS || process.env.CIRCLECI) {
-    config.browsers = ['Chrome_travis_ci', 'PhantomJS'];
-    config.singleRun = true;
+    config.browsers = ['Chrome', 'PhantomJS'];
   }
 };
