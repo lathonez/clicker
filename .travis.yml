@@ -2,8 +2,8 @@
 # Configuration
 #
 
-sudo: required
-dist: trusty
+# sudo: required
+# dist: trusty
 
 notifications:
   email: true
