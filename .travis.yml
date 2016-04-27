@@ -56,10 +56,12 @@ before_deploy:
   # start install android
   - wget http://dl.google.com/android/android-sdk_r24.2-linux.tgz
   - tar -xzvf android-sdk_r24.2-linux.tgz
-  - echo "y" | ./android-sdk-linux/tools/android update sdk --no-ui --filter android-23
+  - echo "y" | ./android-sdk-linux/tools/android update sdk --no-ui --filter build-tools-23.0.1
   - export ANDROID_HOME=${PWD}/android-sdk-linux
   # end install android
   - ionic build android
+  # `ionic build android` wraps `cordova build android`, which gives a legit exit code if it fails. Ionic does not; test apk exists.
+  - ls ./platforms/android/build/outputs/apk/android*.apk
 
 deploy:
   provider: script
