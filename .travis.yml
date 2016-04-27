@@ -15,6 +15,8 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+      - lib32stdc++6
+      - lib32z1
 
 branches:
   only:
