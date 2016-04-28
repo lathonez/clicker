@@ -62,16 +62,17 @@ See the changelog [here](https://github.com/lathonez/clicker/CHANGELOG.md)
 
 External dependencies are listed here to justify their inclusion and to allow for their removal if your project isn't using the related functionality.
 
+* browserify-istanbul: coverage transformer for karma-browserify
 * codecov.io: sending unit test coverage reports to codecov.io
 * gulp-load-plugins: helper to load other gulp plugins easily
-* gulp-rename: rename a file in gulp, used to patch Ionic's app decorator
 * gulp-tslint: access tslint from gulp
 * gulp-typescript: transpile typescript in gulp
 * gulp-util: logging in gulp
-* istanbul: unit test coverage reporter
+* isparta: ES6 unit test coverage reporter
 * jasmine-core: jasmine coverage reporter
 * jasmine-spec-reporter: e2e coverage reporter for jasmine
 * karma: unit test runner
+* karma-browserify: transpile and bundle typescript in Karma
 * karma-chrome-launcher: allows using chrome with Karma - chrome is used in Travis
 * karma-coverage: unit test coverage reporter
 * karma-jasmine: jasmine framework for Karma
@@ -79,8 +80,8 @@ External dependencies are listed here to justify their inclusion and to allow fo
 * karma-phantomjs-launcher: allows using phantom with Karma
 * phantomjs-prebuilt: phantom headless browser
 * protractor: e2e test runner
-* remap-istanbul: remap unit test coverage using sourcemaps
 * traceur: needed to prevent errors in Phantom
+* tsify: typescript plugin for karma-browserify
 * ts-node: transpile gulpfile
 * tslint: static code analysis for typescript
 * tslint-eslint-rules: eslint rules plugin for tslint

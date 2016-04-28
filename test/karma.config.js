@@ -1,6 +1,3 @@
-// Karma configuration
-// Generated on Wed Jul 15 2015 09:44:02 GMT+0200 (Romance Daylight Time)
-
 module.exports = function(config) {
   'use strict';
   config.set({
@@ -10,14 +7,14 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
 
     // list of files / patterns to load in the browser
     files: [
       'node_modules/angular2/bundles/angular2-polyfills.js', // 'Uncaught reflect-metadata shim is required when using class decorators'
       'node_modules/traceur/bin/traceur-runtime.js',         // TypeError: undefined is not a constructor (evaluating 'new exports.Map()')
-      {pattern: 'www/build/test/test.bundle.js', included: true},
-      {pattern: 'www/build/test/test.bundle.js.map', included: false},
+      'app/**/*.spec.ts',
+      'typings/browser.d.ts',
       {pattern: 'www/build/**/*.html', included: false},
     ],
 
@@ -30,13 +27,28 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'www/build/test/test.bundle.js': 'coverage'
+      // 'www/build/test/test.bundle.js': 'coverage',
+      '**/*.ts': ['browserify']
+    },
+
+    browserify: {
+      debug: true,
+      transform: [
+        ['browserify-istanbul', {
+          instrumenter: require('isparta'),
+          ignore: ['**/*.spec.ts','**/*.d.ts'],
+        }]
+      ],
+      plugin: [
+        ['tsify']
+      ]
     },
 
     // options on how to report coverage:
     coverageReporter: {
       reporters: [
-        {type: 'json', dir: 'coverage', subdir: 'istanbul-remap'}
+        {type: 'text'},
+        {type: 'lcov', dir: 'coverage', subdir: '.'}
       ]
     },
 
