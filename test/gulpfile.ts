@@ -96,6 +96,7 @@ gulp.task('lint', () => {
 // build unit tests, run unit tests, remap and report coverage
 gulp.task('unit-test', (done: Function) => {
   runSequence(
+    'clean-test',
     'html',
     'karma',
     (<any>done)
