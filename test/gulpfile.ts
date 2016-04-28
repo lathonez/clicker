@@ -1,26 +1,24 @@
-import { join }          from 'path';
-import * as del          from 'del';
-import * as gulp         from 'gulp';
-import * as karma        from 'karma';
-import * as loadPlugins  from 'gulp-load-plugins';
-import * as runSequence  from 'run-sequence';
-import * as typescript   from 'typescript';
+// http://stackoverflow.com/questions/33332394/angular-2-typescript-cant-find-names
+/// <reference path="../node_modules/angular2/typings/browser.d.ts" />
+
+import { join } from 'path';
 
 const config: any = {
+  gulp: require('gulp'),
   appDir: 'app',
   testDir: 'test',
   testDest: 'www/build/test',
   typingsDir: 'typings',
 };
 
-let plugins: any = loadPlugins();
-
-let ionicGulpfile: any = {
-  gulpfile: require(join(process.cwd(), 'gulpfile.js')),
-  logline: 'sourced Ionic\'s gulpfile @ ' + join(process.cwd(), 'gulpfile.js'),
+const imports: any = {
+  gulp: require('gulp'),
+  runSequence: require('run-sequence'),
+  ionicGulpfile: require(join(process.cwd(), 'gulpfile.js')),
 };
 
-plugins.util.log(ionicGulpfile.logline);
+const gulp: any = imports.gulp;
+const runSequence: any = imports.runSequence;
 
 // just a hook into ionic's build
 gulp.task('build-app', (done: Function) => {
@@ -31,17 +29,15 @@ gulp.task('build-app', (done: Function) => {
 });
 
 // compile E2E typescript into individual files, project directoy structure is replicated under www/build/test
-gulp.task('build-e2e', () => {
-
-  let tsProject: any = plugins.typescript.createProject('tsconfig.json', {
-    typescript: typescript,
-  });
+gulp.task('build-e2e', ['clean-test'], () => {
+  let typescript: any = require('gulp-typescript');
+  let tsProject: any = typescript.createProject('tsconfig.json');
   let src: Array<any> = [
     join(config.typingsDir, '/browser.d.ts'),
     join(config.appDir, '**/*e2e.ts'),
   ];
   let result: any = gulp.src(src)
-    .pipe(plugins.typescript(tsProject));
+    .pipe(typescript(tsProject));
 
   return result.js
     .pipe(gulp.dest(config.testDest));
@@ -50,14 +46,18 @@ gulp.task('build-e2e', () => {
 // delete everything used in our test cycle here
 gulp.task('clean-test', () => {
 
+  let del: any = require('del');
+
   // You can use multiple globbing patterns as you would with `gulp.src`
   return del([config.testDest]).then((paths: Array<any>) => {
-    plugins.util.log('Deleted', paths && paths.join(', ') || '-');
+    console.log('Deleted', paths && paths.join(', ') || '-');
   });
 });
 
 // run jasmine unit tests using karma with PhantomJS2 in single run mode
 gulp.task('karma', (done: Function) => {
+
+  let karma: any = require('karma');
 
   new (<any>karma).Server(
     {
@@ -70,6 +70,8 @@ gulp.task('karma', (done: Function) => {
 
 // run jasmine unit tests using karma with Chrome, Karma will be left open in Chrome for debug
 gulp.task('karma-debug', (done: Function) => {
+
+  let karma: any = require('karma');
 
   new (<any>karma).Server(
     {
@@ -84,28 +86,18 @@ gulp.task('karma-debug', (done: Function) => {
 // run tslint against all typescript
 gulp.task('lint', () => {
 
+  let tslint: any = require('gulp-tslint');
+
   return gulp.src(join(config.appDir, '**/*.ts'))
-    .pipe(plugins.tslint())
-    .pipe(plugins.tslint.report(plugins.tslintStylish, {
-      emitError: true,
-      sort: true,
-      bell: true,
-    }));
+    .pipe(tslint())
+    .pipe(tslint.report('verbose'));
 });
 
 // build unit tests, run unit tests, remap and report coverage
 gulp.task('unit-test', (done: Function) => {
   runSequence(
-    'clean-test',
     ['lint', 'html'],
     'karma',
     (<any>done)
   );
-});
-
-// watch app directory and trigger unit test rebuild on change
-gulp.task('watch-unit', ['build-unit'], () => {
-  plugins.watch(join(config.appDir, '**/*.ts'), () => {
-    gulp.start('build-unit');
-  });
 });

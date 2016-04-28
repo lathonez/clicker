@@ -1,29 +1,8 @@
 {
   "ambientDependencies": {
     "angular-protractor": "registry:dt/angular-protractor#1.5.0+20160317120654",
-    "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
-    "chalk": "registry:dt/chalk#0.4.0+20160317120654",
-    "del": "registry:dt/del#2.2.0+20160317120654",
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
-    "express": "registry:dt/express#4.0.0+20160317120654",
-    "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
-    "glob": "registry:dt/glob#5.0.10+20160317120654",
-    "gulp": "registry:dt/gulp#3.8.0+20160316155526",
-    "gulp-load-plugins": "registry:dt/gulp-load-plugins#0.0.0+20160316155526",
-    "gulp-typescript": "registry:dt/gulp-typescript#0.0.0+20160317120654",
-    "gulp-util": "registry:dt/gulp-util#3.0.0+20141016163602",
     "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
-    "karma": "registry:dt/karma#0.13.9+20160316155526",
-    "log4js": "registry:dt/log4js#0.0.0+20160316155526",
-    "mime": "registry:dt/mime#0.0.0+20160316155526",
-    "minimatch": "registry:dt/minimatch#2.0.8+20160317120654",
     "node": "registry:dt/node#4.0.0+20160412142033",
-    "orchestrator": "registry:dt/orchestrator#0.0.0+20160316155526",
-    "q": "registry:dt/q#0.0.0+20160323171452",
-    "run-sequence": "registry:dt/run-sequence#0.0.0+20160316155526",
-    "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654",
-    "serve-static": "registry:dt/serve-static#1.7.1+20160104095738",
-    "through2": "registry:dt/through2#2.0.0+20160317120654",
-    "vinyl": "registry:dt/vinyl#1.1.0+20160316155526"
+    "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654"
   }
 }

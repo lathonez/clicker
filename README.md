@@ -64,10 +64,8 @@ External dependencies are listed here to justify their inclusion and to allow fo
 
 * browserify-istanbul: coverage transformer for karma-browserify
 * codecov.io: sending unit test coverage reports to codecov.io
-* gulp-load-plugins: helper to load other gulp plugins easily
 * gulp-tslint: access tslint from gulp
 * gulp-typescript: transpile typescript in gulp
-* gulp-util: logging in gulp
 * isparta: ES6 unit test coverage reporter
 * jasmine-core: jasmine coverage reporter
 * jasmine-spec-reporter: e2e coverage reporter for jasmine

@@ -72,7 +72,7 @@ export class Clickers {
   }
 
   public getClicker(id: string): Clicker {
-    return this.clickers.find((clicker: Clicker) => { return clicker.getId() === id; } );
+    return this.clickers['find']((clicker: Clicker) => { return clicker.getId() === id; } );
   }
 
   public getClickers():  Array<Clicker> {
