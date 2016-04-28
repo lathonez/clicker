@@ -4,7 +4,7 @@
 ### Features
 
 * **Unit Test**: Use browserify within Karma (see below) ([5f096f7](https://github.com/lathonez/clicker/commit/5f096f7))
-* **Unit Test**: Remove glob, gulp-load-plugins and gulp-util dependencies, refactor gulpfile to remove most typing dependencies ([???????](https://github.com/lathonez/clicker/commit/???????))
+* **Unit Test**: Remove glob, gulp-load-plugins and gulp-util dependencies, refactor gulpfile to remove most typing dependencies ([c67beae](https://github.com/lathonez/clicker/commit/c67beae))
 
 ### Browserify in Karma
 
