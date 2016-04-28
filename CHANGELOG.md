@@ -5,7 +5,7 @@
 
 * **Unit Test**: Use browserify within Karma (see below) ([5f096f7](https://github.com/lathonez/clicker/commit/5f096f7))
 
-### Browserify in Karma:
+### Browserify in Karma
 
 * actually enables sourcemaps in Karma
 * quicker builds
