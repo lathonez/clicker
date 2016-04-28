@@ -97,7 +97,7 @@ gulp.task('lint', () => {
 gulp.task('unit-test', (done: Function) => {
   runSequence(
     'clean-test',
-    'html',
+    ['lint', 'html'],
     'karma',
     (<any>done)
   );
