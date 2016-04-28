@@ -1,3 +1,18 @@
+<a name="1.2.0"></a>
+# 1.2.0 (2016-04-28)
+
+### Features
+
+* **Unit Test**: Use browserify within Karma (see below) ([5f096f7](https://github.com/lathonez/clicker/commit/5f096f7))
+
+### Browserify in Karma:
+
+* actually enables sourcemaps in Karma
+* quicker builds
+* remove the requirement for remapping coverage as it happens with browserify
+* remove `test/config.ts` as it was only being used in gulpfile.ts, and as we're making everything lighter it seems unlikely to be extended
+* remove `test/app.stub.js` Now using a workaround in Karma instead. See ([#79](https://github.com/lathonez/clicker/issues/79))
+
 <a name="1.1.1"></a>
 # 1.1.1 (2016-04-27)
 
