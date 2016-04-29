@@ -1,6 +1,3 @@
-// http://stackoverflow.com/questions/33332394/angular-2-typescript-cant-find-names
-/// <reference path="../node_modules/angular2/typings/browser.d.ts" />
-
 'use strict';
 
 import { Type }                    from 'angular2/core';

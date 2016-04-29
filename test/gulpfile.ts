@@ -1,6 +1,3 @@
-// http://stackoverflow.com/questions/33332394/angular-2-typescript-cant-find-names
-/// <reference path="../node_modules/angular2/typings/browser.d.ts" />
-
 import { join } from 'path';
 
 const config: any = {
