@@ -30,10 +30,7 @@ before_install:
   - nvm use 4.1.2
   - npm install -g cordova ionic
 
-install:
-  - npm install
-  - ionic state restore # install cordova stuff from package.json
-  - npm run webdriver-update
+install: npm install
 
 before_script:
   - export DISPLAY=:99.0

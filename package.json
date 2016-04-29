@@ -61,11 +61,9 @@
     "build": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-app",
     "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-e2e && protractor test/protractor.conf.js",
     "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ karma-debug",
-    "postinstall": "typings install && cp test/karma-static/*.html node_modules/karma/static",
+    "postinstall": "ionic state restore && typings install && webdriver-manager update && cp test/karma-static/*.html node_modules/karma/static",
     "start": "ionic serve",
-    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ unit-test",
-    "watch": "gulp --gulpfile test/gulpfile.ts --cwd ./ watch-unit",
-    "webdriver-update": "webdriver-manager update"
+    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ unit-test"
   },
   "repository": {
     "type": "git",
