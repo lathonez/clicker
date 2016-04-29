@@ -21,8 +21,7 @@ npm test          # run unit tests
 
 ## Debug Unit tests
 ```bash
-npm run watch   # in one window - build all the tests and start watching for changes
-npm run karma        # start karma in debug mode: mutli run Chrome, hit `debug` to get going
+npm run karma    # start karma in debug mode: mutli run Chrome, hit `debug` to get going.
 ```
 
 ## Run E2E
