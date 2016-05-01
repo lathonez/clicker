@@ -31,7 +31,7 @@ class MockClickers {
 
 class MockClass {
   public get(): any {
-    return {};
+    return '';
   }
 
   public getBoolean(): boolean {
