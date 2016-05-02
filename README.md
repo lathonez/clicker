@@ -29,7 +29,6 @@ npm run karma    # start karma in debug mode: mutli run Chrome, hit `debug` to g
 # e2e (aka. end-to-end, integration) - In two different shell windows
 # Make sure you don't have a global instance of Protractor
 
-# npm run webdriver-update <- You will need to run this the first time
 npm start
 npm run e2e
 ```
