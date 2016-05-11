@@ -51,7 +51,7 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 
 ## Changelog
 
-See the changelog [here](https://github.com/lathonez/clicker/CHANGELOG.md)
+See the changelog [here](https://github.com/lathonez/clicker/blob/master/CHANGELOG.md)
 
 ## Dependencies
 
