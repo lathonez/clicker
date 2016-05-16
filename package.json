@@ -5,9 +5,7 @@
     "ionic-angular": "2.0.0-beta.6",
     "ionic-native": "^1.1.0",
     "ionicons": "3.0.0-alpha.3",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.6.10"
+    "rxjs": "5.0.0-beta.2"
   },
   "devDependencies": {
     "browserify-istanbul": "^2.0.0",
@@ -17,11 +15,11 @@
     "gulp-tslint": "4.3.5",
     "gulp-typescript": "^2.12.1",
     "gulp-watch": "4.3.5",
-    "ionic-gulp-browserify-typescript": "^1.0.1",
+    "ionic-gulp-browserify-typescript": "^1.1.0",
     "ionic-gulp-fonts-copy": "^1.0.0",
     "ionic-gulp-html-copy": "^1.0.0",
     "ionic-gulp-sass-build": "^1.0.0",
-    "ionic-gulp-scripts-copy": "^1.0.0",
+    "ionic-gulp-scripts-copy": "^1.0.1",
     "isparta": "^4.0.0",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
@@ -45,18 +43,8 @@
   "name": "clicker",
   "version": "1.2.0",
   "description": "clicker: An Ionic project",
-  "cordovaPlugins": [
-    "cordova-sqlite-storage",
-    "cordova-plugin-device",
-    "cordova-plugin-console",
-    "cordova-plugin-whitelist",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard"
-  ],
-  "cordovaPlatforms": [
-    "android"
-  ],
+  "cordovaPlugins": [],
+  "cordovaPlatforms": [],
   "scripts": {
     "build": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-app",
     "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-e2e && protractor test/protractor.conf.js",
