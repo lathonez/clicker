@@ -1,9 +1,14 @@
-import { TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} from 'angular2/platform/testing/browser';
-import { setBaseTestProviders } from 'angular2/testing';
+import { TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS} from '@angular/platform-browser/testing';
+import { setBaseTestProviders } from '@angular/core/testing';
 import { ClickerApp }           from './app';
-
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+}                        from '@angular/core/testing';
 // this needs doing _once_ for the entire test suite, hence it's here
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
+setBaseTestProviders(TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS);
 
 let clickerApp: ClickerApp = null;
 

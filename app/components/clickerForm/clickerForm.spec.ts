@@ -1,14 +1,16 @@
 import {
   beforeEach,
   beforeEachProviders,
-  ComponentFixture,
   describe,
   expect,
   injectAsync,
   it,
+}                        from '@angular/core/testing';
+import {
+  ComponentFixture,
   TestComponentBuilder,
-}                        from 'angular2/testing';
-import { provide }       from 'angular2/core';
+}                        from '@angular/compiler/testing';
+import { provide }       from '@angular/core';
 import {
   Config,
   Form,
@@ -21,7 +23,7 @@ import { TestUtils }     from '../../../test/testUtils';
 import { Utils }         from '../../services/utils';
 
 let clickerForm: ClickerForm = null;
-let clickerFormFixture: ComponentFixture = null;
+let clickerFormFixture: ComponentFixture<any> = null;
 
 class MockClickers {
   public newClicker(): boolean {
@@ -56,7 +58,7 @@ describe('ClickerForm', () => {
   beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(ClickerForm)
-      .then((componentFixture: ComponentFixture) => {
+      .then((componentFixture: ComponentFixture<any>) => {
         clickerFormFixture = componentFixture;
         clickerForm = componentFixture.componentInstance;
         spyOn(clickerForm, 'newClicker').and.callThrough();
