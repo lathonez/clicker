@@ -23,7 +23,7 @@ import { TestUtils }     from '../../../test/testUtils';
 import { Utils }         from '../../services/utils';
 
 let clickerForm: ClickerForm = null;
-let clickerFormFixture: ComponentFixture<any> = null;
+let clickerFormFixture: ComponentFixture<ClickerForm> = null;
 
 class MockClickers {
   public newClicker(): boolean {
@@ -58,7 +58,7 @@ describe('ClickerForm', () => {
   beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(ClickerForm)
-      .then((componentFixture: ComponentFixture<any>) => {
+      .then((componentFixture: ComponentFixture<ClickerForm>) => {
         clickerFormFixture = componentFixture;
         clickerForm = componentFixture.componentInstance;
         spyOn(clickerForm, 'newClicker').and.callThrough();

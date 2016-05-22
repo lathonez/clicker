@@ -37,7 +37,7 @@ class MockClass {
 }
 
 let page2: Page2 = null;
-let page2Fixture: ComponentFixture<any> = null;
+let page2Fixture: ComponentFixture<Page2> = null;
 
 describe('Page2', () => {
 
@@ -53,7 +53,7 @@ describe('Page2', () => {
   beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(Page2)
-      .then((componentFixture: ComponentFixture<any>) => {
+      .then((componentFixture: ComponentFixture<Page2>) => {
         page2Fixture = componentFixture;
         page2 = componentFixture.componentInstance;
         page2Fixture.detectChanges();

@@ -18,7 +18,7 @@ import { TestUtils }     from '../../../test/testUtils';
 import { Utils }         from '../../services/utils';
 
 let clickerButton: ClickerButton = null;
-let clickerButtonFixture: ComponentFixture<any> = null;
+let clickerButtonFixture: ComponentFixture<ClickerButton> = null;
 
 class MockClickers {
   public doClick(): boolean {
@@ -47,7 +47,7 @@ describe('ClickerButton', () => {
   beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(ClickerButton)
-      .then((componentFixture: ComponentFixture<any>) => {
+      .then((componentFixture: ComponentFixture<ClickerButton>) => {
         clickerButtonFixture = componentFixture;
         clickerButton = componentFixture.componentInstance;
         clickerButton['clicker'] = { name: 'TEST CLICKER' };

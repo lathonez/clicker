@@ -5,11 +5,11 @@ import {
   expect,
   injectAsync,
   it,
-}                        from '@angular/core/testing';
+}                               from '@angular/core/testing';
 import {
   ComponentFixture,
   TestComponentBuilder,
-}                        from '@angular/compiler/testing';
+}                               from '@angular/compiler/testing';
 import { provide }              from '@angular/core';
 import { ClickerList }          from './clickerList';
 import { Utils }                from '../../services/utils';
@@ -37,7 +37,7 @@ class MockClass {
 }
 
 let clickerList: ClickerList = null;
-let clickerListFixture: ComponentFixture<any> = null;
+let clickerListFixture: ComponentFixture<ClickerList> = null;
 
 describe('ClickerList', () => {
 
@@ -53,7 +53,7 @@ describe('ClickerList', () => {
   beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(ClickerList)
-      .then((componentFixture: ComponentFixture<any>) => {
+      .then((componentFixture: ComponentFixture<ClickerList>) => {
         clickerListFixture = componentFixture;
         clickerList = componentFixture.componentInstance;
         clickerListFixture.detectChanges();
