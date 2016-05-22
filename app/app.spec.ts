@@ -2,6 +2,7 @@ import { ADDITIONAL_TEST_BROWSER_PROVIDERS, TEST_BROWSER_STATIC_PLATFORM_PROVIDE
 import { BROWSER_APP_DYNAMIC_PROVIDERS }                from '@angular/platform-browser-dynamic';
 import { resetBaseTestProviders, setBaseTestProviders } from '@angular/core/testing';
 import { ClickerApp }                                   from './app';
+import { Page2 }                                        from './pages/page2/page2';
 
 resetBaseTestProviders();
 setBaseTestProviders(
@@ -14,16 +15,6 @@ setBaseTestProviders(
 
 let clickerApp: ClickerApp = null;
 
-function getComponentStub(name: string): any {
-  'use strict';
-
-  let component: Object = {
-    setRoot: function(): boolean { return true; },
-    close: function(root: any): boolean { return true; },
-  };
-  return component;
-}
-
 class MockClass {
   public ready(): any {
     return new Promise((resolve: Function) => {
@@ -31,7 +22,11 @@ class MockClass {
     });
   }
 
-  public getComponent(): any {
+  public close(): any {
+    return true;
+  }
+
+  public setRoot(): any {
     return true;
   }
 }
@@ -56,9 +51,12 @@ describe('ClickerApp', () => {
   });
 
   it('opens a page', () => {
-    spyOn(clickerApp['app'], 'getComponent').and.callFake(getComponentStub);
+    spyOn(clickerApp['menu'], 'close');
+    // cant be bothered to set up DOM testing for app.ts to get access to @ViewChild (Nav)
+    clickerApp['nav'] = (<any>clickerApp['menu']);
+    spyOn(clickerApp['nav'], 'setRoot');
     clickerApp.openPage(clickerApp['pages'][1]);
-    expect(clickerApp['app'].getComponent).toHaveBeenCalledWith('leftMenu');
-    expect(clickerApp['app'].getComponent).toHaveBeenCalledWith('nav');
+    expect(clickerApp['menu']['close']).toHaveBeenCalled();
+    expect(clickerApp['nav'].setRoot).toHaveBeenCalledWith(Page2);
   });
 });

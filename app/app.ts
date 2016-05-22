@@ -1,10 +1,10 @@
 'use strict';
 
-import { Type }                    from '@angular/core';
-import { App, IonicApp, Platform } from 'ionic-angular';
-import { StatusBar }               from 'ionic-native';
-import { ClickerList }             from './pages/clickerList/clickerList';
-import { Page2 }                   from './pages/page2/page2';
+import { Type, ViewChild }                    from '@angular/core';
+import { App, Platform, MenuController, Nav } from 'ionic-angular';
+import { StatusBar }                          from 'ionic-native';
+import { ClickerList }                        from './pages/clickerList/clickerList';
+import { Page2 }                              from './pages/page2/page2';
 
 @App({
   templateUrl: 'build/app.html',
@@ -12,15 +12,17 @@ import { Page2 }                   from './pages/page2/page2';
 })
 export class ClickerApp {
 
+  @ViewChild(Nav) private nav: Nav;
+
   private rootPage: Type;
   private pages: Array<{title: string, component: Type}>;
-  private app: IonicApp;
+  private menu: MenuController;
   private platform: Platform;
 
-  constructor(app: IonicApp, platform: Platform) {
+  constructor(platform: Platform, menu: MenuController) {
 
-    this.app = app;
     this.platform = platform;
+    this.menu = menu;
 
     this.rootPage = ClickerList;
     this.initializeApp();
@@ -42,8 +44,8 @@ export class ClickerApp {
 
   public openPage(page: any): void {
     // close the menu when clicking a link from the menu
-    this.app.getComponent('leftMenu').close();
+    this.menu.close();
     // navigate to the new page if it is not the current page
-    this.app.getComponent('nav').setRoot(page.component);
+    this.nav.setRoot(page.component);
   };
 }
