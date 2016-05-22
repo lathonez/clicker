@@ -55,29 +55,25 @@ gulp.task('clean-test', () => {
 gulp.task('karma', (done: Function) => {
 
   let karma: any = require('karma');
+  let karmaOpts: {} = {
+    configFile: join(process.cwd(), config.testDir, 'karma.config.js'),
+    singleRun: true,
+  };
 
-  new (<any>karma).Server(
-    {
-      configFile: join(process.cwd(), config.testDir, 'karma.config.js'),
-      singleRun: true,
-    },
-    (() => done())
-  ).start();
+  new karma.Server(karmaOpts, done).start();
 });
 
 // run jasmine unit tests using karma with Chrome, Karma will be left open in Chrome for debug
 gulp.task('karma-debug', (done: Function) => {
 
   let karma: any = require('karma');
+  let karmaOpts: {} = {
+    configFile: join(process.cwd(), config.testDir, 'karma.config.js'),
+    singleRun: false,
+    browsers: ['Chrome'],
+  };
 
-  new (<any>karma).Server(
-    {
-      configFile: join(process.cwd(), config.testDir, 'karma.config.js'),
-      singleRun: false,
-      browsers: ['Chrome'],
-    },
-    (() => done())
-  ).start();
+  new karma.Server(karmaOpts, done).start();
 });
 
 // run tslint against all typescript
