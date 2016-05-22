@@ -55,11 +55,12 @@ See the changelog [here](https://github.com/lathonez/clicker/blob/master/CHANGEL
 
 ## Dependencies
 
-* **Angular:** 2.0.0-beta.15
-* **Ionic:** 2.0.0-beta.6
+* **@Angular:** 2.0.0-rc.1
+* **Ionic:** 2.0.0-beta.7
 
 External dependencies are listed here to justify their inclusion and to allow for their removal if your project isn't using the related functionality.
 
+* browserify: peer dependency of karma-browserify
 * browserify-istanbul: coverage transformer for karma-browserify
 * codecov.io: sending unit test coverage reports to codecov.io
 * gulp-tslint: access tslint from gulp
@@ -76,7 +77,6 @@ External dependencies are listed here to justify their inclusion and to allow fo
 * karma-phantomjs-launcher: allows using phantom with Karma
 * phantomjs-prebuilt: phantom headless browser
 * protractor: e2e test runner
-* traceur: needed to prevent errors in Phantom
 * tsify: typescript plugin for karma-browserify
 * ts-node: transpile gulpfile
 * tslint: static code analysis for typescript
