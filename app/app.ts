@@ -2,6 +2,7 @@
 
 import { Type }                    from '@angular/core';
 import { App, IonicApp, Platform } from 'ionic-angular';
+import { StatusBar }               from 'ionic-native';
 import { ClickerList }             from './pages/clickerList/clickerList';
 import { Page2 }                   from './pages/page2/page2';
 
