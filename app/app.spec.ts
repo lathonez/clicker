@@ -1,14 +1,16 @@
-import { TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS} from '@angular/platform-browser/testing';
-import { setBaseTestProviders } from '@angular/core/testing';
-import { ClickerApp }           from './app';
-import {
-  beforeEach,
-  describe,
-  expect,
-  it,
-}                               from '@angular/core/testing';
-// this needs doing _once_ for the entire test suite, hence it's here
-setBaseTestProviders(TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS);
+import { ADDITIONAL_TEST_BROWSER_PROVIDERS, TEST_BROWSER_STATIC_PLATFORM_PROVIDERS } from '@angular/platform-browser/testing/browser_static';
+import { BROWSER_APP_DYNAMIC_PROVIDERS }                from '@angular/platform-browser-dynamic';
+import { resetBaseTestProviders, setBaseTestProviders } from '@angular/core/testing';
+import { ClickerApp }                                   from './app';
+
+resetBaseTestProviders();
+setBaseTestProviders(
+  TEST_BROWSER_STATIC_PLATFORM_PROVIDERS,
+  [
+    BROWSER_APP_DYNAMIC_PROVIDERS,
+    ADDITIONAL_TEST_BROWSER_PROVIDERS,
+  ]
+);
 
 let clickerApp: ClickerApp = null;
 
