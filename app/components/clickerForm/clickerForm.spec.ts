@@ -74,7 +74,7 @@ describe('ClickerForm', () => {
   it('passes new clicker through to service', () => {
     let clickerName: string = 'dave';
     let input: any = clickerFormFixture.nativeElement.querySelectorAll('.text-input')[0];
-    let button: any = clickerFormFixture.nativeElement.querySelectorAll('button')[0];
+    let button: any = clickerFormFixture.nativeElement.querySelectorAll('button')[1];
     spyOn(Utils, 'resetControl').and.callThrough();
     input.value = clickerName;
     clickerFormFixture.detectChanges();
@@ -87,7 +87,7 @@ describe('ClickerForm', () => {
   });
 
   it('doesn\'t try to add a clicker with no name', () => {
-    let button: any = clickerFormFixture.nativeElement.querySelectorAll('button')[0];
+    let button: any = clickerFormFixture.nativeElement.querySelectorAll('button')[1];
     TestUtils.eventFire(button, 'click');
     expect(clickerForm.newClicker).toHaveBeenCalled();
     expect(clickerForm['clickerService'].newClicker).not.toHaveBeenCalled();
