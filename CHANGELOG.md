@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic 2.0.0.beta.7 and Angular 2.0.0.rc.1 PR[#93](https://github.com/lathonez/clicker/pull/93) big update due to Angular RC1 ([bc392c3](https://github.com/lathonez/clicker/commit/bc392c3))
+* **Update**: Update to Ionic 2.0.0.beta.7 and Angular 2.0.0.rc.1 PR [#93](https://github.com/lathonez/clicker/pull/93) big update due to Angular RC1 ([bc392c3](https://github.com/lathonez/clicker/commit/bc392c3))
 
 ### Browserify in Karma
 
