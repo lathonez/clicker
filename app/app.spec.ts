@@ -6,7 +6,7 @@ import {
   describe,
   expect,
   it,
-}                        from '@angular/core/testing';
+}                               from '@angular/core/testing';
 // this needs doing _once_ for the entire test suite, hence it's here
 setBaseTestProviders(TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS);
 
