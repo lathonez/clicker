@@ -1,3 +1,12 @@
+<a name="1.3.0"></a>
+# 1.3.0 (2016-05-22)
+
+### Features
+
+* **Update**: Update to Ionic 2.0.0.beta.7 and Angular 2.0.0.rc.1 PR[#93](https://github.com/lathonez/clicker/pull/93) big update due to Angular RC1 ([f3b6641](https://github.com/lathonez/clicker/commit/f3b6641))
+
+### Browserify in Karma
+
 <a name="1.2.0"></a>
 # 1.2.0 (2016-04-28)
 

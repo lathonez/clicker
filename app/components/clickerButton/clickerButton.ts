@@ -1,6 +1,6 @@
 'use strict';
 
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { Button }    from 'ionic-angular';
 import { Clickers }  from '../../services/clickers';
 

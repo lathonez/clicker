@@ -1,14 +1,16 @@
 import {
   beforeEach,
   beforeEachProviders,
-  ComponentFixture,
   describe,
   expect,
   injectAsync,
   it,
+}                        from '@angular/core/testing';
+import {
+  ComponentFixture,
   TestComponentBuilder,
-}                               from 'angular2/testing';
-import { provide }              from 'angular2/core';
+}                        from '@angular/compiler/testing';
+import { provide }              from '@angular/core';
 import { Page2 }                from './page2';
 import { Utils }                from '../../services/utils';
 import {
@@ -35,7 +37,7 @@ class MockClass {
 }
 
 let page2: Page2 = null;
-let page2Fixture: ComponentFixture = null;
+let page2Fixture: ComponentFixture<Page2> = null;
 
 describe('Page2', () => {
 
@@ -51,7 +53,7 @@ describe('Page2', () => {
   beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(Page2)
-      .then((componentFixture: ComponentFixture) => {
+      .then((componentFixture: ComponentFixture<Page2>) => {
         page2Fixture = componentFixture;
         page2 = componentFixture.componentInstance;
         page2Fixture.detectChanges();

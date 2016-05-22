@@ -1,7 +1,7 @@
 'use strict';
 
-import { AbstractControl, ControlGroup, FormBuilder, Validators } from 'angular2/common';
-import { Component }                                              from 'angular2/core';
+import { AbstractControl, ControlGroup, FormBuilder, Validators } from '@angular/common';
+import { Component }                                              from '@angular/core';
 import { Button, Icon, Item, Label, TextInput }                   from 'ionic-angular';
 import { Clickers }                                               from '../../services/clickers';
 import { Utils }                                                  from '../../services/utils';

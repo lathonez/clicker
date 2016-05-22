@@ -1,14 +1,16 @@
 import {
   beforeEach,
   beforeEachProviders,
-  ComponentFixture,
   describe,
   expect,
   injectAsync,
   it,
+}                        from '@angular/core/testing';
+import {
+  ComponentFixture,
   TestComponentBuilder,
-}                        from 'angular2/testing';
-import { provide }       from 'angular2/core';
+}                        from '@angular/compiler/testing';
+import { provide }       from '@angular/core';
 import { Config }        from 'ionic-angular';
 import { ClickerButton } from './clickerButton';
 import { Clickers }      from '../../services/clickers';
@@ -16,7 +18,7 @@ import { TestUtils }     from '../../../test/testUtils';
 import { Utils }         from '../../services/utils';
 
 let clickerButton: ClickerButton = null;
-let clickerButtonFixture: ComponentFixture = null;
+let clickerButtonFixture: ComponentFixture<ClickerButton> = null;
 
 class MockClickers {
   public doClick(): boolean {
@@ -45,7 +47,7 @@ describe('ClickerButton', () => {
   beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
     return tcb
       .createAsync(ClickerButton)
-      .then((componentFixture: ComponentFixture) => {
+      .then((componentFixture: ComponentFixture<ClickerButton>) => {
         clickerButtonFixture = componentFixture;
         clickerButton = componentFixture.componentInstance;
         clickerButton['clicker'] = { name: 'TEST CLICKER' };
