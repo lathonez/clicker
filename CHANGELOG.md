@@ -1,11 +1,16 @@
+<a name="1.3.1"></a>
+# 1.3.1 (2016-05-25)
+
+### Bug Fixes
+
+* **App**: Duplicate include of Reflect.js ([#96](https://github.com/lathonez/clicker/issues/96)) ([cc2d919](https://github.com/lathonez/clicker/commit/cc2d919))
+
 <a name="1.3.0"></a>
 # 1.3.0 (2016-05-22)
 
 ### Features
 
 * **Update**: Update to Ionic 2.0.0.beta.7 and Angular 2.0.0.rc.1 PR [#93](https://github.com/lathonez/clicker/pull/93) big update due to Angular RC1 ([bc392c3](https://github.com/lathonez/clicker/commit/bc392c3))
-
-### Browserify in Karma
 
 <a name="1.2.0"></a>
 # 1.2.0 (2016-04-28)

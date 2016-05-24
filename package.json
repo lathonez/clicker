@@ -49,7 +49,7 @@
     "typings": "1.0.4"
   },
   "name": "clicker",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "clicker: An Ionic project",
   "cordovaPlugins": [
     "cordova-plugin-device",
