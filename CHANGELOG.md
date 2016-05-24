@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **App**: Duplicate include of Reflect.js ([#96](https://github.com/lathonez/clicker/issues/96)) ([cc2d919](https://github.com/lathonez/clicker/commit/cc2d919))
+* **App**: Duplicate include of Reflect.js ([#96](https://github.com/lathonez/clicker/issues/96)) ([15bd2e6](https://github.com/lathonez/clicker/commit/15bd2e6))
 
 <a name="1.3.0"></a>
 # 1.3.0 (2016-05-22)
