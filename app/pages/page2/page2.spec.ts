@@ -16,7 +16,7 @@ import { Utils }                from '../../services/utils';
 import {
   Config,
   Form,
-  IonicApp,
+  App,
   NavController,
   NavParams,
   Platform,
@@ -46,7 +46,7 @@ describe('Page2', () => {
     provide(NavController, {useClass: MockClass}),
     provide(NavParams, {useClass: MockClass}),
     provide(Config, {useClass: MockClass}),
-    provide(IonicApp, {useClass: MockClass}),
+    provide(App, {useClass: MockClass}),
     provide(Platform, {useClass: MockClass}),
   ]);
 
