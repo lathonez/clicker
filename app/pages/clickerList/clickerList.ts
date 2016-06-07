@@ -1,11 +1,12 @@
 'use strict';
 
-import { Page, NavController } from 'ionic-angular';
-import { Clickers }            from '../../services/clickers';
-import { ClickerButton }       from '../../components/clickerButton/clickerButton';
-import { ClickerForm }         from '../../components/clickerForm/clickerForm';
+import { Component }     from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { Clickers }      from '../../services/clickers';
+import { ClickerButton } from '../../components/clickerButton/clickerButton';
+import { ClickerForm }   from '../../components/clickerForm/clickerForm';
 
-@Page({
+@Component({
   templateUrl: 'build/pages/clickerList/clickerList.html',
   providers: [Clickers],
   directives: [ClickerButton, ClickerForm],

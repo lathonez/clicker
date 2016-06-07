@@ -14,7 +14,7 @@ import { provide }       from '@angular/core';
 import {
   Config,
   Form,
-  IonicApp,
+  App,
   Platform,
 }                        from 'ionic-angular';
 import { ClickerForm }   from './clickerForm';
@@ -50,7 +50,7 @@ describe('ClickerForm', () => {
   beforeEachProviders(() => [
     Form,
     provide(Clickers, {useClass: MockClickers}),
-    provide(IonicApp, {useClass: MockClass}),
+    provide(App, {useClass: MockClass}),
     provide(Platform, {useClass: MockClass}),
     provide(Config, {useClass: MockClass}),
   ]);

@@ -1,14 +1,13 @@
 'use strict';
 
-import { Type, ViewChild }                    from '@angular/core';
-import { App, Platform, MenuController, Nav } from 'ionic-angular';
-import { StatusBar }                          from 'ionic-native';
-import { ClickerList }                        from './pages/clickerList/clickerList';
-import { Page2 }                              from './pages/page2/page2';
+import { Component, Type, ViewChild }                         from '@angular/core';
+import { Platform, ionicBootstrap, MenuController, Nav } from 'ionic-angular';
+import { StatusBar }                                          from 'ionic-native';
+import { ClickerList }                                        from './pages/clickerList/clickerList';
+import { Page2 }                                              from './pages/page2/page2';
 
-@App({
+@Component({
   templateUrl: 'build/app.html',
-  config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class ClickerApp {
 
@@ -49,3 +48,10 @@ export class ClickerApp {
     this.nav.setRoot(page.component);
   };
 }
+
+// Pass the main app component as the first argument
+// Pass any providers for your app in the second argument
+// Set any config for your app as the third argument:
+// http://ionicframework.com/docs/v2/api/config/Config/
+
+ionicBootstrap(ClickerApp, [], {});
