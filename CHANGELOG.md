@@ -1,3 +1,11 @@
+<a name="1.3.3"></a>
+# 1.3.3 (2016-06-18)
+
+### Features
+
+* **Update**: Update to Ionic 2.0.0.beta.9 PR ([5f8d5fb])(https://github.com/lathonez/clicker/commit/5f8d5fb20f456d2e8b98d9db1098c51588e6568e)
+
+
 <a name="1.3.2"></a>
 # 1.3.2 (2016-06-07)
 
