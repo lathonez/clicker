@@ -1,68 +1,17 @@
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  injectAsync,
-  it,
-}                               from '@angular/core/testing';
-import {
-  ComponentFixture,
-  TestComponentBuilder,
-}                               from '@angular/compiler/testing';
-import { provide }              from '@angular/core';
-import { ClickerList }          from './clickerList';
-import { Utils }                from '../../services/utils';
-import {
-  Config,
-  Form,
-  App,
-  NavController,
-  NavParams,
-  Platform,
-}                               from 'ionic-angular';
+import { beforeEach, beforeEachProviders, describe, expect, it } from '@angular/core/testing';
+import { asyncCallbackFactory, injectAsyncWrapper, providers }   from '../../../test/diExports';
+import { ClickerList }                                           from './clickerList';
 
-class MockClass {
-  public get(): any {
-    return '';
-  }
-
-  public getBoolean(): boolean {
-    return true;
-  }
-
-  public getNumber(): number {
-    return 42;
-  }
-}
-
-let clickerList: ClickerList = null;
-let clickerListFixture: ComponentFixture<ClickerList> = null;
+this.fixture = null;
+this.instance = null;
 
 describe('ClickerList', () => {
 
-  beforeEachProviders(() => [
-    Form,
-    provide(NavController, {useClass: MockClass}),
-    provide(NavParams, {useClass: MockClass}),
-    provide(Config, {useClass: MockClass}),
-    provide(App, {useClass: MockClass}),
-    provide(Platform, {useClass: MockClass}),
-  ]);
-
-  beforeEach(injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-    return tcb
-      .createAsync(ClickerList)
-      .then((componentFixture: ComponentFixture<ClickerList>) => {
-        clickerListFixture = componentFixture;
-        clickerList = componentFixture.componentInstance;
-        clickerListFixture.detectChanges();
-      })
-      .catch(Utils.promiseCatchHandler);
-  }));
+  beforeEachProviders(() => providers);
+  beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerList, this, true)));
 
   it('initialises', () => {
-    expect(clickerList).not.toBeNull();
-    expect(clickerListFixture).not.toBeNull();
+    expect(this.instance).not.toBeNull();
+    expect(this.fixture).not.toBeNull();
   });
 });

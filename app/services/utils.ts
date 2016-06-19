@@ -5,7 +5,7 @@ import { AbstractControl } from '@angular/common';
 export class Utils {
 
   public static promiseCatchHandler(err: Error): void {
-    console.error('ERROR - An error has occurred inside a promise!');
+    console.error('ERROR - An error has occurred inside a promise! ' + err);
     // throw the error out to the console - http://stackoverflow.com/a/30741722
     setTimeout(function(): void { throw err; });
   }
