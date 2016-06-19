@@ -10,7 +10,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic 2.0.0.beta.9 PR ([a61432c](https://github.com/lathonez/clicker/commit/a61432c))
+* **Update**: Update to Ionic 2.0.0.beta.9 ([a61432c](https://github.com/lathonez/clicker/commit/a61432c))
 
 <a name="1.3.2"></a>
 # 1.3.2 (2016-06-07)
