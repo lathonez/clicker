@@ -1,4 +1,4 @@
-import { provide, Type }                          from '@angular/core';
+import { provide, Type }                              from '@angular/core';
 import { ComponentFixture, TestComponentBuilder }     from '@angular/compiler/testing';
 import { injectAsync }                                from '@angular/core/testing';
 import { Control }                                    from '@angular/common';
