@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Unit Test**: Centralise Testing DI Boilerplate ([#103](https://github.com/lathonez/clicker/issues/103)) ([ff59b33](https://github.com/lathonez/clicker/commit/ff59b33))
+* **Unit Test**: Centralise Testing DI Boilerplate ([#103](https://github.com/lathonez/clicker/issues/103)) ([4769372]](https://github.com/lathonez/clicker/commit/4769372))
 
 <a name="1.3.3"></a>
 # 1.3.3 (2016-06-18)
