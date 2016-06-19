@@ -3,21 +3,21 @@
 
 ### Features
 
-* **Unit Test**: Centralise Testing DI Boilerplate ([#103](https://github.com/lathonez/clicker/issues/103)) ([4769372]](https://github.com/lathonez/clicker/commit/4769372))
+* **Unit Test**: Centralise Testing DI Boilerplate ([#103](https://github.com/lathonez/clicker/issues/103)) ([4769372](https://github.com/lathonez/clicker/commit/4769372))
 
 <a name="1.3.3"></a>
 # 1.3.3 (2016-06-18)
 
 ### Features
 
-* **Update**: Update to Ionic 2.0.0.beta.9 PR ([a61432c])(https://github.com/lathonez/clicker/commit/a61432c)
+* **Update**: Update to Ionic 2.0.0.beta.9 PR ([a61432c](https://github.com/lathonez/clicker/commit/a61432c))
 
 <a name="1.3.2"></a>
 # 1.3.2 (2016-06-07)
 
 ### Features
 
-* **Update**: Update to Ionic 2.0.0.beta.8 PR [#98](https://github.com/lathonez/clicker/pull/98) ([5f8d5fb])(https://github.com/lathonez/clicker/commit/5f8d5fb20f456d2e8b98d9db1098c51588e6568e)
+* **Update**: Update to Ionic 2.0.0.beta.8 PR [#98](https://github.com/lathonez/clicker/pull/98) ([5f8d5fb](https://github.com/lathonez/clicker/commit/5f8d5fb20f456d2e8b98d9db1098c51588e6568e))
 
 <a name="1.3.1"></a>
 # 1.3.1 (2016-05-25)
