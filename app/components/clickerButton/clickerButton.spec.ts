@@ -1,9 +1,16 @@
 import { beforeEach, beforeEachProviders, describe, expect, it }          from '@angular/core/testing';
+import { provide }                                                        from '@angular/core';
 import { asyncCallbackFactory, injectAsyncWrapper, providers, TestUtils } from '../../../test/diExports';
+import { ClickersMock }                                                   from '../../services/mocks';
 import { ClickerButton }                                                  from './clickerButton';
+import { Clickers }                                                       from '../../services';
 
 this.fixture = null;
 this.instance = null;
+
+let clickerButtonProviders: Array<any> = [
+ provide(Clickers, {useClass: ClickersMock}),
+];
 
 describe('ClickerButton', () => {
 
@@ -12,7 +19,7 @@ describe('ClickerButton', () => {
     testSpec.instance['clicker'].getCount = function(): number { return 10; };
   });
 
-  beforeEachProviders(() => providers);
+  beforeEachProviders(() => providers.concat(clickerButtonProviders));
   beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerButton, this, false, beforeEachFn)));
 
   it('initialises', () => {

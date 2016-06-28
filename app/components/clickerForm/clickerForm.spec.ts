@@ -1,10 +1,16 @@
 import { beforeEach, beforeEachProviders, describe, expect, it }          from '@angular/core/testing';
+import { provide }                                                        from '@angular/core';
 import { asyncCallbackFactory, injectAsyncWrapper, providers, TestUtils } from '../../../test/diExports';
-import { Utils }                                                          from '../../services/utils';
+import { ClickersMock }                                                   from '../../services/mocks';
+import { Clickers, Utils }                                                from '../../services';
 import { ClickerForm }                                                    from './clickerForm';
 
 this.fixture = null;
 this.instance = null;
+
+let clickerFormProviders: Array<any> = [
+ provide(Clickers, {useClass: ClickersMock}),
+];
 
 describe('ClickerForm', () => {
 
@@ -13,7 +19,7 @@ describe('ClickerForm', () => {
     spyOn(testSpec.instance['clickerService'], 'newClicker').and.callThrough();
   });
 
-  beforeEachProviders(() => providers);
+  beforeEachProviders(() => providers.concat(clickerFormProviders));
   beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerForm, this, false, beforeEachFn)));
 
   it('initialises', () => {

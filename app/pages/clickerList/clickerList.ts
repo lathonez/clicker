@@ -2,7 +2,7 @@
 
 import { Component }     from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Clickers }      from '../../services/clickers';
+import { Clickers }      from '../../services';
 import { ClickerButton } from '../../components/clickerButton/clickerButton';
 import { ClickerForm }   from '../../components/clickerForm/clickerForm';
 
