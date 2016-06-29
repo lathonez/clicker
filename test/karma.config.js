@@ -39,7 +39,7 @@ module.exports = function(config) {
       transform: [
         ['browserify-istanbul', {
           instrumenter: require('isparta'),
-          ignore: ['**/*.spec.ts','**/*.d.ts'],
+          ignore: ['**/*.spec.ts','**/*.d.ts', '**/index.ts', '**/mocks.ts', '**/*.mock.ts'],
         }]
       ],
       plugin: [

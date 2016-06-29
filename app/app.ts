@@ -3,8 +3,7 @@
 import { Component, Type, ViewChild }                         from '@angular/core';
 import { ionicBootstrap, MenuController, Nav, Platform }      from 'ionic-angular';
 import { StatusBar }                                          from 'ionic-native';
-import { ClickerList }                                        from './pages/clickerList/clickerList';
-import { Page2 }                                              from './pages/page2/page2';
+import { ClickerList, Page2 }                                 from './pages';
 
 @Component({
   templateUrl: 'build/app.html',

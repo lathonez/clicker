@@ -1,3 +1,11 @@
+<a name="1.3.5"></a>
+# 1.3.5 (2016-06-29)
+
+### Features
+
+* **Unit Test**: Implement Barrels and move mocks to individual files PR [#109](https://github.com/lathonez/clicker/pull/109) ([TODO](https://github.com/lathonez/clicker/commit/TODO))
+* **Update**: Update to Ionic 2.0.0.beta.10 ([TODO](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.3.4"></a>
 # 1.3.4 (2016-06-19)
 

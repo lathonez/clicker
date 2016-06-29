@@ -1,10 +1,9 @@
 'use strict';
 
-import { Component }     from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Clickers }      from '../../services/clickers';
-import { ClickerButton } from '../../components/clickerButton/clickerButton';
-import { ClickerForm }   from '../../components/clickerForm/clickerForm';
+import { Component }                  from '@angular/core';
+import { NavController }              from 'ionic-angular';
+import { Clickers }                   from '../../services';
+import { ClickerButton, ClickerForm } from '../../components';
 
 @Component({
   templateUrl: 'build/pages/clickerList/clickerList.html',

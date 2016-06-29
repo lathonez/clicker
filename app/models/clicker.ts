@@ -1,6 +1,6 @@
 'use strict';
 
-import { Click } from './click';
+import { Click } from './';
 
 // Represents a single Clicker
 export class Clicker {
