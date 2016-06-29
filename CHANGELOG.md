@@ -1,27 +1,34 @@
-<a name="1.3.5"></a>
-# 1.3.5 (2016-06-29)
+<a name="1.7.1"></a>
+# 1.7.0 (2016-06-29)
+
+### Bug Fixes
+
+* **E2E**: Problems introduced with 1.7.0, missing menu, incorrect title, and transition timing on Page2 ([c0562f0](https://github.com/lathonez/clicker/commit/c0562f0))
+
+<a name="1.7.0"></a>
+# 1.7.0 (2016-06-29)
 
 ### Features
 
 * **Unit Test**: Implement Barrels and move mocks to individual files PR [#109](https://github.com/lathonez/clicker/pull/109) ([0734e45](https://github.com/lathonez/clicker/commit/0734e45))
 * **Update**: Update to Ionic 2.0.0.beta.10 ([1b1b2e3](https://github.com/lathonez/clicker/commit/1b1b2e3))
 
-<a name="1.3.4"></a>
-# 1.3.4 (2016-06-19)
+<a name="1.6.0"></a>
+# 1.6.0(2016-06-19)
 
 ### Features
 
 * **Unit Test**: Centralise Testing DI Boilerplate ([#103](https://github.com/lathonez/clicker/issues/103)) ([4769372](https://github.com/lathonez/clicker/commit/4769372))
 
-<a name="1.3.3"></a>
-# 1.3.3 (2016-06-18)
+<a name="1.5.0"></a>
+# 1.5.0 (2016-06-18)
 
 ### Features
 
 * **Update**: Update to Ionic 2.0.0.beta.9 ([a61432c](https://github.com/lathonez/clicker/commit/a61432c))
 
-<a name="1.3.2"></a>
-# 1.3.2 (2016-06-07)
+<a name="1.4.0"></a>
+# 1.4.0 (2016-06-07)
 
 ### Features
 
