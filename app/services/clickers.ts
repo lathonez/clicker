@@ -1,9 +1,8 @@
 'use strict';
 
-import { Injectable } from '@angular/core';
-import { SqlStorage } from 'ionic-angular';
-import { Clicker }    from '../models/clicker';
-import { Click }      from '../models/click';
+import { Injectable }     from '@angular/core';
+import { SqlStorage }     from 'ionic-angular';
+import { Click, Clicker } from '../models';
 
 @Injectable()
 export class Clickers {

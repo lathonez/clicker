@@ -2,7 +2,7 @@
 
 import { Component } from '@angular/core';
 import { Button }    from 'ionic-angular';
-import { Clickers }  from '../../services/clickers';
+import { Clickers }  from '../../services';
 
 @Component({
   selector: 'clicker-button',
