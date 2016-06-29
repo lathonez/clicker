@@ -20,7 +20,7 @@ describe('ClickerForm', () => {
   });
 
   beforeEachProviders(() => providers.concat(clickerFormProviders));
-  beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerForm, this, false, beforeEachFn)));
+  beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerForm, this, true, beforeEachFn)));
 
   it('initialises', () => {
     expect(this.fixture).not.toBeNull();
@@ -33,8 +33,6 @@ describe('ClickerForm', () => {
     let button: any = this.fixture.nativeElement.querySelectorAll('button')[1];
     spyOn(Utils, 'resetControl').and.callThrough();
     input.value = clickerName;
-    this.fixture.detectChanges();
-    this.instance['clickerNameInput']['updateValue'](clickerName, true);
     TestUtils.eventFire(input, 'input');
     TestUtils.eventFire(button, 'click');
     expect(this.instance.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
