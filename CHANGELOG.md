@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Unit Test**: Upgrade karma to 1.1.0 [#110](https://github.com/lathonez/clicker/issues/110) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit Test**: Upgrade karma to 1.1.0 [#110](https://github.com/lathonez/clicker/issues/110) ([1a061b7](https://github.com/lathonez/clicker/commit/1a061b7))
 
 <a name="1.7.1"></a>
 # 1.7.1 (2016-06-29)
