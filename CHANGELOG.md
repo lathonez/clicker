@@ -1,5 +1,12 @@
+<a name="1.8.0"></a>
+# 1.8.0 (2016-06-30)
+
+### Features
+
+* **Unit Test**: Upgrade karma to 1.1.0 [#110](https://github.com/lathonez/clicker/issues/110) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.7.1"></a>
-# 1.7.0 (2016-06-29)
+# 1.7.1 (2016-06-29)
 
 ### Bug Fixes
 
