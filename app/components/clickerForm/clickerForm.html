@@ -2,7 +2,7 @@
   <ion-row>
     <ion-col width-80>
       <ion-item>
-        <ion-input block [ngFormControl]="clickerNameInput" type="text" placeholder="New Clicker"></ion-input>
+        <ion-input block [ngFormControl]="clickerNameInput" [(ngModel)]="clickerName" type="text" placeholder="New Clicker"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col>

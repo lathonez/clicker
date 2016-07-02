@@ -42,6 +42,8 @@ describe('ClickerForm', () => {
 
   it('doesn\'t try to add a clicker with no name', () => {
     let button: any = this.fixture.nativeElement.querySelectorAll('button')[1];
+    this.instance.clickerName = '';
+    this.fixture.detectChanges();
     TestUtils.eventFire(button, 'click');
     expect(this.instance.newClicker).toHaveBeenCalled();
     expect(this.instance['clickerService'].newClicker).not.toHaveBeenCalled();
