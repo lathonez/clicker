@@ -24,13 +24,13 @@ describe('ClickerList', () => {
     'test clicker one'.split('').forEach((c) => clickerField.sendKeys(c));
     clickerButton.click();
     browser.driver.sleep(1000);
-    expect(firstClicker.getText()).toEqual('TEST CLICKER ONE (0)');
+    expect(firstClicker.getText()).toEqual('CLICKER ISSUE #108TEST CLICKER ONE (0)');
   });
 
   it('should click a Clicker', () => {
     firstClicker.click();
     browser.driver.sleep(1000);
-    expect(firstClicker.getText()).toEqual('TEST CLICKER ONE (1)');
+    expect(firstClicker.getText()).toEqual('CLICKER ISSUE #108TEST CLICKER ONE (1)');
   });
 
   it('should delete a Clicker', () => {
