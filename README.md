@@ -14,6 +14,8 @@ npm install       # or `npm run reinstall` if you get an error
 npm start         # start the application (ionic serve)
 ```
 
+Running as root? You probably shouldn't be. If you need to do this, do `npm run postinstall` after `npm install`. #111 for more info.
+
 ## Run Unit Tests
 ```bash
 npm test          # run unit tests
