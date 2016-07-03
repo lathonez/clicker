@@ -1,21 +1,23 @@
 'use strict';
 
-import {Component} from '@angular/core';
+import { Component }        from '@angular/core';
+import { Range, TextInput } from 'ionic-angular';
 
 @Component({
   templateUrl: 'build/pages/page2/page2.html',
+  directives: [Range, TextInput],
 })
-export class Page2 {
-  // NOTE: reproducing clicker issue 108: 'value' should be a string
-  // type if you uncommented the <ion-input> line in page2.html, or
-  // if you uncommented <ion-range>, then 'value' should be an int
 
-  // private value: number;
-  private value: string;
+export class Page2 {
+
+  // demonstrating #108
+  private rangeValue: number;
+  private inputValue: string;
+
   constructor() {
 
-    // this.value = 33;
-    this.value = 'some text';
+    this.rangeValue = 33;
+    this.inputValue = 'some text';
   }
   public onGainChange(arg: any): void {
       return;
