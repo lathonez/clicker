@@ -16,7 +16,6 @@ export class ClickerForm {
   private clickerService: Clickers;
   private form: ControlGroup;
   private clickerNameInput: AbstractControl;
-  private clickerName: string;
 
   constructor(clickerService: Clickers, fb: FormBuilder) {
     this.clickerService = clickerService;
@@ -26,7 +25,6 @@ export class ClickerForm {
     });
 
     this.clickerNameInput = this.form.controls['clickerNameInput'];
-    this.clickerName = 'Clicker Issue #108';
   }
 
   public newClicker(formValue: Object): boolean {
