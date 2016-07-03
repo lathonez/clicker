@@ -9,4 +9,8 @@
 
 <ion-content padding class="message bye-ionic">
   <h2>Bye!</h2>
+  <!-- NOTE: tried it with either <ion-range> or <ion-input> and
+       both produce the error " No value accessor for '' " -->
+  <!--ion-range [(ngModel)]="value"></ion-range-->
+  <ion-input [(ngModel)]="value" type="text"></ion-input>
 </ion-content>

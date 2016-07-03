@@ -6,7 +6,11 @@ import {Component} from '@angular/core';
   templateUrl: 'build/pages/page2/page2.html',
 })
 export class Page2 {
+  private value: number;
   constructor() {
-    // no-op
+    this.value = 33;
+  }
+  public onGainChange(arg: any): void {
+      return;
   }
 }
