@@ -6,10 +6,15 @@ import {Component} from '@angular/core';
   templateUrl: 'build/pages/page2/page2.html',
 })
 export class Page2 {
-  private value: any;
+  // NOTE: reproducing clicker issue 108: 'value' should be a string
+  // type if you uncommented the <ion-input> line in page2.html, or
+  // if you uncommented <ion-range>, then 'value' should be an int
+
+  // private value: number;
+  private value: string;
   constructor() {
-    // NOTE: use number value if uncommenting <ion-range> in template
-    // or use string value if uncommenting <ion-input> in template
+
+use number value if uncommenting <ion-range> in template
     // this.value = 33;
     this.value = 'some text';
   }

@@ -9,8 +9,11 @@
 
 <ion-content padding class="message bye-ionic">
   <h2>Bye!</h2>
-  <!-- NOTE: tried it with either <ion-range> or <ion-input> and
-       both produce the error " No value accessor for '' " -->
+  <!-- NOTE: the clicker issue 108 error can be reproduced either with
+       an <ion-range> or with an <ion-input> element with an
+       [(ngModel)]. uncomment either one of those lines and uncomment
+       the corresponding lines in page2.ts that change the type of
+       'value' -->
   <!--ion-range [(ngModel)]="value"></ion-range-->
   <ion-input [(ngModel)]="value" type="text"></ion-input>
 </ion-content>
