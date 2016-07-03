@@ -14,7 +14,6 @@ export class Page2 {
   private value: string;
   constructor() {
 
-use number value if uncommenting <ion-range> in template
     // this.value = 33;
     this.value = 'some text';
   }
