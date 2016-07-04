@@ -1,3 +1,10 @@
+<a name="1.8.1"></a>
+# 1.8.1 (2016-07-04)
+
+### Bug Fixes
+
+* **Unit Test**: Remove coverage from debug mode [#115](https://github.com/lathonez/clicker/issues/115) ([0bdc6e4](https://github.com/lathonez/clicker/commit/0bdc6e4))
+
 <a name="1.8.0"></a>
 # 1.8.0 (2016-06-30)
 
