@@ -71,6 +71,7 @@ gulp.task('karma-debug', (done: Function) => {
     configFile: join(process.cwd(), config.testDir, 'karma.config.js'),
     singleRun: false,
     browsers: ['Chrome'],
+    reporters: ['mocha'],
   };
 
   new karma.Server(karmaOpts, done).start();
