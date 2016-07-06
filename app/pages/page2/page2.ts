@@ -19,7 +19,8 @@ export class Page2 {
     this.rangeValue = 33;
     this.inputValue = 'some text';
   }
-  public onGainChange(arg: any): void {
-      return;
+
+  public onGainChange(): void {
+    return;
   }
 }

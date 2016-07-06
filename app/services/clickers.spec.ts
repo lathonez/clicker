@@ -31,7 +31,7 @@ function storageGetStub(key: string): Promise<{}> {
   });
 }
 
-function storageSetStub(key: string, value: string): Promise<{}> {
+function storageSetStub(): Promise<{}> {
   'use strict';
 
   return new Promise((resolve: Function) => {
@@ -39,7 +39,7 @@ function storageSetStub(key: string, value: string): Promise<{}> {
   });
 }
 
-function storageRemoveStub(key: string): Promise<{}> {
+function storageRemoveStub(): Promise<{}> {
     'use strict';
 
     return new Promise((resolve: Function) => {
