@@ -1,138 +1,95 @@
-import { Clickers } from './clickers';
-import { Clicker } from '../models/clicker';
+import { beforeEach, beforeEachProviders, describe, expect, it } from '@angular/core/testing';
+import { provide }                                               from '@angular/core';
+import { asyncCallbackFactory, injectAsyncWrapper, providers }   from '../../test/diExports';
+import { Clickers }    from './clickers';
+import { Clicker }     from '../models/clicker';
+import { ClickerList } from '../pages/clickerList/clickerList';
+import { StorageMock } from './mocks';
 
-const CLICKER_IDS: Array<string> = ['yy5d8klsj0', 'q20iexxg4a', 'wao2xajl8a'];
-let clickers: Clickers = null;
+this.fixture = null;
+this.instance = null;
+this.clickers = null;
 
-function storageGetStub(key: string): Promise<{}> {
-  'use strict';
+let clickerListProviders: Array<any> = [
+  Clickers,
+  provide('Storage', { useClass: StorageMock }),
+];
 
-  let rtn: string = null;
-
-  switch (key) {
-    case 'ids':
-      rtn = JSON.stringify(CLICKER_IDS);
-      break;
-    case CLICKER_IDS[0]:
-      rtn = '{"id":"' + CLICKER_IDS[0] + '","name":"test1","clicks":[{"time":1450410168819,"location":"TODO"}]}';
-      break;
-    case CLICKER_IDS[1]:
-      rtn = '{"id":"' + CLICKER_IDS[1] + '","name":"test2","clicks":[{"time":1450410168819,"location":"TODO"},{"time":1450410168945,"location":"TODO"}]}';
-      break;
-    case CLICKER_IDS[2]:
-      rtn = '{"id":"' + CLICKER_IDS[2] + '", "name":"test3", "clicks":[{ "time": 1450410168819, "location": "TODO" }, { "time": 1450410168945, "location": "TODO" }] } ';
-      break;
-    default:
-      rtn = 'SHOULD NOT BE HERE!';
-  }
-
-  return new Promise((resolve: Function) => {
-    resolve(rtn);
-  });
-}
-
-function storageSetStub(): Promise<{}> {
-  'use strict';
-
-  return new Promise((resolve: Function) => {
-    resolve(true);
-  });
-}
-
-function storageRemoveStub(): Promise<{}> {
-    'use strict';
-
-    return new Promise((resolve: Function) => {
-    resolve(true);
-  });
-}
-
-let mockSqlStorage: Object = {
-  get: storageGetStub,
-  set: storageSetStub,
-  remove: storageRemoveStub,
-};
+let beforeEachFn: Function = ((testSpec) => {
+  testSpec.clickers = testSpec.instance.clickerService;
+  spyOn(testSpec.clickers.storage, 'set').and.callThrough();
+});
 
 describe('Clickers', () => {
 
-  beforeEach(() => {
-    spyOn(Clickers, 'initStorage').and.returnValue(mockSqlStorage);
-    clickers = new Clickers();
-    spyOn(clickers['storage'], 'set');
+  beforeEachProviders(() => providers.concat(clickerListProviders));
+  beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerList, this, false, beforeEachFn)));
+
+  it('initialises', () => {
+    expect(this.clickers).not.toBeNull();
+    expect(this.instance).not.toBeNull();
+    expect(this.fixture).not.toBeNull();
   });
 
   it('initialises with empty clickers', () => {
-    expect(clickers.getClickers()).toEqual([]);
+    expect(new Clickers(null).getClickers()).toEqual([]);
   });
 
-  it('creates an instance of SqlStorage', () => {
-    expect((<any>Clickers).initStorage()).toEqual(mockSqlStorage);
-  });
-
-  it('has empty ids with no storage', (done: Function) => {
-    (<any>clickers).initIds()
+  it('initialises with clickers from mock storage', (done: Function) => {
+    this.clickers['initClickers']([])
       .then(() => {
-        expect(clickers.getClickers()).toEqual([]);
-        done();
-      });
-  });
-
-  it('has empty clickers with no storage', (done: Function) => {
-    (<any>clickers).initClickers([])
-      .then(() => {
-        expect(clickers.getClickers()).toEqual([]);
+        expect(this.clickers.getClickers().length).toEqual(StorageMock.CLICKER_IDS.length);
         done();
       });
   });
 
   it('can initialise a clicker from string', () => {
     let clickerString: string = '{"id":"0g2vt8qtlm","name":"harold","clicks":[{"time":1450410168819,"location":"TODO"},{"time":1450410168945,"location":"TODO"}]}';
-    let clicker: Clicker = (<any>clickers).initClicker(clickerString);
+    let clicker: Clicker = this.clickers.initClicker(clickerString);
     expect(clicker.getName()).toEqual('harold');
     expect(clicker.getCount()).toEqual(2);
   });
 
   it('returns undefined for a bad id', () => {
-    expect(clickers.getClicker('dave')).not.toBeDefined();
+    expect(this.clickers.getClicker('dave')).not.toBeDefined();
   });
 
   it('adds a new clicker with the correct name', () => {
-    let idAdded: string = clickers.newClicker('dave');
-    expect(clickers['storage'].set).toHaveBeenCalledWith(idAdded, jasmine.any(String));
-    expect(clickers.getClickers()[0].getName()).toEqual('dave');
+    let idAdded: string = this.clickers.newClicker('dave');
+    expect(this.clickers['storage'].set).toHaveBeenCalledWith(idAdded, jasmine.any(String));
+    expect(this.clickers.getClickers()[3].getName()).toEqual('dave');
   });
 
   it('removes a clicker by id', () => {
-    let idToRemove: string = clickers.newClicker('dave');
-    clickers.removeClicker(idToRemove);
-    expect(clickers['storage'].set).toHaveBeenCalledWith(idToRemove, jasmine.any(String));
-    expect(clickers.getClickers()).toEqual([]);
+    let idToRemove: string = this.clickers.newClicker('dave');
+    this.clickers.removeClicker(idToRemove);
+    expect(this.clickers['storage'].set).toHaveBeenCalledWith(idToRemove, jasmine.any(String));
   });
 
   it('does a click', () => {
-    let idToClick: string = clickers.newClicker('dave');
+    let idToClick: string = this.clickers.newClicker('dave');
     let clickedClicker: Clicker = null;
-    clickers.doClick(idToClick);
-    expect(clickers['storage'].set).toHaveBeenCalledWith(idToClick, jasmine.any(String));
-    clickedClicker = clickers.getClicker(idToClick);
+    this.clickers.doClick(idToClick);
+    expect(this.clickers['storage'].set).toHaveBeenCalledWith(idToClick, jasmine.any(String));
+    clickedClicker = this.clickers.getClicker(idToClick);
     expect(clickedClicker.getCount()).toEqual(1);
   });
 
   it('loads IDs from storage', (done: Function) => {
-    (<any>clickers).initIds()
+    this.clickers.initIds()
       .then((ids: Array<string>) => {
-        expect(ids).toEqual(CLICKER_IDS);
+        expect(ids).toEqual(StorageMock.CLICKER_IDS);
         done();
       });
   });
 
   it('loads clickers from storage', (done: Function) => {
-    (<any>clickers).initClickers(CLICKER_IDS)
+    this.clickers.initClickers(StorageMock.CLICKER_IDS)
       .then((resolvedClickers: Array<Clicker>) => {
         expect(resolvedClickers.length).toEqual(3);
-        expect(resolvedClickers[0].getId()).toEqual(CLICKER_IDS[0]);
-        expect(resolvedClickers[1].getId()).toEqual(CLICKER_IDS[1]);
-        expect(resolvedClickers[2].getId()).toEqual(CLICKER_IDS[2]);
+        expect(resolvedClickers[0].getId()).toEqual(StorageMock.CLICKER_IDS[0]);
+        expect(resolvedClickers[1].getId()).toEqual(StorageMock.CLICKER_IDS[1]);
+        expect(resolvedClickers[2].getId()).toEqual(StorageMock.CLICKER_IDS[2]);
         done();
       });
   });

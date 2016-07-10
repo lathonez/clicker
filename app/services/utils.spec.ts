@@ -1,10 +1,6 @@
-import { Utils } from './utils';
+import { Utils }                    from './';
 import { AbstractControl, Control } from '@angular/common';
-import {
-    describe,
-    expect,
-    it,
-}                        from '@angular/core/testing';
+
 describe('Utils', () => {
 
   it('resets a control', () => {

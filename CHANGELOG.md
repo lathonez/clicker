@@ -1,3 +1,10 @@
+<a name="1.9.0"></a>
+# 1.9.0 (2016-07-10)
+
+### Features
+
+* **Unit Test**: Break out storage and use DI to inject it, attempting to address [#86](https://github.com/lathonez/clicker/issues/86) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.8.1"></a>
 # 1.8.1 (2016-07-04)
 

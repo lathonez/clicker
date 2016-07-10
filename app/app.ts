@@ -1,9 +1,10 @@
 'use strict';
 
-import { Component, Type, ViewChild }                         from '@angular/core';
-import { ionicBootstrap, MenuController, Nav, Platform }      from 'ionic-angular';
-import { StatusBar }                                          from 'ionic-native';
-import { ClickerList, Page2 }                                 from './pages';
+import { Component, provide, Type, ViewChild }           from '@angular/core';
+import { ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
+import { StatusBar }                                     from 'ionic-native';
+import { Clickers, Storage }                             from './services';
+import { ClickerList, Page2 }                            from './pages';
 
 @Component({
   templateUrl: 'build/app.html',
@@ -48,4 +49,4 @@ export class ClickerApp {
   };
 }
 
-ionicBootstrap(ClickerApp);
+ionicBootstrap(ClickerApp, [Clickers, provide('Storage', {useClass: Storage})]);

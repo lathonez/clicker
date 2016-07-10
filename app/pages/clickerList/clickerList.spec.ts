@@ -9,7 +9,7 @@ this.fixture = null;
 this.instance = null;
 
 let clickerListProviders: Array<any> = [
- provide(Clickers, {useClass: ClickersMock}),
+  provide(Clickers, {useClass: ClickersMock}),
 ];
 
 describe('ClickerList', () => {

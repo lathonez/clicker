@@ -8,4 +8,8 @@ export class ClickersMock {
   public newClicker(): boolean {
     return true;
   }
+
+  public getClickers(): Array<string> {
+    return [];
+  }
 }

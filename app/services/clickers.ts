@@ -1,18 +1,20 @@
 'use strict';
 
-import { Injectable }     from '@angular/core';
-import { SqlStorage }     from 'ionic-angular';
-import { Click, Clicker } from '../models';
+import { Inject, Injectable } from '@angular/core';
+import { Storage }            from './';
+import { Click, Clicker }     from '../models';
 
 @Injectable()
 export class Clickers {
 
   private clickers: Array<Clicker>;
   private ids: Array<string>; // we need to keep a separate reference to ids so we can lookup when the app loads from scratch
-  private storage: SqlStorage;
+  private storage: Storage;
 
-  constructor() {
-    this.storage = Clickers.initStorage(); // typeof SqlStorage is not assignable to type StorageEngine seems to be an ionic issue
+  // don't know why Injection isn't working without @Inject:
+  // http://stackoverflow.com/questions/34449486/angular-2-0-injected-http-service-is-undefined
+  constructor(@Inject('Storage') storage: Storage) {
+    this.storage = storage;
     this.ids = [];
     this.clickers = [];
     this.initIds()
@@ -49,6 +51,7 @@ export class Clickers {
             clickers.push(this.initClicker(clicker));
           });
       }
+      // TODO - this is a bug it will resolve before the loop has completed
       resolve(clickers);
     });
   }
@@ -64,10 +67,6 @@ export class Clickers {
     }
 
     return newClicker;
-  }
-
-  private static initStorage(): SqlStorage {
-    return new SqlStorage();
   }
 
   public getClicker(id: string): Clicker {
