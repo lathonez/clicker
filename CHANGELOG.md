@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Unit Test**: Break out storage and use DI to inject it, attempting to address [#86](https://github.com/lathonez/clicker/issues/86) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit Test**: Break out storage and use DI to inject it, attempting to address [#86](https://github.com/lathonez/clicker/issues/86) ([297dd00](https://github.com/lathonez/clicker/commit/297dd00))
 
 <a name="1.8.1"></a>
 # 1.8.1 (2016-07-04)
