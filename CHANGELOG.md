@@ -1,3 +1,10 @@
+<a name="1.9.1"></a>
+# 1.9.1 (2016-07-11)
+
+### Bug Fixes
+
+* **Unit Test**: Make sure we're cleaning before running unit tests [#86](https://github.com/lathonez/clicker/issues/86) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.9.0"></a>
 # 1.9.0 (2016-07-10)
 

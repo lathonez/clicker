@@ -26,7 +26,7 @@ gulp.task('build-app', (done: Function) => {
 });
 
 // compile E2E typescript into individual files, project directoy structure is replicated under www/build/test
-gulp.task('build-e2e', ['clean-test'], () => {
+gulp.task('build-e2e', ['clean-e2e'], () => {
   let typescript: any = require('gulp-typescript');
   let tsProject: any = typescript.createProject('tsconfig.json');
   let src: Array<any> = [
@@ -40,8 +40,9 @@ gulp.task('build-e2e', ['clean-test'], () => {
     .pipe(gulp.dest(config.testDest));
 });
 
-// delete everything used in our test cycle here
-gulp.task('clean-test', () => {
+// delete _only_ tests generated on e2e.
+// If we delete everything (using Ionic's `clean` task we'll wipe the newly built app we're testing against)
+gulp.task('clean-e2e', () => {
 
   let del: any = require('del');
 
@@ -90,6 +91,7 @@ gulp.task('lint', () => {
 // build unit tests, run unit tests, remap and report coverage
 gulp.task('unit-test', (done: Function) => {
   runSequence(
+    ['clean'], // Ionic's clean task, nukes the whole of www/build
     ['lint', 'html'],
     'karma',
     (<any>done)
