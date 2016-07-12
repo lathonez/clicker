@@ -1,3 +1,10 @@
+<a name="1.9.2"></a>
+# 1.9.2 (2016-07-12)
+
+### Bug Fixes
+
+* **Unit Test**: Make (source) source maps available to debug mode by remove the coverage transform which seems to be mangling them [#119](https://github.com/lathonez/clicker/issues/119) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.9.1"></a>
 # 1.9.1 (2016-07-11)
 
