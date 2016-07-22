@@ -1,2 +1,2 @@
-export * from './clickerList/clickerList.ts';
-export * from './page2/page2.ts';
+export * from './clickerList/clickerList';
+export * from './page2/page2';
