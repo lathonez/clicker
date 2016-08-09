@@ -1,6 +1,7 @@
 'use strict';
 
 import { Component, provide, Type, ViewChild }           from '@angular/core';
+import { disableDeprecatedForms, provideForms }          from '@angular/forms';
 import { ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar }                                     from 'ionic-native';
 import { Clickers, Storage }                             from './services';
@@ -49,4 +50,9 @@ export class ClickerApp {
   };
 }
 
-ionicBootstrap(ClickerApp, [Clickers, provide('Storage', {useClass: Storage})]);
+ionicBootstrap(ClickerApp, [
+  disableDeprecatedForms(),
+  provideForms(),
+  Clickers,
+  provide('Storage', {useClass: Storage})]
+);

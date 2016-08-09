@@ -90,8 +90,10 @@ gulp.task('lint', () => {
   let tslint: any = require('gulp-tslint');
 
   return gulp.src(join(config.appDir, '**/*.ts'))
-    .pipe(tslint())
-    .pipe(tslint.report('verbose'));
+    .pipe(tslint({
+        formatter: 'verbose',
+    }))
+    .pipe(tslint.report());
 });
 
 // build unit tests, run unit tests, remap and report coverage

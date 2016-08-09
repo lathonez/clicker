@@ -9,7 +9,7 @@ this.fixture = null;
 this.instance = null;
 
 let clickerFormProviders: Array<any> = [
- provide(Clickers, {useClass: ClickersMock}),
+  provide(Clickers, {useClass: ClickersMock}),
 ];
 
 describe('ClickerForm', () => {
@@ -37,7 +37,7 @@ describe('ClickerForm', () => {
     TestUtils.eventFire(button, 'click');
     expect(this.instance.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
     expect(this.instance['clickerService'].newClicker).toHaveBeenCalledWith(clickerName);
-    expect(Utils.resetControl).toHaveBeenCalledWith(this.instance['clickerNameInput']);
+    expect(Utils.resetControl).toHaveBeenCalledWith(this.instance.form.controls.clickerNameInput);
   });
 
   it('doesn\'t try to add a clicker with no name', () => {

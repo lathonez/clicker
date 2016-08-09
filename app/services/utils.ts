@@ -1,6 +1,6 @@
 'use strict';
 
-import { AbstractControl } from '@angular/common';
+import { AbstractControl } from '@angular/forms';
 
 export class Utils {
 
@@ -13,6 +13,8 @@ export class Utils {
   // bit of a hack here to reset the validation / state on the control as well as the value
   // expecting a Control.reset() method to do this but there doesn't seem to be one
   // http://stackoverflow.com/questions/33084280/how-to-reset-control-value
+  // edit rc4 after new forms https://angular.io/docs/ts/latest/guide/forms.html ctrl + f "small trick"
+  // their suggested workaround is even worse than this IMO, it involves setTimeout and redrawing the whole form (noticable flicker)
   public static resetControl(control: AbstractControl): AbstractControl {
     control['updateValue']('');
     control['_touched'] = false;

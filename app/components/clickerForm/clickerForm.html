@@ -1,12 +1,14 @@
-<form [ngFormModel]="form" (submit)="newClicker(form.value)">
+<form [formGroup]="form" (submit)="newClicker(form.value)">
   <ion-row>
     <ion-col width-80>
-      <ion-item>
-        <ion-input block [ngFormControl]="clickerNameInput" type="text" placeholder="New Clicker"></ion-input>
+      <ion-item >
+        <ion-input block formControlName="clickerNameInput" type="text" placeholder="New Clicker"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col>
-      <button type="submit" block secondary outline><ion-icon name="add-circle"></ion-icon></button>
+      <button type="submit" block secondary outline>
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
     </ion-col>
   </ion-row>
 </form>

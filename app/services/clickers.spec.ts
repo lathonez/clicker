@@ -31,10 +31,6 @@ describe('Clickers', () => {
     expect(this.fixture).not.toBeNull();
   });
 
-  it('initialises with empty clickers', () => {
-    expect(new Clickers(null).getClickers()).toEqual([]);
-  });
-
   it('initialises with clickers from mock storage', (done: Function) => {
     this.clickers['initClickers']([])
       .then(() => {

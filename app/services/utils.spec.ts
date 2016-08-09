@@ -1,10 +1,10 @@
-import { Utils }                    from './';
-import { AbstractControl, Control } from '@angular/common';
+import { Utils }                        from './';
+import { AbstractControl, FormControl } from '@angular/forms';
 
 describe('Utils', () => {
 
   it('resets a control', () => {
-    let control: Control = new Control('');
+    let control: FormControl = new FormControl('');
     let returnedControl: AbstractControl = null;
     control.markAsTouched();
     control.updateValue('dave');

@@ -10,7 +10,9 @@
     "!node_modules/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "typings/global",
+    "typings/global.d.ts"
   ],
   "compileOnSave": false,
   "atom": {
