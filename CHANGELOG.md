@@ -1,9 +1,9 @@
 <a name="1.10.0"></a>
 # 1.10.0 (2016-08-09)
 
-### Bug Fixes
+### Features
 
-* **Update**: Update to Ionic 2.0.0.beta.11 ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic 2.0.0.beta.11 ([01530a7](https://github.com/lathonez/clicker/commit/01530a7))
 
 <a name="1.9.2"></a>
 # 1.9.2 (2016-07-12)
