@@ -1,5 +1,3 @@
-'use strict';
-
 import { FormGroup, FormBuilder, Validators }        from '@angular/forms';
 import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { Component }                                 from '@angular/core';

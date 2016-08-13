@@ -10,9 +10,8 @@ this.instance = null;
 
 let clickerListProviders: Array<any> = [
   provide(Clickers, {useClass: ClickersMock}),
-];
-
-describe('ClickerList', () => {
+ ];
+ describe('ClickerList', () => {
 
   beforeEachProviders(() => providers.concat(clickerListProviders));
   beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerList, this, true)));

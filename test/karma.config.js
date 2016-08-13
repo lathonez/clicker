@@ -1,4 +1,6 @@
-module.exports = function(config) {
+var path = require('path')
+
+module.exports = function (config) {
   'use strict';
   config.set({
 
@@ -7,7 +9,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'browserify'],
+    frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -18,8 +20,8 @@ module.exports = function(config) {
       'node_modules/zone.js/dist/async-test.js',
       'node_modules/zone.js/dist/fake-async-test.js',
       'app/**/*.spec.ts',
-      {pattern: 'node_modules/reflect-metadata/Reflect.js.map', included: false, served: true}, // 404 on the same
-      {pattern: 'www/build/**/*.html', included: false},
+      { pattern: 'node_modules/reflect-metadata/Reflect.js.map', included: false, served: true }, // 404 on the same
+      { pattern: 'www/build/**/*.html', included: false },
     ],
 
     // list of files to exclude
@@ -31,34 +33,61 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.ts': ['browserify']
+      'app/**/*.ts': ['webpack'],
+      'test/**/*.ts': ['webpack'],
+
     },
 
-    browserify: {
-      debug: true,
-      transform: [
-        ['browserify-istanbul', {
-          instrumenter: require('isparta'),
-          ignore: ['**/*.spec.ts','**/*.d.ts', '**/index.ts', '**/mocks.ts', '**/*.mock.ts'],
+    webpack: {
+
+      devtool: 'cheap-module-source-map',
+
+      module: {
+        loaders: [{
+          test: /\.ts$/,
+          loader: 'awesome-typescript',
+          query: {
+            doTypeCheck: true,
+            resolveGlobs: false,
+            externals: ["typings/index.d.ts"]
+          },
+          include: path.resolve('app'),
+          exclude: /node_modules/
+        },{
+          test: /\.ts$/,
+          loader: 'awesome-typescript',
+          query: {
+            doTypeCheck: true,
+            resolveGlobs: false,
+            externals: ["typings/index.d.ts"]
+          },
+          include: path.resolve('test'),
+          exclude: /node_modules/
         }]
-      ],
-      plugin: [
-        ['tsify']
-      ]
+      },
+      resolve: {
+        alias: {
+        },
+        extensions: ['', '.js', '.ts']
+      }
+    },
+
+    webpackMiddleware: {
+      stats: 'errors-only'
     },
 
     // options on how to report coverage:
-    coverageReporter: {
-      reporters: [
-        {type: 'text'},
-        {type: 'lcov', dir: 'coverage', subdir: '.'}
-      ]
-    },
+    // coverageReporter: {
+    //   reporters: [
+    //     { type: 'text' },
+    //     { type: 'lcov', dir: 'coverage', subdir: '.' }
+    //   ]
+    // },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha', 'coverage'],
+    reporters: ['progress'],
 
     // web server port
     port: 9876,
@@ -82,7 +111,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'PhantomJS',
+      'Chrome',
     ],
 
     // https://github.com/lathonez/clicker/issues/82

@@ -4,19 +4,22 @@ import { asyncCallbackFactory, injectAsyncWrapper, providers, TestUtils } from '
 import { ClickersMock }                                                   from '../../services/mocks';
 import { ClickerButton }                                                  from './clickerButton';
 import { Clickers }                                                       from '../../services';
+import {  TestComponentBuilder }     from '@angular/compiler/testing';
+import {addProviders} from '@angular/core/testing';
 
 this.fixture = null;
 this.instance = null;
 
 let clickerButtonProviders: Array<any> = [
- provide(Clickers, {useClass: ClickersMock}),
+  provide(Clickers, { useClass: ClickersMock }),
 ];
 
 describe('ClickerButton', () => {
 
   let beforeEachFn: Function = ((testSpec) => {
+    addProviders([{ provide: TestComponentBuilder, useClass: null }]);
     testSpec.instance['clicker'] = { name: 'TEST CLICKER' };
-    testSpec.instance['clicker'].getCount = function(): number { return 10; };
+    testSpec.instance['clicker'].getCount = function (): number { return 10; };
   });
 
   beforeEachProviders(() => providers.concat(clickerButtonProviders));
