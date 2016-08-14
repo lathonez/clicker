@@ -5,7 +5,7 @@ import { disableDeprecatedForms, provideForms }          from '@angular/forms';
 import { ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar }                                     from 'ionic-native';
 import { Clickers, Storage }                             from './services';
-import { ClickerList, Page2 }                            from './pages';
+import { ClickerList, ClickerListNgrxPage, Page2 } from './pages';
 
 @Component({
   templateUrl: 'build/app.html',
@@ -15,7 +15,7 @@ export class ClickerApp {
   @ViewChild(Nav) private nav: Nav;
 
   private rootPage: Type;
-  private pages: Array<{title: string, component: Type}>;
+  private pages: Array<{ title: string, component: Type }>;
   private menu: MenuController;
   private platform: Platform;
 
@@ -31,6 +31,7 @@ export class ClickerApp {
     this.pages = [
       { title: 'Clickers', component: ClickerList },
       { title: 'Goodbye Ionic', component: Page2 },
+      { title: 'Clickers ngrx', component: ClickerListNgrxPage },
     ];
   }
 
@@ -54,5 +55,5 @@ ionicBootstrap(ClickerApp, [
   disableDeprecatedForms(),
   provideForms(),
   Clickers,
-  provide('Storage', {useClass: Storage})]
+  provide('Storage', { useClass: Storage })]
 );
