@@ -21,6 +21,7 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
+    "awesome-typescript-loader": "^2.1.1",
     "browserify": "13.1.0",
     "browserify-istanbul": "2.0.0",
     "codecov.io": "0.1.6",
