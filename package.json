@@ -21,7 +21,7 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^2.1.1",
+    "awesome-typescript-loader": "1.1.1",
     "browserify": "13.1.0",
     "browserify-istanbul": "2.0.0",
     "codecov.io": "0.1.6",
@@ -77,7 +77,8 @@
     "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ karma-debug",
     "postinstall": "ionic state restore && typings install && webdriver-manager update && cp test/karma-static/*.html node_modules/karma/static",
     "start": "ionic serve",
-    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ unit-test"
+    "test": "gulp --gulpfile test/gulpfile.ts --cwd ./ unit-test",
+    "node": "rm -rf node_modules/ && npm i"
   },
   "repository": {
     "type": "git",
