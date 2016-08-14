@@ -58,8 +58,9 @@ gulp.task('clean-e2e', () => {
 gulp.task('karma', (done) => {
 
   let karma = require('karma');
-  let karmaOpts= {
-    configFile: path.join(process.cwd(), 'test/karma.config.js')
+  let karmaOpts = {
+    configFile: path.join(process.cwd(), 'test/karma.config.js'),
+    singleRun: true
   };
 
   new karma.Server(karmaOpts, done).start();
@@ -70,8 +71,9 @@ gulp.task('karma', (done) => {
 gulp.task('karma-debug', (done) => {
 
   let karma = require('karma');
-  let karmaOpts= {
-    configFile: path.join(process.cwd(), 'test/karma.config.js')
+  let karmaOpts = {
+    configFile: path.join(process.cwd(), 'test/karma.config.js'),
+    singleRun: false
   };
 
   new karma.Server(karmaOpts, done).start();
@@ -84,7 +86,7 @@ gulp.task('lint', () => {
 
   return gulp.src(path.join(config.appDir, '**/*.ts'))
     .pipe(tslint({
-        formatter: 'verbose',
+      formatter: 'verbose',
     }))
     .pipe(tslint.report());
 });
