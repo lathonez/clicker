@@ -51,4 +51,3 @@ describe('ClickerApp', () => {
     expect(clickerApp['nav'].setRoot).toHaveBeenCalledWith(Page2);
   });
 });
-
