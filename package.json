@@ -42,6 +42,7 @@
     "karma-phantomjs-launcher": "1.0.1",
     "phantomjs-prebuilt": "2.1.11",
     "protractor": "4.0.3",
+    "protractor-jasmine2-screenshot-reporter": "^0.3.2",
     "run-sequence": "1.2.2",
     "ts-node": "1.2.2",
     "tsify": "1.0.3",
