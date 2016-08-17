@@ -1,9 +1,9 @@
-var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-
-var reporter = new HtmlScreenshotReporter ({
+// Screenshot Reporter needs declaring outside the export as it's used in multiple hooks
+var SSReporter = require('protractor-jasmine2-screenshot-reporter');
+var screenshotReporter = new SSReporter ({
   dest: 'coverage/screenshots',
   pathBuilder: function(currentSpec, suites) {
-    var name = currentSpec.fullName
+    var name = currentSpec.fullName;
     var testname = name.replace(/\s+/g, '-').toLowerCase();
     return testname;
   },
@@ -37,19 +37,22 @@ exports.config = {
       'browserName': 'chrome'
     },
 
+    // hook into screenshotReporter's beforeLaunch
     beforeLaunch: function() {
       return new Promise(function(resolve){
-        reporter.beforeLaunch(resolve);
+        screenshotReporter.beforeLaunch(resolve);
       });
     },
 
     onPrepare: function() {
-      jasmine.getEnv().addReporter(reporter);
       var SpecReporter = require('jasmine-spec-reporter');
-      
+
       // Add jasmine spec reporter
       jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: true}));
-      
+
+      // Add screenshot reporter
+      jasmine.getEnv().addReporter(screenshotReporter);
+
       // Define browser size for tests/screenshots
       var width = 360;
       var height = 640;
@@ -58,10 +61,10 @@ exports.config = {
       browser.ignoreSynchronization = false;
     },
 
-    // Close the report after all tests finish
+    // hook into screenshotReporter's afterLaunch
     afterLaunch: function(exitCode) {
       return new Promise(function(resolve){
-        reporter.afterLaunch(resolve.bind(this, exitCode));
+        screenshotReporter.afterLaunch(resolve.bind(this, exitCode));
       });
     },
 

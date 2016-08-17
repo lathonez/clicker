@@ -80,6 +80,7 @@ External dependencies are listed here to justify their inclusion and to allow fo
 * karma-phantomjs-launcher: allows using phantom with Karma
 * phantomjs-prebuilt: phantom headless browser
 * protractor: e2e test runner
+* protractor-jasmine2-screenshot-reporter: screenshot reporter for Jasmine
 * tsify: typescript plugin for karma-browserify
 * ts-node: transpile gulpfile
 * tslint: static code analysis for typescript
