@@ -1,3 +1,10 @@
+<a name="1.11.0"></a>
+# 1.11.0 (2016-08-17)
+
+### Features
+
+* **E2E**: Add screenshot reporter for Protractor PR [#132](https://github.com/lathonez/clicker/pull/132) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.10.0"></a>
 # 1.10.0 (2016-08-09)
 
