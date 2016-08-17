@@ -3,7 +3,7 @@
 
 ### Features
 
-* **E2E**: Add screenshot reporter for Protractor PR [#132](https://github.com/lathonez/clicker/pull/132) ([](https://github.com/lathonez/clicker/commit/))
+* **E2E**: Add screenshot reporter for Protractor PR [#132](https://github.com/lathonez/clicker/pull/132) ([dd1242d](https://github.com/lathonez/clicker/commit/dd1242d))
 
 <a name="1.10.0"></a>
 # 1.10.0 (2016-08-09)
