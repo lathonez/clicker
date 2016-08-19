@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <clicker-ngrx-form (newClicker)="newClicker($event)"></clicker-ngrx-form>
-  <ion-row *ngFor="let clicker of clickers" class="clickerList">
+  <ion-row *ngFor="let clicker of data$ | async" class="clickerList">
     <ion-col width-80><clicker-ngrx-button (doClick)="doClick($event)" [clicker]="clicker"></clicker-ngrx-button></ion-col>
     <ion-col>
       <button block danger outline (click)="removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>

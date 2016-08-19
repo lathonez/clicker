@@ -1,37 +1,41 @@
-import { Component }                  from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavController }              from 'ionic-angular';
-import { Clickers }                   from '../../services';
+import { ClickerService } from '../../services';
 import { ClickerNgrxButton, ClickerNgrxForm } from '../../components';
 import { Clicker }     from '../../models';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'build/pages/clicker-list-ngrx/clicker-list-ngrx.page.html',
   directives: [ClickerNgrxButton, ClickerNgrxForm],
 })
 
 export class ClickerListNgrxPage {
 
-  private clickerService: Clickers;
-  private nav: NavController;
+  public data$: Observable<Clicker[]>;
+  public isFetching$: Observable<boolean>;
+
   private title: string;
 
-  public clickers: Array<Clicker>;
-
+  /* tslint:disable: no-constructor-vars */
   constructor(
-    nav: NavController,
-    clickerService: Clickers
+    private clickerService: ClickerService,
+    private nav: NavController
   ) {
     this.nav = nav;
-    this.clickerService = clickerService;
     this.title = 'Clickers - ngrx';
+
+    this.isFetching$ = clickerService.isFetching();
+    this.data$ = clickerService.getData();
   }
 
   public doClick(id: string): void {
-     this.clickerService.doClick(id);
+    this.clickerService.doClick(id);
   }
 
   public ionViewLoaded(): void {
-    this.clickers = this.clickerService.getClickers();
+    this.clickerService.initialise();
   }
 
   public newClicker(name: string): void {
@@ -40,6 +44,5 @@ export class ClickerListNgrxPage {
 
   public removeClicker(id: string): void {
     this.clickerService.removeClicker(id);
-    this.clickers = this.clickerService.getClickers();
   }
 }
