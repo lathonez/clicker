@@ -5,7 +5,6 @@ import { ClickerActions } from '../actions';
 import { ClickerSelector } from '../selectors';
 
 import { Clicker } from '../models';
-import { Clickers } from '../services';
 
 import { Store } from '@ngrx/store';
 import { AppState } from '../reducers';
@@ -13,33 +12,12 @@ import { AppState } from '../reducers';
 
 @Injectable()
 export class ClickerService {
-    private clickerActions: ClickerActions;
-    private store: Store<AppState>;
-
     /* tslint:disable: no-constructor-vars */
     constructor(
-        store: Store<AppState>,
-        clickerActions: ClickerActions,
-        private clickerServiceAAA: Clickers
-    ) {
-        this.store = store;
-        this.clickerActions = clickerActions;
-    }
+        private store: Store<AppState>,
+        private clickerActions: ClickerActions
+    ) {}
 
-    /*
-        getNotes(): Observable<Note[]>{
-          return this.store.select<Note[]>('notes');
-        }
-        addNote(text: string, colour: string, left: number, top: number): void{
-          this.store.dispatch({ type: "ADD_NOTE", payload: {text, colour, left, top, id:uuid.v1()} });
-        }
-        changeNoteText(text: string, note: Note): void{console.log('changeNoteText')
-          this.store.dispatch({type: "UPDATE_NOTE_TEXT", payload: {id: note.id, text: text}})
-        }
-        changeNotePosition(left: number, top: number, note: Note): void{
-          this.store.dispatch({type: "UPDATE_NOTE_POSITION", payload: {id: note.id, left: left, top: top}})
-        }
-    */
     public getData(): Observable<Clicker[]> {
         return this.store.let(ClickerSelector.getClickerItems());
     }
@@ -54,14 +32,17 @@ export class ClickerService {
     }
 
     public doClick(id: string): void {
-        this.clickerServiceAAA.doClick(id);
+        this.store.dispatch(
+            this.clickerActions.doClick(id));
     }
 
     public newClicker(name: string): void {
-        this.clickerServiceAAA.newClicker(name);
+        this.store.dispatch(
+            this.clickerActions.newClicker(name));
     }
 
     public removeClicker(id: string): void {
-        this.clickerServiceAAA.removeClicker(id);
+        this.store.dispatch(
+            this.clickerActions.removeClicker(id));
     }
 }

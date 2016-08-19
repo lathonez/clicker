@@ -1,19 +1,20 @@
 'use strict';
 
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
 import { Button }    from 'ionic-angular';
 import { Clickers }  from '../../services';
 import { Clicker } from '../../models';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'clicker-ngrx-button',
   templateUrl: 'build/components/clicker-ngrx-button/clicker-ngrx-button.html',
-  directives: [Button],
+  // directives: [Button],
 })
 
 export class ClickerNgrxButton {
   @Input() public clicker: Clicker;
-  @Output() public doClick: EventEmitter<string>  = new EventEmitter<string>();
+  @Output() public doClick: EventEmitter<string> = new EventEmitter<string>();
 
   private clickerService: Clickers;
 

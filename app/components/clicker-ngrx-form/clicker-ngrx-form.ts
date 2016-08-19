@@ -1,15 +1,16 @@
 'use strict';
 
 import { FormGroup, FormBuilder, Validators }        from '@angular/forms';
-import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-import { Component, Output, EventEmitter }                                 from '@angular/core';
-import { Button, Icon, Item, Label, TextInput }      from 'ionic-angular';
+// import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, Output, EventEmitter }                                 from '@angular/core';
+// import { Button, Icon, Item, Label, TextInput }      from 'ionic-angular';
 import { Clickers, Utils }                           from '../../services';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'clicker-ngrx-form',
   templateUrl: 'build/components/clicker-ngrx-form/clicker-ngrx-form.html',
-  directives: [Button, Icon, Item, Label, TextInput, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
+  // directives: [Button, Icon, Item, Label, TextInput, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
 })
 
 export class ClickerNgrxForm {
@@ -17,7 +18,7 @@ export class ClickerNgrxForm {
   private clickerService: Clickers;
   private form: FormGroup;
 
-  @Output() public newClicker: EventEmitter<string>  = new EventEmitter<string>();
+  @Output() public newClicker: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(clickerService: Clickers, fb: FormBuilder) {
     this.clickerService = clickerService;
