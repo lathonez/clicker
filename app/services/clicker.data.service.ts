@@ -10,6 +10,26 @@ export class ClickerDataService {
     constructor(
         private storageService: StorageService
     ) {
+        /* rxjs test.
+        const source: Observable<{}> = Observable.fromPromise(this.initIdsPromise());
+
+        const example: Observable<Clicker[]> = source
+            .mergeMap((ids: string[]) => {
+                let observables: Observable<any>[] = [];
+
+                ids.map(id => {
+                    // console.log('a>', id);
+                    observables.push(Observable.fromPromise(this.getClickerPromise(id)));
+                });
+
+                return Observable
+                    .forkJoin(observables)
+                    .map(x => x as Clicker[]);
+            });
+
+        /* tslint:disable: no-unused-variable typedef /
+        const subscribe = example.subscribe(val => console.log('Clickers>', val));
+        */
     }
 
     // initialise Ids from SQL storage
