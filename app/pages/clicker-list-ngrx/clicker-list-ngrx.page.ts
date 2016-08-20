@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavController }              from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { ClickerService } from '../../services';
 import { ClickerNgrxButton, ClickerNgrxForm } from '../../components';
 import { Clicker }     from '../../models';

@@ -3,7 +3,7 @@ import { compose } from '@ngrx/core/compose';
 
 import { AppState, ClickerItemState } from '../reducers';
 
-/* tslint:disable: use-strict */
+/* tslint:disable: use-strict typedef */
 export function getClickerItemState() {
   return (state$: Observable<AppState>) => state$
     .select(s => s.clickers);

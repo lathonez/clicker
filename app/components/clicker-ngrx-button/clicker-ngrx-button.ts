@@ -1,7 +1,6 @@
 'use strict';
 
 import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
-import { Button }    from 'ionic-angular';
 import { Clickers }  from '../../services';
 import { Clicker } from '../../models';
 

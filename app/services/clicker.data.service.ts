@@ -89,12 +89,8 @@ export class ClickerDataService {
     }
 
     public saveClickers(clickers: Clicker[]): void {
-        console.log('saveClickers>', clickers);
-
         let ids: string[] = [];
         clickers.map(clicker => ids.push(clicker.id));
-
-        console.log('saveClickers:ids>', ids);
 
         clickers.map(clicker => {
             // save the clicker by id

@@ -17,7 +17,6 @@ export class Clicker {
 
   public doClick(): void {
     this.clicks.push(new Click());
-    // this.clicks = [...this.clicks, new Click()];
   }
 
   public addClick(click: Click): void {
