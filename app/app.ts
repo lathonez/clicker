@@ -4,7 +4,7 @@ import { Component, provide, Type, ViewChild }           from '@angular/core';
 import { disableDeprecatedForms, provideForms }          from '@angular/forms';
 import { ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar }                                     from 'ionic-native';
-import { ClickerService, Clickers, Storage }                             from './services';
+import { ClickerService, ClickerDataService, Clickers, Storage, StorageService } from './services';
 import { ClickerList, ClickerListNgrxPage, Page2 } from './pages';
 
 import actions from './actions';
@@ -61,11 +61,15 @@ export class ClickerApp {
 }
 
 ionicBootstrap(ClickerApp, [
+
   disableDeprecatedForms(),
   provideForms(),
+StorageService,  
+  ClickerDataService,
   ClickerService,
   Clickers,
-  provide('Storage', { useClass: Storage }),
+  provide('Storage', { useClass: Storage }),  
+  // Storage,
   provideStore(reducers),
   runEffects(effects),
   actions,

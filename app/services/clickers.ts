@@ -74,7 +74,6 @@ export class Clickers {
   }
 
   public getClickers():  Array<Clicker> {
-    console.log('getClickers');
     return this.clickers;
   }
 

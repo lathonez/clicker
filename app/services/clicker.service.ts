@@ -8,7 +8,6 @@ import { Clicker } from '../models';
 
 import { Store } from '@ngrx/store';
 import { AppState } from '../reducers';
-// import { NotesDataService } from './notes.data.service';
 
 @Injectable()
 export class ClickerService {
