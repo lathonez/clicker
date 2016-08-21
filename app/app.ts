@@ -4,8 +4,17 @@ import { Component, provide, Type, ViewChild }           from '@angular/core';
 import { disableDeprecatedForms, provideForms }          from '@angular/forms';
 import { ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar }                                     from 'ionic-native';
-import { Clickers, Storage }                             from './services';
-import { ClickerList, Page2 }                            from './pages';
+import { ClickerService, ClickerDataService, Clickers, Storage, StorageService } from './services';
+import { ClickerList, ClickerListNgrxPage, Page2 } from './pages';
+
+import actions from './actions';
+import effects from './effects';
+import reducers from './reducers';
+import { provideStore } from '@ngrx/store';
+import { runEffects } from '@ngrx/effects';
+
+// Add the RxJS Observable operators we need in this app.
+import './rxjs-operators';
 
 @Component({
   templateUrl: 'build/app.html',
@@ -15,7 +24,7 @@ export class ClickerApp {
   @ViewChild(Nav) private nav: Nav;
 
   private rootPage: Type;
-  private pages: Array<{title: string, component: Type}>;
+  private pages: Array<{ title: string, component: Type }>;
   private menu: MenuController;
   private platform: Platform;
 
@@ -31,6 +40,7 @@ export class ClickerApp {
     this.pages = [
       { title: 'Clickers', component: ClickerList },
       { title: 'Goodbye Ionic', component: Page2 },
+      { title: 'Clickers ngrx', component: ClickerListNgrxPage },
     ];
   }
 
@@ -51,8 +61,15 @@ export class ClickerApp {
 }
 
 ionicBootstrap(ClickerApp, [
+
   disableDeprecatedForms(),
   provideForms(),
+  StorageService,
+  ClickerDataService,
+  ClickerService,
   Clickers,
-  provide('Storage', {useClass: Storage})]
-);
+  provide('Storage', { useClass: Storage }),
+  provideStore(reducers),
+  runEffects(effects),
+  actions,
+]);
