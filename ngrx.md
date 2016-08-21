@@ -9,3 +9,7 @@ https://gist.github.com/btroncone/a6e4347326749f938510
 https://github.com/btroncone/learn-rxjs
 
 https://github.com/JavascriptMick/ng2-state-demo
+
+https://gitter.im/ngrx/store
+
+https://gitter.im/ngrx/effects
