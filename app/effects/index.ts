@@ -5,5 +5,5 @@ ClickerEffects
 };
 
 export default [
-    ClickerEffects
+    ClickerEffects,
 ];
