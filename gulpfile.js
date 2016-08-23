@@ -67,8 +67,27 @@ gulp.task('build', ['clean'], function(done){
 gulp.task('sass', buildSass);
 gulp.task('html', copyHTML);
 gulp.task('fonts', copyFonts);
-gulp.task('scripts', copyScripts);
+gulp.task('scripts', ['enviroment'], copyScripts);
 gulp.task('clean', function(){
   return del('www/build');
 });
 gulp.task('lint', tslint);
+gulp.task('enviroment', function(){
+  var env = process.env.ENV || 'dev';
+  var options = {
+    src: 'config/' + env + '/**/*.*',
+    dest: './',
+    onComplete: function() {
+      console.log('All env files were copied.');
+    },
+    onError: function(err) {
+      console.error(err.toString());
+      this.emit('end');
+    }
+  }
+
+  return gulp.src(options.src)
+    .pipe(gulp.dest(options.dest))
+    .on('end', options.onComplete)
+    .on('error', options.onError);
+});
