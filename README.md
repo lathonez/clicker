@@ -50,7 +50,7 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 * This started out as a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
 * @bengro for the lightweightify inspiration (#68)
 * @ric9176 and @DanielaGSB for E2E tests (#50)
-* @tja4472 for the ngxr implementation (#133)
+* @tja4472 for the ngrx implementation (#133)
 * [Everyone else](https://github.com/lathonez/clicker/graphs/contributors) for the advice, help, PRs etc
 
 ## Changelog
