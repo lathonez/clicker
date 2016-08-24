@@ -1,4 +1,4 @@
-import { ClickerActions } from './clicker.action';
+import { ClickerActions } from './clicker';
 
 export {
 ClickerActions

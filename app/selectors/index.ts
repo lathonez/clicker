@@ -1,5 +1,3 @@
-import * as ClickerSelector from './clicker.selector';
+import * as ClickerSelector from './clicker';
 
-export {
-ClickerSelector
-};
+export { ClickerSelector };

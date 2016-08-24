@@ -1,4 +1,4 @@
-import { ClickerEffects } from './clicker.effects';
+import { ClickerEffects } from './clicker';
 
 export {
 ClickerEffects

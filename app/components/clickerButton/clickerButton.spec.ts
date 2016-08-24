@@ -1,15 +1,15 @@
 import { beforeEach, beforeEachProviders, describe, expect, it }          from '@angular/core/testing';
 import { provide }                                                        from '@angular/core';
 import { asyncCallbackFactory, injectAsyncWrapper, providers, TestUtils } from '../../../test/diExports';
-import { ClickersMock }                                                   from '../../services/mocks';
+import { ClickersServiceMock }                                            from '../../services/mocks';
 import { ClickerButton }                                                  from './clickerButton';
-import { Clickers }                                                       from '../../services';
+import { ClickersService }                                                from '../../services';
 
 this.fixture = null;
 this.instance = null;
 
 let clickerButtonProviders: Array<any> = [
- provide(Clickers, {useClass: ClickersMock}),
+ provide(ClickersService, {useClass: ClickersServiceMock}),
 ];
 
 describe('ClickerButton', () => {
@@ -31,10 +31,9 @@ describe('ClickerButton', () => {
     expect(this.fixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
   });
 
-  it('does a click', () => {
+  it('does a click', (done) => {
     this.fixture.detectChanges();
-    spyOn(this.instance['clickerService'], 'doClick');
+    this.instance.doClick.subscribe(done);
     TestUtils.eventFire(this.fixture.nativeElement.querySelectorAll('button')[0], 'click');
-    expect(this.instance['clickerService'].doClick).toHaveBeenCalled();
   });
 });
