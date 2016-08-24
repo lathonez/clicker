@@ -3,7 +3,7 @@
 
 ### Features
 
-* **App**: Implement ngrx PR [#133](https://github.com/lathonez/clicker/pull/133) ([](https://github.com/lathonez/clicker/commit/))
+* **App**: Implement ngrx PR [#133](https://github.com/lathonez/clicker/pull/133) ([ab2cd9a](https://github.com/lathonez/clicker/commit/ab2cd9a))
 
 <a name="1.11.0"></a>
 # 1.11.0 (2016-08-17)
