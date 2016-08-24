@@ -1,13 +1,13 @@
-import { Storage }     from './';
-import { StorageMock } from './mocks';
+import { StorageService } from './';
+import { StorageMock }    from './mocks';
 
-let storage: Storage = null;
+let storage: StorageService = null;
 
-describe('Storage', () => {
+describe('StorageService', () => {
 
   beforeEach(() => {
-    spyOn(Storage, 'initStorage').and.returnValue(new StorageMock());
-    storage = new Storage();
+    spyOn(StorageService, 'initStorage').and.returnValue(new StorageMock());
+    storage = new StorageService();
     spyOn(storage['storage'], 'get').and.callThrough();
     spyOn(storage['storage'], 'set').and.callThrough();
     spyOn(storage['storage'], 'remove').and.callThrough();

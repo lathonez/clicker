@@ -1,1 +1,1 @@
-<button block outline (click)="clickerService.doClick(clicker.id)">{{clicker.name}} ({{clicker.getCount()}})</button>
+<button block outline (click)="doClick.emit(clicker.id)">{{clicker.name}} ({{clicker.getCount()}})</button>

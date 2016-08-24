@@ -1,23 +1,25 @@
 'use strict';
 
-import { FormGroup, FormBuilder, Validators }        from '@angular/forms';
-import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-import { Component }                                 from '@angular/core';
-import { Button, Icon, Item, Label, TextInput }      from 'ionic-angular';
-import { Clickers, Utils }                           from '../../services';
+import { FormGroup, FormBuilder, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, Output, EventEmitter } from '@angular/core';
+import { TextInput }                                                from 'ionic-angular';
+import { ClickersService, Utils }                                   from '../../services';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'clicker-form',
   templateUrl: 'build/components/clickerForm/clickerForm.html',
-  directives: [Button, Icon, Item, Label, TextInput, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
+  directives: [TextInput, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
 })
 
 export class ClickerForm {
 
-  private clickerService: Clickers;
+  private clickerService: ClickersService;
   private form: FormGroup;
 
-  constructor(clickerService: Clickers, fb: FormBuilder) {
+  @Output() public newClicker: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(clickerService: ClickersService, fb: FormBuilder) {
     this.clickerService = clickerService;
 
     this.form = fb.group({
@@ -25,8 +27,7 @@ export class ClickerForm {
     });
   }
 
-  public newClicker(formValue: Object): boolean {
-
+  public newClickerLocal(formValue: Object): boolean {
     // need to mark the clickerName control as touched so validation
     // will apply after the user has tried to add a clicker
     this.form.controls['clickerNameInput'].markAsTouched();
@@ -35,7 +36,8 @@ export class ClickerForm {
       return false;
     }
 
-    this.clickerService.newClicker(formValue['clickerNameInput']);
+    // this.clickerService.newClicker(formValue['clickerNameInput']);
+    this.newClicker.emit(formValue['clickerNameInput']);
 
     // reset the value of the contorl and all validation / state
     this.form.controls['clickerNameInput'] = Utils.resetControl(this.form.controls['clickerNameInput']);

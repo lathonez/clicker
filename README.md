@@ -50,6 +50,7 @@ Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez
 * This started out as a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
 * @bengro for the lightweightify inspiration (#68)
 * @ric9176 and @DanielaGSB for E2E tests (#50)
+* @tja4472 for the ngxr implementation (#133)
 * [Everyone else](https://github.com/lathonez/clicker/graphs/contributors) for the advice, help, PRs etc
 
 ## Changelog
@@ -78,6 +79,11 @@ External dependencies are listed here to justify their inclusion and to allow fo
 * karma-jasmine: jasmine framework for Karma
 * karma-mocha-reporter: mocha progress reporter for Karma
 * karma-phantomjs-launcher: allows using phantom with Karma
+* @ngrx/core: ngrx
+* @ngrx/effects: ngrx
+* @ngrx/store: ngrx
+* ngrx-store-logger: ngrx debug logging
+* ngrx-store-freeze: ngrx state mutation prevetion
 * phantomjs-prebuilt: phantom headless browser
 * protractor: e2e test runner
 * protractor-jasmine2-screenshot-reporter: screenshot reporter for Jasmine

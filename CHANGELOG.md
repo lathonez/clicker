@@ -1,3 +1,10 @@
+<a name="1.12.0"></a>
+# 1.12.0 (2016-08-24)
+
+### Features
+
+* **App**: Implement ngrx PR [#133](https://github.com/lathonez/clicker/pull/133) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.11.0"></a>
 # 1.11.0 (2016-08-17)
 

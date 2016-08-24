@@ -24,4 +24,13 @@ export class Utils {
     // control.setErrors(null);
     return control;
   }
+
+  // https://gitter.im/ngrx/store?at=56e3a054c7364f7926be4c30
+  public static assign<T, U extends T>(target: U, changes: T): U {
+    return Object.assign({}, target, changes);
+  }
+
+  public static uid(): string {
+    return Math.random().toString(35).substr(2, 10);
+  }
 }

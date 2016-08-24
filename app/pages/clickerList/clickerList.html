@@ -8,11 +8,11 @@
 </ion-header>
 
 <ion-content padding>
-  <clicker-form></clicker-form>
-  <ion-row *ngFor="let clicker of clickerService.getClickers()" class="clickerList">
-    <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>
+  <clicker-form (newClicker)="newClicker($event)"></clicker-form>
+  <ion-row *ngFor="let clicker of data$ | async" class="clickerList">
+    <ion-col width-80><clicker-button (doClick)="doClick($event)" [clicker]="clicker"></clicker-button></ion-col>
     <ion-col>
-      <button block danger outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>
+      <button block danger outline (click)="removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>
     </ion-col>
   </ion-row>
 </ion-content>

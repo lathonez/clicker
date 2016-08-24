@@ -1,17 +1,18 @@
 'use strict';
+import { Injectable }          from '@angular/core';
+import { SqlStorage, Storage } from 'ionic-angular';
 
-import { SqlStorage }     from 'ionic-angular';
+@Injectable()
+export class StorageService {
 
-export class Storage {
-
-  private storage: SqlStorage;
+  private storage: Storage;
 
   constructor() {
-    this.storage = Storage.initStorage();
+    this.storage = StorageService.initStorage();
   }
 
-  private static initStorage(): SqlStorage {
-    return new SqlStorage();
+  public static initStorage(): Storage {
+    return new Storage(SqlStorage);
   }
 
   public get(key: string): Promise<{}> {
