@@ -4,7 +4,6 @@ import { asyncCallbackFactory, injectAsyncWrapper, providers, TestUtils } from '
 import { ClickersServiceMock }                                            from '../../services/mocks';
 import { ClickersService, Utils }                                         from '../../services';
 import { ClickerForm }                                                    from './clickerForm';
-
 this.fixture = null;
 this.instance = null;
 
