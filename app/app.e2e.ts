@@ -8,7 +8,7 @@ describe('ClickerApp', () => {
     expect(browser.getTitle()).toEqual('Clickers');
   });
 
-  it('should have <nav>', () => {
+  it('should have {nav}', () => {
     expect(element(by.css('ion-navbar')).isPresent()).toEqual(true);
   });
 
