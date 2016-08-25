@@ -27,6 +27,7 @@ module.exports = {
                 doTypeCheck: true,
                 resolveGlobs: false,
                 externals: ["typings/index.d.ts"]
+
             },
             include: path.resolve('app'),
             exclude: /node_modules/

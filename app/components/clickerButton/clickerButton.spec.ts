@@ -6,11 +6,14 @@ import { ClickerButton }                                                  from '
 import { ClickersService }                                                from '../../services';
 import {  TestComponentBuilder }     from '@angular/compiler/testing';
 import {addProviders} from '@angular/core/testing';
+
+
 this.fixture = null;
 this.instance = null;
 
 let clickerButtonProviders: Array<any> = [
   provide(ClickersService, { useClass: ClickersServiceMock }),
+
 ];
 
 describe('ClickerButton', () => {
