@@ -1,3 +1,10 @@
+<a name="1.12.1"></a>
+# 1.12.1 (2016-08-25)
+
+### Bug Fixes
+
+* **E2E**: Make test windows friendly PR [#136](https://github.com/lathonez/clicker/issues/136) ([7fcf752](https://github.com/lathonez/clicker/commit/7fcf752))
+
 <a name="1.12.0"></a>
 # 1.12.0 (2016-08-24)
 
