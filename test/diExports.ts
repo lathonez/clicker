@@ -1,8 +1,8 @@
-// import { TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS } from '@angular/platform-browser-dynamic/testing';
-// import { TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic/testing';
+import { TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS } from '@angular/platform-browser-dynamic/testing';
+import { TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic/testing';
 import { provide, Type }                              from '@angular/core';
 import { ComponentFixture, TestComponentBuilder }     from '@angular/compiler/testing';
-import { inject, async, setBaseTestProviders}                              from '@angular/core/testing';
+import { inject, async , setBaseTestProviders }                              from '@angular/core/testing';
 import { disableDeprecatedForms, provideForms, FormControl } from '@angular/forms';
 import { App, Config, Form, NavController, Platform } from 'ionic-angular';
 import { ConfigMock, NavMock }                        from './mocks';
@@ -10,10 +10,10 @@ import { Utils }                                      from '../app/services/util
 export { TestUtils }                                  from './testUtils';
 
 // Your patch suggest I use setBaseTestProviders here?
-// setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 export let providers: Array<any> = [
-  TestComponentBuilder,
+  // TestComponentBuilder,
   disableDeprecatedForms(),
   provideForms(),
   Form,
