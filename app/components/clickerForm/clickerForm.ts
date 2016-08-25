@@ -4,9 +4,7 @@
 import { FormGroup, FormBuilder, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, Validators } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, Output, EventEmitter } from '@angular/core';
 import { ClickersService, Utils }                                   from '../../services';
-import { Button, Icon, Item, Label, TextInput }      from 'ionic-angular';
-
-
+import { TextInput }      from 'ionic-angular';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

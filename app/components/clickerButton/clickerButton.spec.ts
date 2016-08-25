@@ -7,7 +7,6 @@ import { ClickersService }                                                from '
 import {  TestComponentBuilder }     from '@angular/compiler/testing';
 import {addProviders} from '@angular/core/testing';
 
-
 this.fixture = null;
 this.instance = null;
 
