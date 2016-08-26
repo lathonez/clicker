@@ -87,7 +87,12 @@ module.exports = function(config) {
 
     // https://github.com/lathonez/clicker/issues/82
     // try increasing this value if you see the error "Disconnected (1 times), because no message in 30000 ms."
-    browserNoActivityTimeout: 30000
+    browserNoActivityTimeout: 30000,
+
+    customContextFile: "test/karma-static/context.html",
+
+    customDebugFile: "test/karma-static/debug.html",
+
   });
 
   if (process.env.TRAVIS || process.env.CIRCLECI) {
