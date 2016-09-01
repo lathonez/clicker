@@ -7,6 +7,7 @@
 *.tmp
 *.tmp.*
 *.map
+./config.xml
 log.txt
 *.sublime-project
 *.sublime-workspace

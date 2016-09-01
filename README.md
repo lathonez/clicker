@@ -16,6 +16,11 @@ npm start         # start the application (ionic serve)
 
 Running as root? You probably shouldn't be. If you need to: `npm run postinstall` before `npm start`. [#111](https://github.com/lathonez/clicker/issues/111) for more info.
 
+## Build for specific enviroment
+```bash
+ENV=qa ionic build android    # copying the files from `/config/qa` enviroment
+```
+
 ## Run Unit Tests
 ```bash
 npm test          # run unit tests
