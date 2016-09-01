@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Build**: Dynamic config based on environment PR [#135](https://github.com/lathonez/clicker/pull/135) ([](https://github.com/lathonez/clicker/commit/))
+* **Build**: Dynamic config based on environment PR [#135](https://github.com/lathonez/clicker/pull/135) ([b1a9489](https://github.com/lathonez/clicker/commit/b1a9489))
 
 
 <a name="1.12.1"></a>
