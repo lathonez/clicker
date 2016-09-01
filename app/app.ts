@@ -8,6 +8,7 @@ import { ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar }                                     from 'ionic-native';
 import { ClickersService, DataService, StorageService }  from './services';
 import { ClickerList, Page2 }                            from './pages';
+import { Config }                                        from '../config/config';
 import actions                                           from './actions';
 import effects                                           from './effects';
 import reducers                                          from './reducers';
@@ -47,6 +48,8 @@ export class ClickerApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
+      console.log('api URL ' + Config.apiURL);
+      console.log('api key ' + Config.apiKey);
     });
   }
 

@@ -7,7 +7,6 @@
 *.tmp
 *.tmp.*
 *.map
-./config.xml
 log.txt
 *.sublime-project
 *.sublime-workspace
@@ -24,6 +23,10 @@ typings/
 www/build/
 $RECYCLE.BIN/
 .io-config.json
+
+# dynamic config files generated at build time
+config.xml
+config/config.ts
 
 .DS_Store
 Thumbs.db
