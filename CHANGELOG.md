@@ -1,3 +1,11 @@
+<a name="1.13.0"></a>
+# 1.13.0 (2016-09-01)
+
+### Features
+
+* **Build**: Dynamic config based on environment PR [#135](https://github.com/lathonez/clicker/pull/135) ([](https://github.com/lathonez/clicker/commit/))
+
+
 <a name="1.12.1"></a>
 # 1.12.1 (2016-08-25)
 

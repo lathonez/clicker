@@ -3,8 +3,8 @@
  [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![Dependency Status](https://david-dm.org/lathonez/clicker.svg)](https://david-dm.org/lathonez/clicker) [![devDependency Status](https://david-dm.org/lathonez/clicker/dev-status.svg)](https://david-dm.org/lathonez/clicker#info=devDependencies)
 <p align="center">
   <img src="http://lathonez.github.io/images/ionic2_unit_testing/clicker.gif" alt=""/>
-
 </p>
+
 ## Install & Start
 
 ```bash
@@ -15,6 +15,11 @@ npm start         # start the application (ionic serve)
 ```
 
 Running as root? You probably shouldn't be. If you need to: `npm run postinstall` before `npm start`. [#111](https://github.com/lathonez/clicker/issues/111) for more info.
+
+## Build for a specific environment (#135)
+```bash
+ENV=qa ionic build android    # uses ./config.xml and ./config/config.ts from ./config/qa
+```
 
 ## Run Unit Tests
 ```bash

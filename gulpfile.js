@@ -67,8 +67,54 @@ gulp.task('build', ['clean'], function(done){
 gulp.task('sass', buildSass);
 gulp.task('html', copyHTML);
 gulp.task('fonts', copyFonts);
-gulp.task('scripts', copyScripts);
+gulp.task('scripts', ['configure-environment'], copyScripts);
 gulp.task('clean', function(){
   return del('www/build');
 });
 gulp.task('lint', tslint);
+
+gulp.task('copy-config-xml', function(){
+  var env = process.env.ENV || 'dev';
+  var opts = {
+    src: 'config/' + env + '/config.xml',
+    dest: './',
+    onComplete: function() {
+      console.log('copy-config-xml(' + env.toUpperCase() + '): copied to ./');
+    },
+    onError: function(err) {
+      console.error(err.toString());
+      this.emit('end');
+    }
+  };
+
+  return gulp.src(opts.src)
+    .pipe(gulp.dest(opts.dest))
+    .on('end', opts.onComplete)
+    .on('error', opts.onError);
+});
+
+gulp.task('copy-config-ts', function(){
+  var env = process.env.ENV || 'dev';
+  var opts = {
+    src: 'config/' + env + '/config.ts',
+    dest: './config',
+    onComplete: function() {
+      console.log('copy-config-ts(' + env.toUpperCase() + '): copied to ./config');
+    },
+    onError: function(err) {
+      console.error(err.toString());
+      this.emit('end');
+    }
+  };
+  return gulp.src(opts.src)
+    .pipe(gulp.dest(opts.dest))
+    .on('end', opts.onComplete)
+    .on('error', opts.onError);
+});
+
+gulp.task('configure-environment', function(done){
+  return runSequence(
+    ['copy-config-ts', 'copy-config-xml'],
+    done
+  );
+});
