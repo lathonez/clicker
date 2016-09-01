@@ -1,9 +1,10 @@
+
 'use strict';
 
 import { FormGroup, FormBuilder, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, Validators } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, Output, EventEmitter } from '@angular/core';
-import { TextInput }                                                from 'ionic-angular';
 import { ClickersService, Utils }                                   from '../../services';
+import { TextInput }      from 'ionic-angular';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

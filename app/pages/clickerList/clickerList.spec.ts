@@ -12,7 +12,7 @@ let clickerListProviders: Array<any> = [
   provide(ClickersService, {useClass: ClickersServiceMock}),
 ];
 
-describe('ClickerList', () => {
+ describe('ClickerList', () => {
 
   beforeEachProviders(() => providers.concat(clickerListProviders));
   beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerList, this, true)));

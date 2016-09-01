@@ -1,4 +1,4 @@
-import { join } from 'path';
+import * as path from 'path'
 
 const config: any = {
   gulp: require('gulp'),
@@ -11,7 +11,7 @@ const config: any = {
 const imports: any = {
   gulp: require('gulp'),
   runSequence: require('run-sequence'),
-  ionicGulpfile: require(join(process.cwd(), 'gulpfile.js')),
+  ionicGulpfile: require(path.join(process.cwd(), 'gulpfile.js')),
 };
 
 const gulp: any = imports.gulp;
@@ -30,8 +30,8 @@ gulp.task('build-e2e', ['clean-e2e'], () => {
   let typescript: any = require('gulp-typescript');
   let tsProject: any = typescript.createProject('tsconfig.json');
   let src: Array<any> = [
-    join(config.typingsDir, '/index.d.ts'),
-    join(config.appDir, '**/*e2e.ts'),
+    path.join(config.typingsDir, '/index.d.ts'),
+    path.join(config.appDir, '**/*e2e.ts'),
   ];
   let result: any = gulp.src(src)
     .pipe(typescript(tsProject));
@@ -53,32 +53,27 @@ gulp.task('clean-e2e', () => {
 });
 
 // run jasmine unit tests using karma with PhantomJS2 in single run mode
-gulp.task('karma', (done: Function) => {
+'use strict';
 
-  let karma: any = require('karma');
-  let karmaOpts: {} = {
-    configFile: join(process.cwd(), config.testDir, 'karma.config.js'),
-    singleRun: true,
+gulp.task('karma', (done) => {
+
+  let karma = require('karma');
+  let karmaOpts = {
+    configFile: path.join(process.cwd(), 'test/karma.config.js'),
+    singleRun: true
   };
 
   new karma.Server(karmaOpts, done).start();
 });
 
 // run jasmine unit tests using karma with Chrome, Karma will be left open in Chrome for debug
-gulp.task('karma-debug', (done: Function) => {
 
-  let karma: any = require('karma');
-  let karmaOpts: {} = {
-    configFile: join(process.cwd(), config.testDir, 'karma.config.js'),
-    singleRun: false,
-    browsers: ['Chrome'],
-    reporters: ['mocha'],
-    browserify: {
-      debug: true,
-      plugin: [
-        ['tsify'],
-      ],
-    },
+gulp.task('karma-debug', (done) => {
+
+  let karma = require('karma');
+  let karmaOpts = {
+    configFile: path.join(process.cwd(), 'test/karma.config.js'),
+    singleRun: false
   };
 
   new karma.Server(karmaOpts, done).start();
@@ -89,9 +84,9 @@ gulp.task('lint', () => {
 
   let tslint: any = require('gulp-tslint');
 
-  return gulp.src(join(config.appDir, '**/*.ts'))
+  return gulp.src(path.join(config.appDir, '**/*.ts'))
     .pipe(tslint({
-        formatter: 'verbose',
+      formatter: 'verbose',
     }))
     .pipe(tslint.report());
 });

@@ -1,9 +1,10 @@
 var gulp = require('gulp'),
     gulpWatch = require('gulp-watch'),
     del = require('del'),
+    util = require('gulp-util')
     runSequence = require('run-sequence'),
     argv = process.argv;
-
+const webpack = require('webpack');
 
 /**
  * Ionic hooks
@@ -42,26 +43,28 @@ gulp.task('watch', ['clean'], function(done){
     function(){
       gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
       gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
-      buildBrowserify({ watch: true }).on('end', done);
+      gulpWatch('app/**/*.ts', function(){ gulp.start('webpack'); });
+      // buildBrowserify({ watch: true }).on('end', done);
     }
   );
 });
 
+gulp.task('webpack',  function(callback) {
+    // run webpack
+    webpack(
+        require('./webpack.config.js')
+    , function(err, stats) {
+        if(err) throw new util.PluginError("webpack", err);
+        util.log("[webpack]", stats.toString({
+            // output options
+        }));
+        callback();
+    });
+});
+
+
 gulp.task('build', ['clean'], function(done){
-  runSequence(
-    ['sass', 'html', 'fonts', 'scripts'],
-    function(){
-      buildBrowserify({
-        minify: isRelease,
-        browserifyOptions: {
-          debug: !isRelease
-        },
-        uglifyOptions: {
-          mangle: false
-        }
-      }).on('end', done);
-    }
-  );
+  runSequence(['sass', 'html', 'fonts', 'scripts', 'webpack']);
 });
 
 gulp.task('sass', buildSass);
