@@ -74,7 +74,8 @@ gulp.task('karma-debug', (done: Function) => {
     browsers: ['Chrome'],
     reporters: ['mocha'],
     browserify: {
-      debug: true,
+      debug: true,            
+      transform : [],
       plugin: [
         ['tsify'],
       ],
