@@ -1,3 +1,10 @@
+<a name="1.13.1"></a>
+# 1.13.1 (2016-09-07)
+
+### Bug Fixes
+
+* **Unit**: Remove coverage transform on debug PR [#140](https://github.com/lathonez/clicker/pull/140) ([4eab003](https://github.com/lathonez/clicker/commit/4eab003))
+
 <a name="1.13.0"></a>
 # 1.13.0 (2016-09-01)
 
