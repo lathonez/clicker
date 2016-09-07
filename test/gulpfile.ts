@@ -61,7 +61,7 @@ gulp.task('karma', (done: Function) => {
     singleRun: true,
   };
 
-  new karma.Server(karmaOpts, done).start();
+  new karma.Server(karmaOpts, function(): any { done(); }).start();
 });
 
 // run jasmine unit tests using karma with Chrome, Karma will be left open in Chrome for debug
