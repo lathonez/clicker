@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update deps PR [#143] ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update deps PR [#143]([e69fad2](https://github.com/lathonez/clicker/commit/e69fad2))
 
 <a name="1.13.1"></a>
 # 1.13.1 (2016-09-07)
