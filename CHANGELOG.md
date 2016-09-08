@@ -1,3 +1,10 @@
+<a name="1.14.0"></a>
+# 1.14.0 (2016-09-08)
+
+### Features
+
+* **Update**: Update deps PR [#143] ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.13.1"></a>
 # 1.13.1 (2016-09-07)
 
