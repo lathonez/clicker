@@ -10,7 +10,7 @@
     "emulate:before": "build",
     "deploy:before": "build",
     "build:before": "build",
-    "run:before": "build"
+    "run:before": "build",
     "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-e2e && protractor test/protractor.conf.js",
     "karma": "gulp --gulpfile test/gulpfile.ts --cwd ./ karma-debug",
     "postinstall": "ionic state restore && typings install && webdriver-manager update",
@@ -25,7 +25,7 @@
     "ionic-angular": "2.0.0-rc.0",
     "ionicons": "3.0.0",
     "@ionic/storage": "1.0.3",
-    "ionic-native": "2.0.3"
+    "ionic-native": "2.0.3",
     "ngrx-store-freeze": "0.1.0",
     "ngrx-store-logger": "0.1.7"
   },
