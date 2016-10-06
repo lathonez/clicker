@@ -2,13 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavController }                      from 'ionic-angular';
 import { Observable }                         from 'rxjs/Observable';
 import { ClickersService }                    from '../../services';
-import { ClickerButton, ClickerForm }         from '../../components';
 import { Clicker }                            from '../../models';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: 'build/pages/clickerList/clickerList.html',
-  directives: [ClickerButton, ClickerForm],
+  templateUrl: 'clickerList.html',
 })
 
 export class ClickerList {

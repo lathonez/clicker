@@ -1,15 +1,13 @@
 'use strict';
 
 import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
-import { Button }                                                          from 'ionic-angular';
 import { ClickersService }                                                 from '../../services';
 import { Clicker }                                                         from '../../models';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'clicker-button',
-  templateUrl: 'build/components/clickerButton/clickerButton.html',
-  directives: [Button],
+  templateUrl: 'clickerButton.html',
 })
 
 export class ClickerButton {

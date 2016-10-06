@@ -1,6 +1,6 @@
 import { Injectable }      from '@angular/core';
-import { Observable }      from 'rxjs/Observable';
 import { Store }           from '@ngrx/store';
+import { Observable }      from 'rxjs/Observable';
 import { ClickerActions }  from '../actions';
 import { ClickerSelector } from '../selectors';
 import { Clicker }         from '../models';

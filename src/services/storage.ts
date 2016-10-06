@@ -1,6 +1,6 @@
 'use strict';
-import { Injectable }          from '@angular/core';
-import { SqlStorage, Storage } from 'ionic-angular';
+import { Injectable } from '@angular/core';
+import { Storage }    from '@ionic/storage';
 
 @Injectable()
 export class StorageService {
@@ -12,7 +12,7 @@ export class StorageService {
   }
 
   public static initStorage(): Storage {
-    return new Storage(SqlStorage);
+    return new Storage();
   }
 
   public get(key: string): Promise<{}> {

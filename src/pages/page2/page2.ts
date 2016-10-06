@@ -1,11 +1,9 @@
 'use strict';
 
 import { Component }        from '@angular/core';
-import { Range, TextInput } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'build/pages/page2/page2.html',
-  directives: [Range, TextInput],
+  templateUrl: 'page2.html',
 })
 
 export class Page2 {
