@@ -9,13 +9,13 @@ export interface ClickerItemState {
   clickerItems: Clicker[];
 };
 
-const initialState: ClickerItemState = {
+export const initialState: ClickerItemState = {
   loaded: false,
   loading: false,
   clickerItems: [],
 };
 
-export default function (state: ClickerItemState = initialState, action: Action): ClickerItemState {
+export const clickerReducer: Function = (state: ClickerItemState = initialState, action: Action): ClickerItemState => {
   'use strict';
 
   let rtn: any;
@@ -64,4 +64,4 @@ export default function (state: ClickerItemState = initialState, action: Action)
       rtn = state;
   }
   return rtn;
-}
+};

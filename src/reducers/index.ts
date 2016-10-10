@@ -1,12 +1,12 @@
 import { compose } from '@ngrx/core/compose';
 import { storeLogger } from 'ngrx-store-logger';
 import { storeFreeze } from 'ngrx-store-freeze';
-import { combineReducers } from '@ngrx/store';
-
-import clickerReducer, * as fromClickerReducer from './clicker';
+/* tslint:disable */
+import { combineReducers, ActionReducer } from '@ngrx/store'; // re: ActionReducer https://github.com/Microsoft/TypeScript/issues/6307
+import { ClickerItemState, clickerReducer } from './clicker';
 
 export interface AppState {
-  clickers: fromClickerReducer.ClickerItemState;
+  clickers: ClickerItemState;
 }
 
 export * from './clicker';

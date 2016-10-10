@@ -31,7 +31,7 @@ export class ClickerList {
     this.clickersService.doClick(id);
   }
 
-  public ionViewLoaded(): void {
+  public ionViewDidLoad(): void {
     this.clickersService.initialise();
   }
 
