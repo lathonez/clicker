@@ -6,9 +6,13 @@ import { ClickerList } from '../pages';
 import { ClickerForm } from '../components';
 import { ClickerButton } from '../components';
 import { ClickersService } from '../services';
-import { ClickerActions } from '../actions';
+// import { ClickerActions } from '../actions';
 import { Page2 } from '../pages';
-import { clickerReducer, initialState } from '../reducers';
+// import { clickerReducer, initialState } from '../reducers';
+import { reducer } from '../reducers';
+
+// Add the RxJS Observable operators we need in this app.
+import './rxjs-operators';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import { clickerReducer, initialState } from '../reducers';
   ],
   imports: [
     IonicModule.forRoot(ClickerApp),
-    StoreModule.provideStore({ clicker: clickerReducer }, { clicker: initialState }),
+    // StoreModule.provideStore({ clicker: clickerReducer }, { clicker: initialState }),
+    StoreModule.provideStore(reducer),
+    // EffectsModule.run(AppFirebaseEffects),    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,6 +34,6 @@ import { clickerReducer, initialState } from '../reducers';
     ClickerList,
     Page2,
   ],
-  providers: [ ClickerActions, ClickersService ],
+  providers: [ ClickersService ],
 })
 export class AppModule {}
