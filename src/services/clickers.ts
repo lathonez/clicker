@@ -1,61 +1,61 @@
-import { Injectable }      from '@angular/core';
-import { Store }           from '@ngrx/store';
-import { Observable }      from 'rxjs/Observable';
-import { ClickerActions }  from '../actions';
-import { ClickerSelector } from '../selectors';
-import { Clicker }         from '../models';
-import { AppState }        from '../reducers';
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+// import { ClickerActions }  from '../actions/clicker';
+// import { ClickerSelector } from '../selectors';
+import { Clicker } from '../models';
+// import { AppState }        from '../reducers';
+import * as FromRootReducer from '../reducers';
+import * as ClickerActions from '../actions/clicker';
 
 @Injectable()
 export class ClickersService {
 
-  private store: Store<AppState>;
-  private clickerActions: ClickerActions;
+  private store: Store<FromRootReducer.AppState>;
 
-  constructor(store: Store<AppState>, clickerActions: ClickerActions) {
+  constructor(store: Store<FromRootReducer.AppState>) {
     this.store = store;
-    this.clickerActions = clickerActions;
     window['clickersService'] = this;
-    window['ClickerSelector'] = ClickerSelector;
-
-    // apparently let has been removed from rxjs/Observalbe, it just does this:
-    // http://stackoverflow.com/questions/38340541/how-to-use-rx-observable-prototype-let-operator
-    store.let = function(fn: Function): any {
-      return fn(this);
-    };
+    // window['ClickerSelector'] = ClickerSelector;
+    /*
+        // apparently let has been removed from rxjs/Observalbe, it just does this:
+        // http://stackoverflow.com/questions/38340541/how-to-use-rx-observable-prototype-let-operator
+        store.let = function (fn: Function): any {
+          return fn(this);
+        };
+    */
   }
 
   public getData(): Observable<Clicker[]> {
-    return this.store.let(ClickerSelector.getClickerItems());
+    return this.store.let(FromRootReducer.getAppClickers_ClickerItems);
   }
 
   public initialise(): void {
     this.store.dispatch(
-      this.clickerActions.load()
+      new ClickerActions.LoadAction()
     );
   }
 
   public isFetching(): Observable<boolean> {
     return this.store.let(
-      ClickerSelector.getLoading()
-    );
+      FromRootReducer.getAppClickers_GetLoading);
   }
 
   public doClick(id: string): void {
     this.store.dispatch(
-      this.clickerActions.doClick(id)
+      new ClickerActions.DoClickAction(id)
     );
   }
 
   public newClicker(name: string): void {
     this.store.dispatch(
-      this.clickerActions.newClicker(name)
+      new ClickerActions.NewClickerAction(name)
     );
   }
 
   public removeClicker(id: string): void {
     this.store.dispatch(
-      this.clickerActions.removeClicker(id)
+      new ClickerActions.RemoveClickerAction(id)
     );
   }
 }

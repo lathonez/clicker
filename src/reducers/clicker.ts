@@ -1,5 +1,8 @@
-import { Action }         from '@ngrx/store';
-import { ClickerActions } from '../actions';
+/* tslint:disable */
+import { Action } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+
+import { ClickerActions, ClickerActionTypes } from '../actions/clicker';
 import { Click, Clicker } from '../models';
 import { Utils }          from '../services';
 
@@ -15,20 +18,23 @@ export const initialState: ClickerItemState = {
   clickerItems: [],
 };
 
-export const clickerReducer: Function = (state: ClickerItemState = initialState, action: Action): ClickerItemState => {
+export function clickerReducer(
+  state = initialState, 
+  action: ClickerActions,
+  ): ClickerItemState {
   'use strict';
 
   let rtn: any;
   let updatedClickerItems: any;
 
   switch (action.type) {
-    case ClickerActions.LOAD:
+    case ClickerActionTypes.LOAD:
       rtn = Utils.assign(state, {
         loading: true,
       });
       break;
 
-    case ClickerActions.LOAD_SUCCESS:
+    case ClickerActionTypes.LOAD_SUCCESS:
       rtn = {
         loaded: true,
         loading: false,
@@ -36,10 +42,10 @@ export const clickerReducer: Function = (state: ClickerItemState = initialState,
       };
       break;
 
-    case ClickerActions.DO_CLICK:
+    case ClickerActionTypes.DO_CLICK:
       updatedClickerItems = state.clickerItems
         .map(clicker => {
-          if (clicker.getId() !== action.payload.id) {
+          if (clicker.getId() !== action.payload) {
             return clicker;
           }
 
@@ -50,13 +56,13 @@ export const clickerReducer: Function = (state: ClickerItemState = initialState,
       rtn = Utils.assign(state, { clickerItems: updatedClickerItems });
       break;
 
-    case ClickerActions.NEW_CLICKER:
-      updatedClickerItems = [...state.clickerItems, new Clicker(Utils.uid(), action.payload.name)];
+    case ClickerActionTypes.NEW_CLICKER:
+      updatedClickerItems = [...state.clickerItems, new Clicker(Utils.uid(), action.payload)];
       rtn = Utils.assign(state, { clickerItems: updatedClickerItems });
       break;
 
-    case ClickerActions.REMOVE_CLICKER:
-      updatedClickerItems = state.clickerItems.filter(item => item.id !== action.payload.id);
+    case ClickerActionTypes.REMOVE_CLICKER:
+      updatedClickerItems = state.clickerItems.filter(item => item.id !== action.payload);
       rtn = Utils.assign(state, { clickerItems: updatedClickerItems });
       break;
 
@@ -65,3 +71,15 @@ export const clickerReducer: Function = (state: ClickerItemState = initialState,
   }
   return rtn;
 };
+
+export function getClickerItems(state$: Observable<ClickerItemState>) {
+  return state$.select(s => s.clickerItems);
+}
+
+export function getLoaded(state$: Observable<ClickerItemState>) {
+  return state$.select(s => s.loaded);
+}
+
+export function getLoading(state$: Observable<ClickerItemState>) {
+  return state$.select(s => s.loading);
+}
