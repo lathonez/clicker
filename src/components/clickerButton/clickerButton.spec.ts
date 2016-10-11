@@ -31,9 +31,10 @@ describe('ClickerButton', () => {
     expect(this.fixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
   });
 
-  it('does a click', (done) => {
+  it('does a click', () => {
     this.fixture.detectChanges();
-    this.instance.doClick.subscribe(done);
+    spyOn(this.instance['clickerService'], 'doClick');
     TestUtils.eventFire(this.fixture.nativeElement.querySelectorAll('button')[0], 'click');
+    expect(this.instance['clickerService'].doClick).toHaveBeenCalled();
   });
 });

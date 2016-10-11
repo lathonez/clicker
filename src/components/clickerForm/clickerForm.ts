@@ -1,11 +1,10 @@
 'use strict';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ChangeDetectionStrategy, Component, Output, EventEmitter } from '@angular/core';
-import { ClickersService, Utils }                                   from '../../services';
+import { Component }                          from '@angular/core';
+import { ClickersService }                    from '../../services';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'clicker-form',
   templateUrl: 'clickerForm.html',
 })
@@ -15,8 +14,6 @@ export class ClickerForm {
   private clickerService: ClickersService;
   private form: FormGroup;
 
-  @Output() public newClicker: EventEmitter<string> = new EventEmitter<string>();
-
   constructor(clickerService: ClickersService, fb: FormBuilder) {
     this.clickerService = clickerService;
 
@@ -25,7 +22,8 @@ export class ClickerForm {
     });
   }
 
-  public newClickerLocal(formValue: Object): boolean {
+  public newClicker(formValue: Object): boolean {
+
     // need to mark the clickerName control as touched so validation
     // will apply after the user has tried to add a clicker
     this.form.controls['clickerNameInput'].markAsTouched();
@@ -34,11 +32,9 @@ export class ClickerForm {
       return false;
     }
 
-    // this.clickerService.newClicker(formValue['clickerNameInput']);
-    this.newClicker.emit(formValue['clickerNameInput']);
+    this.clickerService.newClicker(formValue['clickerNameInput']);
 
-    // reset the value of the contorl and all validation / state
-    this.form.controls['clickerNameInput'] = Utils.resetControl(this.form.controls['clickerNameInput']);
+    this.form.reset();
 
     return true;
   }

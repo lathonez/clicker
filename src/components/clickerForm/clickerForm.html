@@ -1,4 +1,4 @@
-<form [formGroup]="form" (submit)="newClickerLocal(form.value)">
+<form [formGroup]="form" (submit)="newClicker(form.value)">
   <ion-row>
     <ion-col width-80>
       <ion-item >
@@ -6,7 +6,7 @@
       </ion-item>
     </ion-col>
     <ion-col>
-      <button type="submit" block secondary outline>
+      <button ion-button type="submit" block secondary outline>
         <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-col>

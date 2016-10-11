@@ -1,45 +1,20 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavController }                      from 'ionic-angular';
-import { Observable }                         from 'rxjs/Observable';
-import { ClickersService }                    from '../../services';
-import { Clicker }                            from '../../models';
+import { Component }       from '@angular/core';
+import { NavController }   from 'ionic-angular';
+import { ClickersService } from '../../services';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'clickerList.html',
 })
 
 export class ClickerList {
 
-  public data$: Observable<Clicker[]>;
-  public isFetching$: Observable<boolean>;
-
-  private title: string;
-  private clickersService: ClickersService;
+  private clickerService: ClickersService;
   private nav: NavController;
+  private title: string;
 
-  constructor(clickerService: ClickersService, nav: NavController) {
+  constructor(nav: NavController, clickerService: ClickersService) {
     this.nav = nav;
+    this.clickerService = clickerService;
     this.title = 'Clickers';
-
-    this.isFetching$ = clickerService.isFetching();
-    this.data$ = clickerService.getData();
-    this.clickersService = clickerService;
-  }
-
-  public doClick(id: string): void {
-    this.clickersService.doClick(id);
-  }
-
-  public ionViewDidLoad(): void {
-    this.clickersService.initialise();
-  }
-
-  public newClicker(name: string): void {
-    this.clickersService.newClicker(name);
-  }
-
-  public removeClicker(id: string): void {
-    this.clickersService.removeClicker(id);
   }
 }

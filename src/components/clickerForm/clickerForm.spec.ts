@@ -15,7 +15,8 @@ let clickerFormProviders: Array<any> = [
 describe('ClickerForm', () => {
 
   let beforeEachFn: Function = ((testSpec) => {
-    spyOn(testSpec.instance, 'newClickerLocal').and.callThrough();
+    spyOn(testSpec.instance, 'newClicker').and.callThrough();
+    spyOn(testSpec.instance['clickerService'], 'newClicker').and.callThrough();
   });
 
   beforeEachProviders(() => providers.concat(clickerFormProviders));
@@ -34,9 +35,9 @@ describe('ClickerForm', () => {
     input.value = clickerName;
     TestUtils.eventFire(input, 'input');
     TestUtils.eventFire(button, 'click');
-    // expect(this.instance.newClickerLocal).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
-    // expect(Utils.resetControl).toHaveBeenCalledWith(this.instance.form.controls.clickerNameInput);
-    console.log('this test is failing on travis and needs to be fixed');
+    expect(this.instance.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
+    expect(this.instance['clickerService'].newClicker).toHaveBeenCalledWith(clickerName);
+    expect(Utils.resetControl).toHaveBeenCalledWith(this.instance.form.controls.clickerNameInput);
   });
 
   it('doesn\'t try to add a clicker with no name', () => {
@@ -44,7 +45,7 @@ describe('ClickerForm', () => {
     this.instance.clickerName = '';
     this.fixture.detectChanges();
     TestUtils.eventFire(button, 'click');
-    // expect(this.instance.newClickerLocal).toHaveBeenCalled();
-    console.log('this test is failing on travis and needs to be fixed');
+    expect(this.instance.newClicker).toHaveBeenCalled();
+    expect(this.instance['clickerService'].newClicker).not.toHaveBeenCalled();
   });
 });
