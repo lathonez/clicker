@@ -16,6 +16,12 @@ export class ConfigMock {
   }
 }
 
+export class FormMock {
+  public register(): any {
+    return true;
+  }
+}
+
 export class NavMock {
 
   public pop(): any {
