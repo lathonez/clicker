@@ -30,7 +30,7 @@ Promise.all([
     );
   })
   // Then we find all the tests.
-  .then(() => require.context('./', true, /\page2.spec\.ts/))
+  .then(() => require.context('./', true, /\.spec\.ts/))
   // And load the modules.
   .then(context => context.keys().map(context))
   // Finally, start Karma to run the tests.
@@ -54,5 +54,16 @@ export class TestUtils {
       ],
       imports: [ IonicModule ],
     });
+  }
+
+  // http://stackoverflow.com/questions/2705583/how-to-simulate-a-click-with-javascript
+  public static eventFire(el: any, etype: string): void {
+    if (el.fireEvent) {
+      el.fireEvent('on' + etype);
+    } else {
+      let evObj: any = document.createEvent('Events');
+      evObj.initEvent(etype, true, false);
+      el.dispatchEvent(evObj);
+    }
   }
 }

@@ -1,40 +1,32 @@
-import { beforeEach, beforeEachProviders, describe, expect, it }          from '@angular/core/testing';
-import { provide }                                                        from '@angular/core';
-import { asyncCallbackFactory, injectAsyncWrapper, providers, TestUtils } from '../../../test/diExports';
-import { ClickersServiceMock }                                            from '../../services/mocks';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestUtils }                 from '../../test';
 import { ClickerButton }                                                  from './clickerButton';
-import { ClickersService }                                                from '../../services';
 
-this.fixture = null;
-this.instance = null;
-
-let clickerButtonProviders: Array<any> = [
- provide(ClickersService, {useClass: ClickersServiceMock}),
-];
+let fixture: ComponentFixture<ClickerButton> = null;
+let instance: any = null;
 
 describe('ClickerButton', () => {
 
-  let beforeEachFn: Function = ((testSpec) => {
-    testSpec.instance['clicker'] = { name: 'TEST CLICKER' };
-    testSpec.instance['clicker'].getCount = function(): number { return 10; };
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ClickerButton);
+    instance = fixture.debugElement.componentInstance;
+    instance.clicker = { name: 'TEST CLICKER' };
+    instance.clicker.getCount = function(): number { return 10; };
   });
 
-  beforeEachProviders(() => providers.concat(clickerButtonProviders));
-  beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerButton, this, false, beforeEachFn)));
-
   it('initialises', () => {
-    expect(this.instance).not.toBeNull();
+    expect(instance).not.toBeNull();
   });
 
   it('displays the clicker name and count', () => {
-    this.fixture.detectChanges();
-    expect(this.fixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
   });
 
   it('does a click', () => {
-    this.fixture.detectChanges();
-    spyOn(this.instance['clickerService'], 'doClick');
-    TestUtils.eventFire(this.fixture.nativeElement.querySelectorAll('button')[0], 'click');
-    expect(this.instance['clickerService'].doClick).toHaveBeenCalled();
+    fixture.detectChanges();
+    spyOn(instance['clickerService'], 'doClick');
+    TestUtils.eventFire(fixture.nativeElement.querySelectorAll('button')[0], 'click');
+    expect(instance['clickerService'].doClick).toHaveBeenCalled();
   });
 });

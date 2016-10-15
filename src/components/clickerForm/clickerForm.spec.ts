@@ -1,51 +1,41 @@
-import { beforeEach, beforeEachProviders, describe, expect, it }          from '@angular/core/testing';
-import { provide }                                                        from '@angular/core';
-import { asyncCallbackFactory, injectAsyncWrapper, providers, TestUtils } from '../../../test/diExports';
-import { ClickersServiceMock }                                            from '../../services/mocks';
-import { ClickersService, Utils }                                         from '../../services';
-import { ClickerForm }                                                    from './clickerForm';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestUtils }                 from '../../test';
+import { ClickerForm }               from './clickerForm';
 
-this.fixture = null;
-this.instance = null;
-
-let clickerFormProviders: Array<any> = [
-  provide(ClickersService, {useClass: ClickersServiceMock}),
-];
+let fixture: ComponentFixture<ClickerForm> = null;
+let instance: any = null;
 
 describe('ClickerForm', () => {
 
-  let beforeEachFn: Function = ((testSpec) => {
-    spyOn(testSpec.instance, 'newClicker').and.callThrough();
-    spyOn(testSpec.instance['clickerService'], 'newClicker').and.callThrough();
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ClickerForm);
+    instance = fixture.debugElement.componentInstance;
+    instance.clicker = { name: 'TEST CLICKER' };
+    instance.clicker.getCount = function(): number { return 10; };
   });
 
-  beforeEachProviders(() => providers.concat(clickerFormProviders));
-  beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerForm, this, true, beforeEachFn)));
-
   it('initialises', () => {
-    expect(this.fixture).not.toBeNull();
-    expect(this.instance).not.toBeNull();
+    expect(fixture).not.toBeNull();
+    expect(instance).not.toBeNull();
   });
 
   it('passes new clicker through to service', () => {
     let clickerName: string = 'dave';
-    let input: any = this.fixture.nativeElement.querySelectorAll('.text-input')[0];
-    let button: any = this.fixture.nativeElement.querySelectorAll('button')[1];
-    spyOn(Utils, 'resetControl').and.callThrough();
+    let input: any = fixture.nativeElement.querySelectorAll('.text-input')[0];
+    let button: any = fixture.nativeElement.querySelectorAll('button')[1];
     input.value = clickerName;
     TestUtils.eventFire(input, 'input');
     TestUtils.eventFire(button, 'click');
-    expect(this.instance.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
-    expect(this.instance['clickerService'].newClicker).toHaveBeenCalledWith(clickerName);
-    expect(Utils.resetControl).toHaveBeenCalledWith(this.instance.form.controls.clickerNameInput);
+    expect(instance.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
+    expect(instance['clickerService'].newClicker).toHaveBeenCalledWith(clickerName);
   });
 
   it('doesn\'t try to add a clicker with no name', () => {
-    let button: any = this.fixture.nativeElement.querySelectorAll('button')[1];
-    this.instance.clickerName = '';
-    this.fixture.detectChanges();
+    let button: any = fixture.nativeElement.querySelectorAll('button')[1];
+    instance.clickerName = '';
+    fixture.detectChanges();
     TestUtils.eventFire(button, 'click');
-    expect(this.instance.newClicker).toHaveBeenCalled();
-    expect(this.instance['clickerService'].newClicker).not.toHaveBeenCalled();
+    expect(instance.newClicker).toHaveBeenCalled();
+    expect(instance['clickerService'].newClicker).not.toHaveBeenCalled();
   });
 });

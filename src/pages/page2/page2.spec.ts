@@ -4,6 +4,7 @@ import { TestUtils } from '../../test';
 import { Page2 } from './page2';
 
 describe('Pages: Page2', () => {
+
   beforeEach(() => {
     TestUtils.configureIonicTestingModule(Page2);
   });

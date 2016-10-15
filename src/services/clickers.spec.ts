@@ -1,28 +1,23 @@
-import { beforeEach, beforeEachProviders, describe, expect, it } from '@angular/core/testing';
-import { provide }                                               from '@angular/core';
-import { asyncCallbackFactory, injectAsyncWrapper, providers }   from '../../test/diExports';
-import { ClickersService }        from './clickers';
-import { ClickerList }            from '../pages/clickerList/clickerList';
-import { StorageMock } from './mocks';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestUtils }                 from '../test';
+import { ClickersService }           from './clickers';
+import { ClickerList }               from '../pages/clickerList/clickerList';
+import { Clicker }                   from '../models';
+import { StorageMock }               from './mocks';
 
-this.fixture = null;
-this.instance = null;
-this.clickers = null;
-
-let clickerListProviders: Array<any> = [
-  ClickersService,
-  provide('Storage', { useClass: StorageMock }),
-];
-
-let beforeEachFn: Function = ((testSpec) => {
-  testSpec.clickers = testSpec.instance.clickerService;
-  spyOn(testSpec.clickers.storage, 'set').and.callThrough();
-});
+let fixture: ComponentFixture<ClickerList> = null;
+let instance: any = null;
+let clickers: ClickersService = null;
 
 describe('ClickersService', () => {
 
-  beforeEachProviders(() => providers.concat(clickerListProviders));
-  beforeEach(injectAsyncWrapper(asyncCallbackFactory(ClickerList, this, false, beforeEachFn)));
+  beforeEach(() => {
+    TestUtils.configureIonicTestingModule(ClickerList);
+    fixture = TestBed.createComponent(ClickerList);
+    instance = fixture.debugElement.componentInstance;
+    clickers = instance.clickerService;
+    spyOn(clickers['storage'], 'set').and.callThrough();
+  });
 
   it('initialises', () => {
     expect(this.clickers).not.toBeNull();
