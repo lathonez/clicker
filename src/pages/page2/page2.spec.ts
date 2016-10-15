@@ -1,25 +1,11 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { App, MenuController, NavController, Platform, Config, Keyboard, Form, IonicModule }  from 'ionic-angular';
-import { ConfigMock, FormMock, NavMock, PlatformMock } from '../../../test/mocks';
+import { TestUtils } from '../../test';
+
 import { Page2 } from './page2';
 
 describe('Pages: Page2', () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        Page2,
-      ],
-      providers: [
-        {provide: App, useClass: ConfigMock},
-        {provide: Config, useClass: ConfigMock},
-        {provide: Form, useClass: FormMock},
-        {provide: Keyboard, useClass: ConfigMock},
-        {provide: MenuController, useClass: ConfigMock},
-        {provide: NavController, useValue: NavMock},
-        {provide: Platform, useValue: PlatformMock},
-      ],
-      imports: [ IonicModule ],
-    });
+    TestUtils.configureIonicTestingModule(Page2);
   });
 
   it('should create page2', async(() => {
