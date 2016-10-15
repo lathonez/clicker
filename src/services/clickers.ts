@@ -17,7 +17,12 @@ export class ClickersService {
     this.storage = storage;
     this.ids = [];
     this.clickers = [];
-    this.initIds()
+    this.init();
+  }
+
+  // as init is async separate logic here so it's testable
+  private init(): Promise<void> {
+    return this.initIds()
       .then((ids: Array<string>) => { this.ids = ids; })
       .then(() => this.initClickers(this.ids))
       .then((clickers: Array<Clicker>) => this.clickers = clickers);
@@ -25,35 +30,23 @@ export class ClickersService {
 
   // initialise Ids from SQL storage
   private initIds(): Promise<{}> {
-    return new Promise((resolve: Function) => {
-      let ids: Array<string> = [];
-      this.storage.get('ids') // return the promise so we can chain initClickers
-        .then((rawIds: string) => {
-          if (rawIds) {
-            // ids are stored as stringified JSON array
-            ids = JSON.parse(rawIds);
-          } else {
-            ids = [];
-          }
-        })
-        .then(() => resolve(ids));
-    });
+    return this.storage.get('ids') // return the promise so we can chain initClickers
+      .then((rawIds: string) => {
+        if (!rawIds) return [];
+        // ids are stored as stringified JSON array
+        return JSON.parse(rawIds);
+      });
   }
 
   // initialise Clickers from SQL storage given an array of ids
   private initClickers(ids: Array<string>): Promise<{}> {
     // get all existing ids
-    return new Promise((resolve: Function) => {
-      let clickers: Array<Clicker> = [];
-      for (let id of ids) {
-        this.storage.get(id)
-          .then((clicker: string) => {
-            clickers.push(this.initClicker(clicker));
-          });
-      }
-      // TODO - this is a bug it will resolve before the loop has completed
-      resolve(clickers);
-    });
+    let proms: Array<Promise<string>> = [];
+
+    proms = ids.map(id => this.storage.get(id));
+
+    return Promise.all(proms)
+      .then(clickers => clickers.map(clicker => this.initClicker(clicker)));
   }
 
   // initialise a clicker from a raw JSON string out of the DB

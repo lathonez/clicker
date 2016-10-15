@@ -1,16 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TestUtils }                 from '../test';
-import { ClickerApp }                from './app.component';
-import { Page2 }                     from '../pages';
+import { ClickerApp }                      from './app.component';
+import { MenuMock, NavMock, PlatformMock } from '../../test/mocks';
+import { Page2 }                           from '../pages';
 
 let instance: ClickerApp = null;
 
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    TestUtils.configureIonicTestingModule(ClickerApp);
-    let fixture: ComponentFixture<ClickerApp> = TestBed.createComponent(ClickerApp);
-    instance = fixture.debugElement.componentInstance;
+    instance = new ClickerApp((<any> new PlatformMock), (<any> new MenuMock));
+    instance['nav'] = (<any>new NavMock());
   });
 
   it('initialises with two possible pages', () => {
@@ -27,8 +25,6 @@ describe('ClickerApp', () => {
 
   it('opens a page', () => {
     spyOn(instance['menu'], 'close');
-    // cant be bothered to set up DOM testing for app.ts to get access to @ViewChild (Nav)
-    instance['nav'] = (<any>instance['menu']);
     spyOn(instance['nav'], 'setRoot');
     instance.openPage(instance['pages'][1]);
     expect(instance['menu']['close']).toHaveBeenCalled();

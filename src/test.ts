@@ -7,9 +7,13 @@ import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
 import { App, MenuController, NavController, Platform, Config, Keyboard, Form, IonicModule }  from 'ionic-angular';
-import { ConfigMock, FormMock, NavMock, PlatformMock } from '../test/mocks';
+// import { PagesModule } from './pages';
+import { ConfigMock, NavMock, PlatformMock } from '../test/mocks';
+import { ClickersServiceMock } from './services/clickers.mock';
+import { ClickersService } from './services';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
@@ -38,21 +42,26 @@ Promise.all([
 
 export class TestUtils {
 
-  public static configureIonicTestingModule(component: any): void {
+  public static configureIonicTestingModule(components: Array<any>): void {
     TestBed.configureTestingModule({
       declarations: [
-        component,
+        ...components,
       ],
       providers: [
         {provide: App, useClass: ConfigMock},
         {provide: Config, useClass: ConfigMock},
-        {provide: Form, useClass: FormMock},
+        Form,
         {provide: Keyboard, useClass: ConfigMock},
         {provide: MenuController, useClass: ConfigMock},
-        {provide: NavController, useValue: NavMock},
-        {provide: Platform, useValue: PlatformMock},
+        {provide: NavController, useClass: NavMock},
+        {provide: Platform, useClass: PlatformMock},
+        {provide: ClickersService, useClass: ClickersServiceMock},
       ],
-      imports: [ IonicModule ],
+      imports: [
+        FormsModule,
+        IonicModule,
+        ReactiveFormsModule,
+      ],
     });
   }
 

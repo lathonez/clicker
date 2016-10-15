@@ -1,11 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TestUtils }                 from '../../test';
-import { ClickerList }               from './clickerList';
+import { ComponentFixture, TestBed }  from '@angular/core/testing';
+import { TestUtils }                  from '../../test';
+import { ClickerList }                from './clickerList';
+import { ClickerButton, ClickerForm } from '../../components';
 
 describe('ClickerList', () => {
 
   beforeEach(() => {
-    TestUtils.configureIonicTestingModule(ClickerList);
+    TestUtils.configureIonicTestingModule([ClickerList, ClickerForm, ClickerButton]);
   });
 
   it('initialises', () => {

@@ -8,6 +8,7 @@ let instance: any = null;
 describe('ClickerButton', () => {
 
   beforeEach(() => {
+    TestUtils.configureIonicTestingModule([ClickerButton]);
     fixture = TestBed.createComponent(ClickerButton);
     instance = fixture.debugElement.componentInstance;
     instance.clicker = { name: 'TEST CLICKER' };

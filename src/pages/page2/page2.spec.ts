@@ -6,7 +6,7 @@ import { Page2 } from './page2';
 describe('Pages: Page2', () => {
 
   beforeEach(() => {
-    TestUtils.configureIonicTestingModule(Page2);
+    TestUtils.configureIonicTestingModule([Page2]);
   });
 
   it('should create page2', async(() => {

@@ -1,3 +1,4 @@
+import { FormBuilder }               from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TestUtils }                 from '../../test';
 import { ClickerForm }               from './clickerForm';
@@ -5,13 +6,17 @@ import { ClickerForm }               from './clickerForm';
 let fixture: ComponentFixture<ClickerForm> = null;
 let instance: any = null;
 
+declare var $: any;
+
 describe('ClickerForm', () => {
 
   beforeEach(() => {
+    TestUtils.configureIonicTestingModule([ClickerForm]);
     fixture = TestBed.createComponent(ClickerForm);
     instance = fixture.debugElement.componentInstance;
     instance.clicker = { name: 'TEST CLICKER' };
     instance.clicker.getCount = function(): number { return 10; };
+    fixture.autoDetectChanges(true);
   });
 
   it('initialises', () => {
@@ -21,21 +26,18 @@ describe('ClickerForm', () => {
 
   it('passes new clicker through to service', () => {
     let clickerName: string = 'dave';
-    let input: any = fixture.nativeElement.querySelectorAll('.text-input')[0];
-    let button: any = fixture.nativeElement.querySelectorAll('button')[1];
-    input.value = clickerName;
-    TestUtils.eventFire(input, 'input');
-    TestUtils.eventFire(button, 'click');
+    instance.form = new FormBuilder().group({clickerNameInput: [clickerName]});
+    spyOn(instance, 'newClicker').and.callThrough();
+    spyOn(instance['clickerService'], 'newClicker').and.callThrough();
+    fixture.detectChanges();
+    fixture.nativeElement.querySelectorAll('button')[1].click();
     expect(instance.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
     expect(instance['clickerService'].newClicker).toHaveBeenCalledWith(clickerName);
   });
 
   it('doesn\'t try to add a clicker with no name', () => {
-    let button: any = fixture.nativeElement.querySelectorAll('button')[1];
-    instance.clickerName = '';
-    fixture.detectChanges();
-    TestUtils.eventFire(button, 'click');
-    expect(instance.newClicker).toHaveBeenCalled();
+    spyOn(instance['clickerService'], 'newClicker').and.callThrough();
+    instance.newClicker({});
     expect(instance['clickerService'].newClicker).not.toHaveBeenCalled();
   });
 });
