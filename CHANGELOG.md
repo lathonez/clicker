@@ -3,7 +3,17 @@
 
 ### Features
 
-* **Update**: Rewrite project for to Ionic 2.0.0.rc0 (this actually puts us on rc1). ngrx removed during the upgrade. ([](https://github.com/lathonez/clicker/commit/))
+***Re-write project for to Ionic 2.0.0.rc0**:
+
+* restructure app for new directory structure: ([3e92e3c](https://github.com/lathonez/clicker/commit/3e92e3c)) ([bcb1c80](https://github.com/lathonez/clicker/commit/bcb1c80)) ([a992f38](https://github.com/lathonez/clicker/commit/a992f38))
+* merge config ([055bf22](https://github.com/lathonez/clicker/commit/055bf22))
+* build errors ([58d4732](https://github.com/lathonez/clicker/commit/58d4732))
+* remove ngrx ([07d5e6c](https://github.com/lathonez/clicker/commit/07d5e6c))
+* POC for ng-cli setup ([7b1a80c](https://github.com/lathonez/clicker/commit/7b1a80c))
+* centralise boilerplate ([c7e9b57](https://github.com/lathonez/clicker/commit/c7e9b57))
+* update *.spec ([819caf5](https://github.com/lathonez/clicker/commit/819caf5))
+* all unit tests working ([02b0901](https://github.com/lathonez/clicker/commit/02b0901))
+* tidy up and update to rc1 ([f66d45a](https://github.com/lathonez/clicker/commit/f66d45a))
 
 <a name="1.14.0"></a>
 # 1.14.0 (2016-09-08)
