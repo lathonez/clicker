@@ -21,6 +21,7 @@ addons:
 branches:
   only:
     - master
+    - rc0
 
 #
 # Build Lifecycle:
