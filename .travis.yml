@@ -28,6 +28,7 @@ branches:
 #
 
 before_install:
+  - nvm ls-remote
   - nvm use 6.8.1
   - npm install -g cordova ionic
   - ionic state clear
