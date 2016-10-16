@@ -2,7 +2,7 @@ import { Component, ViewChild }          from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar }                     from 'ionic-native';
 import { ClickerList, Page2 }            from '../pages';
-import { Config }                        from '../config/config';
+import { environment }                   from '../environments/environment';
 
 @Component({
   templateUrl: 'app.html',
@@ -36,8 +36,7 @@ export class ClickerApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
-      console.log('api URL ' + Config.apiURL);
-      console.log('api key ' + Config.apiKey);
+      console.log('environment ' + environment);
     });
   }
 

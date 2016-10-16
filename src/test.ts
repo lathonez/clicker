@@ -10,8 +10,7 @@ import 'zone.js/dist/fake-async-test';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
 import { App, MenuController, NavController, Platform, Config, Keyboard, Form, IonicModule }  from 'ionic-angular';
-// import { PagesModule } from './pages';
-import { ConfigMock, NavMock, PlatformMock } from '../test/mocks';
+import { ConfigMock, NavMock, PlatformMock } from './mocks';
 import { ClickersServiceMock } from './services/clickers.mock';
 import { ClickersService } from './services';
 

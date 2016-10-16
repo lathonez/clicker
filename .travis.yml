@@ -38,11 +38,11 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - npm test                             # unit tests
-  - npm run build                        # ionic build
+  - ng tets --watch=false                # unit tests
+  # - npm run build                        # ionic build
   # Serve with python as ionic serve needs interaction
-  - cd www && python -m SimpleHTTPServer 8100 >> python_serve.log 2>&1 &
-  - npm run e2e                          # run e2e tests against ionic
+  # - cd www && python -m SimpleHTTPServer 8100 >> python_serve.log 2>&1 &
+  # - npm run e2e                          # run e2e tests against ionic
 
 after_failure:
   - cat /home/travis/build/lathonez/clicker/python_serve.log

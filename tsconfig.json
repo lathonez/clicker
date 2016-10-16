@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "exlucde": [
-      "node_modules"
-    ],
     "lib": ["es6", "dom"],
-    "mapRoot": "./",
     "module": "es6",
     "moduleResolution": "node",
-    "outDir": "../dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "src/**/*.e2e.ts"
+  ]
 }
