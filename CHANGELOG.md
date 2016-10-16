@@ -3,7 +3,7 @@
 
 ### Features
 
-***Re-write project for to Ionic 2.0.0.rc0**:
+**Re-write project for to Ionic 2.0.0.rc0**:
 
 * restructure app for new directory structure: ([3e92e3c](https://github.com/lathonez/clicker/commit/3e92e3c)) ([bcb1c80](https://github.com/lathonez/clicker/commit/bcb1c80)) ([a992f38](https://github.com/lathonez/clicker/commit/a992f38))
 * merge config ([055bf22](https://github.com/lathonez/clicker/commit/055bf22))
