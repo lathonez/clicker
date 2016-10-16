@@ -40,7 +40,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - ng tets --watch=false                # unit tests
+  - ng test --watch=false                # unit tests
   # - npm run build                        # ionic build
   # Serve with python as ionic serve needs interaction
   # - cd www && python -m SimpleHTTPServer 8100 >> python_serve.log 2>&1 &
