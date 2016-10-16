@@ -1,3 +1,10 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2016-10-16)
+
+### Features
+
+* **Update**: Rewrite project for to Ionic 2.0.0.rc0 (this actually puts us on rc1). ngrx removed during the upgrade. ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="1.14.0"></a>
 # 1.14.0 (2016-09-08)
 

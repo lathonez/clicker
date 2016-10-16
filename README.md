@@ -26,12 +26,7 @@ ENV=qa ionic build android    # uses ./config.xml and ./config/config.ts from ./
 npm test          # run unit tests
 ```
 
-## Debug Unit tests
-```bash
-npm run karma    # start karma in debug mode: multi run Chrome, hit `debug` to get going.
-```
-
-## Run E2E
+## Run E2E - CURRENTLY BROKEN
 ```
 # e2e (aka. end-to-end, integration) - In two different shell windows
 # Make sure you don't have a global instance of Protractor
@@ -64,37 +59,5 @@ See the changelog [here](https://github.com/lathonez/clicker/blob/master/CHANGEL
 
 ## Dependencies
 
-* **@Angular:** 2.0.0-rc.4
-* **Ionic:** 2.0.0-beta.11
-
-External dependencies are listed here to justify their inclusion and to allow for their removal if your project isn't using the related functionality.
-
-* browserify: peer dependency of karma-browserify
-* browserify-istanbul: coverage transformer for karma-browserify
-* codecov.io: sending unit test coverage reports to codecov.io
-* gulp-tslint: access tslint from gulp
-* gulp-typescript: transpile typescript in gulp
-* isparta: ES6 unit test coverage reporter
-* jasmine-core: jasmine coverage reporter
-* jasmine-spec-reporter: e2e coverage reporter for jasmine
-* karma: unit test runner
-* karma-browserify: transpile and bundle typescript in Karma
-* karma-chrome-launcher: allows using chrome with Karma - chrome is used in Travis
-* karma-coverage: unit test coverage reporter
-* karma-jasmine: jasmine framework for Karma
-* karma-mocha-reporter: mocha progress reporter for Karma
-* karma-phantomjs-launcher: allows using phantom with Karma
-* @ngrx/core: ngrx
-* @ngrx/effects: ngrx
-* @ngrx/store: ngrx
-* ngrx-store-logger: ngrx debug logging
-* ngrx-store-freeze: ngrx state mutation prevetion
-* phantomjs-prebuilt: phantom headless browser
-* protractor: e2e test runner
-* protractor-jasmine2-screenshot-reporter: screenshot reporter for Jasmine
-* tsify: typescript plugin for karma-browserify
-* ts-node: transpile gulpfile
-* tslint: static code analysis for typescript
-* tslint-eslint-rules: eslint rules plugin for tslint
-* typescript: transpile e2e tests
-* typings: type definitions manager
+* **@Angular:** 2.0.0
+* **Ionic:** 2.0.0-rc.1
