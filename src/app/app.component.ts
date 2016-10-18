@@ -1,6 +1,5 @@
 import { Component, ViewChild }          from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
-import { StatusBar }                     from 'ionic-native';
 import { ClickerList, Page2 }            from '../pages';
 import { environment }                   from '../environments/environment';
 
@@ -35,8 +34,10 @@ export class ClickerApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      console.log('environment ' + environment);
+
+      // https://github.com/lathonez/clicker/issues/148#issuecomment-254436635
+      // StatusBar.styleDefault();
+      console.log('production: ' + environment.production);
     });
   }
 
