@@ -6,8 +6,6 @@ import { ClickerForm }               from './clickerForm';
 let fixture: ComponentFixture<ClickerForm> = null;
 let instance: any = null;
 
-declare var $: any;
-
 describe('ClickerForm', () => {
 
   beforeEach(() => {
