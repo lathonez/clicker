@@ -9,10 +9,10 @@ import { environment }                   from '../environments/environment';
 })
 export class ClickerApp {
 
-  @ViewChild(Nav) private nav: Nav;
+  @ViewChild(Nav) public nav: Nav;
 
-  private rootPage: any;
-  private pages: Array<{ title: string, component: any }>;
+  public rootPage: any;
+  public pages: Array<{ title: string, component: any }>;
   private menu: MenuController;
   private platform: Platform;
 

@@ -12,7 +12,7 @@ import { ClickersService }                    from '../../services';
 export class ClickerForm {
 
   private clickerService: ClickersService;
-  private form: FormGroup;
+  public form: FormGroup;
 
   constructor(clickerService: ClickersService, fb: FormBuilder) {
     this.clickerService = clickerService;

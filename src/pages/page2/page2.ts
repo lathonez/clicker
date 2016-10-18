@@ -8,15 +8,7 @@ import { Component }        from '@angular/core';
 
 export class Page2 {
 
-  // demonstrating #108
-  private rangeValue: number;
-  private inputValue: string;
-
-  constructor() {
-
-    this.rangeValue = 33;
-    this.inputValue = 'some text';
-  }
+  public title: string = 'Page 2';
 
   public onGainChange(): void {
     return;

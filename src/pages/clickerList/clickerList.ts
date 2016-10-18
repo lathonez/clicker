@@ -8,9 +8,9 @@ import { ClickersService } from '../../services';
 
 export class ClickerList {
 
-  private clickerService: ClickersService;
+  public clickerService: ClickersService;
+  public title: string;
   private nav: NavController;
-  private title: string;
 
   constructor(nav: NavController, clickerService: ClickersService) {
     this.nav = nav;

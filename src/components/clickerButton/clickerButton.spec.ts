@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TestUtils }                 from '../../test';
-import { ClickerButton }                                                  from './clickerButton';
+import { ClickerButton }             from './clickerButton';
+import { ClickerMock }               from '../../models/clicker.mock';
 
 let fixture: ComponentFixture<ClickerButton> = null;
 let instance: any = null;
@@ -11,8 +12,7 @@ describe('ClickerButton', () => {
     TestUtils.configureIonicTestingModule([ClickerButton]);
     fixture = TestBed.createComponent(ClickerButton);
     instance = fixture.debugElement.componentInstance;
-    instance.clicker = { name: 'TEST CLICKER' };
-    instance.clicker.getCount = function(): number { return 10; };
+    instance.clicker = new ClickerMock();
   });
 
   it('initialises', () => {

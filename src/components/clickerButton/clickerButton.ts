@@ -12,7 +12,7 @@ import { Clicker }          from '../../models';
 export class ClickerButton {
   @Input() public clicker: Clicker;
 
-  private clickerService: ClickersService;
+  public clickerService: ClickersService;
 
   constructor(clickerService: ClickersService) {
     this.clickerService = clickerService;
