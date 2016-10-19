@@ -29,7 +29,7 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: [
-      'mocha', 'progress', 'karma-remap-istanbul'
+      'mocha', 'karma-remap-istanbul'
     ],
     port: 9876,
     colors: true,
