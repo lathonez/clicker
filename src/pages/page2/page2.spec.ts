@@ -1,20 +1,16 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { TestUtils }                        from '../../test';
-import { Page2 }                            from './page2';
+import { ComponentFixture, async } from '@angular/core/testing';
+import { TestUtils }               from '../../test';
+import { Page2 }                   from './page2';
 
 let fixture: ComponentFixture<Page2> = null;
 let instance: any = null;
 
 describe('Pages: Page2', () => {
 
-  beforeEach(async(() => {
-    return TestUtils.configureIonicTestingModule([Page2])
-      .compileComponents().then(() => {
-        fixture = TestBed.createComponent(Page2);
-        instance = fixture.debugElement.componentInstance;
-        fixture.detectChanges();
-      });
-  }));
+  beforeEach(async(() => TestUtils.beforeEachCompiler([Page2]).then(compiled => {
+    fixture = compiled.fixture;
+    instance = compiled.instance;
+  })));
 
   afterEach(() => {
     fixture.destroy();
