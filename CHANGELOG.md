@@ -9,6 +9,7 @@
 
 ### Bug Fixes
 
+* **Unit**: Barrels aren't working with modules since latest upgrade: ([0c0993b](https://github.com/lathonez/clicker/commit/0c0993b))
 * **Unit**: Add compileComponents to beforeEach, use ng-cli's tsconfig.json for testing for #155 [#155](https://github.com/lathonez/clicker/issues/155) ([d59d968](https://github.com/lathonez/clicker/commit/d59d968))
 
 <a name="2.0.0"></a>
