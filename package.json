@@ -37,7 +37,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "0.0.38",
     "@types/jasmine": "2.5.36",
-    "angular-cli": "1.0.0-beta.17",
+    "angular-cli": "1.0.0-beta.18",
     "codelyzer": "~0.0.26",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.7.0",
