@@ -61,9 +61,9 @@ before_deploy:
   - echo "y" | ./android-sdk-linux/tools/android update sdk --no-ui --filter android-23,build-tools-23.0.1
   - export ANDROID_HOME=${PWD}/android-sdk-linux
   # license fail workaround: http://stackoverflow.com/questions/38096225/automatically-accept-all-sdk-licences
-  - mkdir -p "$ANDROID_SDK/licenses"
-  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_SDK/licenses/android-sdk-license"
-  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_SDK/licenses/android-sdk-preview-license"
+  - mkdir -p ${ANDROID_HOME}/licenses
+  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "${ANDROID_HOME}/licenses/android-sdk-license"
+  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "${ANDROID_HOME}/licenses/android-sdk-preview-license"
   # end install android
   - ionic state restore
   - ionic platform add android
