@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Unit**: Add compileComponents to beforeEach, use ng-cli's tsconfig.json for testing for #155 [#155](https://github.com/lathonez/clicker/issues/155) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Add compileComponents to beforeEach, use ng-cli's tsconfig.json for testing for #155 [#155](https://github.com/lathonez/clicker/issues/155) ([d59d968](https://github.com/lathonez/clicker/commit/d59d968))
 
 <a name="2.0.0"></a>
 # 2.0.0 (2016-10-16)
