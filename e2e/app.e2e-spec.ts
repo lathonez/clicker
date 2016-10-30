@@ -1,3 +1,5 @@
+import { browser, element, by } from 'protractor';
+
 describe('ClickerApp', () => {
 
   beforeEach(() => {
@@ -20,7 +22,7 @@ describe('ClickerApp', () => {
     element(by.css('.bar-button-menutoggle')).click()
       .then(() => {
         browser.driver.sleep(2000); // wait for the animation
-        expect(element.all(by.css('.toolbar-title')).first().getText()).toEqual('Menu');
+        expect(element.all(by.css('.toolbar-title')).first().getText()).toEqual('Pages');
       });
   });
 

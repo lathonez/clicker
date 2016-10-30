@@ -11,7 +11,7 @@
     "deploy:before": "build",
     "build:before": "build",
     "run:before": "build",
-    "e2e": "gulp --gulpfile test/gulpfile.ts --cwd ./ build-e2e && protractor test/protractor.conf.js",
+    "e2e": "protractor",
     "postinstall": "ionic state restore && webdriver-manager update",
     "start": "ionic serve",
     "test": "ng test"
@@ -49,6 +49,7 @@
     "karma-remap-istanbul": "0.2.1",
     "protractor": "4.0.10",
     "protractor-jasmine2-screenshot-reporter": "0.3.2",
+    "ts-node": "1.6.1",
     "tslint": "3.15.1",
     "tslint-eslint-rules": "2.1.0",
     "typescript": "2.0.6"

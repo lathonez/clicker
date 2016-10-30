@@ -1,4 +1,4 @@
-import { ElementFinder } from 'protractor';
+import { browser, element, by, ElementFinder } from 'protractor';
 
 let message: ElementFinder = element(by.className('message'));
 
@@ -15,6 +15,7 @@ describe('Page2', () => {
         items[1].click();
         browser.driver.sleep(2000); // wait for the animation
         expect(message.getText()).toEqual('Bye!');
+        return items[1];
       });
     });
   });

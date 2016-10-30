@@ -1,8 +1,8 @@
-import { ElementFinder } from 'protractor';
+import { browser, element, by, ElementFinder } from 'protractor';
 
 let clickerField: ElementFinder = element(by.css('.text-input'));
 let clickerButton: ElementFinder = element.all(by.className('button-outline')).first();
-let removeButton: ElementFinder = element.all(by.css('.button-outline-danger')).first();
+let removeButton: ElementFinder = element.all(by.css('.button-outline-md-danger')).first();
 let firstClicker: ElementFinder = element.all(by.className('clickerList')).first();
 
 describe('ClickerList', () => {
