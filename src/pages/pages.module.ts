@@ -1,7 +1,8 @@
-import { NgModule }           from '@angular/core';
-import { IonicModule }        from 'ionic-angular';
-import { ComponentsModule }   from '../components';
-import { ClickerList, Page2 } from './';
+import { NgModule }         from '@angular/core';
+import { IonicModule }      from 'ionic-angular';
+import { ComponentsModule } from '../components';
+import { ClickerList }      from './clickerList/clickerList';
+import { Page2 }            from './page2/page2';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { ClickerList, Page2 } from './';
   imports: [ IonicModule, ComponentsModule ],
   exports: [
     ClickerList,
-    Page2,
+    // Page2,
   ],
   entryComponents: [],
   providers: [ ],
