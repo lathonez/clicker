@@ -4,18 +4,20 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
-    "module": "es6",
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "module": "es2015",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types",
-      "../node_modules/@types"
-    ]
+    "target": "es5"
   },
   "exclude": [
     "node_modules",
     "**/*.e2e.ts"
-  ]
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }
