@@ -3,6 +3,7 @@
 
 ### Features
 
+* **Update**: Update deps ([b0a95a6](https://github.com/lathonez/clicker/commit/b0a95a6))
 * **Unit**: Rationalise beforeEach boilerplate into TestUtils.beforeEachCompiler ([a5fef51](https://github.com/lathonez/clicker/commit/a5fef51))
 * **Build**: Using workaround for missing SDK license ([b6751ac](https://github.com/lathonez/clicker/commit/a5fef51))
 
