@@ -1,5 +1,10 @@
-<a name="2.0.1"></a>
-# 2.0.1 (2016-10-30)
+<a name="2.1.0"></a>
+# 2.1.0 (2016-10-30)
+
+### Features
+
+* **Unit**: Rationalise beforeEach boilerplate into TestUtils.beforeEachCompiler ([a5fef51](https://github.com/lathonez/clicker/commit/a5fef51))
+* **Build**: Using workaround for missing SDK license ([b6751ac](https://github.com/lathonez/clicker/commit/a5fef51))
 
 ### Bug Fixes
 
