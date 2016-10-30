@@ -41,8 +41,8 @@ Promise.all([
 
 export class TestUtils {
 
-  public static configureIonicTestingModule(components: Array<any>): void {
-    TestBed.configureTestingModule({
+  public static configureIonicTestingModule(components: Array<any>): typeof TestBed {
+    return TestBed.configureTestingModule({
       declarations: [
         ...components,
       ],

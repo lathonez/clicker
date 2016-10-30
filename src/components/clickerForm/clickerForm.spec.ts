@@ -1,20 +1,26 @@
-import { FormBuilder }               from '@angular/forms';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TestUtils }                 from '../../test';
-import { ClickerForm }               from './clickerForm';
+import { FormBuilder }                      from '@angular/forms';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { TestUtils }                        from '../../test';
+import { ClickerForm }                      from './clickerForm';
 
 let fixture: ComponentFixture<ClickerForm> = null;
 let instance: any = null;
 
 describe('ClickerForm', () => {
 
-  beforeEach(() => {
-    TestUtils.configureIonicTestingModule([ClickerForm]);
-    fixture = TestBed.createComponent(ClickerForm);
-    instance = fixture.debugElement.componentInstance;
-    instance.clicker = { name: 'TEST CLICKER' };
-    instance.clicker.getCount = function(): number { return 10; };
-    fixture.autoDetectChanges(true);
+  beforeEach(async(() => {
+    return TestUtils.configureIonicTestingModule([ClickerForm])
+      .compileComponents().then(() => {
+        fixture = TestBed.createComponent(ClickerForm);
+        instance = fixture.debugElement.componentInstance;
+        instance.clicker = { name: 'TEST CLICKER' };
+        instance.clicker.getCount = function(): number { return 10; };
+        fixture.autoDetectChanges(true);
+      });
+  }));
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('initialises', () => {

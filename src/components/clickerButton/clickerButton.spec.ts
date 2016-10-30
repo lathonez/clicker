@@ -1,18 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TestUtils }                 from '../../test';
-import { ClickerButton }             from './clickerButton';
-import { ClickerMock }               from '../../models/clicker.mock';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { TestUtils }                        from '../../test';
+import { ClickerButton }                    from './clickerButton';
+import { ClickerMock }                      from '../../models/clicker.mock';
 
 let fixture: ComponentFixture<ClickerButton> = null;
 let instance: any = null;
 
 describe('ClickerButton', () => {
 
-  beforeEach(() => {
-    TestUtils.configureIonicTestingModule([ClickerButton]);
-    fixture = TestBed.createComponent(ClickerButton);
-    instance = fixture.debugElement.componentInstance;
-    instance.clicker = new ClickerMock();
+  beforeEach(async(() => {
+    return TestUtils.configureIonicTestingModule([ClickerButton])
+      .compileComponents().then(() => {
+        fixture = TestBed.createComponent(ClickerButton);
+        instance = fixture.debugElement.componentInstance;
+        instance.clicker = new ClickerMock();
+      });
+  }));
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('initialises', () => {

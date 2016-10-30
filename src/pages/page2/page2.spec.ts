@@ -7,13 +7,21 @@ let instance: any = null;
 
 describe('Pages: Page2', () => {
 
-  beforeEach(() => {
-    TestUtils.configureIonicTestingModule([Page2]);
-    fixture = TestBed.createComponent(Page2);
-    instance = fixture.debugElement.componentInstance;
+  beforeEach(async(() => {
+    return TestUtils.configureIonicTestingModule([Page2])
+      .compileComponents().then(() => {
+        fixture = TestBed.createComponent(Page2);
+        instance = fixture.debugElement.componentInstance;
+        fixture.detectChanges();
+      });
+  }));
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
-  it('should create page2', async(() => {
+  it('should create page2', () => {
+    expect(fixture).toBeTruthy();
     expect(instance).toBeTruthy();
-  }));
+  });
 });
