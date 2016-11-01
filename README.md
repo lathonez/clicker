@@ -26,7 +26,7 @@ ENV=qa ionic build android    # uses ./config.xml and ./config/config.ts from ./
 npm test          # run unit tests
 ```
 
-## Run E2E - CURRENTLY BROKEN
+## Run E2E
 ```
 # e2e (aka. end-to-end, integration) - In two different shell windows
 # Make sure you don't have a global instance of Protractor
