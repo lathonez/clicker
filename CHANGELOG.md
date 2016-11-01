@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Unit**: Windows 10 needs explicit excludes #159 [#159](https://github.com/lathonez/clicker/issues/159) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Windows 10 needs explicit excludes #159 [#159](https://github.com/lathonez/clicker/issues/159) ([0e55cc1](https://github.com/lathonez/clicker/commit/0e55cc1))
 
 <a name="2.1.0"></a>
 # 2.1.0 (2016-10-30)
