@@ -1,3 +1,10 @@
+<a name="2.1.1"></a>
+# 2.1.1 (2016-11-31)
+
+### Bug Fixes
+
+* **Unit**: Windows 10 needs explicit excludes #159 [#159](https://github.com/lathonez/clicker/issues/159) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.1.0"></a>
 # 2.1.0 (2016-10-30)
 
