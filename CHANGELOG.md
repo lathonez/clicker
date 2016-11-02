@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Build**: Using environment variables for travis build directory #162 [#162](https://github.com/lathonez/clicker/issues/162) ([](https://github.com/lathonez/clicker/commit/))
+* **Build**: Using environment variables for travis build directory #162 [#162](https://github.com/lathonez/clicker/issues/162) ([9f81dc4](https://github.com/lathonez/clicker/commit/9f81dc4))
 
 <a name="2.1.1"></a>
 # 2.1.1 (2016-10-31)
