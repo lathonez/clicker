@@ -1,5 +1,12 @@
+<a name="2.1.2"></a>
+# 2.1.2 (2016-11-03)
+
+### Bug Fixes
+
+* **Build**: Using environment variables for travis build directory #162 [#162](https://github.com/lathonez/clicker/issues/162) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.1.1"></a>
-# 2.1.1 (2016-11-31)
+# 2.1.1 (2016-10-31)
 
 ### Bug Fixes
 

@@ -47,8 +47,8 @@ script:
   - npm run e2e                          # run e2e tests against ionic
 
 after_failure:
-  - cat /home/travis/build/lathonez/clicker/python_serve.log
-  - cat /home/travis/build/lathonez/clicker/ionic_serve.log
+  - cat $TRAVIS_BUILD_DIR/python_serve.log
+  - cat $TRAVIS_BUILD_DIR/ionic_serve.log
 
 after_success:
   # Send coverage info off to cloud ppl
