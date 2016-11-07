@@ -1,3 +1,10 @@
+<a name="2.2.0"></a>
+# 2.2.0 (2016-11-07)
+
+### Features
+
+* **Update**: Update to Ionic RC2 ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.1.2"></a>
 # 2.1.2 (2016-11-03)
 
