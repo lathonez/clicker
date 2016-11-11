@@ -45,6 +45,8 @@ npm run e2e
 ## Contribute
 Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/issues/38)
 
+If you have a more general question about unit testing concepts (e.g. how can I write a unit test for `some-module`), you'll have a much quicker (and better quality) response posting on [Stack Overflow](http://stackoverflow.com/questions/ask).
+
 ## Acks
 
 * This started out as a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
