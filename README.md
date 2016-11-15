@@ -7,6 +7,8 @@
 
 ## Install & Start
 
+You need to be running [the latest node LTS](https://nodejs.org/en/download/) or newer
+
 ```bash
 git clone https://github.com/lathonez/clicker.git
 cd clicker
