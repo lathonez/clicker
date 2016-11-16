@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Unit**: Don't mock Ionic when configuring the testing module [#175](https://github.com/lathonez/clicker/issues/175) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Don't mock Ionic when configuring the testing module [#175](https://github.com/lathonez/clicker/issues/175) ([2f49f96](https://github.com/lathonez/clicker/commit/2f49f96))
 
 <a name="2.2.0"></a>
 # 2.2.0 (2016-11-07)
