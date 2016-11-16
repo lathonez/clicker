@@ -11,6 +11,7 @@ describe('ClickerList', () => {
   beforeEach(async(() => TestUtils.beforeEachCompiler([ClickerList, ClickerForm, ClickerButton]).then(compiled => {
     fixture = compiled.fixture;
     instance = compiled.instance;
+    fixture.detectChanges();
   })));
 
   afterEach(() => {

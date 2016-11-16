@@ -1,3 +1,10 @@
+<a name="2.2.1"></a>
+# 2.2.1 (2016-11-17)
+
+### Bug Fixes
+
+* **Unit**: Don't mock Ionic when configuring the testing module [#175](https://github.com/lathonez/clicker/issues/175) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.2.0"></a>
 # 2.2.0 (2016-11-07)
 
@@ -10,14 +17,14 @@
 
 ### Bug Fixes
 
-* **Build**: Using environment variables for travis build directory #162 [#162](https://github.com/lathonez/clicker/issues/162) ([9f81dc4](https://github.com/lathonez/clicker/commit/9f81dc4))
+* **Build**: Using environment variables for travis build directory [#162](https://github.com/lathonez/clicker/issues/162) ([9f81dc4](https://github.com/lathonez/clicker/commit/9f81dc4))
 
 <a name="2.1.1"></a>
 # 2.1.1 (2016-10-31)
 
 ### Bug Fixes
 
-* **Unit**: Windows 10 needs explicit excludes #159 [#159](https://github.com/lathonez/clicker/issues/159) ([0e55cc1](https://github.com/lathonez/clicker/commit/0e55cc1))
+* **Unit**: Windows 10 needs explicit excludes [#159](https://github.com/lathonez/clicker/issues/159) ([0e55cc1](https://github.com/lathonez/clicker/commit/0e55cc1))
 
 <a name="2.1.0"></a>
 # 2.1.0 (2016-10-30)
@@ -32,7 +39,7 @@
 ### Bug Fixes
 
 * **Unit**: Barrels aren't working with modules since latest upgrade: ([0c0993b](https://github.com/lathonez/clicker/commit/0c0993b))
-* **Unit**: Add compileComponents to beforeEach, use ng-cli's tsconfig.json for testing for #155 [#155](https://github.com/lathonez/clicker/issues/155) ([d59d968](https://github.com/lathonez/clicker/commit/d59d968))
+* **Unit**: Add compileComponents to beforeEach, use ng-cli's tsconfig.json for testing for [#155](https://github.com/lathonez/clicker/issues/155) ([d59d968](https://github.com/lathonez/clicker/commit/d59d968))
 
 <a name="2.0.0"></a>
 # 2.0.0 (2016-10-16)

@@ -10,6 +10,7 @@ describe('Pages: Page2', () => {
   beforeEach(async(() => TestUtils.beforeEachCompiler([Page2]).then(compiled => {
     fixture = compiled.fixture;
     instance = compiled.instance;
+    fixture.detectChanges();
   })));
 
   afterEach(() => {
