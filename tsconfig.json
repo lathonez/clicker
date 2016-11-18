@@ -11,15 +11,16 @@
     "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es5"
+    "target": "es5",
+    "types": [
+      "jasmine"
+    ]
   },
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "e2e",
-    "**/*.spec.ts"
+    "node_modules"
   ],
   "compileOnSave": false,
   "atom": {
