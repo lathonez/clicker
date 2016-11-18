@@ -7,7 +7,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic RC3 ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic RC3 ([d1a7df2](https://github.com/lathonez/clicker/commit/d1a7df2))
 * **Update**: Update Angular-CLI PR [#176](https://github.com/lathonez/clicker/pull/176)([b7486d2](https://github.com/lathonez/clicker/commit/b7486d2))
 
 <a name="2.2.1"></a>
