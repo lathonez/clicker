@@ -1,3 +1,14 @@
+<a name="2.3.0"></a>
+# 2.3.0 (2016-11-18)
+
+### Bug Fixes
+
+* **Unit/E2E**: Reverting to using jasmine types in main tsconfig.json as excluding spec means editors don't resolve modules, closes [#174](https://github.com/lathonez/clicker/issues/174) ([](https://github.com/lathonez/clicker/commit/0ae024b))
+
+### Features
+
+* **Update**: Update Angular-CLI PR [#176](https://github.com/lathonez/clicker/pull/176)([b7486d2](https://github.com/lathonez/clicker/commit/b7486d2))
+
 <a name="2.2.1"></a>
 # 2.2.1 (2016-11-17)
 

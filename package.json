@@ -16,7 +16,7 @@
     "start": "ionic serve",
     "test": "ng test"
   },
-  "version": "2.2.0",
+  "version": "2.3.0",
   "dependencies": {
     "@angular/common": "2.1.1",
     "@angular/compiler": "2.1.1",
