@@ -2,13 +2,17 @@ import { ComponentFixture, async } from '@angular/core/testing';
 import { TestUtils }               from '../../test';
 import { ClickerButton }           from './clickerButton';
 import { ClickerMock }             from '../../models/clicker.mock';
+import { ClickersServiceMock } from '../../services/clickers.mock';
+import { ClickersService } from '../../services';
 
 let fixture: ComponentFixture<ClickerButton> = null;
 let instance: any = null;
 
 describe('ClickerButton', () => {
 
-  beforeEach(async(() => TestUtils.beforeEachCompiler([ClickerButton]).then(compiled => {
+  beforeEach(async(() => TestUtils.beforeEachCompiler([ClickerButton],[
+    {provide: ClickersService, useClass: ClickersServiceMock}
+    ]).then(compiled => {
     fixture = compiled.fixture;
     instance = compiled.instance;
     instance.clicker = new ClickerMock();

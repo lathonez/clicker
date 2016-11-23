@@ -2,13 +2,17 @@ import { FormBuilder }             from '@angular/forms';
 import { ComponentFixture, async } from '@angular/core/testing';
 import { TestUtils }               from '../../test';
 import { ClickerForm }             from './clickerForm';
+import { ClickersServiceMock } from '../../services/clickers.mock';
+import { ClickersService } from '../../services';
 
 let fixture: ComponentFixture<ClickerForm> = null;
 let instance: any = null;
 
 describe('ClickerForm', () => {
 
-  beforeEach(async(() => TestUtils.beforeEachCompiler([ClickerForm]).then(compiled => {
+  beforeEach(async(() => TestUtils.beforeEachCompiler([ClickerForm], [
+    {provide: ClickersService, useClass: ClickersServiceMock}
+    ]).then(compiled => {
     fixture = compiled.fixture;
     instance = compiled.instance;
     instance.clicker = { name: 'TEST CLICKER' };

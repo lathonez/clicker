@@ -11,8 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
 import { App, MenuController, NavController, Platform, Config, Keyboard, Form, IonicModule }  from 'ionic-angular';
 import { ConfigMock } from './mocks';
-import { ClickersServiceMock } from './services/clickers.mock';
-import { ClickersService } from './services';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
@@ -41,8 +39,8 @@ Promise.all([
 
 export class TestUtils {
 
-  public static beforeEachCompiler(components: Array<any>): Promise<{fixture: any, instance: any}> {
-    return TestUtils.configureIonicTestingModule(components)
+  public static beforeEachCompiler(components: Array<any>, overrideProviders: Array<any> = []): Promise<{fixture: any, instance: any}> {
+    return TestUtils.configureIonicTestingModule(components, overrideProviders)
       .compileComponents().then(() => {
         let fixture: any = TestBed.createComponent(components[0]);
         return {
@@ -52,22 +50,26 @@ export class TestUtils {
       });
   }
 
-  public static configureIonicTestingModule(components: Array<any>): typeof TestBed {
+  public static configureIonicTestingModule(components: Array<any>, overrideProviders: Array<any>): typeof TestBed {
     return TestBed.configureTestingModule({
       declarations: [
         ...components,
       ],
       providers: [
         App, Platform, Form, Keyboard, MenuController, NavController,
-        {provide: Config, useClass: ConfigMock},
-        {provide: ClickersService, useClass: ClickersServiceMock},
+        {provide: Config, useClass: ConfigMock}
       ],
       imports: [
         FormsModule,
         IonicModule,
         ReactiveFormsModule,
       ],
-    });
+    })
+    .overrideComponent(components[0], {
+      set: {
+        providers: [...overrideProviders]
+      }
+    })
   }
 
   // http://stackoverflow.com/questions/2705583/how-to-simulate-a-click-with-javascript
