@@ -2,6 +2,10 @@
 
 # 2.4.0 (2016-12-08)
 
+### Features
+
+* **Unit**: Add example of TestBed component compiling manually in the component (Page2) as opposed to calling TestUtils closes [#179](https://github.com/lathonez/clicker/issues/179) ([](https://github.com/lathonez/clicker/commit/))
+
 ### Bug Fixes
 
 * **Unit**: Add mime type to karma.conf.js, closes [#178](https://github.com/lathonez/clicker/issues/178) ([5c0ffeb](https://github.com/lathonez/clicker/commit/5c0ffeb))
