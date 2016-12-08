@@ -1,10 +1,10 @@
-<a name="2.3.0"></a>
+<a name="2.4.0"></a>
 
 # 2.4.0 (2016-12-08)
 
 ### Bug Fixes
 
-* **Unit**: Add mime type to karma.conf.js, closes [#178](https://github.com/lathonez/clicker/issues/178) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Add mime type to karma.conf.js, closes [#178](https://github.com/lathonez/clicker/issues/178) ([5c0ffeb](https://github.com/lathonez/clicker/commit/5c0ffeb))
 
 # 2.3.0 (2016-11-18)
 
