@@ -1,9 +1,16 @@
 <a name="2.3.0"></a>
+
+# 2.4.0 (2016-12-08)
+
+### Bug Fixes
+
+* **Unit**: Add mime type to karma.conf.js, closes [#178](https://github.com/lathonez/clicker/issues/178) ([](https://github.com/lathonez/clicker/commit/))
+
 # 2.3.0 (2016-11-18)
 
 ### Bug Fixes
 
-* **Unit/E2E**: Reverting to using jasmine types in main tsconfig.json as excluding spec means editors don't resolve modules, closes [#174](https://github.com/lathonez/clicker/issues/174) ([](https://github.com/lathonez/clicker/commit/0ae024b))
+* **Unit/E2E**: Reverting to using jasmine types in main tsconfig.json as excluding spec means editors don't resolve modules, closes [#174](https://github.com/lathonez/clicker/issues/174) ([0ae024b](https://github.com/lathonez/clicker/commit/0ae024b))
 
 ### Features
 
