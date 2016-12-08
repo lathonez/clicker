@@ -4,7 +4,7 @@
 
 ### Features
 
-* **Unit**: Add example of TestBed component compiling manually in the component (Page2) as opposed to calling TestUtils closes [#179](https://github.com/lathonez/clicker/issues/179) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Add example of TestBed component compiling manually in the component (Page2) as opposed to calling TestUtils closes [#179](https://github.com/lathonez/clicker/issues/179) ([51b5e23](https://github.com/lathonez/clicker/commit/51b5e23))
 
 ### Bug Fixes
 
