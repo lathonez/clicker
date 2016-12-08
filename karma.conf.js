@@ -37,6 +37,6 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    mime: { 'text/x-typescript': ['ts', 'tsx'] } // https://github.com/lathonez/clicker/issues/178
+    // mime: { 'text/x-typescript': ['ts', 'tsx'] } // https://github.com/lathonez/clicker/issues/178
   });
 };
