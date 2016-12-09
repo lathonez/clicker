@@ -42,12 +42,14 @@ npm run e2e
 * [Unit testing walkthrough](http://lathonez.com/2016/ionic-2-unit-testing/)
 * [E2E testing walkthrough](http://lathonez.com/2016/ionic-2-e2e-testing/)
 * [Removing assets from the APK](http://lathonez.com/2016/cordova-remove-assets/)
-* [Unifying DI Boilerplate](http://lathonez.com/2016/unify-di-boilerplate/)
 
 ## Contribute
-Issues and PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/issues/38)
+PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/issues/38)
 
-If you have a more general question about unit testing concepts (e.g. how can I write a unit test for `some-module`), you'll have a much quicker (and better quality) response posting on [Stack Overflow](http://stackoverflow.com/questions/ask).
+## Help
+
+* If you can't get the testing working, raise an issue
+* If you have a general question about unit testing (e.g. how can I write a unit test for `some-module`), see #191
 
 ## Acks
 
