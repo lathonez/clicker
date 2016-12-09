@@ -49,7 +49,7 @@ PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/is
 ## Help
 
 * If you can't get the testing working, raise an issue
-* If you have a general question about unit testing (e.g. how can I write a unit test for `some-module`), see [#191](http://lathonez.com/2016/cordova-remove-assets/)
+* If you have a general question about unit testing (e.g. how can I write a unit test for `some-module`), see [#191](https://github.com/lathonez/clicker/issues/191)
 
 ## Acks
 
