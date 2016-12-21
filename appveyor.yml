@@ -19,8 +19,7 @@ test_script:
   # run tests
   - ng test --watch=false
 
-build:
-  - npm run ionic:build
+build: off
 
 deploy:
 - provider: Local
@@ -30,6 +29,9 @@ deploy:
   AppVeyor-Protractor-test-app.port: 47602
   AppVeyor-Protractor-test-app.protocol: http
   AppVeyor-Protractor-test-app.remove_files: true
+
+before_deploy:
+  - npm run ionic:build
 
 after_deploy:
   - npm run e2e
