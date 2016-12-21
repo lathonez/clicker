@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic RC4 ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic RC4 ([b27aade](https://github.com/lathonez/clicker/commit/b27aade))
 
 <a name="2.4.0"></a>
 
