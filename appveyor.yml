@@ -30,8 +30,8 @@ deploy:
   AppVeyor-Protractor-test-app.protocol: http
   AppVeyor-Protractor-test-app.remove_files: true
 
-# before_deploy:
-#  - npm run ionic:build
+before_deploy:
+  - npm run ionic:build
 
 after_deploy:
   - npm run e2e
