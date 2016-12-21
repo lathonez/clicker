@@ -5,7 +5,7 @@
 
 * **Update**: Update to Ionic RC4 ([b27aade](https://github.com/lathonez/clicker/commit/b27aade))
 
-The above update includes a change in angular-cli which requires template urls need the current working directory added into the path.
+The above update includes a change to angular-cli which means you need to add the current working directory to template urls:
 
 For example:
 
