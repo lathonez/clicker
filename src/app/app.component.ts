@@ -1,10 +1,11 @@
 import { Component, ViewChild }          from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
+import { StatusBar, Splashscreen } from 'ionic-native';
 import { ClickerList, Page2 }            from '../pages';
 import { environment }                   from '../environments/environment';
 
 @Component({
-  templateUrl: 'app.html',
+  templateUrl: './app.html',
 })
 export class ClickerApp {
 
@@ -34,9 +35,8 @@ export class ClickerApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-
-      // https://github.com/lathonez/clicker/issues/148#issuecomment-254436635
-      // StatusBar.styleDefault();
+      StatusBar.styleDefault();
+      Splashscreen.hide();
       console.log('production: ' + environment.production);
     });
   }

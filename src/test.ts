@@ -8,8 +8,9 @@ import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TestBed } from '@angular/core/testing';
-import { App, MenuController, NavController, Platform, Config, Keyboard, Form, IonicModule }  from 'ionic-angular';
+import { getTestBed, TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform } from 'ionic-angular';
 import { ConfigMock } from './mocks';
 import { ClickersServiceMock } from './services/clickers.mock';
 import { ClickersService } from './services';
@@ -19,25 +20,21 @@ declare var __karma__: any;
 declare var require: any;
 
 // Prevent Karma from running prematurely.
-__karma__.loaded = function (): any { /* no op */};
+__karma__.loaded = function (): void {
+  // noop
+};
 
-Promise.all([
-  System.import('@angular/core/testing'),
-  System.import('@angular/platform-browser-dynamic/testing'),
-])
-  // First, initialize the Angular testing environment.
-  .then(([testing, testingBrowser]) => {
-    testing.getTestBed().initTestEnvironment(
-      testingBrowser.BrowserDynamicTestingModule,
-      testingBrowser.platformBrowserDynamicTesting()
-    );
-  })
-  // Then we find all the tests.
-  .then(() => require.context('./', true, /\.spec\.ts/))
-  // And load the modules.
-  .then(context => context.keys().map(context))
-  // Finally, start Karma to run the tests.
-  .then(__karma__.start, __karma__.error);
+// First, initialize the Angular testing environment.
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting(),
+);
+// Then we find all the tests.
+let context: any = require.context('./', true, /\.spec\.ts/);
+// And load the modules.
+context.keys().map(context);
+// Finally, start Karma to run the tests.
+__karma__.start();
 
 export class TestUtils {
 
@@ -58,7 +55,7 @@ export class TestUtils {
         ...components,
       ],
       providers: [
-        App, Platform, Form, Keyboard, MenuController, NavController,
+        App, Platform, Form, Keyboard, DomController, MenuController, NavController,
         {provide: Config, useClass: ConfigMock},
         {provide: ClickersService, useClass: ClickersServiceMock},
       ],

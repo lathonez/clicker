@@ -6,7 +6,7 @@ import { ClickersService }                    from '../../services';
 
 @Component({
   selector: 'clicker-form',
-  templateUrl: 'clickerForm.html',
+  templateUrl: './clickerForm.html',
 })
 
 export class ClickerForm {

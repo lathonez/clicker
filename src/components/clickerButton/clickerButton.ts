@@ -6,7 +6,7 @@ import { Clicker }          from '../../models';
 
 @Component({
   selector: 'clicker-button',
-  templateUrl: 'clickerButton.html',
+  templateUrl: './clickerButton.html',
 })
 
 export class ClickerButton {

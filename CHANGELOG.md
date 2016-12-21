@@ -1,3 +1,10 @@
+<a name="2.5.0"></a>
+# 2.5.0 (2016-12-22)
+
+### Features
+
+* **Update**: Update to Ionic RC4 ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.4.0"></a>
 
 # 2.4.0 (2016-12-08)

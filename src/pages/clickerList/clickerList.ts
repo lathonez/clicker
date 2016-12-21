@@ -3,7 +3,7 @@ import { NavController }   from 'ionic-angular';
 import { ClickersService } from '../../services';
 
 @Component({
-  templateUrl: 'clickerList.html',
+  templateUrl: './clickerList.html',
 })
 
 export class ClickerList {

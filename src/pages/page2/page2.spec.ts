@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { App, MenuController, NavController, Platform, Config, Keyboard, Form, IonicModule }  from 'ionic-angular';
+import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform } from 'ionic-angular';
 import { ConfigMock } from '../../mocks';
 import { Page2 }      from './page2';
 
@@ -15,7 +15,7 @@ describe('Pages: Page2', () => {
     TestBed.configureTestingModule({
       declarations: [Page2],
       providers: [
-        App, Platform, Form, Keyboard, MenuController, NavController,
+        App, DomController, Form, Keyboard, MenuController, NavController, Platform,
         {provide: Config, useClass: ConfigMock},
       ],
       imports: [

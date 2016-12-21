@@ -21,7 +21,7 @@ export class ClickersService {
   }
 
   // as init is async separate logic here so it's testable
-  private init(): Promise<void> {
+  private init(): Promise<{}> {
     return this.initIds()
       .then((ids: Array<string>) => { this.ids = ids; })
       .then(() => this.initClickers(this.ids))

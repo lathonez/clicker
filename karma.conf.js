@@ -18,6 +18,9 @@ module.exports = function (config) {
     preprocessors: {
       './src/test.ts': ['angular-cli']
     },
+    mime: {
+      'text/x-typescript': ['ts','tsx']
+    },
     remapIstanbulReporter: {
       reports: {
         html: 'coverage',
@@ -28,15 +31,14 @@ module.exports = function (config) {
       config: './angular-cli.json',
       environment: 'dev'
     },
-    reporters: [
-      'mocha', 'karma-remap-istanbul'
-    ],
+    reporters: config.angularCli && config.angularCli.codeCoverage
+              ? ['mocha', 'karma-remap-istanbul']
+              : ['mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false,
-    mime: { 'text/x-typescript': ['ts', 'tsx'] } // https://github.com/lathonez/clicker/issues/178
+    singleRun: false
   });
 };
