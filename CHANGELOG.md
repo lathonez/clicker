@@ -5,6 +5,22 @@
 
 * **Update**: Update to Ionic RC4 ([b27aade](https://github.com/lathonez/clicker/commit/b27aade))
 
+The above update includes a change in angular-cli which requires template urls need the current working directory added into the path.
+
+For example:
+
+```javascript
+  templateUrl: 'hello-ionic.html',
+```
+
+becomes
+
+```javascript
+  templateUrl: './hello-ionic.html',
+```
+
+Also Ionic's DomController needs adding into test.ts as a provider
+
 <a name="2.4.0"></a>
 
 # 2.4.0 (2016-12-08)
