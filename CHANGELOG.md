@@ -1,3 +1,11 @@
+<a name="2.5.1"></a>
+# 2.5.1 (2016-12-26)
+
+### Bug Fixes
+
+* **Unit**: Fixing codecov integration [#200](https://github.com/lathonez/clicker/issues/200) ([ecf5d87](https://github.com/lathonez/clicker/commit/ecf5d87))
+* **Unit**: Reverting to typescript 2.0.10 to fix Jasmie typings misisng when ionic:build'ing [#159](https://github.com/lathonez/clicker/issues/159) ([973292a](https://github.com/lathonez/clicker/commit/973292a))
+
 <a name="2.5.0"></a>
 # 2.5.0 (2016-12-22)
 
