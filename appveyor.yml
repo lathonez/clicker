@@ -18,7 +18,7 @@ test_script:
   - npm --version
   # run tests
   - ng test --watch=false
-  # make sure app will build and run
-  - npm start
+  # make sure app will build
+  - npm run ionic:build
 
 build: off
