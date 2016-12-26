@@ -18,20 +18,7 @@ test_script:
   - npm --version
   # run tests
   - ng test --watch=false
+  # make sure app will build and run
+  - npm start
 
 build: off
-
-deploy:
-- provider: Local
-  AppVeyor-Protractor-test-app.deploy_website: true
-  AppVeyor-Protractor-test-app.site_name: Test
-  AppVeyor-Protractor-test-app.hostname: localhost
-  AppVeyor-Protractor-test-app.port: 47602
-  AppVeyor-Protractor-test-app.protocol: http
-  AppVeyor-Protractor-test-app.remove_files: true
-
-before_deploy:
-  - npm run ionic:build
-
-after_deploy:
-  - npm run e2e
