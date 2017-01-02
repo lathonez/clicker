@@ -11,7 +11,7 @@
     "start": "ionic serve",
     "test": "ng test --code-coverage"
   },
-  "version": "2.5.1",
+  "version": "2.5.2",
   "dependencies": {
     "@angular/common": "2.2.1",
     "@angular/compiler": "2.2.1",

@@ -19,10 +19,6 @@ describe('ClickerApp', () => {
     expect(instance['rootPage']).not.toBe(null);
   });
 
-  it('initialises with an app', () => {
-    expect(instance['app']).not.toBe(null);
-  });
-
   it('opens a page', () => {
     spyOn(instance['menu'], 'close');
     spyOn(instance['nav'], 'setRoot');
