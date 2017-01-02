@@ -1,3 +1,10 @@
+<a name="2.5.2"></a>
+# 2.5.2 (2016-01-02)
+
+### Bug Fixes
+
+* **Unit**: Remove redundant "initialises with app" test [#202](https://github.com/lathonez/clicker/issues/202) ([d12d8ca](https://github.com/lathonez/clicker/commit/d12d8ca))
+
 <a name="2.5.1"></a>
 # 2.5.1 (2016-12-26)
 
