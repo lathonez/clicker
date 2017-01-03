@@ -1,3 +1,10 @@
+<a name="2.5.3"></a>
+# 2.5.3 (2016-01-03)
+
+### Bug Fixes
+
+* **Unit**: Add separate script for coverage as it breaks sourcemaps [#203](https://github.com/lathonez/clicker/issues/203) ([1f9993b](https://github.com/lathonez/clicker/commit/1f9993b))
+
 <a name="2.5.2"></a>
 # 2.5.2 (2016-01-02)
 
