@@ -9,9 +9,10 @@
     "e2e": "protractor",
     "postinstall": "ionic state restore && webdriver-manager update",
     "start": "ionic serve",
-    "test": "ng test --code-coverage"
+    "test": "ng test",
+    "test-coverage": "ng test --code-coverage"
   },
-  "version": "2.5.2",
+  "version": "2.5.3",
   "dependencies": {
     "@angular/common": "2.2.1",
     "@angular/compiler": "2.2.1",
