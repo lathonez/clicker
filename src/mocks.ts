@@ -1,4 +1,4 @@
-
+/* tslint:disable */ 
 // IONIC:
 
 export class ConfigMock {
@@ -50,10 +50,34 @@ export class NavMock {
 }
 
 export class PlatformMock {
-  public ready(): any {
-    return new Promise((resolve: Function) => {
-      resolve();
+  public ready(): Promise<{String}> {
+    return new Promise((resolve) => {
+      resolve('READY');
     });
+  }
+
+  public registerBackButtonAction(fn: Function, priority?: number): Function {
+    return (() => true);
+  }
+
+  public hasFocus(ele: HTMLElement): boolean {
+    return true;
+  }
+
+  public doc(): HTMLDocument {
+    return document;
+  }
+
+  public registerListener(ele: any, eventName: string, callback: any): Function {
+    return (() => true);
+  }
+
+  public win(): Window {
+    return window;
+  }
+
+  public raf(callback: any): number {
+    return 1;
   }
 }
 
@@ -64,3 +88,5 @@ export class MenuMock {
     });
   }
 }
+
+/* tslint:enable */

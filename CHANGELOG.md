@@ -1,3 +1,12 @@
+<a name="2.6.0"></a>
+# 2.6.0 (2017-01-18)
+
+### Features
+
+* **Update**: Update to Ionic RC5 ([](https://github.com/lathonez/clicker/commit/))
+
+The above update includes creating a mock for Ionic's platform class and using it as a provider in test.ts. I have not attempted to mock out the whole class, what is there is sufficient for clicker. If anything is missing for your app, you can add easily by referencing the signature in node_modules/ionic-angular/platform/platform.d.ts.
+
 <a name="2.5.3"></a>
 # 2.5.3 (2016-01-03)
 
