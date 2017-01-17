@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic RC5 ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic RC5 ([7328aad](https://github.com/lathonez/clicker/commit/7328aad))
 
 The above update includes creating a mock for Ionic's platform class and using it as a provider in test.ts. I have not attempted to mock out the whole class, what is there is sufficient for clicker. If anything is missing for your app, you can add easily by referencing the signature in node_modules/ionic-angular/platform/platform.d.ts.
 
