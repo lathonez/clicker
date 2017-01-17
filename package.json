@@ -6,7 +6,7 @@
   "scripts": {
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "e2e": "protractor",
+    "e2e": "ionic-app-scripts build && protractor",
     "postinstall": "ionic state restore && webdriver-manager update",
     "start": "ionic serve",
     "test": "ng test",

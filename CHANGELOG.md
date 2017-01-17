@@ -7,6 +7,8 @@
 
 The above update includes creating a mock for Ionic's platform class and using it as a provider in test.ts. I have not attempted to mock out the whole class, what is there is sufficient for clicker. If anything is missing for your app, you can add easily by referencing the signature in node_modules/ionic-angular/platform/platform.d.ts.
 
+* **E2E**: Use serve-static to run protractor with a single commmand. closes [#210](https://github.com/lathonez/clicker/issues/210) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.5.3"></a>
 # 2.5.3 (2016-01-03)
 

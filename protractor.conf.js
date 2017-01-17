@@ -25,6 +25,8 @@ exports.config = {
     require('ts-node').register({
       project: 'e2e'
     });
+
+    require('connect')().use(require('serve-static')('www')).listen(8100);
   },
   onPrepare: function() {
     jasmine.getEnv().addReporter(new SpecReporter());
