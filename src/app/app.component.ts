@@ -2,7 +2,6 @@ import { Component, ViewChild }          from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { ClickerList, Page2 }            from '../pages';
-import { environment }                   from '../environments/environment';
 
 @Component({
   templateUrl: './app.html',
@@ -37,7 +36,6 @@ export class ClickerApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
-      console.log('production: ' + environment.production);
     });
   }
 
