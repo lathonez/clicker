@@ -1,3 +1,10 @@
+<a name="2.6.1"></a>
+# 2.6.1 (2017-01-25)
+
+### Bug Fixes
+
+* **Build**: Remove [#135](https://github.com/lathonez/clicker/pull/135), it's been obsolute since ionic went back to webpack (and we moved to ng-cli) will be implemented by Ionic in https://github.com/driftyco/ionic-cli/issues/1205 [#217](https://github.com/lathonez/clicker/issues/217) ([5a3e177](https://github.com/lathonez/clicker/commit/5a3e177))
+
 <a name="2.6.0"></a>
 # 2.6.0 (2017-01-18)
 
