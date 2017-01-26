@@ -61,5 +61,5 @@ See the changelog [here](https://github.com/lathonez/clicker/blob/master/CHANGEL
 ## Dependencies
 
 * **@Angular:** 2.2.1
-* **angular-cli**: 1.0.0-beta.25-5
-* **Ionic:** 2.0.0-rc.5
+* **angular-cli**: 1.0.0-beta.26
+* **Ionic:** 2.0.0

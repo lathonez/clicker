@@ -5,6 +5,7 @@
   <author email="shazleto@gmail.com" href="http://ionicframework.com/">Stephen Hazleton</author>
   <content src="index.html"/>
   <access origin="*"/>
+  <allow-navigation href="http://ionic.local/*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -25,6 +26,7 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashMaintainAspectRatio" value="true"/>
   <preference name="FadeSplashScreenDuration" value="300"/>
+  <preference name="SplashShowOnlyFirstTime" value="false"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>

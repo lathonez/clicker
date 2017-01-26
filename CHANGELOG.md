@@ -1,3 +1,10 @@
+<a name="2.7.0"></a>
+# 2.7.0 (2017-01-26)
+
+### Features
+
+* **Update**: Update to Ionic 2.0.0 FINAL ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.6.1"></a>
 # 2.6.1 (2017-01-25)
 
