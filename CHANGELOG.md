@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic 2.0.0 FINAL ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic 2.0.0 FINAL ([bac5ce3](https://github.com/lathonez/clicker/commit/bac5ce3))
 
 <a name="2.6.1"></a>
 # 2.6.1 (2017-01-25)
