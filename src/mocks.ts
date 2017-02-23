@@ -72,13 +72,13 @@ export class PlatformMock {
     return true;
   }
 
-  public getElementComputedStyle(container: :any): any {
+  public getElementComputedStyle(container: any): any {
     return {
       paddingLeft: '10',
       paddingTop: '10',
       paddingRight: '10',
-      paddingBottom: '10'
-    }
+      paddingBottom: '10',
+    };
   }
 
   public onResize(callback: any) {
