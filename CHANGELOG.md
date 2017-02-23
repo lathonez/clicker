@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Unit**: Add functions to PlatforMock to facilitate testing of Slides [#227](https://github.com/lathonez/clicker/issues/227) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Add functions to PlatforMock to facilitate testing of Slides [#227](https://github.com/lathonez/clicker/issues/227) ([d7ee4d4](https://github.com/lathonez/clicker/commit/d7ee4d4))
 
 <a name="2.7.0"></a>
 # 2.7.0 (2017-01-26)
