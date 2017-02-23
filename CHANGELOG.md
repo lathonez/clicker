@@ -1,3 +1,10 @@
+<a name="2.8.0"></a>
+# 2.8.0 (2016-02-24)
+
+### Features
+
+* **Unit**: Add functions to PlatforMock to facilitate testing of Slides [#227](https://github.com/lathonez/clicker/issues/227) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.7.0"></a>
 # 2.7.0 (2017-01-26)
 

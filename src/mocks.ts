@@ -68,6 +68,23 @@ export class PlatformMock {
     return document;
   }
 
+  public is(): boolean {
+    return true;
+  }
+
+  public getElementComputedStyle(container: :any): any {
+    return {
+      paddingLeft: '10',
+      paddingTop: '10',
+      paddingRight: '10',
+      paddingBottom: '10'
+    }
+  }
+
+  public onResize(callback: any) {
+    return callback;
+  }
+
   public registerListener(ele: any, eventName: string, callback: any): Function {
     return (() => true);
   }
@@ -78,6 +95,14 @@ export class PlatformMock {
 
   public raf(callback: any): number {
     return 1;
+  }
+
+  public timeout(callback: any, timer: number): any {
+    return setTimeout(callback, timer);
+  }
+
+  public cancelTimeout(id: any) {
+    // do nothing
   }
 }
 
