@@ -1,3 +1,10 @@
+<a name="2.9.0"></a>
+# 2.9.0 (2017-02-27)
+
+### Features
+
+* **Update**: Update to Ionic 2.1.0 and @angular/cli rc.0 (implying @angular 2.4.0) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.8.0"></a>
 # 2.8.0 (2016-02-24)
 
