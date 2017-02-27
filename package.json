@@ -12,7 +12,8 @@
     "postinstall": "ionic state restore && webdriver-manager update",
     "start": "ionic serve",
     "test": "ng test",
-    "test-coverage": "ng test --code-coverage"
+    "test-coverage": "ng test --code-coverage",
+    "test-ci": "ng test --watch=false --code-coverage"
   },
   "version": "2.9.0",
   "dependencies": {
