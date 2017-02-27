@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic 2.1.0 and @angular/cli rc.0 (implying @angular 2.4.0) ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic 2.1.0 and @angular/cli rc.0 (implying @angular 2.4.0) ([13a6cd6](https://github.com/lathonez/clicker/commit/13a6cd6))
 
 <a name="2.8.0"></a>
 # 2.8.0 (2016-02-24)
