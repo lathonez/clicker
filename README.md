@@ -60,6 +60,6 @@ See the changelog [here](https://github.com/lathonez/clicker/blob/master/CHANGEL
 
 ## Dependencies
 
-* **@Angular:** 2.4.0
-* **angular-cli**: 1.0.0-rc.0
+* **@angular/*:** 2.4.0
+* **@angular/cli:**: 1.0.0-rc.0
 * **Ionic:** 2.1.0
