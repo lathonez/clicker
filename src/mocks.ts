@@ -1,5 +1,32 @@
 /* tslint:disable */ 
 // IONIC:
+import { EventEmitter}      from '@angular/core';
+import { FormBuilder }      from '@angular/forms';
+
+export class AlertMock {
+
+  public create(): any {
+    let rtn: Object = {};
+    rtn['present'] = (() => true);
+    return rtn;
+  }
+
+  // function actually on the AlertClass (not AlertController), but using these interchangably for now
+  public dismiss(): Promise<{}> {
+    return new Promise(function(resolve: Function): void {
+      resolve();
+    });
+  }
+}
+
+export class ToastMock {
+
+  public create(): any {
+    let rtn: Object = {};
+    rtn['present'] = (() => true);
+    return rtn;
+  }
+}
 
 export class ConfigMock {
 
@@ -13,6 +40,10 @@ export class ConfigMock {
 
   public getNumber(): number {
     return 1;
+  }
+
+  public setTransition(): void {
+    return;
   }
 }
 
@@ -45,6 +76,10 @@ export class NavMock {
   }
 
   public setRoot(): any {
+    return true;
+  }
+
+  public popToRoot(): any {
     return true;
   }
 }
@@ -104,6 +139,41 @@ export class PlatformMock {
   public cancelTimeout(id: any) {
     // do nothing
   }
+
+  public getActiveElement(): any {
+    return document['activeElement'];
+  }
+}
+
+export class StorageMock {
+
+  public get(key: string): Promise<{}> {
+    return new Promise((resolve: Function) => {
+      resolve({});
+    });
+  }
+
+  public set(key: string, value: string): Promise<{}> {
+    return new Promise((resolve: Function) => {
+      resolve({key: key, value: value});
+    });
+  }
+
+  public remove(key: string): Promise<{}> {
+    return new Promise((resolve: Function) => {
+      resolve({key: key});
+    });
+  }
+
+  public query(): Promise<{ res: { rows: Array<{}> }}> {
+    return new Promise((resolve) => {
+      resolve({
+        res: {
+          rows: [{}]
+        }
+      });
+    });
+  }
 }
 
 export class MenuMock {
@@ -111,6 +181,13 @@ export class MenuMock {
     return new Promise((resolve: Function) => {
       resolve();
     });
+  }
+}
+
+export class AppMock {
+
+  public getActiveNav(): NavMock {
+    return new NavMock();
   }
 }
 
