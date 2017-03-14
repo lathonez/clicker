@@ -19,9 +19,3 @@ test_script:
   # run tests
   - npm run test-ci
   - npm run e2e
-
-build:
-  # test a browser prod build with ionic (#236)
-  - ionic platform add browser
-  - ionic build browser --prod
-  - ls platforms\browser\build\package.zip
