@@ -63,6 +63,10 @@ before_deploy:
   - ionic build android
   # `ionic build android` wraps `cordova build android`, which gives a legit exit code if it fails. Ionic does not; test apk exists.
   - ls ./platforms/android/build/outputs/apk/android*.apk
+  # test a browser prod build with ionic (#236)
+  - ionic platform add browser
+  - ionic build browser --prod
+  - ls ./platforms/browser/build/package.zip
 
 deploy:
   provider: script
