@@ -1,6 +1,6 @@
 import { FormBuilder }             from '@angular/forms';
 import { ComponentFixture, async } from '@angular/core/testing';
-import { TestUtils }               from '../../test';
+import { TestUtils }               from '../../test-utils';
 import { ClickerForm }             from './clickerForm';
 
 let fixture: ComponentFixture<ClickerForm> = null;
