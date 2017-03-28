@@ -15,8 +15,18 @@ module.exports = {
         loaders: [
           {
             loader: 'ts-loader'
-          } , 'angular2-template-loader'
+          },
+          'angular2-template-loader'
         ]
+      },
+      {
+        test: /.+\.ts$/,
+        exclude: /(index.ts|mocks.ts|\.spec\.ts$)/,
+        loader: 'istanbul-instrumenter-loader',
+        enforce: 'post',
+        query: {
+          esModules: true
+        }
       },
       {
         test: /\.html$/,
