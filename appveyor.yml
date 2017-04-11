@@ -7,15 +7,18 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  # - npm install -g cordova ionic
-  # - ionic state clear
-  # - npm install
+  - npm install -g cordova ionic
+  - ionic state clear
+  - npm install
+
+build: off
 
 # Post-install test scripts.
-# test_script:
-#   # Output useful info for debugging.
-#   - node --version
-#   - npm --version
-#   # run tests
-#   - npm run test-ci
-#   - npm run e2e
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm run test-ci
+  - npm run e2e
+
