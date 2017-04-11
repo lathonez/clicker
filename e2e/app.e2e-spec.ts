@@ -7,22 +7,22 @@ describe('ClickerApp', () => {
   });
 
   it('should have a title', () => {
-    browser.getTitle().then(title => expect(title).toEqual(('Clickers')));
+    expect(browser.getTitle()).toEqual('Clickers');
   });
 
   it('should have {nav}', () => {
-    element(by.css('ion-navbar')).isPresent().then(present => expect(present).toEqual(true));
+    expect(element(by.css('ion-navbar')).isPresent()).toEqual(true);
   });
 
   it('should have correct nav text for Home', () => {
-    element(by.css('ion-navbar:first-child')).getText().then(text => expect(text).toContain('Clickers'));
+    expect(element(by.css('ion-navbar:first-child')).getText()).toContain('Clickers');
   });
 
   it('has a menu button that displays the left menu', () => {
     element(by.css('.bar-button-menutoggle')).click()
       .then(() => {
         browser.driver.sleep(2000); // wait for the animation
-        element.all(by.css('.toolbar-title')).first().getText().then(text => expect(text).toEqual('Pages'));
+        expect(element.all(by.css('.toolbar-title')).first().getText()).toEqual('Pages');
       });
   });
 
@@ -30,7 +30,7 @@ describe('ClickerApp', () => {
     element(by.css('.bar-button-menutoggle')).click()
       .then(() => {
         browser.driver.sleep(2000); // wait for the animation
-        element.all(by.css('ion-label')).first().getText().then(text => expect(text).toEqual('Clickers'));
+        expect(element.all(by.css('ion-label')).first().getText()).toEqual('Clickers');
       });
   });
 
@@ -38,7 +38,7 @@ describe('ClickerApp', () => {
     element(by.css('.bar-button-menutoggle')).click()
       .then(() => {
         browser.driver.sleep(2000); // wait for the animation
-        element.all(by.css('ion-label')).last().getText().then(text => expect(text).toEqual('Goodbye Ionic'));
+        expect(element.all(by.css('ion-label')).last().getText()).toEqual('Goodbye Ionic');
       });
   });
 });

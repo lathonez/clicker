@@ -14,7 +14,7 @@ describe('Page2', () => {
       element.all(by.className('input-wrapper')).then((items) => {
         items[1].click();
         browser.driver.sleep(2000); // wait for the animation
-        message.getText().then(text => expect(text).toEqual('Bye!'));
+        expect(message.getText()).toEqual('Bye!');
         return items[1];
       });
     });
