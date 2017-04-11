@@ -8,8 +8,8 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm install -g cordova ionic
-  - ionic state clear
-  - npm install
+  # - ionic state clear
+  # - npm install
 
 # Post-install test scripts.
 # test_script:
