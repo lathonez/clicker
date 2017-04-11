@@ -1,7 +1,6 @@
 import { Component, ViewChild }          from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
-import { StatusBar }                     from '@ionic-native/status-bar';
-import { SplashScreen }                  from '@ionic-native/splash-screen';
+import { StatusBar, Splashscreen } from 'ionic-native';
 import { ClickerList, Page2 }            from '../pages';
 
 @Component({
@@ -15,15 +14,11 @@ export class ClickerApp {
   public pages: Array<{ title: string, component: any }>;
   private menu: MenuController;
   private platform: Platform;
-  private splash: SplashScreen;
-  private status: StatusBar;
 
-  constructor(platform: Platform, menu: MenuController, splash: SplashScreen, status: StatusBar, ) {
+  constructor(platform: Platform, menu: MenuController) {
 
     this.platform = platform;
     this.menu = menu;
-    this.splash = splash;
-    this.status = status;
 
     this.rootPage = ClickerList;
     this.initializeApp();
@@ -39,8 +34,8 @@ export class ClickerApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.status.styleDefault();
-      this.splash.hide();
+      StatusBar.styleDefault();
+      Splashscreen.hide();
     });
   }
 

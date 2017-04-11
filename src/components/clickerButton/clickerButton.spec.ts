@@ -1,5 +1,5 @@
 import { ComponentFixture, async } from '@angular/core/testing';
-import { TestUtils }               from '../../test-utils';
+import { TestUtils }               from '../../test';
 import { ClickerButton }           from './clickerButton';
 import { ClickerMock }             from '../../models/clicker.mock';
 
@@ -12,7 +12,6 @@ describe('ClickerButton', () => {
     fixture = compiled.fixture;
     instance = compiled.instance;
     instance.clicker = new ClickerMock();
-    fixture.detectChanges();
   })));
 
   afterEach(() => {
@@ -28,13 +27,10 @@ describe('ClickerButton', () => {
     expect(fixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
   });
 
-  it('does a click', async(() => {
+  it('does a click', () => {
+    fixture.detectChanges();
     spyOn(instance['clickerService'], 'doClick');
-    let button: any = fixture.debugElement.nativeElement.querySelector('button');
-    button.click();
-
-    fixture.whenStable().then(() => {
-      expect(instance['clickerService'].doClick).toHaveBeenCalled();
-    });
-  }));
+    TestUtils.eventFire(fixture.nativeElement.querySelectorAll('button')[0], 'click');
+    expect(instance['clickerService'].doClick).toHaveBeenCalled();
+  });
 });

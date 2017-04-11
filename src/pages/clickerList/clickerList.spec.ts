@@ -1,5 +1,5 @@
 import { ComponentFixture, async }    from '@angular/core/testing';
-import { TestUtils }                  from '../../test-utils';
+import { TestUtils }                  from '../../test';
 import { ClickerList }                from './clickerList';
 import { ClickerButton, ClickerForm } from '../../components';
 

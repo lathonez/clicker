@@ -18,7 +18,8 @@
   ],
   "exclude": [
     "node_modules",
-    "src/**/*.spec.ts",
+    "src/test.ts",
+    "**/*.spec.ts",
     "e2e"
   ],
   "compileOnSave": false,

@@ -1,7 +1,6 @@
 export class ClickersServiceMock {
 
   public doClick(): boolean {
-    console.log('CLICKING');
     return true;
   }
 
