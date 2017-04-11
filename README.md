@@ -1,10 +1,21 @@
-## DEPRECATION WARNING - see [#239](https://github.com/lathonez/clicker/issues/239) - I am currently looking to deprecate this repo in favour of [driftyco/ionic-unit-testing-example](https://github.com/driftyco/ionic-unit-testing-example). Suggest heading on over there.
-
 ## Ionic 2 Demo / Seed Project : Karma + Protractor + Travis
 [![Build Status](https://travis-ci.org/lathonez/clicker.svg?branch=master)](https://travis-ci.org/lathonez/clicker) [![Build status](https://ci.appveyor.com/api/projects/status/github/lathonez/clicker?svg=true)](https://ci.appveyor.com/project/lathonez/clicker) [![codecov.io](https://codecov.io/github/lathonez/clicker/coverage.svg?branch=master)](https://codecov.io/github/lathonez/clicker?branch=master) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![Dependency Status](https://david-dm.org/lathonez/clicker/status.svg)](https://david-dm.org/lathonez/clicker) [![devDependency Status](https://david-dm.org/lathonez/clicker/dev-status.svg)](https://david-dm.org/lathonez/clicker#info=devDependencies)
 <p align="center">
   <img src="http://lathonez.github.io/images/ionic2_unit_testing/clicker.gif" alt=""/>
 </p>
+
+## Ionic's official repo
+
+Ionic have created an official unit testing example over at [driftyco/ionic-unit-testing-example](https://github.com/driftyco/ionic-unit-testing-example). To understand why this repo still exists, see [#239](https://github.com/lathonez/clicker/issues/239), where we looked at deprecating Clicker in favour of ionic-unit-testing-example.
+
+Broadly, the official example repo:
+
+* Is not mature or production ready
+* Is intended as a simple example only / will not be supported by Ionic
+* Does not support e2e
+* Does not use @angular/cli and thus lacks testing support from the wider ng2 community
+
+For ~large or production projects, I suggest using clicker. For small apps / side projects the official example should suffice.
 
 ## Install & Start
 
