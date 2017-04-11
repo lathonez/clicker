@@ -1,9 +1,27 @@
+<a name="2.11.0"></a>
+# 2.11.0 (2017-03-28)
+
+### Revert Deprecation
+
+The reverted code now lives on the [ionic-unit-testing-example branch](https://github.com/lathonez/clicker/commits/ionic-unit-testing-example)
+
+* **Update**: REVERT: Look at deprecating this repo [#239](https://github.com/lathonez/clicker/issues/239): ([bf946c7..7dbd3b8](https://github.com/lathonez/clicker/compare/bf946c7b819a3900f12947da7c92896329caa7ff...7dbd3b83a1301c9aaaa9b790b7c33655cb73e0ca))
+
+<a name="2.10.0"></a>
+# 2.10.0 (2017-03-28)
+
+### Deprecate!
+
+(This version never really existed - I should have branced off but I didn't)
+
+* **Update**: Look at deprecating this repo [#239](https://github.com/lathonez/clicker/issues/239): ([689c02f..d56c7d6](https://github.com/lathonez/clicker/compare/689c02f381724822a25816677ae4c41fd554b46d...d56c7d6eca37f5064e63e2748b06e72138b0c99d))
+
 <a name="2.9.1"></a>
 # 2.9.1 (2017-03-14)
 
 ### Bug Fixes
 
-* **Build**: Reinstate tsconfig.json excludes for `ionic build --prod` [#227](https://github.com/lathonez/clicker/issues/236) ([](https://github.com/lathonez/clicker/commit/))
+* **Build**: Reinstate tsconfig.json excludes for `ionic build --prod` [#236](https://github.com/lathonez/clicker/issues/236) ([f75ec74](https://github.com/lathonez/clicker/commit/f75ec74))
 
 <a name="2.9.0"></a>
 # 2.9.0 (2017-02-27)

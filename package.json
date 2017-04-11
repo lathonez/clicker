@@ -15,7 +15,7 @@
     "test-coverage": "ng test --code-coverage",
     "test-ci": "ng test --watch=false --code-coverage"
   },
-  "version": "2.9.0",
+  "version": "2.11.0",
   "dependencies": {
     "@angular/common": "2.4.0",
     "@angular/compiler": "2.4.0",

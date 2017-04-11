@@ -6,14 +6,14 @@
 
 ## Ionic's official repo
 
-Ionic have created an official unit testing example over at [driftyco/ionic-unit-testing-example](https://github.com/driftyco/ionic-unit-testing-example). To understand why this repo still exists, see [#239](https://github.com/lathonez/clicker/issues/239), where we looked at deprecating Clicker in favour of ionic-unit-testing-example.
+Ionic have created an official unit testing example over at [driftyco/ionic-unit-testing-example](https://github.com/driftyco/ionic-unit-testing-example). To understand why this repo still exists, see [#239](https://github.com/lathonez/clicker/issues/239), where we looked at deprecating `clicker` in favour of `ionic-unit-testing-example`.
 
 Broadly, the official example repo:
 
 * Is not mature or production ready
 * Is intended as a simple example only / will not be supported by Ionic
 * Does not support e2e
-* Does not use @angular/cli and thus lacks testing support from the wider ng2 community
+* Does not use `@angular/cli` and thus lacks testing support from the wider ng2 community
 
 For ~large or production projects, I suggest using clicker. For small apps / side projects the official example should suffice.
 
