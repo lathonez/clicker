@@ -12,10 +12,10 @@ install:
   - npm install
 
 # Post-install test scripts.
-test_script:
-  # Output useful info for debugging.
-  - node --version
-  - npm --version
-  # run tests
-  - npm run test-ci
-  - npm run e2e
+# test_script:
+#   # Output useful info for debugging.
+#   - node --version
+#   - npm --version
+#   # run tests
+#   - npm run test-ci
+#   - npm run e2e
