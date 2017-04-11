@@ -4,7 +4,7 @@
 ### Features
 
 * **Update**: Update to Ionic 3.0.1 and @angular/cli 1.0.0 (implying @angular 4.0.0) ([0ed7a16](https://github.com/lathonez/clicker/commit/0ed7a16))
-* **Unit**: Exclude mocks and config from coverage [#221](https://github.com/lathonez/clicker/issues/221) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Exclude mocks and config from coverage [#221](https://github.com/lathonez/clicker/issues/221) ([096e063](https://github.com/lathonez/clicker/commit/096e063))
 
 <a name="2.11.0"></a>
 # 2.11.0 (2017-04-11)
