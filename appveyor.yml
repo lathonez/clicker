@@ -11,7 +11,8 @@ install:
   - ionic state clear
   - npm install
 
-build: off
+build:
+  - node --version
 
 # Post-install test scripts.
 test_script:
