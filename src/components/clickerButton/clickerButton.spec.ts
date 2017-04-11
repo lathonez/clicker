@@ -28,10 +28,13 @@ describe('ClickerButton', () => {
     expect(fixture.nativeElement.querySelectorAll('.button-inner')[0].innerHTML).toEqual('TEST CLICKER (10)');
   });
 
-  it('does a click', () => {
-    fixture.detectChanges();
+  it('does a click', async(() => {
     spyOn(instance['clickerService'], 'doClick');
-    TestUtils.eventFire(fixture.nativeElement.querySelectorAll('button')[0], 'click');
-    expect(instance['clickerService'].doClick).toHaveBeenCalled();
-  });
+    let button: any = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+
+    fixture.whenStable().then(() => {
+      expect(instance['clickerService'].doClick).toHaveBeenCalled();
+    });
+  }));
 });
