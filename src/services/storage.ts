@@ -12,7 +12,7 @@ export class StorageService {
   }
 
   public static initStorage(): Storage {
-    return new Storage();
+    return new Storage({});
   }
 
   public get(key: string): Promise<{}> {

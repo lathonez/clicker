@@ -1,5 +1,8 @@
 import { NgModule, ErrorHandler }                   from '@angular/core';
+import { BrowserModule }                            from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { StatusBar }                                from '@ionic-native/status-bar';
+import { SplashScreen }                             from '@ionic-native/splash-screen';
 import { ClickerApp }                               from './app.component';
 import { ClickerList, PagesModule, Page2 }          from '../pages';
 import { ClickersService, StorageService }          from '../services';
@@ -9,6 +12,7 @@ import { ClickersService, StorageService }          from '../services';
     ClickerApp,
   ],
   imports: [
+    BrowserModule,
     PagesModule,
     IonicModule.forRoot(ClickerApp),
   ],
@@ -19,9 +23,11 @@ import { ClickersService, StorageService }          from '../services';
     Page2,
   ],
   providers: [
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StatusBar,
+    SplashScreen,
     ClickersService,
     StorageService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ],
 })
 

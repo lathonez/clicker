@@ -71,8 +71,8 @@ PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/is
 
 See the changelog [here](https://github.com/lathonez/clicker/blob/master/CHANGELOG.md)
 
-## Dependencies
+## Updated for:
 
-* **@angular/*:** 2.4.0
-* **@angular/cli:**: 1.0.0-rc.0
-* **Ionic:** 2.1.0
+* **@angular/*:** 4.0.0
+* **@angular/cli:**: 1.0.0
+* **@ionic-angular:** 3.0.1

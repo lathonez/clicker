@@ -1,5 +1,5 @@
 import { ClickerApp }                      from './app.component';
-import { MenuMock, NavMock, PlatformMock } from '../mocks';
+import { MenuMock, NavMock, PlatformMock, SplashMock, StatusMock } from '../mocks';
 import { Page2 }                           from '../pages';
 
 let instance: ClickerApp = null;
@@ -7,7 +7,7 @@ let instance: ClickerApp = null;
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    instance = new ClickerApp((<any> new PlatformMock), (<any> new MenuMock));
+    instance = new ClickerApp((<any> new PlatformMock), (<any> new MenuMock), (<any>new SplashMock()), (<any>new StatusMock()));
     instance['nav'] = (<any>new NavMock());
   });
 

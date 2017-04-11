@@ -1,9 +1,9 @@
 import { browser, element, by, ElementFinder } from 'protractor';
 
 let clickerField: ElementFinder = element(by.css('.text-input'));
-let clickerButton: ElementFinder = element.all(by.className('button-outline')).first();
+let addButton: ElementFinder = element.all(by.className('button-outline')).first();
 let removeButton: ElementFinder = element.all(by.css('.button-outline-md-danger')).first();
-let firstClicker: ElementFinder = element.all(by.className('clickerList')).first();
+let firstClicker: ElementFinder = element.all(by.tagName('clicker-button')).first().element(by.tagName('button'));
 
 describe('ClickerList', () => {
 
@@ -22,7 +22,7 @@ describe('ClickerList', () => {
 
   it('should add a Clicker', () => {
     'test clicker one'.split('').forEach((c) => clickerField.sendKeys(c));
-    clickerButton.click();
+    addButton.click();
     browser.driver.sleep(1000);
     expect(firstClicker.getText()).toEqual('TEST CLICKER ONE (0)');
   });

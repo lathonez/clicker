@@ -1,3 +1,10 @@
+<a name="2.12.0"></a>
+# 2.12.0 (2017-04-11)
+
+### Features
+
+* **Update**: Update to Ionic 3.0.1 and @angular/cli 1.0.0 (implying @angular 4.0.0) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.11.0"></a>
 # 2.11.0 (2017-04-11)
 
