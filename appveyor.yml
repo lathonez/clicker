@@ -20,6 +20,6 @@ test_script:
   - npm --version
   # run tests
   - npm run test-ci
-  - npm run postinstall
+  - npm run postinstall # this shouldn't be necessary, but it is
   - npm run e2e
 
