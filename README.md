@@ -24,7 +24,7 @@ You need to be running [the latest node LTS](https://nodejs.org/en/download/) or
 ```bash
 git clone https://github.com/lathonez/clicker.git
 cd clicker
-npm install       # or `npm run reinstall` if you get an error
+npm install
 npm start         # start the application (ionic serve)
 ```
 
