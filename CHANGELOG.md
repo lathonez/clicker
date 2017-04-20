@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Unit**: Remove unused mocks code [#241](https://github.com/lathonez/clicker/issues/241) ([](https://github.com/lathonez/clicker/commit/))
+* **Unit**: Remove unused mocks code [#241](https://github.com/lathonez/clicker/issues/241) ([e97c14e](https://github.com/lathonez/clicker/commit/e97c14e))
 
 <a name="2.12.0"></a>
 # 2.12.0 (2017-04-11)
