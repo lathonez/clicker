@@ -1,3 +1,10 @@
+<a name="2.12.1"></a>
+# 2.12.1 (2017-04-20)
+
+### Bug Fixes
+
+* **Unit**: Remove unused mocks code [#241](https://github.com/lathonez/clicker/issues/241) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.12.0"></a>
 # 2.12.0 (2017-04-11)
 

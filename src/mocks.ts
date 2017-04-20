@@ -1,4 +1,4 @@
-/* tslint:disable */ 
+/* tslint:disable */
 // IONIC:
 import { EventEmitter}      from '@angular/core';
 import { FormBuilder }      from '@angular/forms';
@@ -156,37 +156,6 @@ export class StatusMock {
 
   public styleDefault() {
     return Promise.resolve(true);
-  }
-}
-
-export class StorageMock {
-
-  public get(key: string): Promise<{}> {
-    return new Promise((resolve: Function) => {
-      resolve({});
-    });
-  }
-
-  public set(key: string, value: string): Promise<{}> {
-    return new Promise((resolve: Function) => {
-      resolve({key: key, value: value});
-    });
-  }
-
-  public remove(key: string): Promise<{}> {
-    return new Promise((resolve: Function) => {
-      resolve({key: key});
-    });
-  }
-
-  public query(): Promise<{ res: { rows: Array<{}> }}> {
-    return new Promise((resolve) => {
-      resolve({
-        res: {
-          rows: [{}]
-        }
-      });
-    });
   }
 }
 
