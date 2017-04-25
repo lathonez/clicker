@@ -29,10 +29,10 @@ export class ClickersService {
   }
 
   // initialise Ids from SQL storage
-  private initIds(): Promise<{}> {
+  private initIds(load = true): Promise<{}> {
     return this.storage.get('ids') // return the promise so we can chain initClickers
       .then((rawIds: string) => {
-        if (!rawIds) return [];
+        if (!rawIds || !load) return [];
         // ids are stored as stringified JSON array
         return JSON.parse(rawIds);
       });

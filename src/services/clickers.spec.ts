@@ -59,6 +59,14 @@ describe('ClickersService', () => {
     expect(clickedClicker.getCount()).toEqual(1);
   });
 
+  it('loads empty list if given no argument', (done: Function) => {
+    clickers['initIds'](false)
+      .then((ids: Array<string>) => {
+        expect(ids).toEqual([]);
+        done();
+      });
+  });
+
   it('loads IDs from storage', (done: Function) => {
     clickers['initIds']()
       .then((ids: Array<string>) => {
