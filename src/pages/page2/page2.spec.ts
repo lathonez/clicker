@@ -29,6 +29,7 @@ describe('Pages: Page2', () => {
       fixture = TestBed.createComponent(Page2);
       instance = fixture;
       fixture.detectChanges();
+      fixture.componentInstance.onGainChange();
     });
   }));
 
