@@ -1,3 +1,10 @@
+<a name="2.13.0"></a>
+# 2.13.0 (2017-04-25)
+
+### Features
+
+* **Unit**: Improve test coverage [#243](https://github.com/lathonez/clicker/pull/243) ([3e2551f](https://github.com/lathonez/clicker/commit/3e2551f))
+
 <a name="2.12.1"></a>
 # 2.12.1 (2017-04-20)
 
