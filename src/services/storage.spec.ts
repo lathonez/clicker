@@ -1,5 +1,4 @@
 import { StorageService } from './';
-import { StorageMock }    from './mocks';
 
 let storage: StorageService = null;
 
