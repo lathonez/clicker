@@ -1,4 +1,12 @@
-<a name="2.13.0"></a>
+<a name="2.13.1"></a>
+# 2.13.1 (2017-04-30)
+
+### Bug Fixes
+
+* **Unit**: Remove unused storage mock import [#244](https://github.com/lathonez/clicker/pull/244) ([daa3172](https://github.com/lathonez/clicker/commit/daa3172))
+* **Services**: Add typedef for load: ([105295a](https://github.com/lathonez/clicker/commit/105295a))
+
+<a name="2.13."></a>
 # 2.13.0 (2017-04-25)
 
 ### Features
