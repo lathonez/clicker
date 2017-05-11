@@ -1,3 +1,10 @@
+<a name="2.13.2"></a>
+# 2.13.2 (2017-05-11)
+
+### Bug Fixes
+
+* **Build**: Use explicit version of ionic cli [#246](https://github.com/lathonez/clicker/pull/246) ([b334fe5](https://github.com/lathonez/clicker/commit/b334fe5))
+
 <a name="2.13.1"></a>
 # 2.13.1 (2017-04-30)
 
