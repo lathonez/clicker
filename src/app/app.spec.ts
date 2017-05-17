@@ -26,16 +26,4 @@ describe('ClickerApp', () => {
     expect(instance['menu']['close']).toHaveBeenCalled();
     expect(instance['nav'].setRoot).toHaveBeenCalledWith(Page2);
   });
-
-  it('fails on an uncaught async error', () => {
-    // should fail somewhere because of this?
-    setTimeout(
-      (() => {
-        throw 'kaboom';
-      }),
-      1
-    );
-
-    expect(true).toEqual(true);
-  });
 });
