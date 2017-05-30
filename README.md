@@ -40,6 +40,91 @@ npm test          # run unit tests
 npm run e2e
 ```
 
+## Run E2E on Android Emulator
+
+Some extra setup is needed to test your Ionic app on an emulator. The
+following is based on the configuration file at
+[this version of clicker](https://github.com/balakirevs/clicker). 
+
+Install and/or update the
+Android SDK.  Create a virtual device for emulation. 
+**protractor-android.config**
+assumes a Nexus 5X, running Android 7.1.1.
+
+Add the Android platform to your app and deploy
+
+```
+ionic platform add android
+
+ionic emulate android
+```
+
+The app should deploy and you should be able to interact with it. 
+
+If so, edit the **capabilities** object in **protractor-android.conf.js** to
+have the correct device name, platform version, AVD name, and full path
+to your Android `android-debug.apk` file. Note: shell shortcuts such as `~/` will not
+work here.
+
+```bash
+  capabilities: {
+    browserName: '',
+    'appium-version': '1.6.4',
+    platformName: 'android',
+    platformVersion: '7.1.1',
+    deviceName: 'emulator-5554',
+    autoWebview: true,
+    avd: 'Nexus_5X_API_25',
+    nativeInstrumentsLib: true,
+    app: "/full/path/to/your/apk/android-debug.apk"
+  },
+```
+
+Install [Appium[(http://appium.io/). Appium is a server that
+will relay information between Protractor and the emulator.
+
+```
+npm install appium@latest -g
+```
+
+Start Appium.
+
+```
+appium
+```
+
+Start the emulator again, if you stopped it.
+
+```
+ionic emulate android
+```
+
+
+After Appium and the emulator are both ready, run the E2E Android emulator test script.
+
+```
+npm run e2e-android
+```
+
+If everything works, you should see some of the Protractor tests executing on
+the emulator. Others fail right now with errors related to what is and is
+not clickable. 
+
+### Troubleshooting ###
+
+If you get an error in Appium about ChromeDriver being out of date, download
+the latest version. The "appium" script in **package.json** 
+assumes you put ChromeDriver in **/usr/local/bin**, so that you can start Appium
+with
+
+```
+npm run appium
+```
+
+If you get any other Appium errors, try installing and running
+[appium-doctor](https://www.npmjs.com/package/appium-doctor).
+
+
 ## Blog Topics
 
 * [Unit testing walkthrough](http://lathonez.com/2017/ionic-2-unit-testing/)
