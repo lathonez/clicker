@@ -48,7 +48,7 @@ following is based on the configuration file at
 
 Install and/or update the
 Android SDK.  Create a virtual device for emulation. 
-*protractor-android.config*
+**protractor-android.config**
 assumes a Nexus 5X, running Android 7.1.1.
 
 Add the Android platform to your app and deploy
@@ -61,7 +61,7 @@ ionic emulate android
 
 The app should deploy and you should be able to interact with it. 
 
-If so, edit the *capabilities* object in *protractor-android.conf.js* to
+If so, edit the **capabilities** object in **protractor-android.conf.js** to
 have the correct device name, platform version, AVD name, and full path
 to your Android `android-debug.apk` file. Note: shell shortcuts such as `~/` will not
 work here.
@@ -112,10 +112,10 @@ not clickable.
 
 ### Troubleshooting ###
 
-If you get an error about ChromeDriver being out of date, download
-the latest version. *package.json* defines an "appium" script that
-assumes you put ChromeDriver in */usr/local/bin*.  Start Appium
-using the command
+If you get an error in Appium about ChromeDriver being out of date, download
+the latest version. The "appium" script in **package.json** 
+assumes you put ChromeDriver in **/usr/local/bin**, so that you can start Appium
+with
 
 ```
 npm run appium
