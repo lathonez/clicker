@@ -57,11 +57,11 @@ before_deploy:
   - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "${ANDROID_HOME}/licenses/android-sdk-license"
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "${ANDROID_HOME}/licenses/android-sdk-preview-license"
   # end install android
-  - ionic package build android
+  - cordova build android
   # `ionic build android` wraps `cordova build android`, which gives a legit exit code if it fails. Ionic does not; test apk exists.
   - ls ./platforms/android/build/outputs/apk/android*.apk
   # test a browser prod build with ionic (#236)
-  - ionic package build browser --prod
+  - cordova build browser --prod
   - ls ./platforms/browser/build/package.zip
 
 deploy:
