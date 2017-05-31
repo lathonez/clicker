@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Update**: Update to Ionic 3.3.0 and @angular/cli 1.0.6 (implying @angular 4.1.2) ([???????](https://github.com/lathonez/clicker/commit/???????))
+* **Update**: Update to Ionic 3.3.0 and @angular/cli 1.0.6 (implying @angular 4.1.2) ([f9928ab](https://github.com/lathonez/clicker/commit/f9928ab))
 
 <a name="2.13.2"></a>
 # 2.13.2 (2017-05-11)
