@@ -9,7 +9,7 @@
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "e2e": "ionic-app-scripts build && protractor",
-    "postinstall": "cordova prepare && webdriver-manager update",
+    "postinstall": "mkdir www && cordova prepare && webdriver-manager update",
     "start": "ionic serve",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage",
