@@ -29,7 +29,7 @@ branches:
 
 before_install:
   - nvm install --lts
-  - nvm use --lts
+  - node --version
   - npm install -g cordova@6.4.0 ionic@3.2.0
 
 install: npm install
