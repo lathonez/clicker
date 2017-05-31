@@ -31,4 +31,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <engine name="android" spec="~5.1.1" />
     <engine name="ios" spec="~4.0.1" />
+    <engine name="browser" spec="~4.0.0" />
 </widget>
