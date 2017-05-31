@@ -1,3 +1,10 @@
+<a name="2.14.0"></a>
+# 2.14.2 (2017-05-31)
+
+### Bug Fixes
+
+* **Update**: Update to Ionic 3.3.0 and @angular/cli 1.0.6 (implying @angular 4.1.2) ([???????](https://github.com/lathonez/clicker/commit/???????))
+
 <a name="2.13.2"></a>
 # 2.13.2 (2017-05-11)
 

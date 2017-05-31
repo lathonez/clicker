@@ -1,6 +1,5 @@
 {
   "name": "clicker",
   "app_id": "f0281363",
-  "typescript": true,
-  "v2": true
+  "type": "ionic-angular"
 }
