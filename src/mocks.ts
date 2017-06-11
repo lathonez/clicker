@@ -7,6 +7,8 @@ import { FormBuilder }      from '@angular/forms';
 // https://github.com/stonelasley/ionic-mocks/
 // should the package be incorporated?
 
+declare var jasmine: any;
+
 export class AlertMock {
 	public static instance(): any {
 		let instance = jasmine.createSpyObj('Alert', ['present', 'dismiss']);
