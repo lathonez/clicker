@@ -1,7 +1,14 @@
-<a name="2.14.0"></a>
-# 2.14.2 (2017-05-31)
+<a name="2.15.0"></a>
+# 2.15.0 (2017-06-11)
 
-### Bug Fixes
+### Features
+
+* **Unit**: Add alert example and coverage PR [#252](https://github.com/lathonez/clicker/pull/252) ([310a2e9](https://github.com/lathonez/clicker/commit/310a2e9))
+
+<a name="2.14.0"></a>
+# 2.14.0 (2017-05-31)
+
+### Features
 
 * **Update**: Update to Ionic 3.3.0 and @angular/cli 1.0.6 (implying @angular 4.1.2) ([f9928ab](https://github.com/lathonez/clicker/commit/f9928ab))
 
