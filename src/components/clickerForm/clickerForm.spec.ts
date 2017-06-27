@@ -31,7 +31,7 @@ describe('ClickerForm', () => {
     spyOn(instance, 'newClicker').and.callThrough();
     spyOn(instance['clickerService'], 'newClicker').and.callThrough();
     fixture.detectChanges();
-    fixture.nativeElement.querySelectorAll('button')[1].click();
+    fixture.nativeElement.querySelectorAll('button')[0].click();
     expect(instance.newClicker).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
     expect(instance['clickerService'].newClicker).toHaveBeenCalledWith(clickerName);
   });
