@@ -3,7 +3,7 @@
 
 ### Features
 
-* **Update**: Update to Ionic 3.4.2 and @angular/cli 1.1.2 (implying @angular 4.1.3) ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic 3.4.2 and @angular/cli 1.1.2 (implying @angular 4.1.3) ([9de0410](https://github.com/lathonez/clicker/commit/9de0410))
 * **E2E**: Add connect and serve-static dependencies for those just running E2E
 
 <a name="2.15.0"></a>
