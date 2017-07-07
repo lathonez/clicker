@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform } from 'ionic-angular';
-import { ConfigMock, PlatformMock } from './mocks';
+import { ConfigMock, PlatformMock } from 'ionic-mocks';
 import { ClickersServiceMock } from './services/clickers.mock';
 import { ClickersService } from './services';
 
@@ -56,8 +56,8 @@ export class TestUtils {
       ],
       providers: [
         App, Form, Keyboard, DomController, MenuController, NavController,
-        {provide: Platform, useClass: PlatformMock},
-        {provide: Config, useClass: ConfigMock},
+        {provide: Platform, useFactory: () => PlatformMock.instance()},
+        {provide: Config, useFactory: () => ConfigMock.instance()},
         {provide: ClickersService, useClass: ClickersServiceMock},
       ],
       imports: [

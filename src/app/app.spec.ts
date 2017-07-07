@@ -1,5 +1,5 @@
 import { ClickerApp }                      from './app.component';
-import { MenuMock, NavMock, PlatformMock, SplashMock, StatusMock } from '../mocks';
+import { MenuMock, NavMock, PlatformMock, StatusBarMock, SplashScreenMock } from 'ionic-mocks';
 import { Page2 }                           from '../pages';
 
 let instance: ClickerApp = null;
@@ -7,8 +7,8 @@ let instance: ClickerApp = null;
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    instance = new ClickerApp((<any> new PlatformMock), (<any> new MenuMock), (<any>new SplashMock()), (<any>new StatusMock()));
-    instance['nav'] = (<any>new NavMock());
+    instance = new ClickerApp((<any> PlatformMock.instance()), (<any> MenuMock.instance()), (<any>SplashScreenMock.instance()), (<any>StatusBarMock.instance()));
+    instance['nav'] = NavMock.instance();
   });
 
   it('initialises with two possible pages', () => {
@@ -20,8 +20,6 @@ describe('ClickerApp', () => {
   });
 
   it('opens a page', () => {
-    spyOn(instance['menu'], 'close');
-    spyOn(instance['nav'], 'setRoot');
     instance.openPage(instance['pages'][1]);
     expect(instance['menu']['close']).toHaveBeenCalled();
     expect(instance['nav'].setRoot).toHaveBeenCalledWith(Page2);
