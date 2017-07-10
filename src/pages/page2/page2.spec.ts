@@ -4,8 +4,6 @@ import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController
 import { AlertControllerMock, ConfigMock, PlatformMock } from 'ionic-mocks';
 import { Page2 }      from './page2';
 
-const alertControllerMock: AlertController = AlertControllerMock.instance();
-
 let fixture: ComponentFixture<Page2> = null;
 let instance: any = null;
 

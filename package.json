@@ -45,7 +45,7 @@
     "@types/node": "7.0.4",
     "codecov": "2.2.0",
     "connect": "3.6.2",
-    "ionic-mocks": "0.8.0",
+    "ionic-mocks": "0.10.1",
     "jasmine-core": "2.6.2",
     "jasmine-spec-reporter": "4.1.0",
     "karma": "1.7.0",
