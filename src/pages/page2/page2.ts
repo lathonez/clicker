@@ -15,8 +15,7 @@ export class Page2 {
 
   constructor(alertController: AlertController) {
     this.alertController = alertController;
-
-  };
+  }
 
   public title: string = 'Page 2';
 
