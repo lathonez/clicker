@@ -3,7 +3,11 @@
   "author": "Stephen Hazleton",
   "homepage": "https://github.com/lathonez/clicker",
   "private": true,
+  "config": {
+    "ionic_enable_lint": false
+  },
   "scripts": {
+    "lint": "tslint ./src/**/*.ts",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",

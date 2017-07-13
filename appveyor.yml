@@ -18,6 +18,7 @@ test_script:
   - node --version
   - npm --version
   # run tests
+  - npm run lint
   - npm run test-ci
   - npm run postinstall # this shouldn't be necessary, but it is
   - npm run e2e
