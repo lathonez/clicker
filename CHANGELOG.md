@@ -1,3 +1,10 @@
+<a name="2.17.0"></a>
+# 2.17.0 (2017-07-13)
+
+### Features
+
+* **Unit**: Use ionic-mocks PR [#252](https://github.com/lathonez/clicker/pull/254) ([654df58](https://github.com/lathonez/clicker/commit/654df58))
+
 <a name="2.16.0"></a>
 # 2.16.0 (2017-06-28)
 
