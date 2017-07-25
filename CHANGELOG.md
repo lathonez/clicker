@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Lint**: Use quotes to expand path correctly on ubuntu [#257](https://github.com/lathonez/clicker/issues/257) ([](https://github.com/lathonez/clicker/commit/))
+* **Lint**: Use quotes to expand path correctly on ubuntu [#257](https://github.com/lathonez/clicker/issues/257) ([2e0c3a4](https://github.com/lathonez/clicker/commit/2e0c3a4))
 
 <a name="2.17.0"></a>
 # 2.17.0 (2017-07-13)
