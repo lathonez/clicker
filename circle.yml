@@ -14,8 +14,6 @@ dependencies:
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
     - sudo apt-get update; sudo apt-get install lib32stdc++6 lib32z1 -y
     - npm install -g ionic@latest cordova@6.4.0 @angular/cli
-  post:
-    - ionic state clear
 
 test:
   pre:
