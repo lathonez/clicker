@@ -1,0 +1,32 @@
+machine:
+  timezone:
+    America/Denver
+  node:
+    version: 6.9.5
+
+
+dependencies:
+  pre:
+    - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - sudo dpkg -i google-chrome.deb
+    - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
+    - rm google-chrome.deb
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo apt-get update; sudo apt-get install lib32stdc++6 lib32z1 -y
+    - npm install -g ionic@latest cordova@6.4.0 @angular/cli
+
+test:
+  pre:
+    - export DISPLAY=:99.0
+  override:
+    - npm run lint
+    - npm run test-ci
+    - npm run e2e
+  post:
+    - ./node_modules/.bin/codecov
+
+#todo
+#deployment:
+#  production:
+#     commands:
+#      - ./travis/deploy.sh
