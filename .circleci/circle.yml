@@ -7,7 +7,7 @@ jobs:
     docker:
       # Image info:
       #  - Ubuntu 16.10
-      #  - node 7.10
+      #  - node 7.10.1
       #  - ionic 3.4.0
       #  - cordova 7.0.1
       #  - chrome latest stable
