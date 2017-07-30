@@ -5,7 +5,12 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
+      # Image info:
+      #  - Ubuntu 16.10
+      #  - node 7.10
+      #  - ionic 3.4.0
+      #  - cordova 7.0.1
+      #  - chrome latest stable
       - image: lathonez/ionic-selenium
 
     working_directory: ~/repo
@@ -26,6 +31,9 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
+      # dump env for debug
+      - run: ionic info
 
       # run tests!
       - run: npm run lint
