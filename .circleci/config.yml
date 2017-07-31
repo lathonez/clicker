@@ -59,3 +59,11 @@ jobs:
             CHROME_BIN: /usr/bin/google-chrome
             JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
           command: xvfb-run npm run e2e
+
+      -run:
+         name: Prepare
+         command: ionic cordova prepare
+
+       -run:
+         name: Build
+         command: ionic build browser

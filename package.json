@@ -7,18 +7,17 @@
         "ionic_enable_lint": false
     },
     "scripts": {
-        "lint": "tslint './src/**/*.ts'",
         "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",
+        "lint": "tslint './src/**/*.ts'",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve",
         "e2e": "ionic-app-scripts build && protractor",
-        "prepare": "ionic cordova prepare",
-        "webdriver": "webdriver-manager update",
         "start": "ionic serve",
         "test": "ng test",
         "test-coverage": "ng test --code-coverage",
-        "test-ci": "ng test --watch=false --code-coverage"
+        "test-ci": "ng test --watch=false --code-coverage",
+        "webdriver": "webdriver-manager update"
     },
     "version": "2.19.0",
     "dependencies": {
