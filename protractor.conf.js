@@ -31,6 +31,11 @@ exports.config = {
     require('connect')().use(require('serve-static')('www')).listen(4200);
   },
   onPrepare() {
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+    jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter ({ displayStacktrace: true, isVerbose: true }));
+    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+      savePath: process.env.JUNIT_REPORT_PATH,
+      outputFile: process.env.JUNIT_REPORT_NAME,
+      consolidateAll: true
+    }));
   }
 };
