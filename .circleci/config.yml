@@ -3,9 +3,9 @@
 #
 version: 2
 jobs:
-  test:
+  build:
     docker:
-      - image: lathonez/ionic-selenium:latest
+      - image: lathonez/ionic-selenium
       - env:
           - DISPLAY=:99
           - CHROME_BIN=/usr/bin/google-chrome
