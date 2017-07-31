@@ -11,7 +11,7 @@ jobs:
       #  - ionic 3.4.0
       #  - cordova 7.0.1
       #  - chrome latest stable
-      - image: lathonez/ionic-selenium
+      - image: lathonez/ionic-selenium:latest
 
     working_directory: ~/repo
 
