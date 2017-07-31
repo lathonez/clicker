@@ -39,7 +39,10 @@ jobs:
 
       - run:
           name: unit test
-          command: npm run test-ci
+          environment:
+            DISPLAY: :99
+            CHROME_BIN: /usr/bin/google-chrome
+          command: xvfb-run npm run test-ci
 
       - run:
           name: e2e test
