@@ -21,7 +21,8 @@ jobs:
 
       - run:
           name: install deps
-          command: npm install
+          # unsafe perm needed as we're running root
+          command: npm install --unsafe-perm
 
       - save_cache:
           paths:
