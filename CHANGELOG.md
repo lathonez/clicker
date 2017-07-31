@@ -1,3 +1,11 @@
+<a name="2.19.0"></a>
+# 2.19.0 (2017-07-31)
+
+### Features
+
+* **CI**: Upgrade to Circle 2.0 PR [#263](https://github.com/lathonez/clicker/pull/263) ([f9cfff4](https://github.com/lathonez/clicker/commit/f9cfff4))
+
+
 <a name="2.18.0"></a>
 # 2.18.0 (2017-07-25)
 
