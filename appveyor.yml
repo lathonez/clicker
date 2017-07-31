@@ -1,6 +1,6 @@
 # Test against this version of Node.js
 environment:
-  nodejs_version: "6.5"
+  nodejs_version: "7.10"
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -9,17 +9,16 @@ install:
   # install modules
   - npm install -g cordova@6.4.0 ionic@3.2.0
   - npm install
+  - npm run webdriver
 
 build: none
 
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
-  - node --version
-  - npm --version
+  - ionic --info
   # run tests
   - npm run lint
   - npm run test-ci
-  - npm run postinstall # this shouldn't be necessary, but it is
   - npm run e2e
 
