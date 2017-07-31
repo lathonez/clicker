@@ -21,7 +21,7 @@ jobs:
 
       - run:
           name: install deps
-          command: npm install && npm run webdriver
+          command: npm install
 
       - save_cache:
           paths:

@@ -13,11 +13,11 @@
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve",
         "e2e": "ionic-app-scripts build && protractor",
+        "postinstall": "webdriver-manager update --gecko false",
         "start": "ionic serve",
         "test": "ng test",
         "test-coverage": "ng test --code-coverage",
-        "test-ci": "ng test --watch=false --code-coverage",
-        "webdriver": "webdriver-manager update --gecko false"
+        "test-ci": "ng test --watch=false --code-coverage"
     },
     "version": "2.19.0",
     "dependencies": {

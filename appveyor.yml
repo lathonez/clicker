@@ -9,7 +9,6 @@ install:
   # install modules
   - npm install -g cordova@7.0.1 ionic@3.4.0
   - npm install
-  - npm run webdriver
 
 build: none
 
