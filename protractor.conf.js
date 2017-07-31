@@ -27,7 +27,11 @@ exports.config = {
   },
   onPrepare() {
     var jasmineReporters = require('jasmine-reporters');
-    jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter({ displayStacktrace: true, isVerbose: true }));
+    jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter({
+      verbosity: 3,
+      color: true,
+      showStack: true
+    }));
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
       savePath: process.env.JUNIT_REPORT_PATH,
       outputFile: process.env.JUNIT_REPORT_NAME,
