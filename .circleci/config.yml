@@ -6,9 +6,6 @@ jobs:
   build:
     docker:
       - image: lathonez/ionic-selenium:latest
-          # env:
-          #   - DISPLAY=:99
-          #   - CHROME_BIN=/usr/bin/google-chrome
 
     working_directory: ~/repo
 
@@ -36,7 +33,6 @@ jobs:
           name: debug environment
           command: ionic info
 
-      # run tests!
       - run:
          name: lint
          command: npm run lint
@@ -44,6 +40,10 @@ jobs:
       - run:
           name: unit test
           command: npm run test-ci
+
       - run:
           name: e2e test
-          command: npm run e2e
+          environment:
+            DISPLAY: :99
+            CHROME_BIN: /usr/bin/google-chrome
+          command: xvfb-run npm run e2e
