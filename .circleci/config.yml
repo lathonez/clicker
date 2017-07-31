@@ -21,8 +21,7 @@ jobs:
 
       - run:
           name: install deps
-          # unsafe perm needed as we're running root
-          command: npm install --unsafe-perm
+          command: npm install && npm run webdriver
 
       - save_cache:
           paths:
