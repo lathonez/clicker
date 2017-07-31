@@ -1,7 +1,7 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
-const { SpecReporter } = require('jasmine-spec-reporter');
+const { JasmineReporters } = require('jasmine-reporters');
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -31,8 +31,8 @@ exports.config = {
     require('connect')().use(require('serve-static')('www')).listen(4200);
   },
   onPrepare() {
-    jasmine.getEnv().addReporter(new jasmineReporters.TerminalReporter ({ displayStacktrace: true, isVerbose: true }));
-    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+    jasmine.getEnv().addReporter(new JasmineReporters.TerminalReporter ({ displayStacktrace: true, isVerbose: true }));
+    jasmine.getEnv().addReporter(new JasmineReporters.JUnitXmlReporter({
       savePath: process.env.JUNIT_REPORT_PATH,
       outputFile: process.env.JUNIT_REPORT_NAME,
       consolidateAll: true
