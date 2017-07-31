@@ -37,6 +37,7 @@ npm test          # run unit tests
 
 ## Run E2E
 ```
+npm run webdriver # only needs to be run once - download the chrome webdriver
 npm run e2e
 ```
 
