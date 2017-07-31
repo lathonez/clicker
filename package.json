@@ -17,7 +17,7 @@
         "test": "ng test",
         "test-coverage": "ng test --code-coverage",
         "test-ci": "ng test --watch=false --code-coverage",
-        "webdriver": "webdriver-manager update"
+        "webdriver": "webdriver-manager update --gecko false"
     },
     "version": "2.19.0",
     "dependencies": {
