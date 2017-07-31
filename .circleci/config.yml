@@ -6,9 +6,9 @@ jobs:
   build:
     docker:
       - image: lathonez/ionic-selenium:latest
-    #   - env:
-    #       - DISPLAY=:99
-    #       - CHROME_BIN=/usr/bin/google-chrome
+      - env:
+          - DISPLAY=:99
+          - CHROME_BIN=/usr/bin/google-chrome
 
     # working_directory: ~/repo
 
