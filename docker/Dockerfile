@@ -21,7 +21,7 @@ sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 apt-get update && \
 apt-get install -y google-chrome-stable && \
 \
-# Install clicker deps (needs after chrome for webdriver)
+# Install clicker deps (needs after chrome for webdriver) \
 npm install && \
 \
 # Install Xvfb \
