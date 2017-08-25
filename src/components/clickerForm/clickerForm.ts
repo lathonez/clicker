@@ -1,6 +1,6 @@
 'use strict';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component }                          from '@angular/core';
 import { ClickersService }                    from '../../services';
 
@@ -20,6 +20,10 @@ export class ClickerForm {
     this.form = fb.group({
       clickerNameInput: ['', Validators.required],
     });
+
+    // https://github.com/ionic-team/ionic-app-scripts/issues/1074
+    console.log(FormBuilder);
+    console.log(FormGroup);
   }
 
   public newClicker(formValue: Object): boolean {
