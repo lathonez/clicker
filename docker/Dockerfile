@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-WORKDIR ~/repo
+WORKDIR ~/deps
 
 # copy source code from build context
 COPY . .
