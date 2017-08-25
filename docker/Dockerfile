@@ -22,7 +22,7 @@ apt-get update && \
 apt-get install -y google-chrome-stable && \
 \
 # Install clicker deps (needs after chrome for webdriver) \
-npm install && \
+npm install --unsafe-perm && \
 \
 # Install Xvfb \
 apt-get install -y xvfb && \
