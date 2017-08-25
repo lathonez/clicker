@@ -51,4 +51,5 @@ jobs:
 
       - run:
           name: Build
-          command: ionic cordova build browser
+          # shell js shouldn't be necessary, but it is. yay ionic
+          command: npm install shelljs && ionic cordova build browser
