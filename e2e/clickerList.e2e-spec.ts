@@ -13,24 +13,24 @@ describe('ClickerList', () => {
 
   it('should switch into clickers page from menu', () => {
     element(by.css('.bar-button-menutoggle')).click();
-    expect(element.all(by.css('.toolbar-title')).last().getText()).toEqual('Clickers');
+    element.all(by.css('.toolbar-title')).last().getText().then(text => expect(text).toEqual('Clickers'));
   });
 
   it('has an input box for new Clickers', () => {
-    expect(element(by.css('.text-input')).isPresent()).toEqual(true);
+    element(by.css('.text-input')).isPresent().then(present => expect(present).toEqual(true));
   });
 
   it('should add a Clicker', () => {
     'test clicker one'.split('').forEach((c) => clickerField.sendKeys(c));
     addButton.click();
     browser.driver.sleep(1000);
-    expect(firstClicker.getText()).toEqual('TEST CLICKER ONE (0)');
+    firstClicker.getText().then(text => expect(text).toEqual('TEST CLICKER ONE (0)'));
   });
 
   it('should click a Clicker', () => {
     firstClicker.click();
     browser.driver.sleep(1000);
-    expect(firstClicker.getText()).toEqual('TEST CLICKER ONE (1)');
+    firstClicker.getText().then(text => expect(text).toEqual('TEST CLICKER ONE (1)'));
   });
 
   it('should delete a Clicker', () => {

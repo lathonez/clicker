@@ -14,7 +14,7 @@ describe('Page2', () => {
       element.all(by.className('input-wrapper')).then((items) => {
         items[1].click();
         browser.driver.sleep(2000); // wait for the animation
-        expect(message.getText()).toEqual('SHOW SIMPLE ALERT\nSHOW MORE ADVANCED ALERT');
+        message.getText().then(text => expect(text).toEqual('SHOW SIMPLE ALERT\nSHOW MORE ADVANCED ALERT'));
         return items[1];
       });
     });
