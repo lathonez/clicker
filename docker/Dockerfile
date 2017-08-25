@@ -1,14 +1,14 @@
 FROM ubuntu:16.04
 
-WORKDIR ~/deps
+WORKDIR /root/clicker
 
 # copy source code from build context
 COPY . .
 
 # Squash not available on docker cloud so everything is run in one command
-# Install some dependencies
+# Install some dependencies (git is needed for circle checkout)
 RUN apt-get update && \
-  apt install -y wget curl && \
+  apt install -y wget git curl && \
   curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
   apt-get install -y nodejs && \
 \
@@ -28,7 +28,8 @@ apt-get install -y google-chrome-stable && \
 apt-get install -y xvfb && \
 \
 # Cleanup \
-apt-get remove -y curl wget && \
+apt-get remove -y curl && \
+  apt-get autoremove && \
   rm -rf /var/lib/apt/lists/* \
 
 CMD ['echo', 'Done!']
