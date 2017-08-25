@@ -7,20 +7,20 @@ jobs:
     docker:
       - image: lathonez/clicker:latest
 
-    working_directory: ~/repo
+    working_directory: /root/clicker
 
     steps:
       # deps already installed in image
       - checkout
 
-      # dump env for debug
       - run:
           name: debug environment
           command: ionic info
 
-      - run:
-         name: lint
-         command: npm run lint
+      # https://github.com/ionic-team/ionic-app-scripts/issues/1074
+      # - run:
+      #   name: lint
+      #   command: npm run lint
 
       - run:
           name: unit test
