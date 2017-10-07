@@ -1,0 +1,26 @@
+{
+  "BUTTON": {
+    "OK": "Ok",
+    "OK_ADVANCED": "More Advanced Ok",
+    "DISMISS": "Dismiss",
+    "SHOW_SIMPLE": "Show Simple Alert",
+    "SHOW_ADVANCED": "Show More Advanced Alert"
+  },
+  "ERROR": {},
+  "PLACEHOLDER": {
+    "CLICKER_NAME": "New Clicker"
+  },
+  "MENU": {
+    "TITLE": "Pages",
+    "PAGE2": "Goodbye Ionic",
+    "CLICKERS": "Clickers"
+  },
+  "TITLE": {
+      "ALERT_SIMPLE": "This is an example for an alert",
+      "ALERT_ADVANCED": "This is an example for an alert",
+      "CLICKER_LIST": "Clickers",
+      "PAGE2": "Page 2"
+  },
+  "LABEL": {},
+  "CONTENT": {}
+}
