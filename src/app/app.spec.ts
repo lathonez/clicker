@@ -8,7 +8,9 @@ let instance: ClickerApp = null;
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    instance = new ClickerApp((<any> PlatformMock.instance()), (<any> MenuMock.instance()), (<any>SplashScreenMock.instance()), (<any>StatusBarMock.instance()), (<any>TranslateServiceMock.instance()));
+    let translate: any = new TranslateServiceMock();
+    instance = new ClickerApp((<any> PlatformMock.instance()), (<any> MenuMock.instance()),
+                              (<any>SplashScreenMock.instance()), (<any>StatusBarMock.instance()), translate);
     instance['nav'] = NavMock.instance();
   });
 

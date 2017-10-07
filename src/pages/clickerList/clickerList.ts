@@ -15,6 +15,6 @@ export class ClickerList {
   constructor(nav: NavController, clickerService: ClickersService) {
     this.nav = nav;
     this.clickerService = clickerService;
-    this.title = 'Clickers';
+    this.title = 'TITLE.CLICKER_LIST';
   }
 }

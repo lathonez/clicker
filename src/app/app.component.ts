@@ -34,8 +34,8 @@ export class ClickerApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Clickers', component: ClickerList },
-      { title: 'Goodbye Ionic', component: Page2 },
+      { title: 'MENU.CLICKERS', component: ClickerList },
+      { title: 'MENU.PAGE2', component: Page2 },
     ];
   }
 
