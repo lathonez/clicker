@@ -1,5 +1,6 @@
 import { ClickerApp }                      from './app.component';
 import { MenuMock, NavMock, PlatformMock, StatusBarMock, SplashScreenMock } from 'ionic-mocks';
+import {TranslateServiceMock}              from '../services/translate.mock';
 import { Page2 }                           from '../pages';
 
 let instance: ClickerApp = null;
@@ -7,7 +8,9 @@ let instance: ClickerApp = null;
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    instance = new ClickerApp((<any> PlatformMock.instance()), (<any> MenuMock.instance()), (<any>SplashScreenMock.instance()), (<any>StatusBarMock.instance()));
+    let translate: any = new TranslateServiceMock();
+    instance = new ClickerApp((<any> PlatformMock.instance()), (<any> MenuMock.instance()),
+                              (<any>SplashScreenMock.instance()), (<any>StatusBarMock.instance()), translate);
     instance['nav'] = NavMock.instance();
   });
 

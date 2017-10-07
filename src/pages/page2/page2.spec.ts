@@ -1,9 +1,11 @@
 import { async, fakeAsync, tick, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform, AlertController } from 'ionic-angular';
 import { AlertControllerMock, ConfigMock, PlatformMock } from 'ionic-mocks';
+import { TranslateServiceMock } from '../../services/translate.mock';
+import { TranslatePipeMock } from '../../pipes/translate.pipe.mock';
 import { Page2 }      from './page2';
-
 let fixture: ComponentFixture<Page2> = null;
 let instance: any = null;
 
@@ -16,12 +18,13 @@ describe('Pages: Page2', () => {
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
-      declarations: [Page2],
+      declarations: [Page2, TranslatePipeMock],
       providers: [
         App, DomController, Form, Keyboard, MenuController, NavController,
         {provide: Config, useFactory: () => ConfigMock.instance()},
         {provide: Platform, useFactory: () => PlatformMock.instance()},
         {provide: AlertController, useFactory: () => AlertControllerMock.instance()},
+        {provide: TranslateService, useClass: TranslateServiceMock},
       ],
       imports: [
         FormsModule,

@@ -14,6 +14,9 @@ import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController
 import { ConfigMock, PlatformMock } from 'ionic-mocks';
 import { ClickersServiceMock } from './services/clickers.mock';
 import { ClickersService } from './services';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateServiceMock } from './services/translate.mock';
+import { TranslatePipeMock } from './pipes/translate.pipe.mock';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
@@ -53,17 +56,20 @@ export class TestUtils {
     return TestBed.configureTestingModule({
       declarations: [
         ...components,
+        TranslatePipeMock,
       ],
       providers: [
         App, Form, Keyboard, DomController, MenuController, NavController,
         {provide: Platform, useFactory: () => PlatformMock.instance()},
         {provide: Config, useFactory: () => ConfigMock.instance()},
         {provide: ClickersService, useClass: ClickersServiceMock},
+        {provide: TranslateService, useClass: TranslateServiceMock},
       ],
       imports: [
         FormsModule,
         IonicModule,
         ReactiveFormsModule,
+        TranslateModule,
       ],
     });
   }
