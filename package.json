@@ -31,7 +31,7 @@
     "@ionic-native/splash-screen": "3.12.1",
     "@ionic-native/status-bar": "3.12.1",
     "@ionic/storage": "2.0.1",
-    "@ngx-translate/core": "7.0.0",
+    "@ngx-translate/core": "^8.0.0",
     "@ngx-translate/http-loader": "0.1.0",
     "cordova-android": "6.2.3",
     "cordova-browser": "4.1.0",
