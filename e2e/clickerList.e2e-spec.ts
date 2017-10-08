@@ -12,9 +12,9 @@ describe('ClickerList', () => {
   });
 
   it('should switch into clickers page from menu', () => {
-    browser.waitForAngular()
+    element(by.css('.bar-button-menutoggle')).click();
+    browser.driver.sleep(500)
       .then(() => {
-        element(by.css('.bar-button-menutoggle')).click();
         element.all(by.css('.toolbar-title')).last().getText().then(text => expect(text).toEqual('Clickers'));
       });
   });

@@ -7,7 +7,7 @@ describe('ClickerApp', () => {
   });
 
   it('should have a title', () => {
-    browser.waitForAngular()
+    browser.driver.sleep(500)
       .then(() => browser.getTitle().then(title => expect(title).toEqual('Clickers')));
   });
 
