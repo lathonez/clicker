@@ -5,7 +5,8 @@ let message: ElementFinder = element(by.className('message'));
 describe('Page2', () => {
 
   beforeEach(() => {
-    browser.get('');
+    browser.get('')
+      .then(() => browser.waitForAngular());
   });
 
   it('should have correct text when Goodbye Ionic is selected', () => {

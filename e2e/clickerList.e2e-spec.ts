@@ -8,7 +8,8 @@ let firstClicker: ElementFinder = element.all(by.tagName('clicker-button')).firs
 describe('ClickerList', () => {
 
   beforeEach(() => {
-    browser.get('');
+    browser.get('')
+      .then(() => browser.waitForAngular());
   });
 
   it('should switch into clickers page from menu', () => {

@@ -3,7 +3,8 @@ import { browser, element, by } from 'protractor';
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    browser.get('');
+    browser.get('')
+      .then(() => browser.waitForAngular());
   });
 
   it('should have a title', () => {
