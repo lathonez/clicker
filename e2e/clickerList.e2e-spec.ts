@@ -13,10 +13,7 @@ describe('ClickerList', () => {
 
   it('should switch into clickers page from menu', () => {
     element(by.css('.bar-button-menutoggle')).click();
-    browser.driver.sleep(500)
-      .then(() => {
-        element.all(by.css('.toolbar-title')).last().getText().then(text => expect(text).toEqual('Clickers'));
-      });
+    element.all(by.css('.toolbar-title')).last().getText().then(text => expect(text).toEqual('Clickers'));
   });
 
   it('has an input box for new Clickers', () => {

@@ -28,8 +28,6 @@ export class Page2 {
       .subscribe(i18ns => this.i18ns = i18ns);
   }
 
-  public title: string = 'TITLE.PAGE2';
-
   public onGainChange(): void {
     return;
   }

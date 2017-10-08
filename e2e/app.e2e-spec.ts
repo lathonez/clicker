@@ -7,8 +7,7 @@ describe('ClickerApp', () => {
   });
 
   it('should have a title', () => {
-    browser.driver.sleep(500)
-      .then(() => browser.getTitle().then(title => expect(title).toEqual('Clickers')));
+        browser.getTitle().then(title => expect(title).toEqual('Clickers'));
   });
 
   it('should have {nav}', () => {
