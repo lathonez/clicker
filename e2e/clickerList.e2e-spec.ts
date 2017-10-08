@@ -8,13 +8,15 @@ let firstClicker: ElementFinder = element.all(by.tagName('clicker-button')).firs
 describe('ClickerList', () => {
 
   beforeEach(() => {
-    browser.get('')
-      .then(() => browser.waitForAngular());
+    browser.get('');
   });
 
   it('should switch into clickers page from menu', () => {
-    element(by.css('.bar-button-menutoggle')).click();
-    element.all(by.css('.toolbar-title')).last().getText().then(text => expect(text).toEqual('Clickers'));
+    browser.waitForAngular()
+      .then(() => {
+        element(by.css('.bar-button-menutoggle')).click();
+        element.all(by.css('.toolbar-title')).last().getText().then(text => expect(text).toEqual('Clickers'));
+      });
   });
 
   it('has an input box for new Clickers', () => {

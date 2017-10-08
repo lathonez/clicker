@@ -3,12 +3,12 @@ import { browser, element, by } from 'protractor';
 describe('ClickerApp', () => {
 
   beforeEach(() => {
-    browser.get('')
-      .then(() => browser.waitForAngular());
+    browser.get('');
   });
 
   it('should have a title', () => {
-    browser.getTitle().then(title => expect(title).toEqual('Clickers'));
+    browser.waitForAngular()
+      .then(() => browser.getTitle().then(title => expect(title).toEqual('Clickers')));
   });
 
   it('should have {nav}', () => {

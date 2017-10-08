@@ -1,7 +1,7 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe } from '@angular/core';
 
 @Pipe({name: 'translate'})
-export class TranslatePipeMock implements PipeTransform {
+export class TranslatePipeMock {
   public transform(): string {
     return '';
   }
