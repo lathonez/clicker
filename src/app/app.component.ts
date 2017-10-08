@@ -29,22 +29,22 @@ export class ClickerApp {
     this.status = status;
     this.translateService = translateService;
 
-    this.rootPage = ClickerList;
     this.initializeApp();
-
-    // set our app's pages
-    this.pages = [
-      { title: 'MENU.CLICKERS', component: ClickerList },
-      { title: 'MENU.PAGE2', component: Page2 },
-    ];
   }
 
-  private initializeApp(): void {
-    this.platform.ready().then(() => {
+  private initializeApp(): Promise<any> {
+    return this.platform.ready().then(() => {
       this.translateService.setDefaultLang('en');
       this.translateService.use('en');
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.rootPage = ClickerList;
+      // set our app's pages
+      this.pages = [
+        {title: 'MENU.CLICKERS', component: ClickerList},
+        {title: 'MENU.PAGE2', component: Page2},
+      ];
       this.status.styleDefault();
       this.splash.hide();
     });
