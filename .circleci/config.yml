@@ -10,8 +10,11 @@ jobs:
     working_directory: /root/clicker
 
     steps:
-      # deps already installed in image
       - checkout
+
+      - run:
+          name: install dependencies
+          command: npm install
 
       - run:
           name: debug environment

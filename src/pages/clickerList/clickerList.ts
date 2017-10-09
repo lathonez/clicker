@@ -8,13 +8,13 @@ import { ClickersService } from '../../services';
 
 export class ClickerList {
 
+  public pageTitle: string;
   public clickerService: ClickersService;
-  public title: string;
   private nav: NavController;
 
   constructor(nav: NavController, clickerService: ClickersService) {
+    this.pageTitle = 'TITLE.CLICKER_LIST';
     this.nav = nav;
     this.clickerService = clickerService;
-    this.title = 'Clickers';
   }
 }
