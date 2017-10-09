@@ -14,7 +14,7 @@
     "start": "ionic serve",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage",
-    "test-ci": "ng test --watch=false --code-coverage"
+    "test-ci": "ng test --watch=false --code-coverage --no-progress"
   },
   "version": "2.20.0",
   "dependencies": {
