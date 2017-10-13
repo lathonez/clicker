@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **Build**: Remove unnecessary excludes [#273](https://github.com/lathonez/clicker/issues/273) ([](https://github.com/lathonez/clicker/commit/))
+* **Build**: Remove unnecessary excludes [#273](https://github.com/lathonez/clicker/issues/273) ([95b7a1a](https://github.com/lathonez/clicker/commit/95b7a1a))
 
 <a name="2.20.0"></a>
 # 2.20.0 (2017-08-25)
