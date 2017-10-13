@@ -1,3 +1,10 @@
+<a name="2.20.1"></a>
+# 2.20.1 (2017-10-13)
+
+### Bug Fixes
+
+* **Build**: Remove unnecessary excludes [#273](https://github.com/lathonez/clicker/issues/273) ([](https://github.com/lathonez/clicker/commit/))
+
 <a name="2.20.0"></a>
 # 2.20.0 (2017-08-25)
 
