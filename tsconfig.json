@@ -1,4 +1,7 @@
 {
+  "typeRoots": [
+    "node_modules/@types"
+  ],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": false,
