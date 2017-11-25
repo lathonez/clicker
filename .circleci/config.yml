@@ -13,19 +13,13 @@ jobs:
       # deps already installed in image
       - checkout
 
-      # to be removed after merged in and docker updated
-      - run:
-          name: install dependencies
-          command: rm -rf node_modules && npm install
-
       - run:
           name: debug environment
           command: ionic info
 
-      # https://github.com/ionic-team/ionic-app-scripts/issues/1074
-      # - run:
-      #   name: lint
-      #   command: npm run lint
+       - run:
+         name: lint
+         command: npm run lint
 
       - run:
           name: unit test
@@ -48,7 +42,7 @@ jobs:
             DISPLAY: :99
             CHROME_BIN: /usr/bin/google-chrome
             JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
-          command: npm run postinstall && xvfb-run npm run e2e
+          command: xvfb-run npm run e2e
 
       - run:
           name: Prepare
