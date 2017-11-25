@@ -61,4 +61,4 @@ jobs:
 
       - run:
           name: Deploy
-          command: npm run deploy
+          command: git config --global user.email "shazleto@gmail.com" && git config --global user.name "Circle CI Builder" && npm run deploy
