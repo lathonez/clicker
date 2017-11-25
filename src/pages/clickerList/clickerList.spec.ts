@@ -21,4 +21,22 @@ describe('ClickerList', () => {
   it('initialises', () => {
     expect(instance).toBeTruthy();
   });
+
+  it('implements ngOnInit (cordova avail)', (done) => {
+    spyOn(instance, 'getAppVersion').and.returnValue(Promise.resolve('TEST VERSION'));
+    instance.ngOnInit()
+      .then(() => {
+        expect(instance.version).toEqual('TEST VERSION');
+        done();
+      });
+  });
+
+  it('implements ngOnInit (cordova unavail)', (done) => {
+    spyOn(instance, 'getAppVersion').and.returnValue(Promise.reject('Cordova unavailable'));
+    instance.ngOnInit()
+      .then(() => {
+        expect(instance.version).toEqual('DEVEL');
+        done();
+      });
+  });
 });
