@@ -92,7 +92,7 @@ var ClickerList = (function () {
         this.title = 'Clickers';
     }
     ClickerList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/lathonez/code/clicker/src/pages/clickerList/clickerList.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{title}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <clicker-form></clicker-form>\n  <ion-row *ngFor="let clicker of clickerService.getClickers()" class="clickerList">\n    <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>\n    <ion-col>\n      <button ion-button block color="danger" outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/pages/clickerList/clickerList.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/pages/clickerList/clickerList.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{title}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <clicker-form></clicker-form>\n  <ion-row *ngFor="let clicker of clickerService.getClickers()" class="clickerList">\n    <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>\n    <ion-col>\n      <button ion-button block color="danger" outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/root/clicker/src/pages/clickerList/clickerList.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services__["a" /* ClickersService */]])
     ], ClickerList);
@@ -201,7 +201,7 @@ var Page2 = (function () {
         this.alert1.present();
     };
     Page2 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/lathonez/code/clicker/src/pages/page2/page2.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{title}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="message bye-ionic">\n  <button ion-button (click)="showSimpleAlert()">Show Simple Alert</button>\n  <button ion-button (click)="showMoreAdvancedAlert()">Show More Advanced Alert</button>\n</ion-content>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/pages/page2/page2.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/pages/page2/page2.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{title}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="message bye-ionic">\n  <button ion-button (click)="showSimpleAlert()">Show Simple Alert</button>\n  <button ion-button (click)="showMoreAdvancedAlert()">Show More Advanced Alert</button>\n</ion-content>\n'/*ion-inline-end:"/root/clicker/src/pages/page2/page2.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], Page2);
@@ -243,7 +243,7 @@ var ClickerButton = (function () {
     ], ClickerButton.prototype, "clicker", void 0);
     ClickerButton = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'clicker-button',template:/*ion-inline-start:"/home/lathonez/code/clicker/src/components/clickerButton/clickerButton.html"*/'<button ion-button block outline (click)="clickerService.doClick(clicker.getId())">{{clicker.getName()}} ({{clicker.getCount()}})</button>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/components/clickerButton/clickerButton.html"*/,
+            selector: 'clicker-button',template:/*ion-inline-start:"/root/clicker/src/components/clickerButton/clickerButton.html"*/'<button ion-button block outline (click)="clickerService.doClick(clicker.getId())">{{clicker.getName()}} ({{clicker.getCount()}})</button>\n'/*ion-inline-end:"/root/clicker/src/components/clickerButton/clickerButton.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services__["a" /* ClickersService */]])
     ], ClickerButton);
@@ -298,7 +298,7 @@ var ClickerForm = (function () {
     };
     ClickerForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'clicker-form',template:/*ion-inline-start:"/home/lathonez/code/clicker/src/components/clickerForm/clickerForm.html"*/'<form [formGroup]="form" (submit)="newClicker(form.value)">\n  <ion-row>\n    <ion-col width-80>\n      <ion-item >\n        <ion-input block formControlName="clickerNameInput" type="text" placeholder="New Clicker"></ion-input>\n      </ion-item>\n    </ion-col>\n    <ion-col>\n      <button ion-button type="submit" block secondary outline>\n        <ion-icon name="add-circle"></ion-icon>\n      </button>\n    </ion-col>\n  </ion-row>\n</form>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/components/clickerForm/clickerForm.html"*/,
+            selector: 'clicker-form',template:/*ion-inline-start:"/root/clicker/src/components/clickerForm/clickerForm.html"*/'<form [formGroup]="form" (submit)="newClicker(form.value)">\n  <ion-row>\n    <ion-col width-80>\n      <ion-item >\n        <ion-input block formControlName="clickerNameInput" type="text" placeholder="New Clicker"></ion-input>\n      </ion-item>\n    </ion-col>\n    <ion-col>\n      <button ion-button type="submit" block secondary outline>\n        <ion-icon name="add-circle"></ion-icon>\n      </button>\n    </ion-col>\n  </ion-row>\n</form>\n'/*ion-inline-end:"/root/clicker/src/components/clickerForm/clickerForm.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services__["a" /* ClickersService */], __WEBPACK_IMPORTED_MODULE_0__angular_forms__["a" /* FormBuilder */]])
     ], ClickerForm);
@@ -446,7 +446,7 @@ var ClickerApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], ClickerApp.prototype, "nav", void 0);
     ClickerApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/lathonez/code/clicker/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Pages</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/app/app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Pages</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/root/clicker/src/app/app.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */],
