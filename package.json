@@ -6,7 +6,7 @@
     "scripts": {
         "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",
-        "deploy": "ngh --dir www",
+        "deploy": "ngh --dir www --no-silent",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve",
