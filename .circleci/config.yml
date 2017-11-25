@@ -18,8 +18,8 @@ jobs:
           command: ionic info
 
       - run:
-        name: lint
-        command: npm run lint
+          name: lint
+          command: npm run lint
 
       - run:
           name: unit test
