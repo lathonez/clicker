@@ -15,7 +15,7 @@ export class StorageService {
     return new Storage({});
   }
 
-  public get(key: string): Promise<{}> {
+  public get(key: string): Promise<string> {
     return this.storage.get(key);
   }
 

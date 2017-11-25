@@ -39,9 +39,9 @@ export class ClickersService {
   }
 
   // initialise Clickers from SQL storage given an array of ids
-  private initClickers(ids: Array<string>): Promise<{}> {
+  private initClickers(ids: Array<string>): Promise<Array<Clicker>> {
     // get all existing ids
-    let proms: Array<Promise<string>> = [];
+    let proms: Array<Promise<string>>;
 
     proms = ids.map(id => this.storage.get(id));
 

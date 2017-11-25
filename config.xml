@@ -5,16 +5,13 @@
     <author email="shazleto@gmail.com" href="http://ionicframework.com/">Stephen Hazleton</author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <preference name="webviewbounce" value="false" />
-    <preference name="UIWebViewBounce" value="false" />
-    <preference name="DisallowOverscroll" value="true" />
+    <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -64,6 +61,7 @@
         <icon height="29" src="resources/ios/icon/icon-small.png" width="29" />
         <icon height="58" src="resources/ios/icon/icon-small@2x.png" width="58" />
         <icon height="87" src="resources/ios/icon/icon-small@3x.png" width="87" />
+        <icon height="1024" src="resources/ios/icon/icon-1024.png" width="1024" />
         <splash height="1136" src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" />
         <splash height="1334" src="resources/ios/splash/Default-667h.png" width="750" />
         <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242" />
@@ -76,14 +74,15 @@
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
+        <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <engine name="android" spec="6.2.3" />
-    <engine name="browser" spec="4.1.0" />
-    <engine name="ios" spec="4.4.0" />
-    <plugin name="cordova-plugin-console" spec="1.0.7" />
-    <plugin name="cordova-plugin-device" spec="1.1.6" />
-    <plugin name="cordova-plugin-splashscreen" spec="4.0.3" />
-    <plugin name="cordova-plugin-statusbar" spec="2.2.3" />
-    <plugin name="cordova-plugin-whitelist" spec="1.3.2" />
+    <engine name="android" spec="6.4.0" />
+    <engine name="browser" spec="5.0.1" />
+    <engine name="ios" spec="4.5.4" />
+    <plugin name="cordova-plugin-console" spec="1.1.0" />
+    <plugin name="cordova-plugin-device" spec="1.1.7" />
+    <plugin name="cordova-plugin-splashscreen" spec="4.1.0" />
+    <plugin name="cordova-plugin-statusbar" spec="2.3.0" />
+    <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="ionic-plugin-keyboard" spec="2.2.1" />
 </widget>

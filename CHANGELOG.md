@@ -1,3 +1,9 @@
+<a name="2.21.0"></a>
+# 2.21.0 (2017-11-25)
+### Features
+
+* **Update**: Update to Ionic 3.9.2 and @angular/cli 1.5.4 (implying @angular 5.0.1) ([c44ac55](https://github.com/lathonez/clicker/commit/c44ac55))
+
 <a name="2.20.1"></a>
 # 2.20.1 (2017-10-13)
 

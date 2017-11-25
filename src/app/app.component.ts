@@ -16,17 +16,22 @@ export class ClickerApp {
   private splash: SplashScreen;
   private status: StatusBar;
 
-  public rootPage: any;
+  // make ClcikerList the root (or first) page
+  public rootPage: any = ClickerList;
   public pages: Array<{ title: string, component: any }>;
 
-  constructor(platform: Platform, menu: MenuController, splash: SplashScreen, status: StatusBar) {
+  constructor(
+    platform: Platform,
+    menu: MenuController,
+    splash: SplashScreen,
+    status: StatusBar,
+  ) {
 
     this.menu = menu;
     this.platform = platform;
     this.splash = splash;
     this.status = status;
 
-    this.rootPage = ClickerList;
     this.initializeApp();
 
     // set our app's pages
