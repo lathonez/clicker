@@ -69,6 +69,6 @@ See the changelog [here](https://github.com/lathonez/clicker/blob/master/CHANGEL
 
 ## Updated for:
 
-* **@angular/*:** 4.1.3
-* **@angular/cli:**: 1.1.2
-* **@ionic-angular:** 3.4.2
+* **@angular/*:** 5.0.4
+* **@angular/cli:**: 1.5.4
+* **@ionic-angular:** 3.9.2

@@ -1,5 +1,5 @@
 import { ClickerApp }                      from './app.component';
-import { MenuMock, NavMock, PlatformMock, StatusBarMock, SplashScreenMock } from 'ionic-mocks';
+import { MenuMock, PlatformMock, StatusBarMock, SplashScreenMock } from 'ionic-mocks';
 import { Page2 }                           from '../pages';
 
 let instance: ClickerApp = null;
@@ -8,7 +8,11 @@ describe('ClickerApp', () => {
 
   beforeEach(() => {
     instance = new ClickerApp((<any> PlatformMock.instance()), (<any> MenuMock.instance()), (<any>SplashScreenMock.instance()), (<any>StatusBarMock.instance()));
-    instance['nav'] = NavMock.instance();
+
+    // ionic-mocks have lost the nav mock
+    instance.nav = (<any>{});
+    instance.nav.setRoot = (<any>(() => true));
+    spyOn(instance.nav, 'setRoot');
   });
 
   it('initialises with two possible pages', () => {
