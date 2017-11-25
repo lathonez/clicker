@@ -48,7 +48,7 @@ jobs:
             DISPLAY: :99
             CHROME_BIN: /usr/bin/google-chrome
             JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
-          command: xvfb-run npm run e2e
+          command: npm run postinstall && xvfb-run npm run e2e
 
       - run:
           name: Prepare
