@@ -16,7 +16,7 @@ jobs:
       # to be removed after merged in and docker updated
       - run:
           name: install dependencies
-          command: npm install
+          command: rm -rf node_modules && npm install
 
       - run:
           name: debug environment
