@@ -56,7 +56,7 @@ webpackEmptyAsyncContext.id = 152;
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__clickerList_clickerList__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page2_page2__ = __webpack_require__(199);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__page2_page2__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_module__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_module__ = __webpack_require__(286);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__pages_module__["a"]; });
 
 
@@ -73,6 +73,8 @@ webpackEmptyAsyncContext.id = 152;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__package_json__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__package_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__package_json__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -85,14 +87,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ClickerList = (function () {
     function ClickerList(nav, clickerService) {
         this.nav = nav;
         this.clickerService = clickerService;
         this.title = 'Clickers';
+        this.version = __WEBPACK_IMPORTED_MODULE_3__package_json__["version"];
     }
     ClickerList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/pages/clickerList/clickerList.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{title}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <clicker-form></clicker-form>\n  <ion-row *ngFor="let clicker of clickerService.getClickers()" class="clickerList">\n    <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>\n    <ion-col>\n      <button ion-button block color="danger" outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"/root/clicker/src/pages/clickerList/clickerList.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/pages/clickerList/clickerList.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{title}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <clicker-form></clicker-form>\n  <ion-row *ngFor="let clicker of clickerService.getClickers()" class="clickerList">\n    <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>\n    <ion-col>\n      <button ion-button block color="danger" outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>v.{{version}}</ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/root/clicker/src/pages/clickerList/clickerList.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services__["a" /* ClickersService */]])
     ], ClickerList);
@@ -640,13 +644,20 @@ var Clicker = (function () {
 /***/ }),
 
 /***/ 285:
+/***/ (function(module, exports) {
+
+module.exports = {"name":"Clicker","author":"Stephen Hazleton","homepage":"https://github.com/lathonez/clicker","private":true,"scripts":{"clean":"ionic-app-scripts clean","build":"ionic-app-scripts build","deploy":"ngh --dir www --no-silent","lint":"ionic-app-scripts lint","ionic:build":"ionic-app-scripts build","ionic:serve":"ionic-app-scripts serve","e2e":"ionic-app-scripts build && protractor","postinstall":"webdriver-manager update --gecko false","start":"ionic serve","test":"ng test","test-coverage":"ng test --code-coverage","test-ci":"ng test --watch=false --code-coverage"},"version":"2.22.0","dependencies":{"@angular/common":"5.0.1","@angular/compiler":"5.0.1","@angular/compiler-cli":"5.0.1","@angular/core":"5.0.1","@angular/forms":"5.0.1","@angular/http":"5.0.1","@angular/platform-browser":"5.0.1","@angular/platform-browser-dynamic":"5.0.1","@angular/router":"5.0.1","@ionic-native/core":"4.4.0","@ionic-native/splash-screen":"4.4.0","@ionic-native/status-bar":"4.4.0","@ionic/storage":"2.1.3","angular-cli-ghpages":"0.5.1","cordova-android":"6.4.0","cordova-browser":"5.0.1","cordova-ios":"4.5.4","cordova-plugin-console":"1.1.0","cordova-plugin-device":"1.1.7","cordova-plugin-splashscreen":"4.1.0","cordova-plugin-statusbar":"2.3.0","cordova-plugin-whitelist":"1.3.3","ionic-angular":"3.9.2","ionic-plugin-keyboard":"2.2.1","ionicons":"3.0.0","rxjs":"5.5.2","sw-toolbox":"3.6.0","zone.js":"0.8.18"},"devDependencies":{"@angular/cli":"1.5.4","@ionic/app-scripts":"3.1.2","@types/jasmine":"2.5.54","@types/node":"7.0.4","codecov":"3.0.0","connect":"3.6.5","ionic-mocks":"1.0.4","jasmine-core":"2.8.0","jasmine-reporters":"2.2.1","karma":"1.7.1","karma-chrome-launcher":"2.2.0","karma-cli":"1.0.1","karma-coverage-istanbul-reporter":"1.3.0","karma-jasmine":"1.1.0","karma-jasmine-html-reporter":"0.2.2","karma-junit-reporter":"1.2.0","protractor":"5.2.0","serve-static":"1.13.1","ts-node":"3.3.0","tslint":"5.8.0","tslint-eslint-rules":"4.1.1","typescript":"2.4.2"},"repository":{"type":"git","url":"https://github.com/lathonez/clicker.git"},"license":"MIT","description":"Clicker: An Ionic project","cordova":{"platforms":["android","browser","ios"],"plugins":{"cordova-plugin-console":{},"cordova-plugin-device":{},"cordova-plugin-splashscreen":{},"cordova-plugin-statusbar":{},"cordova-plugin-whitelist":{},"ionic-plugin-keyboard":{}}}}
+
+/***/ }),
+
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PagesModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__clickerList_clickerList__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__page2_page2__ = __webpack_require__(199);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -684,7 +695,7 @@ var PagesModule = (function () {
 
 /***/ }),
 
-/***/ 286:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -692,7 +703,7 @@ var PagesModule = (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__clickerForm_clickerForm__ = __webpack_require__(201);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_module__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_module__ = __webpack_require__(288);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__components_module__["a"]; });
 
 
@@ -701,7 +712,7 @@ var PagesModule = (function () {
 
 /***/ }),
 
-/***/ 287:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
