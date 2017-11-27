@@ -14,6 +14,11 @@ jobs:
       - checkout
 
       - run:
+          # TODO - Remove when merge into master
+          name: install dependencies
+          command: npm install
+
+      - run:
           name: debug environment
           command: ionic info
 

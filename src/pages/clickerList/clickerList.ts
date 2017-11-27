@@ -9,12 +9,11 @@ import { ClickersService } from '../../services';
 export class ClickerList {
 
   public clickerService: ClickersService;
-  public title: string;
+  public title: string = 'TITLE.CLICKER_LIST';
   private nav: NavController;
 
   constructor(nav: NavController, clickerService: ClickersService) {
     this.nav = nav;
     this.clickerService = clickerService;
-    this.title = 'Clickers';
   }
 }
