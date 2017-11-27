@@ -1,3 +1,9 @@
+<a name="2.23.0"></a>
+# 2.23.0 (2017-11-27)
+### Features
+
+* **App**: Add ngTranslate / i18n ([0d493cf](https://github.com/lathonez/clicker/commit/0d493cf))
+
 <a name="2.22.0"></a>
 # 2.22.0 (2017-11-26)
 ### Features
