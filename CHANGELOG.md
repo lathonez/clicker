@@ -1,3 +1,9 @@
+<a name="2.22.0"></a>
+# 2.22.0 (2017-11-26)
+### Features
+
+* **Deploy**: Add continuous deployment to github pages ([f442248](https://github.com/lathonez/clicker/commit/f442248))
+
 <a name="2.21.0"></a>
 # 2.21.0 (2017-11-25)
 ### Features

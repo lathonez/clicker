@@ -21,4 +21,10 @@ describe('ClickerList', () => {
   it('initialises', () => {
     expect(instance).toBeTruthy();
   });
+
+  it('shows the app version', () => {
+    instance.version = 'VERSION';
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('ion-footer').querySelector('.toolbar-content').innerHTML).toEqual('v.VERSION');
+  });
 });

@@ -6,6 +6,7 @@
     "scripts": {
         "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",
+        "deploy": "ngh --dir www --no-silent",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve",
@@ -16,7 +17,7 @@
         "test-coverage": "ng test --code-coverage",
         "test-ci": "ng test --watch=false --code-coverage"
     },
-    "version": "2.21.0",
+    "version": "2.22.0",
     "dependencies": {
         "@angular/common": "5.0.1",
         "@angular/compiler": "5.0.1",
@@ -33,6 +34,7 @@
         "@ionic/storage": "2.1.3",
         "@ngx-translate/core": "9.0.1",
         "@ngx-translate/http-loader": "2.0.0",
+        "angular-cli-ghpages": "0.5.1",
         "cordova-android": "6.4.0",
         "cordova-browser": "5.0.1",
         "cordova-ios": "4.5.4",
