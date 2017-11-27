@@ -61,4 +61,12 @@ jobs:
 
       - run:
           name: Deploy
-          command: git config --global user.email "shazleto@gmail.com" && git config --global user.name "Circle CI Builder" && npm run deploy
+          # only deploy on master
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git config --global user.email "shazleto@gmail.com" && \
+              git config --global user.name "Circle CI Builder" && \
+              npm run deploy;
+            fi
+
+
