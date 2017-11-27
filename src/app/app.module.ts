@@ -1,7 +1,6 @@
 import { NgModule, ErrorHandler }                   from '@angular/core';
 import { BrowserModule }                            from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { AppVersion }                               from '@ionic-native/app-version';
 import { StatusBar }                                from '@ionic-native/status-bar';
 import { SplashScreen }                             from '@ionic-native/splash-screen';
 import { ClickerApp }                               from './app.component';
@@ -24,7 +23,6 @@ import { ClickersService, StorageService }          from '../services';
     Page2,
   ],
   providers: [
-    AppVersion,
     StatusBar,
     SplashScreen,
     ClickersService,

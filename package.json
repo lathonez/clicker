@@ -28,7 +28,6 @@
         "@angular/platform-browser": "5.0.1",
         "@angular/platform-browser-dynamic": "5.0.1",
         "@angular/router": "5.0.1",
-        "@ionic-native/app-version": "4.4.2",
         "@ionic-native/core": "4.4.0",
         "@ionic-native/splash-screen": "4.4.0",
         "@ionic-native/status-bar": "4.4.0",
@@ -86,7 +85,6 @@
             "ios"
         ],
         "plugins": {
-            "cordova-plugin-app-version": {},
             "cordova-plugin-console": {},
             "cordova-plugin-device": {},
             "cordova-plugin-splashscreen": {},

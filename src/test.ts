@@ -14,8 +14,6 @@ import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController
 import { ConfigMock, PlatformMock } from 'ionic-mocks';
 import { ClickersServiceMock } from './services/clickers.mock';
 import { ClickersService } from './services';
-import { AppVersion } from '@ionic-native/app-version';
-import { AppVersionMock } from './services/mocks';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare const __karma__: any;
@@ -58,7 +56,6 @@ export class TestUtils {
       ],
       providers: [
         App, Form, Keyboard, DomController, MenuController, NavController,
-        {provide: AppVersion, useClass: AppVersionMock},
         {provide: Platform, useFactory: () => PlatformMock.instance()},
         {provide: Config, useFactory: () => ConfigMock.instance()},
         {provide: ClickersService, useClass: ClickersServiceMock},
