@@ -52,3 +52,15 @@ jobs:
           name: Build
           # shell js shouldn't be necessary, but it is. yay ionic
           command: npm install shelljs && ionic cordova build browser
+
+      - run:
+          name: Deploy
+          # only deploy on master
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git config --global user.email "shazleto@gmail.com" && \
+              git config --global user.name "Circle CI Builder" && \
+              npm run deploy;
+            fi
+
+
