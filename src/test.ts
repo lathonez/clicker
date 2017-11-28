@@ -7,13 +7,26 @@ import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { getTestBed, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule }                           from '@angular/forms';
+import { getTestBed, TestBed }                                        from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform } from 'ionic-angular';
+import { TranslateModule, TranslateService }                          from '@ngx-translate/core';
+import {
+  App,
+  Config,
+  Form,
+  IonicModule,
+  Keyboard,
+  DomController,
+  MenuController,
+  NavController,
+  Platform
+}                                   from 'ionic-angular';
 import { ConfigMock, PlatformMock } from 'ionic-mocks';
-import { ClickersServiceMock } from './services/clickers.mock';
-import { ClickersService } from './services';
+import { ClickersServiceMock }      from './services/clickers.mock';
+import { ClickersService }          from './services';
+import { TranslateServiceMock }     from './services/translate.mock';
+import { TranslatePipeMock }        from './pipes/translate.pipe.mock';
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare const __karma__: any;
@@ -53,17 +66,20 @@ export class TestUtils {
     return TestBed.configureTestingModule({
       declarations: [
         ...components,
+        TranslatePipeMock,
       ],
       providers: [
         App, Form, Keyboard, DomController, MenuController, NavController,
         {provide: Platform, useFactory: () => PlatformMock.instance()},
         {provide: Config, useFactory: () => ConfigMock.instance()},
         {provide: ClickersService, useClass: ClickersServiceMock},
+        {provide: TranslateService, useClass: TranslateServiceMock},
       ],
       imports: [
         FormsModule,
         IonicModule,
         ReactiveFormsModule,
+        TranslateModule,
       ],
     });
   }

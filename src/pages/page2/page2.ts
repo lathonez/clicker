@@ -18,7 +18,6 @@ export class Page2 {
   public title: string = 'TITLE.PAGE2';
 
   constructor(alertController: AlertController, translateService: TranslateService) {
-    this.title = 'TITLE.PAGE2';
     this.alertController = alertController;
     this.translateService = translateService;
     translateService.get(['BUTTON.OK',

@@ -10,7 +10,7 @@ import { version }         from '../../../package.json';
 export class ClickerList {
 
   public clickerService: ClickersService;
-  public title: string;
+  public title: string = 'TITLE.CLICKER_LIST';
   public version: string;
   private nav: NavController;
 
