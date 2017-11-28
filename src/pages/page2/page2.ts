@@ -3,6 +3,7 @@
 import { Component } from '@angular/core';
 import { Alert, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   templateUrl: './page2.html',
@@ -20,17 +21,21 @@ export class Page2 {
   constructor(alertController: AlertController, translateService: TranslateService) {
     this.alertController = alertController;
     this.translateService = translateService;
-    translateService.get(['BUTTON.OK',
-        'BUTTON.OK_ADVANCED',
-        'BUTTON.DISMISS',
-        'TITLE.ALERT_SIMPLE',
-        'TITLE.ALERT_ADVANCED',
-      ])
-      .subscribe(i18ns => this.i18ns = i18ns);
+    this.translateService.onLangChange.subscribe(() => this.setAlertLang());
+    this.setAlertLang();
   }
 
   public onGainChange(): void {
     return;
+  }
+
+  public setAlertLang(): Subscription {
+    return this.translateService.get(['BUTTON.OK',
+      'BUTTON.OK_ADVANCED',
+      'BUTTON.DISMISS',
+      'TITLE.ALERT_SIMPLE',
+      'TITLE.ALERT_ADVANCED',
+    ]).subscribe(i18ns => this.i18ns = i18ns);
   }
 
   public showSimpleAlert(): any {
@@ -50,8 +55,8 @@ export class Page2 {
       buttons: [{
         text: this.i18ns['BUTTON.OK_ADVANCED'],
         handler: this.OK,
-      }
-        , this.i18ns['BUTTON.DISMISS']],
+      },
+      this.i18ns['BUTTON.DISMISS']],
     });
 
     this.alert1.present();

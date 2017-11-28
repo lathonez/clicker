@@ -1,0 +1,26 @@
+{
+  "BUTTON": {
+    "OK": "好",
+    "OK_ADVANCED": "更高级的好的",
+    "DISMISS": "解雇",
+    "SHOW_SIMPLE": "显示简单的警报",
+    "SHOW_ADVANCED": "显示更多高级警报"
+  },
+  "ERROR": {},
+  "PLACEHOLDER": {
+    "CLICKER_NAME": "新龙"
+  },
+  "MENU": {
+    "TITLE": "网页",
+    "PAGE2": "再见离子",
+    "CLICKERS": "龙"
+  },
+  "TITLE": {
+      "ALERT_SIMPLE": "这是一个警报的例子",
+      "ALERT_ADVANCED": "这是一个警报的例子",
+      "CLICKER_LIST": "龙",
+      "PAGE2": "第2页"
+  },
+  "LABEL": {},
+  "CONTENT": {}
+}

@@ -24,6 +24,7 @@ jobs:
 
       - run:
           name: lint
+          # this wont actually fail because: https://github.com/ionic-team/ionic-cli/issues/1563
           command: npm run lint
 
       - run:

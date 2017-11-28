@@ -14,13 +14,14 @@ import { TranslateModule, TranslateService }                          from '@ngx
 import {
   App,
   Config,
+  DeepLinker,
   Form,
   IonicModule,
   Keyboard,
   DomController,
   MenuController,
   NavController,
-  Platform
+  Platform,
 }                                   from 'ionic-angular';
 import { ConfigMock, PlatformMock } from 'ionic-mocks';
 import { ClickersServiceMock }      from './services/clickers.mock';
@@ -72,6 +73,7 @@ export class TestUtils {
         App, Form, Keyboard, DomController, MenuController, NavController,
         {provide: Platform, useFactory: () => PlatformMock.instance()},
         {provide: Config, useFactory: () => ConfigMock.instance()},
+        {provide: DeepLinker, useFactory: () => ConfigMock.instance()},
         {provide: ClickersService, useClass: ClickersServiceMock},
         {provide: TranslateService, useClass: TranslateServiceMock},
       ],
