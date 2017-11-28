@@ -14,11 +14,17 @@ jobs:
       - checkout
 
       - run:
+          # TODO - Remove when merge into master
+          name: install dependencies
+          command: npm install
+
+      - run:
           name: debug environment
           command: ionic info
 
       - run:
           name: lint
+          # this wont actually fail because: https://github.com/ionic-team/ionic-cli/issues/1563
           command: npm run lint
 
       - run:

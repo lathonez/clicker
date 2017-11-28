@@ -1,8 +1,24 @@
 import { async, fakeAsync, tick, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform, AlertController } from 'ionic-angular';
-import { AlertControllerMock, ConfigMock, PlatformMock } from 'ionic-mocks';
-import { Page2 }      from './page2';
+import { FormsModule, ReactiveFormsModule }                  from '@angular/forms';
+import { TranslateService }                                  from '@ngx-translate/core';
+import {
+  App,
+  AlertController,
+  Config,
+  DeepLinker,
+  Form,
+  IonicModule,
+  Keyboard,
+  DomController,
+  MenuController,
+  NavController,
+  Platform,
+}                                                            from 'ionic-angular';
+import { AlertControllerMock, ConfigMock, PlatformMock }     from 'ionic-mocks';
+import { TranslateServiceMock }                              from '../../services/translate.mock';
+import { TranslatePipeMock }                                 from '../../pipes/translate.pipe.mock';
+import { Page2 }                                             from './page2';
+import { LanguagePicker }                                    from '../../components';
 
 let fixture: ComponentFixture<Page2> = null;
 let instance: any = null;
@@ -16,12 +32,14 @@ describe('Pages: Page2', () => {
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
-      declarations: [Page2],
+      declarations: [Page2, LanguagePicker, TranslatePipeMock],
       providers: [
         App, DomController, Form, Keyboard, MenuController, NavController,
         {provide: Config, useFactory: () => ConfigMock.instance()},
         {provide: Platform, useFactory: () => PlatformMock.instance()},
         {provide: AlertController, useFactory: () => AlertControllerMock.instance()},
+        {provide: TranslateService, useClass: TranslateServiceMock},
+        {provide: DeepLinker, useFactory: () => ConfigMock.instance()},
       ],
       imports: [
         FormsModule,
@@ -31,9 +49,9 @@ describe('Pages: Page2', () => {
     })
     .compileComponents().then(() => {
       fixture = TestBed.createComponent(Page2);
-      instance = fixture;
+      instance = fixture.componentInstance;
       fixture.detectChanges();
-      fixture.componentInstance.onGainChange();
+      instance.onGainChange();
 
       alertSpy = fixture.componentInstance.alertController;
       alertControllerSpy = fixture.componentInstance.alertController.create();
@@ -50,6 +68,29 @@ describe('Pages: Page2', () => {
     expect(instance).toBeTruthy();
   });
 
+  it('subscribes to onLangChange', (done) => {
+
+    let doneFn: Function = (() => {
+      expect(instance.setAlertLang).toHaveBeenCalled();
+      done();
+    });
+
+    spyOn(instance, 'setAlertLang');
+
+    instance.translateService.onLangChange.subscribe(doneFn);
+
+    instance.translateService.onLangChange.emit();
+  });
+
+  it('sets alert lang', () => {
+
+    spyOn(instance.translateService, 'get').and.returnValue({subscribe: ((fn) => fn('TEST LANGS'))});
+
+    instance.setAlertLang();
+
+    expect(instance.i18ns).toEqual('TEST LANGS');
+  });
+
   it('should fire the simple alert', fakeAsync(() => {
 
     alertSpy.create.calls.reset();
@@ -61,7 +102,7 @@ describe('Pages: Page2', () => {
     expect(alertSpy.create).not.toHaveBeenCalled();
     expect(alertControllerSpy.present).not.toHaveBeenCalled();
 
-    fixture.componentInstance.showSimpleAlert();
+    instance.showSimpleAlert();
     tick();
 
     expect(alertSpy.create).toHaveBeenCalledTimes(1);
@@ -77,16 +118,16 @@ describe('Pages: Page2', () => {
     alertSpy.create.calls.reset();
     alertControllerSpy.present.calls.reset();
 
-    fixture.componentInstance.okEd = false;
+    instance.okEd = false;
 
-    expect(fixture.componentInstance.okEd).toBeFalsy();
+    expect(instance.okEd).toBeFalsy();
 
-    fixture.componentInstance.showMoreAdvancedAlert();
+    instance.showMoreAdvancedAlert();
     tick();
 
-    fixture.componentInstance.OK();
+    instance.OK();
 
-    expect(fixture.componentInstance.okEd).toBeTruthy();
+    expect(instance.okEd).toBeTruthy();
 
   }));
 

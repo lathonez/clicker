@@ -1,4 +1,4 @@
-## Ionic 2 Demo / Seed Project : Unit Testing + E2E Testing + CI + CD
+## Ionic 2 Demo / Seed Project : + i18n + Unit Testing + E2E Testing + CI + CD
 [![CircleCI](https://circleci.com/gh/lathonez/clicker.svg?style=shield)](https://circleci.com/gh/lathonez/clicker) [![Build status](https://ci.appveyor.com/api/projects/status/github/lathonez/clicker?svg=true)](https://ci.appveyor.com/project/lathonez/clicker) [![codecov.io](https://codecov.io/github/lathonez/clicker/coverage.svg?branch=master)](https://codecov.io/github/lathonez/clicker?branch=master) [![Code Climate](https://codeclimate.com/github/lathonez/clicker/badges/gpa.svg)](https://codeclimate.com/github/lathonez/clicker) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![Dependency Status](https://david-dm.org/lathonez/clicker/status.svg)](https://david-dm.org/lathonez/clicker) [![devDependency Status](https://david-dm.org/lathonez/clicker/dev-status.svg)](https://david-dm.org/lathonez/clicker#info=devDependencies)
 
 [Click here for the live demo](http://lathonez.com/clicker)
@@ -61,6 +61,7 @@ PRs are welcome, see the [roadmap sticky](https://github.com/lathonez/clicker/is
 ## Acks
 
 * This started out as a fork of [Angular 2 Seed](https://github.com/mgechev/angular2-seed) and would not be possible without it
+* @stonelasey for i18n (#271)
 * @bengro for the lightweightify inspiration (#68)
 * @ric9176 and @DanielaGSB for E2E tests (#50)
 * @tja4472 for the ngrx implementation (#133)
