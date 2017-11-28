@@ -25678,6 +25678,23 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+ion-navbar ion-title {
+  text-align: center;
+  padding-top: 10px;
+}
+
+ion-navbar button {
+  padding-top: 10px !important;
+}
+
+language-picker {
+  float: right;
+}
+
+language-picker ion-select {
+  max-width: 100%;
+}
+
 .bye-ionic {
   background-image: url("/assets/imgs/logo.png");
   background-repeat: no-repeat;
