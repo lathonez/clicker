@@ -1,12 +1,12 @@
 webpackJsonp([0],{
 
-/***/ 105:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__click__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__click__ = __webpack_require__(300);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__click__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__clicker__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__clicker__ = __webpack_require__(301);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__clicker__["a"]; });
 
 
@@ -14,7 +14,7 @@ webpackJsonp([0],{
 
 /***/ }),
 
-/***/ 117:
+/***/ 116:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -27,7 +27,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 117;
+webpackEmptyAsyncContext.id = 116;
 
 /***/ }),
 
@@ -56,7 +56,7 @@ webpackEmptyAsyncContext.id = 165;
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__clickerList_clickerList__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page2_page2__ = __webpack_require__(208);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__page2_page2__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_module__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_module__ = __webpack_require__(303);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__pages_module__["a"]; });
 
 
@@ -73,7 +73,7 @@ webpackEmptyAsyncContext.id = 165;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__package_json__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__package_json__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__package_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__package_json__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -88,7 +88,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ClickerList = (function () {
+var ClickerList = /** @class */ (function () {
     function ClickerList(nav, clickerService) {
         this.title = 'TITLE.CLICKER_LIST';
         this.nav = nav;
@@ -96,7 +96,7 @@ var ClickerList = (function () {
         this.version = __WEBPACK_IMPORTED_MODULE_3__package_json__["version"];
     }
     ClickerList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/pages/clickerList/clickerList.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row>\n      <ion-col><button ion-button menuToggle><ion-icon name="menu"></ion-icon></button></ion-col>\n      <ion-col><ion-title>{{title | translate}}</ion-title></ion-col>\n      <ion-col><language-picker></language-picker></ion-col>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <clicker-form></clicker-form>\n  <ion-row *ngFor="let clicker of clickerService.getClickers()" class="clickerList">\n    <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>\n    <ion-col>\n      <button ion-button block color="danger" outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>v.{{version}}</ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/root/clicker/src/pages/clickerList/clickerList.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/lathonez/code/clicker/src/pages/clickerList/clickerList.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row>\n      <ion-col><button ion-button menuToggle><ion-icon name="menu"></ion-icon></button></ion-col>\n      <ion-col><ion-title>{{title | translate}}</ion-title></ion-col>\n      <ion-col><language-picker></language-picker></ion-col>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <clicker-form></clicker-form>\n  <ion-row *ngFor="let clicker of clickerService.getClickers()" class="clickerList">\n    <ion-col width-80><clicker-button [clicker]="clicker"></clicker-button></ion-col>\n    <ion-col>\n      <button ion-button block color="danger" outline (click)="clickerService.removeClicker(clicker.id)"><ion-icon name="trash"></ion-icon></button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>v.{{version}}</ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/pages/clickerList/clickerList.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services__["a" /* ClickersService */]])
     ], ClickerList);
@@ -113,7 +113,7 @@ var ClickerList = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(296);
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -126,7 +126,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var StorageService = (function () {
+var StorageService = /** @class */ (function () {
     function StorageService() {
         this.storage = StorageService_1.initStorage();
     }
@@ -176,7 +176,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Page2 = (function () {
+var Page2 = /** @class */ (function () {
     function Page2(alertController, translateService) {
         var _this = this;
         this.title = 'TITLE.PAGE2';
@@ -219,7 +219,7 @@ var Page2 = (function () {
         this.alert1.present();
     };
     Page2 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/pages/page2/page2.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row>\n      <ion-col><button ion-button menuToggle><ion-icon name="menu"></ion-icon></button></ion-col>\n      <ion-col><ion-title>{{title | translate}}</ion-title></ion-col>\n      <ion-col><language-picker></language-picker></ion-col>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="message bye-ionic">\n  <button ion-button (click)="showSimpleAlert()">{{\'BUTTON.SHOW_SIMPLE\' | translate}}</button>\n  <button ion-button (click)="showMoreAdvancedAlert()"> {{\'BUTTON.SHOW_ADVANCED\' | translate}}</button>\n</ion-content>\n'/*ion-inline-end:"/root/clicker/src/pages/page2/page2.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/lathonez/code/clicker/src/pages/page2/page2.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row>\n      <ion-col><button ion-button menuToggle><ion-icon name="menu"></ion-icon></button></ion-col>\n      <ion-col><ion-title>{{title | translate}}</ion-title></ion-col>\n      <ion-col><language-picker></language-picker></ion-col>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="message bye-ionic">\n  <button ion-button (click)="showSimpleAlert()">{{\'BUTTON.SHOW_SIMPLE\' | translate}}</button>\n  <button ion-button (click)="showMoreAdvancedAlert()"> {{\'BUTTON.SHOW_ADVANCED\' | translate}}</button>\n</ion-content>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/pages/page2/page2.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]])
     ], Page2);
@@ -237,7 +237,7 @@ var Page2 = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClickerButton; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(104);
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -251,7 +251,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ClickerButton = (function () {
+var ClickerButton = /** @class */ (function () {
     function ClickerButton(clickerService) {
         this.clickerService = clickerService;
     }
@@ -261,7 +261,7 @@ var ClickerButton = (function () {
     ], ClickerButton.prototype, "clicker", void 0);
     ClickerButton = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'clicker-button',template:/*ion-inline-start:"/root/clicker/src/components/clickerButton/clickerButton.html"*/'<button ion-button block outline (click)="clickerService.doClick(clicker.getId())">{{clicker.getName()}} ({{clicker.getCount()}})</button>\n'/*ion-inline-end:"/root/clicker/src/components/clickerButton/clickerButton.html"*/,
+            selector: 'clicker-button',template:/*ion-inline-start:"/home/lathonez/code/clicker/src/components/clickerButton/clickerButton.html"*/'<button ion-button block outline (click)="clickerService.doClick(clicker.getId())">{{clicker.getName()}} ({{clicker.getCount()}})</button>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/components/clickerButton/clickerButton.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services__["a" /* ClickersService */]])
     ], ClickerButton);
@@ -293,7 +293,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ClickerForm = (function () {
+var ClickerForm = /** @class */ (function () {
     function ClickerForm(clickerService, fb) {
         this.clickerService = clickerService;
         this.form = fb.group({
@@ -316,7 +316,7 @@ var ClickerForm = (function () {
     };
     ClickerForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'clicker-form',template:/*ion-inline-start:"/root/clicker/src/components/clickerForm/clickerForm.html"*/'<form [formGroup]="form" (submit)="newClicker(form.value)">\n  <ion-row>\n    <ion-col width-80>\n      <ion-item >\n        <ion-input block formControlName="clickerNameInput" type="text" placeholder="{{ \'PLACEHOLDER.CLICKER_NAME\' | translate}}"></ion-input>\n      </ion-item>\n    </ion-col>\n    <ion-col>\n      <button ion-button type="submit" block secondary outline>\n        <ion-icon name="add-circle"></ion-icon>\n      </button>\n    </ion-col>\n  </ion-row>\n</form>\n'/*ion-inline-end:"/root/clicker/src/components/clickerForm/clickerForm.html"*/,
+            selector: 'clicker-form',template:/*ion-inline-start:"/home/lathonez/code/clicker/src/components/clickerForm/clickerForm.html"*/'<form [formGroup]="form" (submit)="newClicker(form.value)">\n  <ion-row>\n    <ion-col width-80>\n      <ion-item >\n        <ion-input block formControlName="clickerNameInput" type="text" placeholder="{{ \'PLACEHOLDER.CLICKER_NAME\' | translate}}"></ion-input>\n      </ion-item>\n    </ion-col>\n    <ion-col>\n      <button ion-button type="submit" block secondary outline>\n        <ion-icon name="add-circle"></ion-icon>\n      </button>\n    </ion-col>\n  </ion-row>\n</form>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/components/clickerForm/clickerForm.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services__["a" /* ClickersService */], __WEBPACK_IMPORTED_MODULE_0__angular_forms__["a" /* FormBuilder */]])
     ], ClickerForm);
@@ -346,7 +346,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var LanguagePicker = (function () {
+var LanguagePicker = /** @class */ (function () {
     function LanguagePicker(translate) {
         var _this = this;
         this.translate = translate;
@@ -362,7 +362,7 @@ var LanguagePicker = (function () {
     };
     LanguagePicker = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'language-picker',template:/*ion-inline-start:"/root/clicker/src/components/languagePicker/languagePicker.html"*/'<ion-select [(ngModel)]="language" (ngModelChange)="setLanguage($event)">\n  <ion-option value="en">English</ion-option>\n  <ion-option value="zh-hans">Chinese</ion-option>\n</ion-select>\n'/*ion-inline-end:"/root/clicker/src/components/languagePicker/languagePicker.html"*/,
+            selector: 'language-picker',template:/*ion-inline-start:"/home/lathonez/code/clicker/src/components/languagePicker/languagePicker.html"*/'<ion-select [(ngModel)]="language" (ngModelChange)="setLanguage($event)">\n  <ion-option value="en">English</ion-option>\n  <ion-option value="zh-hans">Chinese</ion-option>\n</ion-select>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/components/languagePicker/languagePicker.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
     ], LanguagePicker);
@@ -379,7 +379,7 @@ var LanguagePicker = (function () {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(230);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -387,21 +387,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 232:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createTranslateLoader */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_http_loader__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_http_loader__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(294);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -424,7 +424,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 function createTranslateLoader(http) {
     return new __WEBPACK_IMPORTED_MODULE_6__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
 }
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
@@ -469,7 +469,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 296:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -495,7 +495,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ClickerApp = (function () {
+var ClickerApp = /** @class */ (function () {
     function ClickerApp(platform, menu, splash, status, translateService) {
         // make ClcikerList the root (or first) page
         this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages__["a" /* ClickerList */];
@@ -533,7 +533,7 @@ var ClickerApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* Nav */])
     ], ClickerApp.prototype, "nav", void 0);
     ClickerApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/root/clicker/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>{{\'MENU.TITLE\' | translate}}</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title | translate}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/root/clicker/src/app/app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/lathonez/code/clicker/src/app/app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>{{\'MENU.TITLE\' | translate}}</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title | translate}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/lathonez/code/clicker/src/app/app.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* MenuController */],
@@ -548,14 +548,14 @@ var ClickerApp = (function () {
 
 /***/ }),
 
-/***/ 297:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClickersService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(104);
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -569,7 +569,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ClickersService = (function () {
+var ClickersService = /** @class */ (function () {
     // don't know why Injection isn't working without @Inject:
     // http://stackoverflow.com/questions/34449486/angular-2-0-injected-http-service-is-undefined
     function ClickersService(storage) {
@@ -666,13 +666,13 @@ var ClickersService = (function () {
 
 /***/ }),
 
-/***/ 302:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Click; });
 
-var Click = (function () {
+var Click = /** @class */ (function () {
     function Click(time, location) {
         this.time = time || new Date().getTime();
         this.location = location || 'TODO';
@@ -690,16 +690,16 @@ var Click = (function () {
 
 /***/ }),
 
-/***/ 303:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Clicker; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0____ = __webpack_require__(104);
 
 
 // Represents a single Clicker
-var Clicker = (function () {
+var Clicker = /** @class */ (function () {
     function Clicker(id, name) {
         this.id = id;
         this.name = name;
@@ -727,14 +727,14 @@ var Clicker = (function () {
 
 /***/ }),
 
-/***/ 304:
+/***/ 302:
 /***/ (function(module, exports) {
 
-module.exports = {"name":"Clicker","author":"Stephen Hazleton","homepage":"https://github.com/lathonez/clicker","private":true,"scripts":{"clean":"ionic-app-scripts clean","build":"ionic-app-scripts build","deploy":"ngh --dir www --no-silent","lint":"ionic-app-scripts lint","ionic:build":"ionic-app-scripts build","ionic:serve":"ionic-app-scripts serve","e2e":"ionic-app-scripts build && protractor","postinstall":"webdriver-manager update --gecko false","start":"ionic serve","test":"ng test","test-coverage":"ng test --code-coverage","test-ci":"ng test --watch=false --code-coverage"},"version":"2.23.0","dependencies":{"@angular/common":"5.0.1","@angular/compiler":"5.0.1","@angular/compiler-cli":"5.0.1","@angular/core":"5.0.1","@angular/forms":"5.0.1","@angular/http":"5.0.1","@angular/platform-browser":"5.0.1","@angular/platform-browser-dynamic":"5.0.1","@angular/router":"5.0.1","@ionic-native/core":"4.4.0","@ionic-native/splash-screen":"4.4.0","@ionic-native/status-bar":"4.4.0","@ionic/storage":"2.1.3","@ngx-translate/core":"9.0.1","@ngx-translate/http-loader":"2.0.0","angular-cli-ghpages":"0.5.1","cordova-android":"6.4.0","cordova-browser":"5.0.1","cordova-ios":"4.5.4","cordova-plugin-console":"1.1.0","cordova-plugin-device":"1.1.7","cordova-plugin-splashscreen":"4.1.0","cordova-plugin-statusbar":"2.3.0","cordova-plugin-whitelist":"1.3.3","ionic-angular":"3.9.2","ionic-plugin-keyboard":"2.2.1","ionicons":"3.0.0","rxjs":"5.5.2","sw-toolbox":"3.6.0","zone.js":"0.8.18"},"devDependencies":{"@angular/cli":"1.5.4","@ionic/app-scripts":"3.1.2","@types/jasmine":"2.5.54","@types/node":"7.0.4","codecov":"3.0.0","connect":"3.6.5","ionic-mocks":"1.0.4","jasmine-core":"2.8.0","jasmine-reporters":"2.2.1","karma":"1.7.1","karma-chrome-launcher":"2.2.0","karma-cli":"1.0.1","karma-coverage-istanbul-reporter":"1.3.0","karma-jasmine":"1.1.0","karma-jasmine-html-reporter":"0.2.2","karma-junit-reporter":"1.2.0","protractor":"5.2.0","serve-static":"1.13.1","ts-node":"3.3.0","tslint":"5.8.0","tslint-eslint-rules":"4.1.1","typescript":"2.4.2"},"repository":{"type":"git","url":"https://github.com/lathonez/clicker.git"},"license":"MIT","description":"Clicker: An Ionic project","cordova":{"platforms":["android","browser","ios"],"plugins":{"cordova-plugin-console":{},"cordova-plugin-device":{},"cordova-plugin-splashscreen":{},"cordova-plugin-statusbar":{},"cordova-plugin-whitelist":{},"ionic-plugin-keyboard":{}}}}
+module.exports = {"name":"Clicker","author":"Stephen Hazleton","homepage":"https://github.com/lathonez/clicker","private":true,"scripts":{"clean":"ionic-app-scripts clean","build":"ionic-app-scripts build","deploy":"ngh --dir www --no-silent","lint":"ionic-app-scripts lint","ionic:build":"ionic-app-scripts build","ionic:serve":"ionic-app-scripts serve","e2e":"ionic-app-scripts build && protractor","postinstall":"webdriver-manager update --gecko false","start":"ionic serve","test":"ng test","test-coverage":"ng test --code-coverage","test-ci":"ng test --watch=false --code-coverage"},"version":"2.24.0","dependencies":{"@angular/common":"5.0.3","@angular/compiler":"5.0.3","@angular/compiler-cli":"5.0.3","@angular/core":"5.0.3","@angular/forms":"5.0.3","@angular/http":"5.0.3","@angular/platform-browser":"5.0.3","@angular/platform-browser-dynamic":"5.0.3","@angular/router":"5.0.3","@ionic-native/core":"4.5.2","@ionic-native/splash-screen":"4.5.2","@ionic-native/status-bar":"4.5.2","@ionic/storage":"2.1.3","@ngx-translate/core":"9.1.0","@ngx-translate/http-loader":"2.0.1","angular-cli-ghpages":"0.5.2","cordova-android":"7.0.0","cordova-browser":"5.0.3","cordova-ios":"4.5.4","cordova-plugin-device":"2.0.1","cordova-plugin-splashscreen":"5.0.1","cordova-plugin-statusbar":"2.4.1","cordova-plugin-whitelist":"1.3.3","ionic-angular":"3.9.2","ionic-plugin-keyboard":"2.2.1","ionicons":"3.0.0","rxjs":"5.5.6","sw-toolbox":"3.6.0","zone.js":"0.8.19"},"devDependencies":{"@angular/cli":"1.6.4","@ionic/app-scripts":"3.1.6","@types/jasmine":"2.8.4","@types/jasminewd2":"2.0.3","@types/node":"8.5.8","codecov":"3.0.0","connect":"3.6.5","ionic-mocks":"1.2.1","jasmine-core":"2.8.0","jasmine-reporters":"2.3.0","karma":"2.0.0","karma-chrome-launcher":"2.2.0","karma-cli":"1.0.1","karma-coverage-istanbul-reporter":"1.3.3","karma-jasmine":"1.1.1","karma-jasmine-html-reporter":"0.2.2","karma-junit-reporter":"1.2.0","protractor":"5.2.0","serve-static":"1.13.1","ts-node":"4.1.0","tslint":"5.9.1","tslint-eslint-rules":"4.1.1","typescript":"2.4.2"},"repository":{"type":"git","url":"https://github.com/lathonez/clicker.git"},"license":"MIT","description":"Clicker: An Ionic project","cordova":{"platforms":["android","browser","ios"],"plugins":{"cordova-plugin-console":{},"cordova-plugin-device":{},"cordova-plugin-splashscreen":{},"cordova-plugin-statusbar":{},"cordova-plugin-whitelist":{},"ionic-plugin-keyboard":{}}}}
 
 /***/ }),
 
-/***/ 305:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -742,7 +742,7 @@ module.exports = {"name":"Clicker","author":"Stephen Hazleton","homepage":"https
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components__ = __webpack_require__(304);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__clickerList_clickerList__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__page2_page2__ = __webpack_require__(208);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -757,7 +757,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PagesModule = (function () {
+var PagesModule = /** @class */ (function () {
     function PagesModule() {
     }
     PagesModule = __decorate([
@@ -781,7 +781,7 @@ var PagesModule = (function () {
 
 /***/ }),
 
-/***/ 306:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -791,7 +791,7 @@ var PagesModule = (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__languagePicker_languagePicker__ = __webpack_require__(211);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_module__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_module__ = __webpack_require__(305);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__components_module__["a"]; });
 
 
@@ -801,7 +801,7 @@ var PagesModule = (function () {
 
 /***/ }),
 
-/***/ 307:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -826,7 +826,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ComponentsModule = (function () {
+var ComponentsModule = /** @class */ (function () {
     function ComponentsModule() {
     }
     ComponentsModule = __decorate([
@@ -862,7 +862,7 @@ var ComponentsModule = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__clickers__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__clickers__ = __webpack_require__(295);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__clickers__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(207);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__storage__["a"]; });
