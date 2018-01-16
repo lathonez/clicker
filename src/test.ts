@@ -29,14 +29,7 @@ import { ClickersService }          from './services';
 import { TranslateServiceMock }     from './services/translate.mock';
 import { TranslatePipeMock }        from './pipes/translate.pipe.mock';
 
-// Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
-declare const __karma__: any;
 declare const require: any;
-
-// Prevent Karma from running prematurely.
-__karma__.loaded = function (): void {
-  // noop
-};
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
@@ -47,8 +40,6 @@ getTestBed().initTestEnvironment(
 const context: any = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
-// Finally, start Karma to run the tests.
-__karma__.start();
 
 export class TestUtils {
 

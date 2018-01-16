@@ -9,11 +9,11 @@ COPY . .
 # Install some dependencies (git is needed for circle checkout)
 RUN apt-get update && \
   apt install -y wget git curl && \
-  curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
+  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
   apt-get install -y nodejs && \
 \
 # Install Ionic global deps \
-npm install -g ionic@3.19.0 cordova@7.1.0 && \
+npm install -g ionic@3.19.0 cordova@8.0.0 && \
 \
 # Install Chrome \
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \

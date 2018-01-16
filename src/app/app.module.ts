@@ -45,5 +45,4 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ],
 })
-
 export class AppModule {}
