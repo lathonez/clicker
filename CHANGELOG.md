@@ -2,7 +2,7 @@
 # 2.24.0 (2018-01-16)
 ### Features
 
-* **Update**: Update to Ionic 3.9.2 and @angular/cli 1.6.4 (implying @angular 5.0.3) ([](https://github.com/lathonez/clicker/commit/))
+* **Update**: Update to Ionic 3.9.2 and @angular/cli 1.6.4 (implying @angular 5.0.3) ([debed2b](https://github.com/lathonez/clicker/commit/debed2b))
 
 <a name="2.23.0"></a>
 # 2.23.0 (2017-11-27)
