@@ -1,0 +1,81 @@
+matrix:
+  include:
+  - name: "Build Android"
+    os: linux
+    sudo: required
+    language: android
+    android:
+      components:
+        - tools
+        - platform-tools
+        - tools
+        - build-tools-27.0.3
+        - android-27
+      licenses:
+        - 'android-sdk-preview-license-.+'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
+    before_install:
+      - nvm install node
+      - nvm use node
+      - npm install -g cordova ionic
+    before_script:
+      - ionic cordova platform add android
+    script:
+      - ionic cordova build android
+      - ionic cordova build android --prod
+  - name: "Build iOS"
+    os: osx
+    language: objective-c
+    before_install:
+      - nvm install node
+      - nvm use node
+      - npm install -g cordova ionic
+    before_script:
+      - ionic cordova platform add ios
+    script:
+      - ionic cordova build ios
+      - ionic cordova build ios --prod
+  - name: "Build Windows (UWP)"
+    os: windows
+    language: node_js
+    node_js: node
+    env: MSBUILDDIR="c:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
+    before_install:
+      - npm install -g cordova ionic
+    before_script:
+      - ionic cordova platform add windows
+    script:
+      - ionic cordova build windows
+      - ionic cordova build windows --prod
+  - name: "Test on Chrome and Firefox Quantum"
+    os: linux
+    language: node_js
+    node_js: node
+    addons:
+      chrome: stable
+      firefox: latest
+    before_install:
+      - npm install --save-dev karma-firefox-launcher
+    before_script:
+      - sed -i '/<!-- un-comment this code to enable service worker/d' src/index.html
+      - sed -i 's/<\/script>-->/<\/script>/' src/index.html
+      - npm run lint
+    script:
+      # Build PWA
+      - npm run build
+      - npm run build -- --prod
+      # Test on Chrome
+      - npm run test-ci -- --browsers ChromeHeadless
+      - npm run e2e-ci -- --browser=chrome --capabilities.chromeOptions.args="--headless"
+      # Test on Firefox Quantum
+      - sed -i 's/chrome/firefox/' karma.conf.js
+      - npm run test-ci -- --browsers FirefoxHeadless
+      - npm run e2e-ci -- --browser=firefox --capabilities.moz:firefoxOptions.args="--headless" --capabilities.moz:firefoxOptions.args=""
+    after_success:
+      - ./node_modules/.bin/codecov
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install

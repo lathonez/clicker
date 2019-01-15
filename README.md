@@ -1,5 +1,5 @@
 ## Ionic 2 Demo / Seed Project : + i18n + Unit Testing + E2E Testing + CI + CD
-[![CircleCI](https://circleci.com/gh/lathonez/clicker.svg?style=shield)](https://circleci.com/gh/lathonez/clicker) [![Build status](https://ci.appveyor.com/api/projects/status/github/lathonez/clicker?svg=true)](https://ci.appveyor.com/project/lathonez/clicker) [![codecov.io](https://codecov.io/github/lathonez/clicker/coverage.svg?branch=master)](https://codecov.io/github/lathonez/clicker?branch=master) [![Code Climate](https://codeclimate.com/github/lathonez/clicker/badges/gpa.svg)](https://codeclimate.com/github/lathonez/clicker) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![Dependency Status](https://david-dm.org/lathonez/clicker/status.svg)](https://david-dm.org/lathonez/clicker) [![devDependency Status](https://david-dm.org/lathonez/clicker/dev-status.svg)](https://david-dm.org/lathonez/clicker#info=devDependencies)
+[![Build Status](https://travis-ci.org/lathonez/clicker.svg?branch=master)](https://travis-ci.org/lathonez/clicker) [![CircleCI](https://circleci.com/gh/lathonez/clicker.svg?style=shield)](https://circleci.com/gh/lathonez/clicker) [![Build status](https://ci.appveyor.com/api/projects/status/github/lathonez/clicker?svg=true)](https://ci.appveyor.com/project/lathonez/clicker) [![codecov.io](https://codecov.io/github/lathonez/clicker/coverage.svg?branch=master)](https://codecov.io/github/lathonez/clicker?branch=master) [![Code Climate](https://codeclimate.com/github/lathonez/clicker/badges/gpa.svg)](https://codeclimate.com/github/lathonez/clicker) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![Dependency Status](https://david-dm.org/lathonez/clicker/status.svg)](https://david-dm.org/lathonez/clicker) [![devDependency Status](https://david-dm.org/lathonez/clicker/dev-status.svg)](https://david-dm.org/lathonez/clicker#info=devDependencies)
 
 [Click here for the live demo](http://lathonez.com/clicker)
 
@@ -27,22 +27,33 @@ You need to be running [the latest node LTS](https://nodejs.org/en/download/) or
 ```bash
 git clone https://github.com/lathonez/clicker.git
 cd clicker
+npm install -g cordova ionic
 npm install
-npm start         # start the application (ionic serve)
+ionic serve         # start the application or `ionic serve --lab` to view the mobile apps
 ```
 
-Running as root? You probably shouldn't be. If you need to: `npm run postinstall` before `npm start`. [#111](https://github.com/lathonez/clicker/issues/111) for more info.
+Running as root? You probably shouldn't be. If you need to: `npm run postinstall` before `ionic serve`. [#111](https://github.com/lathonez/clicker/issues/111) for more info.
 
 ## Run Unit Tests
+
+### Test in Chrome
 ```bash
 npm test          # run unit tests
 ```
 
-## Run E2E
+### Test in Firefox Quantum
+```bash
+npm install --save-dev karma-firefox-launcher
+sed -i 's/chrome/firefox/' karma.conf.js
+npm run test -- --browsers Firefox          # run unit tests
 ```
+
+## Run E2E
+```bash
 npm run webdriver
 npm run e2e
 ```
+Use `npm run e2e -- --browser=firefox` to test in Firefox Quantum
 
 ## Blog Topics
 

@@ -38,21 +38,17 @@ jobs:
           command: cat ./coverage/lcov.info | ./node_modules/.bin/codecov
 
       - run:
+          name: Build
+          # shell js shouldn't be necessary, but it is. yay ionic
+          command: npm install shelljs && npm run build && npm run build -- --prod
+
+      - run:
           name: e2e test
           environment:
             DISPLAY: :99
             CHROME_BIN: /usr/bin/google-chrome
             JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/junit/
-          command: xvfb-run npm run e2e
-
-      - run:
-          name: Prepare
-          command: ionic cordova prepare
-
-      - run:
-          name: Build
-          # shell js shouldn't be necessary, but it is. yay ionic
-          command: npm install shelljs && ionic cordova build browser
+          command: xvfb-run npm run e2e-ci
 
       - run:
           name: Deploy

@@ -13,7 +13,7 @@ RUN apt-get update && \
   apt-get install -y nodejs && \
 \
 # Install Ionic global deps \
-npm install -g ionic@3.19.0 cordova@8.0.0 && \
+# npm install -g ionic cordova && \
 \
 # Install Chrome \
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
