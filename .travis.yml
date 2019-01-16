@@ -58,6 +58,7 @@ matrix:
     before_install:
       - npm install --save-dev karma-firefox-launcher
     before_script:
+      - npm run postinstall
       - sed -i '/<!-- un-comment this code to enable service worker/d' src/index.html
       - sed -i 's/<\/script>-->/<\/script>/' src/index.html
       - npm run lint

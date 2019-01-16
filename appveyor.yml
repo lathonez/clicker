@@ -7,7 +7,7 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  # - npm install -g cordova ionic
+  - npm install -g cordova ionic
   - npm install
 
 build: none
@@ -15,7 +15,7 @@ build: none
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
-  - ionic --info
+  - ionic info
   # run tests
   - npm run lint
   - npm run test-ci

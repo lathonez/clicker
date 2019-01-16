@@ -5,12 +5,14 @@ import { IonicModule }                      from 'ionic-angular';
 import { ClickerButton }                    from './clickerButton/clickerButton';
 import { ClickerForm }                      from './clickerForm/clickerForm';
 import { LanguagePicker }                   from './languagePicker/languagePicker';
+import { TranslatePipeMock }                from '../pipes/translate.pipe.mock';
 
 @NgModule({
   declarations: [
     ClickerForm,
     ClickerButton,
     LanguagePicker,
+    TranslatePipeMock,
   ],
   imports: [
     FormsModule,
@@ -22,6 +24,7 @@ import { LanguagePicker }                   from './languagePicker/languagePicke
     ClickerButton,
     ClickerForm,
     LanguagePicker,
+    TranslatePipeMock,
   ],
   entryComponents: [],
   providers: [ ],
