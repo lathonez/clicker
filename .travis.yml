@@ -58,6 +58,9 @@ matrix:
     before_install:
       - npm install --save-dev karma-firefox-launcher
     before_script:
+      # Temporary fix for https://github.com/angular/webdriver-manager/issues/303
+      # GitHub API cache is from here https://github.com/wp-cli/wp-cli/issues/3426#issuecomment-251443347
+      - (cd node_modules/protractor/node_modules/webdriver-manager/built/lib/binaries/ && sed -i 's/api.github.com/github-api-cache.unyson.io/' config_source.js gecko_driver_github.js)
       - npm run postinstall
       - sed -i '/<!-- un-comment this code to enable service worker/d' src/index.html
       - sed -i 's/<\/script>-->/<\/script>/' src/index.html
