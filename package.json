@@ -59,7 +59,7 @@
     "connect": "3.6.5",
     "ionic-mocks": "1.2.1",
     "jasmine-core": "2.8.0",
-    "jasmine-reporters": "2.3.0",
+    "jasmine-reporters": "2.5.0",
     "karma": "2.0.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-cli": "1.0.1",
